@@ -1,0 +1,128 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>net6.0</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Include="wwwroot\css\bootstrap.min.css" />
+    <None Include="wwwroot\css\forgotPassword.css" />
+    <None Include="wwwroot\css\home.css" />
+    <None Include="wwwroot\css\style.css" />
+    <None Include="wwwroot\img\404-Page-image.png" />
+    <None Include="wwwroot\img\achieved.png" />
+    <None Include="wwwroot\img\add.png" />
+    <None Include="wwwroot\img\add1.png" />
+    <None Include="wwwroot\img\Already-volunteered.png" />
+    <None Include="wwwroot\img\Animal-welfare-_-save-birds-campaign-1.png" />
+    <None Include="wwwroot\img\Animal-welfare-_-save-birds-campaign.png" />
+    <None Include="wwwroot\img\arrow.png" />
+    <None Include="wwwroot\img\bell-big.png" />
+    <None Include="wwwroot\img\bell.png" />
+    <None Include="wwwroot\img\bin.png" />
+    <None Include="wwwroot\img\calender.png" />
+    <None Include="wwwroot\img\cancel.png" />
+    <None Include="wwwroot\img\cancel1.png" />
+    <None Include="wwwroot\img\checked.png" />
+    <None Include="wwwroot\img\cross.png" />
+    <None Include="wwwroot\img\CSR-initiative-stands-for-Coffee--and-Farmer-Equity-1.png" />
+    <None Include="wwwroot\img\CSR-initiative-stands-for-Coffee--and-Farmer-Equity-2.png" />
+    <None Include="wwwroot\img\CSR-initiative-stands-for-Coffee--and-Farmer-Equity-3.png" />
+    <None Include="wwwroot\img\CSR-initiative-stands-for-Coffee--and-Farmer-Equity-4.png" />
+    <None Include="wwwroot\img\CSR-initiative-stands-for-Coffee--and-Farmer-Equity-5.png" />
+    <None Include="wwwroot\img\CSR-initiative-stands-for-Coffee--and-Farmer-Equity-6.png" />
+    <None Include="wwwroot\img\CSR-initiative-stands-for-Coffee--and-Farmer-Equity.png" />
+    <None Include="wwwroot\img\deadline.png" />
+    <None Include="wwwroot\img\doc.png" />
+    <None Include="wwwroot\img\down.png" />
+    <None Include="wwwroot\img\drag-and-drop.png" />
+    <None Include="wwwroot\img\drop-down.png" />
+    <None Include="wwwroot\img\Education-Supplies-for-Every--Pair-of-Shoes-Sold-1.png" />
+    <None Include="wwwroot\img\Education-Supplies-for-Every--Pair-of-Shoes-Sold-2.png" />
+    <None Include="wwwroot\img\Education-Supplies-for-Every--Pair-of-Shoes-Sold.png" />
+    <None Include="wwwroot\img\eye.png" />
+    <None Include="wwwroot\img\facebook.png" />
+    <None Include="wwwroot\img\filter.png" />
+    <None Include="wwwroot\img\gift.png" />
+    <None Include="wwwroot\img\graph.png" />
+    <None Include="wwwroot\img\grid.png" />
+    <None Include="wwwroot\img\Grow-Trees-On-the-path-to-environment-sustainability-1.png" />
+    <None Include="wwwroot\img\Grow-Trees-On-the-path-to-environment-sustainability-2.png" />
+    <None Include="wwwroot\img\Grow-Trees-On-the-path-to-environment-sustainability-3.png" />
+    <None Include="wwwroot\img\Grow-Trees-On-the-path-to-environment-sustainability-4.png" />
+    <None Include="wwwroot\img\Grow-Trees-On-the-path-to-environment-sustainability-5.png" />
+    <None Include="wwwroot\img\Grow-Trees-On-the-path-to-environment-sustainability-login.png" />
+    <None Include="wwwroot\img\Grow-Trees-On-the-path-to-environment-sustainability.png" />
+    <None Include="wwwroot\img\heart.png" />
+    <None Include="wwwroot\img\heart1.png" />
+    <None Include="wwwroot\img\hours.png" />
+    <None Include="wwwroot\img\image.png" />
+    <None Include="wwwroot\img\image1.png" />
+    <None Include="wwwroot\img\image2.png" />
+    <None Include="wwwroot\img\img.png" />
+    <None Include="wwwroot\img\img1.png" />
+    <None Include="wwwroot\img\img11.png" />
+    <None Include="wwwroot\img\img2.png" />
+    <None Include="wwwroot\img\img22.png" />
+    <None Include="wwwroot\img\img3.png" />
+    <None Include="wwwroot\img\img33.png" />
+    <None Include="wwwroot\img\info.png" />
+    <None Include="wwwroot\img\left.png" />
+    <None Include="wwwroot\img\left1.png" />
+    <None Include="wwwroot\img\linkedin.png" />
+    <None Include="wwwroot\img\list.png" />
+    <None Include="wwwroot\img\logo.png" />
+    <None Include="wwwroot\img\mission.png" />
+    <None Include="wwwroot\img\my-story.png" />
+    <None Include="wwwroot\img\new-message.png" />
+    <None Include="wwwroot\img\next.png" />
+    <None Include="wwwroot\img\Nourish-the-Children-in--African-country-1.png" />
+    <None Include="wwwroot\img\Nourish-the-Children-in--African-country.png" />
+    <None Include="wwwroot\img\Open-Volunteering-Requests.png" />
+    <None Include="wwwroot\img\organization.png" />
+    <None Include="wwwroot\img\pdf.png" />
+    <None Include="wwwroot\img\pin.png" />
+    <None Include="wwwroot\img\pin1.png" />
+    <None Include="wwwroot\img\Plantation-and-Afforestation-programme-1.png" />
+    <None Include="wwwroot\img\Plantation-and-Afforestation-programme.png" />
+    <None Include="wwwroot\img\previous.png" />
+    <None Include="wwwroot\img\right-arrow.png" />
+    <None Include="wwwroot\img\right-arrow1.png" />
+    <None Include="wwwroot\img\right-arrow2.png" />
+    <None Include="wwwroot\img\right-white.png" />
+    <None Include="wwwroot\img\right.png" />
+    <None Include="wwwroot\img\search.png" />
+    <None Include="wwwroot\img\Seats-left.png" />
+    <None Include="wwwroot\img\selected-star.png" />
+    <None Include="wwwroot\img\settings.png" />
+    <None Include="wwwroot\img\star-empty.png" />
+    <None Include="wwwroot\img\star.png" />
+    <None Include="wwwroot\img\Thumbs.db" />
+    <None Include="wwwroot\img\twitter.png" />
+    <None Include="wwwroot\img\up.png" />
+    <None Include="wwwroot\img\user-img-large.png" />
+    <None Include="wwwroot\img\user-img.png" />
+    <None Include="wwwroot\img\user.png" />
+    <None Include="wwwroot\img\user1.png" />
+    <None Include="wwwroot\img\volunteer1.png" />
+    <None Include="wwwroot\img\volunteer2.png" />
+    <None Include="wwwroot\img\volunteer3.png" />
+    <None Include="wwwroot\img\volunteer4.png" />
+    <None Include="wwwroot\img\volunteer5.png" />
+    <None Include="wwwroot\img\volunteer6.png" />
+    <None Include="wwwroot\img\volunteer7.png" />
+    <None Include="wwwroot\img\volunteer8.png" />
+    <None Include="wwwroot\img\volunteer9.png" />
+    <None Include="wwwroot\img\Volunteering-Rank.png" />
+    <None Include="wwwroot\img\Voted-Missions.png" />
+    <None Include="wwwroot\img\web.png" />
+    <None Include="wwwroot\img\xlsx.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Views\Home\css\" />
+  </ItemGroup>
+
+</Project>
