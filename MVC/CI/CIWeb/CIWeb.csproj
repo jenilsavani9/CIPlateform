@@ -7,6 +7,13 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="Views\Home\css\**" />
+    <Content Remove="Views\Home\css\**" />
+    <EmbeddedResource Remove="Views\Home\css\**" />
+    <None Remove="Views\Home\css\**" />
+  </ItemGroup>
+
+  <ItemGroup>
     <None Include="wwwroot\css\bootstrap.min.css" />
     <None Include="wwwroot\css\forgotPassword.css" />
     <None Include="wwwroot\css\home.css" />
@@ -119,10 +126,6 @@
     <None Include="wwwroot\img\Voted-Missions.png" />
     <None Include="wwwroot\img\web.png" />
     <None Include="wwwroot\img\xlsx.png" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <Folder Include="Views\Home\css\" />
   </ItemGroup>
 
 </Project>
