@@ -1,5 +1,5 @@
 ﻿@{
-    ViewData["Title"] = "Login Page";
+    ViewData["Title"] = "Register";
 }
 
 <!DOCTYPE html>
@@ -9,14 +9,14 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login</title>
+    <title>Register</title>
     <link rel="stylesheet" href="~/css/bootstrap.min.css">
     <link rel="stylesheet" href="~/css/style.css">
     <link rel="stylesheet" href="~/css/home.css">
-    <link rel="stylesheet" href="~/">
 </head>
 
 <body>
+
     <div class="row login-container d-flex align-items-center w-100 ps-3">
 
         <div class="col-12 col-lg-8">
@@ -77,13 +77,25 @@
         </div>
         <div class="col-12 col-lg-4 d-flex flex-column justify-content-between login-form-side">
 
-            <div class="d-flex justify-content-center">
-                @*<img src="./img/logo.png" alt="" class="login-logo">*@
-            </div>
+            <!-- <div class="d-flex justify-content-center">
+                <img src="./img/logo.png" alt="" class="login-logo">
+            </div> -->
             <div class="d-flex justify-content-center">
 
 
                 <form class="d-flex flex-column login-form">
+                    <div class="mb-3">
+                        <label for="exampleFirstName" class="form-label">First Name</label>
+                        <input type="text" class="form-control" id="exampleFirstName" aria-describedby="emailHelp">
+                    </div>
+                    <div class="mb-3">
+                        <label for="exampleLastName" class="form-label">Last Name</label>
+                        <input type="text" class="form-control" id="exampleLastName" aria-describedby="emailHelp">
+                    </div>
+                    <div class="mb-3">
+                        <label for="exampleNumber" class="form-label">Phone Number</label>
+                        <input type="number" class="form-control" id="exampleNumber" aria-describedby="emailHelp">
+                    </div>
                     <div class="mb-3">
                         <label for="exampleInputEmail1" class="form-label">Email address</label>
                         <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
@@ -93,14 +105,17 @@
                         <label for="exampleInputPassword1" class="form-label">Password</label>
                         <input type="password" class="form-control" id="exampleInputPassword1">
                     </div>
+                    <div class="mb-3">
+                        <label for="exampleInputPassword2" class="form-label">Confrim Password</label>
+                        <input type="password" class="form-control" id="exampleInputPassword2">
+                    </div>
 
                     <button type="submit" class="btn login-button">Login</button>
 
-                    <a href="./ForgotPassword" class="text-center login-lost-pass">Lost Your Password?</a>
+                    <a href="./forgotPassword" class="text-center login-lost-pass">Lost Your Password?</a>
 
-                    <div class="text-center login-create-acc">Don't have Account? <a href="./register"
-                            class="text-center login-create-acc-link">Create an
-                            Account</a></div>
+                    <div class="text-center login-create-acc">Already registered? <a href="./index"
+                            class="text-center login-create-acc-link">Login now</a></div>
                 </form>
             </div>
             <div class="d-flex flex-column align-items-center">
