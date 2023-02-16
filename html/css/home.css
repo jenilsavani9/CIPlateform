@@ -1,6 +1,6 @@
-.login-container {
+/* .login-container {
   height: 100vh;
-}
+} */
 
 .login-logo {
   width: 150px;
@@ -68,4 +68,25 @@
   letter-spacing: 0px;
   color: #2b64b1;
   text-decoration: none;
+}
+
+.temp {
+  height: 100vh;
+  width: 100%;
+}
+
+
+@media only screen and (max-width: 993px) {
+  .temp {
+    width: 100%;
+    height: auto;
+  }
+
+  .login-page-img {
+    padding: 0;
+  }
+
+  .login-container {
+    margin: 0;
+  }
 }
