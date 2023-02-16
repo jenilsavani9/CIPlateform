@@ -1,7 +1,6 @@
 ﻿@{
-    ViewData["Title"] = "Reset Password";
+    ViewData["Title"] = "Login Page";
 }
-
 
 <body>
     <div class="row login-container d-flex align-items-center w-100 ps-3">
@@ -56,25 +55,30 @@
         </div>
         <div class="col-12 col-lg-4 d-flex flex-column justify-content-between login-form-side">
 
-            <div class="d-flex flex-column justify-content-center align-items-center forgot-header">
-                <h4>New Password</h4>
-                <p class="forgot-pass-info">Please enter a new password in the fields below.</p>
+            <div class="d-flex justify-content-center">
+                @*<img src="./img/logo.png" alt="" class="login-logo">*@
             </div>
             <div class="d-flex justify-content-center">
 
+
                 <form class="d-flex flex-column login-form">
                     <div class="mb-3">
-                        <label for="exampleInputPassword1" class="form-label">New Password</label>
-                        <input type="password" class="form-control" id="exampleInputPassword1">
+                        <label for="exampleInputEmail1" class="form-label">Email address</label>
+                        <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+
                     </div>
                     <div class="mb-3">
-                        <label for="exampleInputPassword2" class="form-label">Confrim New Password</label>
-                        <input type="password" class="form-control" id="exampleInputPassword2">
+                        <label for="exampleInputPassword1" class="form-label">Password</label>
+                        <input type="password" class="form-control" id="exampleInputPassword1">
                     </div>
 
-                    <button type="submit" class="btn login-button">Change Password</button>
+                    <button type="submit" class="btn login-button">Login</button>
 
-                    <a asp-controlle="home" asp-action="Login" class="text-center forgot-login-link">Login</a>
+                    <a asp-controlle="home" asp-action="ForgotPassword" class="text-center login-lost-pass">Lost Your Password?</a>
+
+                    <div class="text-center login-create-acc">Don't have Account? <a asp-controlle="home" asp-action="Register"
+                            class="text-center login-create-acc-link">Create an
+                            Account</a></div>
                 </form>
             </div>
             <div class="d-flex flex-column align-items-center">
@@ -88,4 +92,3 @@
     <script src="./js/custom.js"></script>
     <script src="./js/bootstrap.bundle.min.js"></script>
 </body>
-
