@@ -1,0 +1,75 @@
+.navbar-brand {
+    display: none;
+}
+
+.landing-page-user-img {
+    border-radius: 50%;
+    height: 40px;
+    width: 40px;
+    margin: 0 10px 0 0;
+}
+
+.landing-page-stories-link {
+    margin: 0 20px 0 0;
+}
+
+.landing-page-navbar {
+    min-height: 70px;
+}
+
+.landing-page-search-img {
+    width: 20px;
+    height: 20px;
+    align-items: center;
+}
+
+.landing-page-search-input {
+    border: none;
+}
+
+.landing-search-div {
+    min-height: 70px;
+}
+
+.landing-page-nav-border {
+    border-bottom: 1px solid #D9D9D9;
+    ;
+}
+
+.dropdown-tost {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.landing-page-filter {
+    background: #FFFFFF 0% 0% no-repeat padding-box;
+    border: 1px solid #E8E8E8;
+    border-radius: 14px;
+    opacity: 1;
+    font-size: 13px;
+    padding: 0 10px;
+    margin: 20px 20px 0 0;
+}
+
+.landing-tost-close-btn {
+    height: 8px;
+    width: 8px;
+    margin: 0 0 0 5px;
+}
+
+.landing-page-filter-close-btn {
+    border: none;
+    background: none;
+    margin: 20px 20px 0 0;
+}
+
+.landing-page-filter-close-btn>button {
+    border: none;
+    background: none;
+    font-size: 13px;
+}
+
+.landing-filter-nav-drop {
+    min-height: 70px;
+    border: 1px solid #E8E8E8;
+}

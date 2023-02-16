@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "v27p3Y1wYYhttkqcht2jdpE2csevoqZIpz7iM8T8sSQ=",
+  "Hash": "grJcwvdcChbKzz4eDTwtJ14K5+hlrElc/0K8vNg5wUo=",
   "Source": "CIWeb",
   "BasePath": "_content/CIWeb",
   "Mode": "Default",
@@ -100,6 +100,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\css\\home.css"
+    },
+    {
+      "Identity": "C:\\Users\\pci114\\Desktop\\internship\\CIPlateform\\MVC\\CI\\CIWeb\\wwwroot\\css\\LandingPage.css",
+      "SourceId": "CIWeb",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\pci114\\Desktop\\internship\\CIPlateform\\MVC\\CI\\CIWeb\\wwwroot\\",
+      "BasePath": "_content/CIWeb",
+      "RelativePath": "css/LandingPage.css",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\css\\LandingPage.css"
     },
     {
       "Identity": "C:\\Users\\pci114\\Desktop\\internship\\CIPlateform\\MVC\\CI\\CIWeb\\wwwroot\\css\\site.css",

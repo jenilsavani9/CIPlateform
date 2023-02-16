@@ -1,118 +1,194 @@
 ﻿@{
-    ViewData["Title"] = "Login Page";
+    ViewData["Title"] = "Home";
 }
 
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login</title>
-    <link rel="stylesheet" href="~/css/bootstrap.min.css">
-    <link rel="stylesheet" href="~/css/style.css">
-    <link rel="stylesheet" href="~/css/home.css">
-    <link rel="stylesheet" href="~/">
-</head>
-
 <body>
-    <div class="row login-container d-flex align-items-center w-100 ps-3">
-
-        <div class="col-12 col-lg-8">
-
-            <div id="carouselExampleCaptions" class="carousel slide">
-                @*<div class="carousel-indicators">
-                    <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active"
-                        aria-current="true" aria-label="Slide 1"></button>
-                    <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1"
-                        aria-label="Slide 2"></button>
-                    <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="2"
-                        aria-label="Slide 3"></button>
-                </div>*@
-                <div class="carousel-inner">
-                    <div class="carousel-item active">
-                        <img src="~/img/Grow-Trees-On-the-path-to-environment-sustainability-login.png"
-                            class="d-block w-100" alt="...">
-                        <div class="carousel-caption d-none d-md-block">
-                            <h5>Sed ut perspiciatis unde omnis iste natus voluptatem.
-                            </h5>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
-                                incididunt ut labore et dolore magna aliqua.</p>
-                        </div>
-                    </div>
-                    <div class="carousel-item">
-                        <img src="~/img/Grow-Trees-On-the-path-to-environment-sustainability-login.png"
-                            class="d-block w-100" alt="...">
-                        <div class="carousel-caption d-none d-md-block">
-                            <h5>Sed ut perspiciatis unde omnis iste natus voluptatem.
-                            </h5>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
-                                incididunt ut labore et dolore magna aliqua.</p>
-                        </div>
-                    </div>
-                    <div class="carousel-item">
-                        <img src="~/img/Grow-Trees-On-the-path-to-environment-sustainability-login.png"
-                            class="d-block w-100" alt="...">
-                        <div class="carousel-caption d-none d-md-block">
-                            <h5>Sed ut perspiciatis unde omnis iste natus voluptatem.
-                            </h5>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
-                                incididunt ut labore et dolore magna aliqua.</p>
-                        </div>
-                    </div>
-                </div>
-                <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions"
-                    data-bs-slide="prev">
-                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                    <span class="visually-hidden">Previous</span>
-                </button>
-                <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions"
-                    data-bs-slide="next">
-                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                    <span class="visually-hidden">Next</span>
-                </button>
+  <div class="">
+    <div class="landing-page-nav-border">
+      <nav class="container navbar navbar-expand-md">
+        <div class="container-fluid landing-page-nav-container">
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown"
+            aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse d-md-flex justify-content-between landing-page-navbar"
+            id="navbarNavDropdown">
+            <div>
+              <ul class="navbar-nav">
+                <li class="nav-item">
+                  <a class="nav-link active landing-page-stories-link" aria-current="page" href="#">Stories</a>
+                </li>
+                <li class="nav-item dropdown">
+                  <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+                    aria-expanded="false">
+                    Policy
+                  </a>
+                  <ul class="dropdown-menu">
+                    <li><a class="dropdown-item" href="#">Action</a></li>
+                    <li>
+                      <a class="dropdown-item" href="#">Another action</a>
+                    </li>
+                    <li>
+                      <a class="dropdown-item" href="#">Something else here</a>
+                    </li>
+                  </ul>
+                </li>
+              </ul>
             </div>
-
+            <div>
+              <div class="collapse navbar-collapse" id="navbarNavDropdown">
+                <ul class="navbar-nav">
+                  <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+                      aria-expanded="false">
+                      <img src="./img/user-img.png" alt="" class="landing-page-user-img" />Evan Donohue
+                    </a>
+                    <ul class="dropdown-menu">
+                      <li><a class="dropdown-item" href="#">Action</a></li>
+                      <li>
+                        <a class="dropdown-item" href="#">Another action</a>
+                      </li>
+                      <li>
+                        <a class="dropdown-item" href="#">Something else here</a>
+                      </li>
+                    </ul>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
         </div>
-        <div class="col-12 col-lg-4 d-flex flex-column justify-content-between login-form-side">
-
-            <div class="d-flex justify-content-center">
-                @*<img src="./img/logo.png" alt="" class="login-logo">*@
-            </div>
-            <div class="d-flex justify-content-center">
-
-
-                <form class="d-flex flex-column login-form">
-                    <div class="mb-3">
-                        <label for="exampleInputEmail1" class="form-label">Email address</label>
-                        <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
-
-                    </div>
-                    <div class="mb-3">
-                        <label for="exampleInputPassword1" class="form-label">Password</label>
-                        <input type="password" class="form-control" id="exampleInputPassword1">
-                    </div>
-
-                    <button type="submit" class="btn login-button">Login</button>
-
-                    <a href="./ForgotPassword" class="text-center login-lost-pass">Lost Your Password?</a>
-
-                    <div class="text-center login-create-acc">Don't have Account? <a href="./register"
-                            class="text-center login-create-acc-link">Create an
-                            Account</a></div>
-                </form>
-            </div>
-            <div class="d-flex flex-column align-items-center">
-                <a href="#" class="login-privacy">Privacy Policy</a>
-            </div>
-        </div>
-
-
+      </nav>
     </div>
 
-    <script src="./js/custom.js"></script>
-    <script src="./js/bootstrap.bundle.min.js"></script>
-</body>
+    <div class="landing-page-nav-border">
+      <div class="container text-center">
+        <div class="row">
+          <div class="col-12 col-lg-6 landing-search-div d-flex align-items-center">
+            <nav class="">
+              <div class="container-fluid">
+                <form class="d-flex align-items-center" role="search">
+                  <img src="./img/search.png" alt="" class="landing-page-search-img" />
+                  <input class="form-control me-2 landing-page-search-input shadow-none" type="search"
+                    placeholder="Search mission..." aria-label="Search" />
+                  <!-- <button class="btn btn-outline-success" type="submit">
+                      Search
+                    </button> -->
+                </form>
+              </div>
+            </nav>
+          </div>
 
-</html>
+          <div class="row col-12 col-lg-6 landing-search-div d-flex align-items-center">
+            <div class="col-6 col-lg-3 d-flex justify-content-center align-items-center landing-filter-nav-drop">
+              <button type="button" class="btn dropdown-toggle border-0" data-bs-toggle="dropdown"
+                aria-expanded="false">
+                Country
+              </button>
+              <ul class="dropdown-menu">
+                <li><a class="dropdown-item" href="#">Action</a></li>
+                <li><a class="dropdown-item" href="#">Another action</a></li>
+                <li>
+                  <a class="dropdown-item" href="#">Something else here</a>
+                </li>
+                <li>
+                  <hr class="dropdown-divider" />
+                </li>
+                <li><a class="dropdown-item" href="#">Separated link</a></li>
+              </ul>
+            </div>
+            <div class="col-6 col-lg-3 d-flex justify-content-center align-items-center landing-filter-nav-drop">
+              <button type="button" class="btn dropdown-toggle border-0" data-bs-toggle="dropdown"
+                aria-expanded="false">
+                City
+              </button>
+              <ul class="dropdown-menu">
+                <li><a class="dropdown-item" href="#">Action</a></li>
+                <li><a class="dropdown-item" href="#">Another action</a></li>
+                <li>
+                  <a class="dropdown-item" href="#">Something else here</a>
+                </li>
+                <li>
+                  <hr class="dropdown-divider" />
+                </li>
+                <li><a class="dropdown-item" href="#">Separated link</a></li>
+              </ul>
+            </div>
+            <div class="col-6 col-lg-3 d-flex justify-content-center align-items-center landing-filter-nav-drop">
+              <button type="button" class="btn dropdown-toggle border-0" data-bs-toggle="dropdown"
+                aria-expanded="false">
+                Theme
+              </button>
+              <ul class="dropdown-menu">
+                <li><a class="dropdown-item" href="#">Action</a></li>
+                <li><a class="dropdown-item" href="#">Another action</a></li>
+                <li>
+                  <a class="dropdown-item" href="#">Something else here</a>
+                </li>
+                <li>
+                  <hr class="dropdown-divider" />
+                </li>
+                <li><a class="dropdown-item" href="#">Separated link</a></li>
+              </ul>
+            </div>
+            <div class="col-6 col-lg-3 d-flex justify-content-center align-items-center landing-filter-nav-drop">
+              <button type="button" class="btn dropdown-toggle border-0" data-bs-toggle="dropdown"
+                aria-expanded="false">
+                Skills
+              </button>
+              <ul class="dropdown-menu">
+                <li><a class="dropdown-item" href="#">Action</a></li>
+                <li><a class="dropdown-item" href="#">Another action</a></li>
+                <li>
+                  <a class="dropdown-item" href="#">Something else here</a>
+                </li>
+                <li>
+                  <hr class="dropdown-divider" />
+                </li>
+                <li><a class="dropdown-item" href="#">Separated link</a></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="">
+      <div class="container">
+        <div class="dropdown-tost">
+          <div class="landing-page-filter d-flex align-items-center">
+            Tree Plantation
+            <button type="button" class="btn-close landing-tost-close-btn shadow-none" aria-label="Close"></button>
+          </div>
+
+          <div class="landing-page-filter d-flex align-items-center">
+            Tree Plantation
+            <button type="button" class="btn-close landing-tost-close-btn shadow-none" aria-label="Close"></button>
+          </div>
+
+          <div class="landing-page-filter d-flex align-items-center">
+            Tree Plantation
+            <button type="button" class="btn-close landing-tost-close-btn shadow-none" aria-label="Close"></button>
+          </div>
+
+          <div class="landing-page-filter d-flex align-items-center">
+            Tree Plantation
+            <button type="button" class="btn-close landing-tost-close-btn shadow-none" aria-label="Close"></button>
+          </div>
+
+          <div class="landing-page-filter d-flex align-items-center">
+            Tree Plantation
+            <button type="button" class="btn-close landing-tost-close-btn shadow-none" aria-label="Close"></button>
+          </div>
+
+          <div class="landing-page-filter-close-btn">
+            <button type="button" class="shadow-none" aria-label="Close">clear all</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="./js/custom.js"></script>
+  <script src="./js/bootstrap.bundle.min.js"></script>
+</body>
