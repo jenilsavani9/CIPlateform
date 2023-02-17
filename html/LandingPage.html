@@ -11,9 +11,26 @@
   <link rel="stylesheet" href="./css/home.css" />
   <link rel="stylesheet" href="./css/forgotPassword.css" />
   <link rel="stylesheet" href="./css/LandingPage.css" />
+
+  <!-- <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css"> -->
+  <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+
+  <script>
+    $(document).ready(function () {
+      $('#list').click(function (event) { event.preventDefault(); $('#products .item').addClass('list-group-item'); });
+      $('#grid').click(function (event) { event.preventDefault(); $('#products .item').removeClass('list-group-item'); $('#products .item').addClass('grid-group-item'); });
+    });
+
+  </script>
+
+
+
 </head>
 
 <body>
+
   <div class="">
     <div class="landing-page-nav-border">
       <nav class="container navbar navbar-expand-md">
@@ -47,7 +64,7 @@
               </ul>
             </div>
             <div>
-              <div class="collapse navbar-collapse" id="navbarNavDropdown">
+              <div class="collapse navbar-collapse d-none" id="navbarNavDropdown">
                 <ul class="navbar-nav">
                   <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
@@ -68,6 +85,20 @@
               </div>
             </div>
           </div>
+
+          <div class="d-md-none">
+            <div class="dropdown">
+              <button class="btn" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                <img src="./img/user-img.png" alt="" class="landing-page-user-img" />
+              </button>
+              <ul class="dropdown-menu">
+                <li><a class="dropdown-item" href="#">Action</a></li>
+                <li><a class="dropdown-item" href="#">Another action</a></li>
+                <li><a class="dropdown-item" href="#">Something else here</a></li>
+              </ul>
+            </div>
+          </div>
+
         </div>
       </nav>
     </div>
@@ -75,22 +106,169 @@
     <div class="landing-page-nav-border">
       <div class="container text-center">
         <div class="row">
-          <div class="col-12 col-lg-6 landing-search-div d-flex align-items-center">
+          <div class="col-12 landing-page-responsive-filter col-lg-6 landing-search-div d-flex align-items-center">
             <nav class="">
               <div class="container-fluid">
-                <form class="d-flex align-items-center" role="search">
-                  <img src="./img/search.png" alt="" class="landing-page-search-img" />
-                  <input class="form-control me-2 landing-page-search-input shadow-none" type="search"
-                    placeholder="Search mission..." aria-label="Search" />
-                  <!-- <button class="btn btn-outline-success" type="submit">
-                      Search
-                    </button> -->
+                <form class="d-flex align-items-center justify-content-end" role="search">
+                  <div class="d-flex align-items-center">
+                    <img src="./img/search.png" alt="" class="landing-page-search-img" />
+                    <input class="form-control me-2 landing-page-search-input shadow-none" type="search"
+                      placeholder="Search mission..." aria-label="Search" />
+                  </div>
+
                 </form>
               </div>
+
             </nav>
+
+            <button class="btn d-lg-none" type="button" data-bs-toggle="offcanvas"
+              data-bs-target="#offcanvasWithBothOptions" aria-controls="offcanvasWithBothOptions"><img
+                src="./img/filter.png" alt=""></button>
+
+            <div class="offcanvas offcanvas-start" data-bs-scroll="true" tabindex="-1" id="offcanvasWithBothOptions"
+              aria-labelledby="offcanvasWithBothOptionsLabel" style="
+              width: 290px;">
+              <div class=" offcanvas-header">
+                <h5 class="offcanvas-title d-flex justify-content-between" id="offcanvasWithBothOptionsLabel"> <button
+                    type="button" class="landing-page-offcanvas-btn" data-bs-dismiss="offcanvas" aria-label="Close"><img
+                      src="./img/left.png" alt=""></button>
+
+
+                </h5>
+                <button class="btn">clear all</button>
+
+              </div>
+              <div class="offcanvas-body d-flex flex-column align-items-start">
+
+
+                <p class="">
+                  <a class="btn d-flex justify-content-between align-items-center dropdown-toggle"
+                    data-bs-toggle="collapse" href="#collapseExample1" role="button" aria-expanded="false"
+                    aria-controls="collapseExample">
+                    Country
+                  </a>
+                </p>
+                <div class="collapse" id="collapseExample1">
+                  <div class="card card-body">
+                    <div class="form-check">
+                      <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                      <label class="form-check-label" for="flexCheckDefault">
+                        Default checkbox
+                      </label>
+                    </div>
+                    <div class="form-check">
+                      <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                      <label class="form-check-label" for="flexCheckDefault">
+                        Default checkbox
+                      </label>
+                    </div>
+                    <div class="form-check">
+                      <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                      <label class="form-check-label" for="flexCheckDefault">
+                        Default checkbox
+                      </label>
+                    </div>
+                  </div>
+                </div>
+
+
+                <p class="">
+                  <a class="btn d-flex justify-content-between align-items-center dropdown-toggle"
+                    data-bs-toggle="collapse" href="#collapseExample2" role="button" aria-expanded="false"
+                    aria-controls="collapseExample">
+                    City
+                  </a>
+                </p>
+                <div class="collapse" id="collapseExample2">
+                  <div class="card card-body">
+                    <div class="form-check">
+                      <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                      <label class="form-check-label" for="flexCheckDefault">
+                        Default checkbox
+                      </label>
+                    </div>
+                    <div class="form-check">
+                      <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                      <label class="form-check-label" for="flexCheckDefault">
+                        Default checkbox
+                      </label>
+                    </div>
+                    <div class="form-check">
+                      <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                      <label class="form-check-label" for="flexCheckDefault">
+                        Default checkbox
+                      </label>
+                    </div>
+                  </div>
+                </div>
+
+                <p class="">
+                  <a class="btn d-flex justify-content-between align-items-center dropdown-toggle"
+                    data-bs-toggle="collapse" href="#collapseExample3" role="button" aria-expanded="false"
+                    aria-controls="collapseExample">
+                    Theme
+                  </a>
+                </p>
+                <div class="collapse" id="collapseExample3">
+                  <div class="card card-body">
+                    <div class="form-check">
+                      <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                      <label class="form-check-label" for="flexCheckDefault">
+                        Default checkbox
+                      </label>
+                    </div>
+                    <div class="form-check">
+                      <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                      <label class="form-check-label" for="flexCheckDefault">
+                        Default checkbox
+                      </label>
+                    </div>
+                    <div class="form-check">
+                      <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                      <label class="form-check-label" for="flexCheckDefault">
+                        Default checkbox
+                      </label>
+                    </div>
+                  </div>
+                </div>
+
+                <p class="">
+                  <a class="btn d-flex justify-content-between align-items-center dropdown-toggle"
+                    data-bs-toggle="collapse" href="#collapseExample4" role="button" aria-expanded="false"
+                    aria-controls="collapseExample">
+                    Skills
+                  </a>
+                </p>
+                <div class="collapse" id="collapseExample4">
+                  <div class="card card-body">
+                    <div class="form-check">
+                      <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                      <label class="form-check-label" for="flexCheckDefault">
+                        Default checkbox
+                      </label>
+                    </div>
+                    <div class="form-check">
+                      <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                      <label class="form-check-label" for="flexCheckDefault">
+                        Default checkbox
+                      </label>
+                    </div>
+                    <div class="form-check">
+                      <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                      <label class="form-check-label" for="flexCheckDefault">
+                        Default checkbox
+                      </label>
+                    </div>
+                  </div>
+                </div>
+
+              </div>
+            </div>
+
+
           </div>
 
-          <div class="row col-12 col-lg-6 landing-search-div d-flex align-items-center">
+          <div class="row col-12 col-lg-6 landing-search-div d-lg-flex align-items-center d-none">
             <div class="col-6 col-lg-3 d-flex justify-content-center align-items-center landing-filter-nav-drop">
               <button type="button" class="btn dropdown-toggle border-0" data-bs-toggle="dropdown"
                 aria-expanded="false">
@@ -160,11 +338,14 @@
               </ul>
             </div>
           </div>
+
+
+
         </div>
       </div>
     </div>
 
-    <div class="">
+    <div class="d-none d-lg-flex">
       <div class="container">
         <div class="dropdown-tost">
           <div class="landing-page-filter d-flex align-items-center">
@@ -198,7 +379,646 @@
         </div>
       </div>
     </div>
+
+
+    <div class="container">
+      <div class="d-flex align-items-center justify-content-between">
+        <div class="landing-page-mission-header">
+          Explore 72 missions
+        </div>
+
+        <div>
+
+          <div class="row d-flex align-items-center">
+
+
+
+            <div class="my-3">
+              <div class="pull-right d-flex align-items-center">
+
+                <div class="dropdown">
+                  <button class="btn landing-page-sort-btn" type="button" data-bs-toggle="dropdown"
+                    aria-expanded="false">
+                    Sort <img src="./img/drop-down.png" alt="" class="">
+                  </button>
+                  <ul class="dropdown-menu">
+                    <li><a class="dropdown-item" id="" href="#">Action</a></li>
+                    <li><a class="dropdown-item" href="#">Another action</a></li>
+                    <li><a class="dropdown-item" href="#">Something else here</a></li>
+                  </ul>
+                </div>
+
+                <div class="btn-group d-none d-lg-flex">
+                  <button class="btn" id="grid">
+                    <img src="./img/grid.png" alt="">
+                  </button>
+                  <button class="btn" id="list">
+                    <img src="./img/list.png" alt="">
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div id="products" class="row view-group">
+        <div class="item col-xs-4 col-lg-4">
+          <div class="thumbnail card">
+            <div class="img-event">
+              <img class="group list-group-image img-fluid" style="width:100%;"
+                src="./img/Grow-Trees-On-the-path-to-environment-sustainability.png" alt="" />
+              <div class="landing-page-top-right"><img src="./img/pin.png" alt=""> Toronto</div>
+              <div class="landing-page-bottom-right d-flex flex-column"><button class="mb-2 landing-page-btn-img"><img
+                    src="./img/heart.png" alt=""></button><button class="landing-page-btn-img"><img src="./img/user.png"
+                    alt=""></button></div>
+
+              <div class="landing-page-bottom-center">Environment</div>
+            </div>
+            <div class="caption card-body">
+              <h4 class="group card-title inner list-group-item-heading">
+                Grow Trees - on the path to Environment sustainability</h4>
+              <p class="group inner landing-page-list-group-item-text">
+                Lorem ipsum dolor sit amet, consectetuer adipiscing elit,
+                sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.</p>
+              <div class="d-flex justify-content-between mb-2 landing-page-card-rating">
+                <div>Tree Canada</div>
+                <div>
+                  <img src="./img/selected-star.png" alt="">
+                  <img src="./img/selected-star.png" alt="">
+                  <img src="./img/selected-star.png" alt="">
+                  <img src="./img/star.png" alt="">
+                  <img src="./img/star.png" alt="">
+                </div>
+              </div>
+
+              <div class="row landing-page-box-border">
+                <div class="landing-page-mission-deadline-date">
+                  <p class="landing-page-mission-deadline-date-p">From 10/01/2019 until 25/02/2019</p>
+                </div>
+                <div class="col-6 col-md-6 d-flex align-items-center">
+                  <p class="lead me-2 pt-2">
+                    <img src="./img/Seats-left.png" alt="">
+                  <div>
+                    <div>10</div>
+                    <div class="landing-page-card-vol-small">Seats Left</div>
+                  </div>
+                  </p>
+                </div>
+                <div class="col-6 col-md-6 d-flex align-items-center">
+                  <p class="lead me-2 pt-2">
+                    <img src="./img/deadline.png" alt="">
+                  <div>
+                    <div>09/01/2023</div>
+                    <div class="landing-page-card-vol-small">Deadline</div>
+                  </div>
+                  </p>
+                </div>
+              </div>
+              <div class="d-flex justify-content-center">
+                <div class="">
+                  <a class="btn mt-2 landing-page-apply-mission-btn" href="http://www.jquery2dotnet.com">Apply <img
+                      src="./img/right-arrow.png" alt=""></a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="item col-xs-4 col-lg-4">
+          <div class="thumbnail card">
+            <div class="img-event">
+              <img class="group list-group-image img-fluid" style="width:100%;"
+                src="./img/Education-Supplies-for-Every--Pair-of-Shoes-Sold.png" alt="" />
+              <div class="landing-page-top-right"><img src="./img/pin.png" alt=""> Toronto</div>
+              <div class="landing-page-bottom-right d-flex flex-column"><button class="mb-2 landing-page-btn-img"><img
+                    src="./img/heart.png" alt=""></button><button class="landing-page-btn-img"><img src="./img/user.png"
+                    alt=""></button></div>
+
+              <div class="landing-page-bottom-center">Environment</div>
+            </div>
+            <div class="caption card-body">
+              <h4 class="group card-title inner list-group-item-heading">
+                Education Supplies for every Pair of shoes sold</h4>
+              <p class="group inner landing-page-list-group-item-text">
+                Lorem ipsum dolor sit amet, consectetuer adipiscing elit,
+                sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.</p>
+              <div class="d-flex justify-content-between mb-2 landing-page-card-rating">
+                <div>Australian Paradise</div>
+                <div>
+                  <img src="./img/selected-star.png" alt="">
+                  <img src="./img/selected-star.png" alt="">
+                  <img src="./img/selected-star.png" alt="">
+                  <img src="./img/star.png" alt="">
+                  <img src="./img/star.png" alt="">
+                </div>
+              </div>
+
+              <div class="row landing-page-box-border">
+                <div class="landing-page-mission-deadline-date">
+                  <p class="landing-page-mission-deadline-date-p">From 10/01/2019 until 25/02/2019</p>
+                </div>
+                <div class="col-6 col-md-6 d-flex align-items-center">
+                  <p class="lead me-2 pt-2">
+                    <img src="./img/user1.png" alt="">
+                  <div>
+                    <div>250</div>
+                    <div class="landing-page-card-vol-small">Already Volunteered</div>
+                  </div>
+                  </p>
+                </div>
+                <div class="col-6 col-md-6 d-flex align-items-center">
+                  <p class="lead me-2 pt-2">
+                    <img src="./img/deadline.png" alt="">
+                  <div>
+                    <div>09/01/2023</div>
+                    <div class="landing-page-card-vol-small">Deadline</div>
+                  </div>
+                  </p>
+                </div>
+              </div>
+              <div class="d-flex justify-content-center">
+                <div class="">
+                  <a class="btn mt-2 landing-page-apply-mission-btn" href="http://www.jquery2dotnet.com">Apply <img
+                      src="./img/right-arrow.png" alt=""></a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="item col-xs-4 col-lg-4">
+          <div class="thumbnail card">
+            <div class="img-event">
+              <img class="group list-group-image img-fluid" style="width:100%;"
+                src="./img/Nourish-the-Children-in--African-country.png" alt="" />
+              <div class="landing-page-top-right"><img src="./img/pin.png" alt=""> Toronto</div>
+              <div class="landing-page-bottom-right d-flex flex-column"><button class="mb-2 landing-page-btn-img"><img
+                    src="./img/heart.png" alt=""></button><button class="landing-page-btn-img"><img src="./img/user.png"
+                    alt=""></button></div>
+
+              <div class="landing-page-bottom-center">Children</div>
+            </div>
+            <div class="caption card-body">
+              <h4 class="group card-title inner list-group-item-heading">
+                Education Supplies for every Pair of shoes sold</h4>
+              <p class="group inner landing-page-list-group-item-text">
+                Lorem ipsum dolor sit amet, consectetuer adipiscing elit,
+                sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.</p>
+              <div class="d-flex justify-content-between mb-2 landing-page-card-rating">
+                <div>Australian Paradise</div>
+                <div>
+                  <img src="./img/selected-star.png" alt="">
+                  <img src="./img/selected-star.png" alt="">
+                  <img src="./img/selected-star.png" alt="">
+                  <img src="./img/star.png" alt="">
+                  <img src="./img/star.png" alt="">
+                </div>
+              </div>
+
+              <div class="row landing-page-box-border">
+                <div class="landing-page-mission-deadline-date">
+                  <p class="landing-page-mission-deadline-date-p">From 10/01/2019 until 25/02/2019</p>
+                </div>
+                <div class="col-6 col-md-6 d-flex align-items-center">
+                  <p class="lead me-2 pt-2">
+                    <img src="./img/Seats-left.png" alt="">
+                  <div>
+                    <div>10</div>
+                    <div class="landing-page-card-vol-small">Seats Left</div>
+                  </div>
+                  </p>
+                </div>
+                <div class="col-6 col-md-6 d-flex align-items-center">
+                  <p class="lead me-2 pt-2">
+                    <img src="./img/deadline.png" alt="">
+                  <div>
+                    <div>09/01/2023</div>
+                    <div class="landing-page-card-vol-small">Deadline</div>
+                  </div>
+                  </p>
+                </div>
+              </div>
+              <div class="d-flex justify-content-center">
+                <div class="">
+                  <a class="btn mt-2 landing-page-apply-mission-btn" href="http://www.jquery2dotnet.com">Apply <img
+                      src="./img/right-arrow.png" alt=""></a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="item col-xs-4 col-lg-4">
+          <div class="thumbnail card">
+            <div class="img-event">
+              <img class="group list-group-image img-fluid" style="width:100%;"
+                src="./img/Grow-Trees-On-the-path-to-environment-sustainability.png" alt="" />
+              <div class="landing-page-top-right"><img src="./img/pin.png" alt=""> Toronto</div>
+              <div class="landing-page-bottom-right d-flex flex-column"><button class="mb-2 landing-page-btn-img"><img
+                    src="./img/heart.png" alt=""></button><button class="landing-page-btn-img"><img src="./img/user.png"
+                    alt=""></button></div>
+
+              <div class="landing-page-bottom-center">Environment</div>
+            </div>
+            <div class="caption card-body">
+              <h4 class="group card-title inner list-group-item-heading">
+                Grow Trees - on the path to Environment sustainability</h4>
+              <p class="group inner landing-page-list-group-item-text">
+                Lorem ipsum dolor sit amet, consectetuer adipiscing elit,
+                sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.</p>
+              <div class="d-flex justify-content-between mb-2 landing-page-card-rating">
+                <div>Tree Canada</div>
+                <div>
+                  <img src="./img/selected-star.png" alt="">
+                  <img src="./img/selected-star.png" alt="">
+                  <img src="./img/selected-star.png" alt="">
+                  <img src="./img/star.png" alt="">
+                  <img src="./img/star.png" alt="">
+                </div>
+              </div>
+
+              <div class="row landing-page-box-border">
+                <div class="landing-page-mission-deadline-date">
+                  <p class="landing-page-mission-deadline-date-p">From 10/01/2019 until 25/02/2019</p>
+                </div>
+                <div class="col-6 col-md-6 d-flex align-items-center">
+                  <p class="lead me-2 pt-2">
+                    <img src="./img/Seats-left.png" alt="">
+                  <div>
+                    <div>10</div>
+                    <div class="landing-page-card-vol-small">Seats Left</div>
+                  </div>
+                  </p>
+                </div>
+                <!-- <div class="col-6 col-md-6 d-flex align-items-center">
+                  <p class="lead me-2 pt-2">
+                    <img src="./img/deadline.png" alt="">
+                  <div>
+                    <div>09/01/2023</div>
+                    <div class="landing-page-card-vol-small">Deadline</div>
+                  </div>
+                  </p>
+                </div> -->
+              </div>
+              <div class="d-flex justify-content-center">
+                <div class="">
+                  <a class="btn mt-2 landing-page-apply-mission-btn" href="http://www.jquery2dotnet.com">Apply <img
+                      src="./img/right-arrow.png" alt=""></a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="item col-xs-4 col-lg-4">
+          <div class="thumbnail card">
+            <div class="img-event">
+              <img class="group list-group-image img-fluid" style="width:100%;"
+                src="./img/Grow-Trees-On-the-path-to-environment-sustainability.png" alt="" />
+              <div class="landing-page-top-right"><img src="./img/pin.png" alt=""> Toronto</div>
+              <div class="landing-page-bottom-right d-flex flex-column"><button class="mb-2 landing-page-btn-img"><img
+                    src="./img/heart.png" alt=""></button><button class="landing-page-btn-img"><img src="./img/user.png"
+                    alt=""></button></div>
+
+              <div class="landing-page-bottom-center">Environment</div>
+            </div>
+            <div class="caption card-body">
+              <h4 class="group card-title inner list-group-item-heading">
+                Grow Trees - on the path to Environment sustainability</h4>
+              <p class="group inner landing-page-list-group-item-text">
+                Lorem ipsum dolor sit amet, consectetuer adipiscing elit,
+                sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.</p>
+              <div class="d-flex justify-content-between mb-2 landing-page-card-rating">
+                <div>Tree Canada</div>
+                <div>
+                  <img src="./img/selected-star.png" alt="">
+                  <img src="./img/selected-star.png" alt="">
+                  <img src="./img/selected-star.png" alt="">
+                  <img src="./img/star.png" alt="">
+                  <img src="./img/star.png" alt="">
+                </div>
+              </div>
+
+              <div class="row landing-page-box-border">
+                <div class="landing-page-mission-deadline-date">
+                  <p class="landing-page-mission-deadline-date-p">From 10/01/2019 until 25/02/2019</p>
+                </div>
+                <div class="col-6 col-md-6 d-flex align-items-center">
+                  <p class="lead me-2 pt-2">
+                    <img src="./img/Seats-left.png" alt="">
+                  <div>
+                    <div>10</div>
+                    <div class="landing-page-card-vol-small">Seats Left</div>
+                  </div>
+                  </p>
+                </div>
+                <div class="col-6 col-md-6 d-flex align-items-center">
+                  <p class="lead me-2 pt-2">
+                    <img src="./img/achieved.png" alt="">
+                  <div style="width: 100%;">
+                    <div>
+
+                      <div class="progress" role="progressbar" aria-label="Success example" aria-valuenow="25"
+                        aria-valuemin="0" aria-valuemax="100" style="height: 10px;">
+                        <div class="progress-bar bg-success" style="width: 25%;"></div>
+                      </div>
+
+                    </div>
+                    <div class="landing-page-card-vol-small">8000 achived</div>
+                  </div>
+                  </p>
+                </div>
+              </div>
+              <div class="d-flex justify-content-center">
+                <div class="">
+                  <a class="btn mt-2 landing-page-apply-mission-btn" href="http://www.jquery2dotnet.com">Apply <img
+                      src="./img/right-arrow.png" alt=""></a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="item col-xs-4 col-lg-4">
+          <div class="thumbnail card">
+            <div class="img-event">
+              <img class="group list-group-image img-fluid" style="width:100%;"
+                src="./img/Grow-Trees-On-the-path-to-environment-sustainability.png" alt="" />
+              <div class="landing-page-top-right"><img src="./img/pin.png" alt=""> Toronto</div>
+              <div class="landing-page-bottom-right d-flex flex-column"><button class="mb-2 landing-page-btn-img"><img
+                    src="./img/heart.png" alt=""></button><button class="landing-page-btn-img"><img src="./img/user.png"
+                    alt=""></button></div>
+
+              <div class="landing-page-bottom-center">Environment</div>
+            </div>
+            <div class="caption card-body">
+              <h4 class="group card-title inner list-group-item-heading">
+                Grow Trees - on the path to Environment sustainability</h4>
+              <p class="group inner landing-page-list-group-item-text">
+                Lorem ipsum dolor sit amet, consectetuer adipiscing elit,
+                sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.</p>
+              <div class="d-flex justify-content-between mb-2 landing-page-card-rating">
+                <div>Tree Canada</div>
+                <div>
+                  <img src="./img/selected-star.png" alt="">
+                  <img src="./img/selected-star.png" alt="">
+                  <img src="./img/selected-star.png" alt="">
+                  <img src="./img/star.png" alt="">
+                  <img src="./img/star.png" alt="">
+                </div>
+              </div>
+
+              <div class="row landing-page-box-border">
+                <div class="landing-page-mission-deadline-date">
+                  <p class="landing-page-mission-deadline-date-p">From 10/01/2019 until 25/02/2019</p>
+                </div>
+                <!-- <div class="col-6 col-md-6 d-flex align-items-center">
+                  <p class="lead me-2 pt-2">
+                    <img src="./img/Seats-left.png" alt="">
+                  <div>
+                    <div>10</div>
+                    <div class="landing-page-card-vol-small">Seats Left</div>
+                  </div>
+                  </p>
+                </div> -->
+                <div class="col-12 d-flex align-items-center">
+                  <p class="lead me-2 pt-2">
+                    <img src="./img/achieved.png" alt="">
+                  <div style="width: 100%;">
+                    <div>
+
+                      <div class="progress" role="progressbar" aria-label="Success example" aria-valuenow="25"
+                        aria-valuemin="0" aria-valuemax="100" style="height: 10px;">
+                        <div class="progress-bar bg-success" style="width: 45%"></div>
+                      </div>
+
+                    </div>
+                    <div class="landing-page-card-vol-small">8000 achived</div>
+                  </div>
+                </div>
+              </div>
+              <div class="d-flex justify-content-center">
+                <div class="">
+                  <a class="btn mt-2 landing-page-apply-mission-btn" href="http://www.jquery2dotnet.com">Apply <img
+                      src="./img/right-arrow.png" alt=""></a>
+
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="item col-xs-4 col-lg-4">
+          <div class="thumbnail card">
+            <div class="img-event">
+              <img class="group list-group-image img-fluid" style="width:100%;"
+                src="./img/Grow-Trees-On-the-path-to-environment-sustainability.png" alt="" />
+              <div class="landing-page-top-right"><img src="./img/pin.png" alt=""> Toronto</div>
+              <div class="landing-page-bottom-right d-flex flex-column"><button class="mb-2 landing-page-btn-img"><img
+                    src="./img/heart.png" alt=""></button><button class="landing-page-btn-img"><img src="./img/user.png"
+                    alt=""></button></div>
+
+              <div class="landing-page-bottom-center">Environment</div>
+            </div>
+            <div class="caption card-body">
+              <h4 class="group card-title inner list-group-item-heading">
+                Grow Trees - on the path to Environment sustainability</h4>
+              <p class="group inner landing-page-list-group-item-text">
+                Lorem ipsum dolor sit amet, consectetuer adipiscing elit,
+                sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.</p>
+              <div class="d-flex justify-content-between mb-2 landing-page-card-rating">
+                <div>Tree Canada</div>
+                <div>
+                  <img src="./img/selected-star.png" alt="">
+                  <img src="./img/selected-star.png" alt="">
+                  <img src="./img/selected-star.png" alt="">
+                  <img src="./img/star.png" alt="">
+                  <img src="./img/star.png" alt="">
+                </div>
+              </div>
+
+              <!-- <div class="row landing-page-box-border">
+                <div class="landing-page-mission-deadline-date">
+                  <p class="landing-page-mission-deadline-date-p">From 10/01/2019 until 25/02/2019</p>
+                </div>
+                <div class="col-6 col-md-6 d-flex align-items-center">
+                  <p class="lead me-2 pt-2">
+                    <img src="./img/Seats-left.png" alt="">
+                  <div>
+                    <div>10</div>
+                    <div class="landing-page-card-vol-small">Seats Left</div>
+                  </div>
+                  </p>
+                </div>
+                <div class="col-12 d-flex align-items-center">
+                  <p class="lead me-2 pt-2">
+                    <img src="./img/achieved.png" alt="">
+                  <div style="width: 100%;">
+                    <div>
+
+                      <div class="progress" role="progressbar" aria-label="Success example" aria-valuenow="25"
+                        aria-valuemin="0" aria-valuemax="100" style="height: 10px;">
+                        <div class="progress-bar bg-success" style="width: 45%"></div>
+                      </div>
+
+                    </div>
+                    <div class="landing-page-card-vol-small">8000 achived</div>
+                  </div>
+                </div> -->
+              <div class="d-flex justify-content-center">
+                <div class="">
+                  <a class="btn mt-2 landing-page-apply-mission-btn" href="http://www.jquery2dotnet.com">Apply <img
+                      src="./img/right-arrow.png" alt=""></a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="item col-xs-4 col-lg-4">
+          <div class="thumbnail card">
+            <div class="img-event">
+              <img class="group list-group-image img-fluid" style="width:100%;"
+                src="./img/Education-Supplies-for-Every--Pair-of-Shoes-Sold.png" alt="" />
+              <div class="landing-page-top-right"><img src="./img/pin.png" alt=""> Toronto</div>
+              <div class="landing-page-bottom-right d-flex flex-column"><button class="mb-2 landing-page-btn-img"><img
+                    src="./img/heart.png" alt=""></button><button class="landing-page-btn-img"><img src="./img/user.png"
+                    alt=""></button></div>
+
+              <div class="landing-page-bottom-center">Environment</div>
+            </div>
+            <div class="caption card-body">
+              <h4 class="group card-title inner list-group-item-heading">
+                Education Supplies for every Pair of shoes sold</h4>
+              <p class="group inner landing-page-list-group-item-text">
+                Lorem ipsum dolor sit amet, consectetuer adipiscing elit,
+                sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.</p>
+              <div class="d-flex justify-content-between mb-2 landing-page-card-rating">
+                <div>Australian Paradise</div>
+                <div>
+                  <img src="./img/selected-star.png" alt="">
+                  <img src="./img/selected-star.png" alt="">
+                  <img src="./img/selected-star.png" alt="">
+                  <img src="./img/star.png" alt="">
+                  <img src="./img/star.png" alt="">
+                </div>
+              </div>
+
+              <div class="row landing-page-box-border">
+                <div class="landing-page-mission-deadline-date">
+                  <p class="landing-page-mission-deadline-date-p">From 10/01/2019 until 25/02/2019</p>
+                </div>
+                <div class="col-6 col-md-6 d-flex align-items-center">
+                  <p class="lead me-2 pt-2">
+                    <img src="./img/user1.png" alt="">
+                  <div>
+                    <div>250</div>
+                    <div class="landing-page-card-vol-small">Already Volunteered</div>
+                  </div>
+                  </p>
+                </div>
+                <div class="col-6 col-md-6 d-flex align-items-center">
+                  <p class="lead me-2 pt-2">
+                    <img src="./img/deadline.png" alt="">
+                  <div>
+                    <div>09/01/2023</div>
+                    <div class="landing-page-card-vol-small">Deadline</div>
+                  </div>
+                  </p>
+                </div>
+              </div>
+              <div class="d-flex justify-content-center">
+                <div class="">
+                  <a class="btn mt-2 landing-page-apply-mission-btn" href="http://www.jquery2dotnet.com">Apply <img
+                      src="./img/right-arrow.png" alt=""></a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="item col-xs-4 col-lg-4">
+          <div class="thumbnail card">
+            <div class="img-event">
+              <img class="group list-group-image img-fluid" style="width:100%;"
+                src="./img/Education-Supplies-for-Every--Pair-of-Shoes-Sold.png" alt="" />
+              <div class="landing-page-top-right"><img src="./img/pin.png" alt=""> Toronto</div>
+              <div class="landing-page-bottom-right d-flex flex-column"><button class="mb-2 landing-page-btn-img"><img
+                    src="./img/heart.png" alt=""></button><button class="landing-page-btn-img"><img src="./img/user.png"
+                    alt=""></button></div>
+
+              <div class="landing-page-bottom-center">Environment</div>
+            </div>
+            <div class="caption card-body">
+              <h4 class="group card-title inner list-group-item-heading">
+                Education Supplies for every Pair of shoes sold</h4>
+              <p class="group inner landing-page-list-group-item-text">
+                Lorem ipsum dolor sit amet, consectetuer adipiscing elit,
+                sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.</p>
+              <div class="d-flex justify-content-between mb-2 landing-page-card-rating">
+                <div>Australian Paradise</div>
+                <div>
+                  <img src="./img/selected-star.png" alt="">
+                  <img src="./img/selected-star.png" alt="">
+                  <img src="./img/selected-star.png" alt="">
+                  <img src="./img/star.png" alt="">
+                  <img src="./img/star.png" alt="">
+                </div>
+              </div>
+
+              <div class="row landing-page-box-border">
+                <div class="landing-page-mission-deadline-date">
+                  <p class="landing-page-mission-deadline-date-p">From 10/01/2019 until 25/02/2019</p>
+                </div>
+                <div class="col-6 col-md-6 d-flex align-items-center">
+                  <p class="lead me-2 pt-2">
+                    <img src="./img/user1.png" alt="">
+                  <div>
+                    <div>250</div>
+                    <div class="landing-page-card-vol-small">Already Volunteered</div>
+                  </div>
+                  </p>
+                </div>
+                <div class="col-6 col-md-6 d-flex align-items-center">
+                  <p class="lead me-2 pt-2">
+                    <img src="./img/deadline.png" alt="">
+                  <div>
+                    <div>09/01/2023</div>
+                    <div class="landing-page-card-vol-small">Deadline</div>
+                  </div>
+                  </p>
+                </div>
+              </div>
+              <div class="d-flex justify-content-center">
+                <div class="">
+                  <a class="btn mt-2 landing-page-apply-mission-btn" href="http://www.jquery2dotnet.com">Apply <img
+                      src="./img/right-arrow.png" alt=""></a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+
+      </div>
+    </div>
+
+    <div class="d-flex justify-content-center">
+      <nav aria-label="Page navigation example">
+        <ul class="pagination">
+          <li class="page-item">
+            <a class="page-link" href="#" aria-label="Previous">
+              <span aria-hidden="true">&laquo;</span>
+            </a>
+          </li>
+          <li class="page-item "><a class="page-link page-item-current" href="#">1</a></li>
+          <li class="page-item"><a class="page-link" href="#">2</a></li>
+          <li class="page-item"><a class="page-link" href="#">3</a></li>
+          <li class="page-item">
+            <a class="page-link" href="#" aria-label="Next">
+              <span aria-hidden="true">&raquo;</span>
+            </a>
+          </li>
+        </ul>
+      </nav>
+    </div>
   </div>
+
 
   <script src="./js/custom.js"></script>
   <script src="./js/bootstrap.bundle.min.js"></script>
