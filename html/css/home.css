@@ -75,6 +75,25 @@
   width: 100%;
 }
 
+.login-page-img {
+  position: relative;
+}
+
+.login-page-img-heading {
+  position: absolute;
+  top: 70%;
+  left: 10%;
+  color: white;
+  font-size: 3vw;
+}
+
+.login-page-img-sub-heading {
+  position: absolute;
+  top: 85%;
+  left: 10%;
+  color: #eeeeee;
+  font-size: 1vw;
+}
 
 @media only screen and (max-width: 993px) {
   .temp {
