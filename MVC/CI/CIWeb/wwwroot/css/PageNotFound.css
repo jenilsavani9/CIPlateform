@@ -1,0 +1,33 @@
+.page-not-found-image-desc {
+    font-size: 25px;
+}
+
+.page-not-found-desc-1 {
+    font-size: 40px;
+}
+
+.page-not-found-desc-2 {
+    font-size: 25px;
+}
+
+.page-not-found-desc-3-btn {
+    background: none;
+    border: 1px solid;
+    border-radius: 30px;
+    padding: 5px 10px;
+    margin: 10px 0 0 0;
+}
+
+@media only screen and (max-width: 1040px) {
+    .page-not-found-image-desc {
+        font-size: 1rem;
+    }
+
+    .page-not-found-desc-1 {
+        font-size: 2rem;
+    }
+
+    .page-not-found-desc-2 {
+        font-size: 1rem;
+    }
+}
