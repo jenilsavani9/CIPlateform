@@ -2,6 +2,10 @@
     display: none;
 }
 
+.landing-page-mission-header {
+    font-size: 30px;
+}
+
 .landing-page-user-img {
     border-radius: 50%;
     height: 40px;
@@ -126,6 +130,7 @@
 .item.list-group-item .caption {
     float: left;
     width: 65%;
+    padding-bottom: 0px !important;
     margin: 0;
 }
 
@@ -179,8 +184,8 @@
     position: absolute;
     border-radius: 30px;
     background-color: #fff;
-    bottom: -15px;
-    left: 33%;
+    bottom: -18px;
+    left: 36%;
     padding: 5px 10px;
 }
 
@@ -194,7 +199,7 @@
 }
 
 .list-group-item .thumbnail .img-event .list-group-image {
-    height: 300px;
+    height: 325px;
 }
 
 .landing-page-apply-mission-btn,
@@ -206,16 +211,29 @@
 }
 
 .landing-page-box-border {
-    border-top: 1px solid #E8E8E8;
     border-bottom: 1px solid #E8E8E8;
     margin: 5px 0px;
     padding: 5px 0px;
 }
 
 
-
+/*
 .landing-page-mission-deadline-date {
     position: relative;
+}*/
+hr {
+    flex: 1;
+    height: 2px;
+    background: #e8e8e8;
+}
+
+.date-btn {
+    border-radius: 22px;
+    border: 2px solid #E8E8E8;
+    background-color: white;
+    width: auto;
+    font-size: 13px;
+    padding: 0 30px;
 }
 
 .landing-page-mission-deadline-date-p {
@@ -232,7 +250,7 @@
 }
 
 .landing-page-card-rating {
-    padding: 0 0 15px 0;
+    padding: 0 0 0 0;
 }
 
 .landing-page-card-vol-small {
@@ -256,7 +274,7 @@
 @media only screen and (max-width: 993px) {
     .landing-page-responsive-filter {
         width: 100%;
-        justify-content: space-between
+        justify-content: space-between;
     }
 
     .landing-page-offcanvas-btn {
@@ -268,4 +286,178 @@
         width: 8px;
         height: 8px;
     }
+
+    .mission-listing-title {
+        margin-top: 0%;
+    }
+
+    .filters-section {
+        margin-top: 9% !important;
+    }
+
+    .sortby {
+        display: none !important;
+    }
+}
+
+@media only screen and (max-width: 576px) {
+
+    .mission-listing-title {
+        margin-top: 3%;
+    }
+
+    .filters-section {
+        margin-top: 17% !important;
+    }
+}
+
+ul {
+    /*animation-name: none;*/
+    animation-duration: unset !important;
+    animation-fill-mode: unset !important;
+}
+
+/* progress bar */
+
+.progress {
+    border-radius: 30px;
+}
+
+.progress-bar {
+    background-color: #F88735;
+    border-radius: 30px;
+}
+
+/*filters*/
+.filter-list {
+    /* padding:6px 10px; */
+    background-color: white;
+    border: 1px solid #808080;
+    border-radius: 20px;
+    color: #000;
+    cursor: pointer;
+}
+
+.filter-close-button {
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    font-size: 18px;
+    margin-left: 5px;
+    color: #888;
+}
+
+.filters-section {
+    margin-top: 2%;
+}
+
+/*  navbar  */
+
+.sidebar-detail {
+    padding: 10px 0 10px 15px;
+    margin: 0 0 10px 0;
+}
+
+.dropdown-checkbox {
+    font-size: 15px;
+    font-weight: 100;
+}
+
+.checkbox {
+    margin-right: 5px;
+}
+
+#offcanvasNavbar {
+    width: auto !important;
+}
+
+@media (max-width: 992px) {
+
+    .dropdownborder,
+    .dropdownborderright {
+        border-left: none !important;
+        border-right: none !important;
+    }
+
+    .dropdown-menu {
+        position: relative !important;
+    }
+
+    .ddpolicy {
+        position: absolute !important;
+    }
+
+    .singledropdown {
+        top: 0% !important;
+    }
+
+    .menubar {
+        display: none;
+    }
+
+
+    .dashbord-sidebar-detail {
+        width: 70%;
+    }
+}
+
+@media (min-width: 992px) {
+    .dashboard-nav-sidebar-toggle {
+        display: none;
+    }
+}
+
+
+/* ------------------------------------
+ */
+
+.dropdown a {
+    text-decoration: none;
+}
+
+.dropdownborder {
+    border-left: 1px solid #e8e8e8;
+    border-right: 1px solid #e8e8e8;
+}
+
+.dropdownborderright {
+    border-right: 1px solid #e8e8e8;
+}
+
+.navbar {
+    padding-top: 0px;
+    padding-bottom: 0px;
+}
+
+.singledropdown {
+    text-decoration: none;
+    position: relative;
+    top: 20%;
+}
+
+.headernav {
+    background-color: #ffffff;
+    box-shadow: NONE;
+    border-bottom: 1px SOLID #e8e8e8;
+    height: 50px !important;
+}
+
+/*filters tag css*/
+
+.filter-list {
+    /* padding:6px 10px; */
+    background-color: #d3cece;
+    border-radius: 20px;
+    margin-top: 5px;
+    color: #000;
+    cursor: pointer;
+}
+
+.filter-close-button {
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    font-size: 18px;
+    margin-left: 5px;
+    color: #888;
 }

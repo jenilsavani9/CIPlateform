@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "9X8A2Vl0CuMzMc8ZlHjag3EraqUR616UY+NtifosJ9w=",
+  "Hash": "ry+mkb9wc4YXGB1RNQDOQl+sw7I2ktvpM2U3rzqSTWI=",
   "Source": "CIWeb",
   "BasePath": "_content/CIWeb",
   "Mode": "Default",
@@ -168,6 +168,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\css\\site.css"
+    },
+    {
+      "Identity": "C:\\Users\\pci114\\Desktop\\internship\\CIPlateform\\MVC\\CI\\CIWeb\\wwwroot\\css\\volunteering.css",
+      "SourceId": "CIWeb",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\pci114\\Desktop\\internship\\CIPlateform\\MVC\\CI\\CIWeb\\wwwroot\\",
+      "BasePath": "_content/CIWeb",
+      "RelativePath": "css/volunteering.css",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\css\\volunteering.css"
     },
     {
       "Identity": "C:\\Users\\pci114\\Desktop\\internship\\CIPlateform\\MVC\\CI\\CIWeb\\wwwroot\\favicon.ico",
