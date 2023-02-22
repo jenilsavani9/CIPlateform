@@ -139,7 +139,8 @@ hr {
 
 /* center section */
 
-.vol-sec-2-right-1st-header {
+.vol-sec-2-right-1st-header,
+.vol-sec-2-right-2nd-header {
     font-size: 22px;
 }
 
@@ -152,9 +153,20 @@ hr {
     font-size: 15px;
 }
 
-.volunteering-sec-2-right-top {
+.volunteering-sec-2-right-top,
+.volunteering-sec-2-right-down {
     border: 1px solid rgba(0, 0, 0, 0.2);
     padding: 10px 30px;
+}
+
+.vol-page-right-recent-vol-img {
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+}
+
+.vol-page-right-2nd-vol-name {
+    font-size: 13px;
 }
 
 /* tabs in center */
