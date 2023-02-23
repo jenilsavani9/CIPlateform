@@ -1,0 +1,115 @@
+.story-page-top {
+    background-color: black;
+}
+
+.story-page-top-img {
+    position: relative;
+    width: 100%;
+    height: 300px;
+    object-fit: cover;
+    object-position: 0% 40%;
+    opacity: 0.5;
+}
+
+.story-page-top-header-down {
+    position: absolute;
+    top: 8%;
+    width: 100%;
+}
+
+.story-page-top-header-down {
+    color: white;
+}
+
+.story-page-top-header-p-tage {
+    margin: 0 300px;
+}
+
+.story-page-top-share-story-btn {
+    border: 1px solid #fff;
+    background: none;
+    color: white;
+    border-radius: 30px;
+    padding: 5px 20px;
+    margin: 10px 0 0 0;
+}
+
+.story-page-card-top {
+    position: relative;
+}
+
+.story-page-btn-img {
+    border: 1px solid #fff;
+    background: none;
+    color: #fff;
+    border-radius: 30px;
+    padding: 5px 15px;
+}
+
+.story-page-card-top-btn {
+    position: absolute;
+    top: 40%;
+    left: 35%;
+}
+
+.story-page-bottom-center {
+    position: absolute;
+    top: 92%;
+    left: 35%;
+    background-color: #fff;
+    padding: 5px 15px;
+    border-radius: 30px;
+}
+
+.story-page-card-top:hover {
+    background-color: #000;
+}
+
+.list-group-image:hover {
+    opacity: 0.5;
+}
+
+.card-body-user-img {
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+}
+
+.story-page-btn-img:hover {
+    background-color: #000;
+    opacity: 0.7;
+}
+
+.story-paginaition-item {
+    margin: 0 10px 0 0;
+}
+
+.list-group-image:hover+.story-page-card-top-btn,
+.story-page-card-top-btn:hover {
+    display: inline-block !important;
+}
+
+
+/* .story-page-card-top-btn:hover+.story-page-card-top,
+.story-page-card-top:hover {
+    background-color: #000;
+    opacity: 0.5;
+}
+
+.story-page-card-top-btn:hover+.list-group-image,
+.list-group-image:hover {
+    background-color: #000;
+    opacity: 0.5;
+} */
+
+@media only screen and (max-width: 992px) and (min-width: 576px) {
+    .story-page-top-header-p-tage {
+        margin: 0 100px;
+    }
+}
+
+@media only screen and (max-width: 576px) {
+    .story-page-top-header-p-tage {
+        margin: 0 30px;
+    }
+}
