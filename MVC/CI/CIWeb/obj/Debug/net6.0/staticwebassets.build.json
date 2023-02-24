@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "nBt0Kw5nzQAVdX9WOzpKZ/bYItP/DxXNF/kV5NYYsWc=",
+  "Hash": "m69l3eG6fs7HludDiXnh9DB6EqA9RekkB86sC9xTMWE=",
   "Source": "CIWeb",
   "BasePath": "_content/CIWeb",
   "Mode": "Default",
@@ -1290,6 +1290,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\img\\logo.png"
+    },
+    {
+      "Identity": "C:\\Users\\pci114\\Desktop\\internship\\CIPlateform\\MVC\\CI\\CIWeb\\wwwroot\\img\\menu-bar.svg",
+      "SourceId": "CIWeb",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\pci114\\Desktop\\internship\\CIPlateform\\MVC\\CI\\CIWeb\\wwwroot\\",
+      "BasePath": "_content/CIWeb",
+      "RelativePath": "img/menu-bar.svg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\img\\menu-bar.svg"
     },
     {
       "Identity": "C:\\Users\\pci114\\Desktop\\internship\\CIPlateform\\MVC\\CI\\CIWeb\\wwwroot\\img\\mission.png",

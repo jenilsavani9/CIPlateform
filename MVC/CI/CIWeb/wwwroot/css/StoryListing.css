@@ -113,3 +113,12 @@
         margin: 0 30px;
     }
 }
+
+
+@media only screen and (max-width: 992px) {
+    .story-page-top-header-down {
+        position: absolute;
+        top: 8% !important;
+        width: 100%;
+    }
+}
