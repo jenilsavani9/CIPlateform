@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace CIWeb.ViewModels;
+namespace CIWeb.Models;
 
 public partial class Timesheet
 {

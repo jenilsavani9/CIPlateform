@@ -19,39 +19,39 @@
             <div class="col-lg-4 col-md-12 col-sm-12">
             <div class="card ms-5 me-4 border-0 centerRegistrationForm">
                 <div class="card-body">
-                    <form>
+                    <form method="POST">
                         <div class="mb-3">
                             <label for="exampleInputEmail1" class="form-label">First Name</label>
-                            <input type="text" class="form-control" id="validationCustom01" 
+                            <input type="text" class="form-control" id="validationCustom01" name="firstname"
                              required placeholder="Enter your FirstName">
                         </div>
                         <div class="mb-3">
                             <label for="exampleInputEmail1" class="form-label">Last Name</label>
-                            <input type="text" class="form-control" id="validationCustom01" 
+                            <input type="text" class="form-control" id="validationCustom01" name="lastname"
                              required placeholder="Enter your LastNmae" >
                         </div>
                         <div class="mb-3">
                             <label for="exampleInputEmail1" class="form-label">Phone Number</label>
-                            <input type="number" class="form-control" id="validationCustom01" 
+                            <input type="number" class="form-control" id="validationCustom01" name="PhoneNumber"
                              required placeholder="Enter your PhoneNo." max-width="12" 
                              min-width="10">
                         </div>
                         <div class="mb-3">
                             <label for="exampleInputEmail1" class="form-label">Email address</label>
-                            <input type="email" class="form-control" id="exampleInputEmail1" 
+                            <input type="email" class="form-control" id="exampleInputEmail1" name="email"
                             placeholder="name@gmail.com" aria-describedby="emailHelp">
                         </div>
                         <div class="mb-3">
                           <label for="exampleInputPassword1" class="form-label">Password</label>
-                          <input type="password" class="form-control" id="exampleInputPassword1"
+                          <input type="password" class="form-control" id="exampleInputPassword1" name="password"
                           placeholder="EnterPassword">
                         </div>
                         <div class="mb-3">
                             <label for="exampleInputPassword1" class="form-label">Confirm Password</label>
-                            <input type="password" class="form-control" id="exampleInputPassword1"
+                            <input type="password" class="form-control" id="exampleInputPassword1" name="password1"
                             placeholder="EnterPassword">
                           </div>
-                        <button type="button" class="button mt-2">Register</button>
+                        <button type="submit" class="button mt-2">Register</button>
                         @*<button type="button" class="button mt-3" onclick="location.href='@Url.Action("Resetpass", "Home")'">Reset my Password</button>*@
                         <p class="d-flex justify-content-center mt-5 createacc">Aready Registered?
                             <a class="nav-link text-dark registerlogin" asp-area="" asp-controller="Home" asp-action="Login">Login now</a></p>
