@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace CIWeb.ViewModels;
+namespace CIWeb.Models;
 
 public partial class User
 {
@@ -15,7 +15,7 @@ public partial class User
 
     public string Password { get; set; } = null!;
 
-    public int PhoneNumber { get; set; }
+    public long PhoneNumber { get; set; }
 
     public string? Avatar { get; set; }
 
@@ -25,9 +25,9 @@ public partial class User
 
     public string? Department { get; set; }
 
-    public long CityId { get; set; }
+    public long? CityId { get; set; }
 
-    public long CountryId { get; set; }
+    public long? CountryId { get; set; }
 
     public string? ProfileText { get; set; }
 
@@ -43,11 +43,11 @@ public partial class User
 
     public DateTime? DeletedAt { get; set; }
 
-    public virtual City City { get; set; } = null!;
+    public virtual City? City { get; set; }
 
     public virtual ICollection<Comment> Comments { get; } = new List<Comment>();
 
-    public virtual Country Country { get; set; } = null!;
+    public virtual Country? Country { get; set; }
 
     public virtual ICollection<FavoriteMission> FavoriteMissions { get; } = new List<FavoriteMission>();
 

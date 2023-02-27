@@ -1,21 +1,19 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace CIWeb.ViewModels;
+namespace CIWeb.Models;
 
-public partial class MissionMedium
+public partial class MissionDocument
 {
-    public long MissionMediaId { get; set; }
+    public long MissionDocumentId { get; set; }
 
     public long MissionId { get; set; }
 
-    public string? MediaName { get; set; }
+    public string DocumentName { get; set; } = null!;
 
-    public string? MediaType { get; set; }
+    public string DocumentType { get; set; } = null!;
 
-    public string? MediaPath { get; set; }
-
-    public string? Default { get; set; }
+    public string? DocumentPath { get; set; }
 
     public DateTime CreatedAt { get; set; }
 

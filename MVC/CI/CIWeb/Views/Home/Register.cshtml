@@ -1,6 +1,8 @@
 ﻿@*
     For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 *@
+
+@model User;
 @{
 }
 <!DOCTYPE html>
@@ -19,39 +21,45 @@
             <div class="col-lg-4 col-md-12 col-sm-12">
             <div class="card ms-5 me-4 border-0 centerRegistrationForm">
                 <div class="card-body">
-                    <form>
+                    <form method="POST">
                         <div class="mb-3">
-                            <label for="exampleInputEmail1" class="form-label">First Name</label>
-                            <input type="text" class="form-control" id="validationCustom01" 
-                             required placeholder="Enter your FirstName">
+                            <label for="exampleInputEmail1" asp-for="FirstName" class="form-label">First Name</label>
+                            <input type="text" class="form-control" id="validationCustom01" asp-for="FirstName"
+                              placeholder="Enter your FirstName">
+                             <span class="text-danger" asp-validation-for="FirstName"></span>
                         </div>
                         <div class="mb-3">
-                            <label for="exampleInputEmail1" class="form-label">Last Name</label>
-                            <input type="text" class="form-control" id="validationCustom01" 
-                             required placeholder="Enter your LastNmae" >
+                            <label for="exampleInputEmail1" asp-for="LastName" class="form-label">Last Name</label>
+                            <input type="text" class="form-control" id="validationCustom01" asp-for="LastName"
+                              placeholder="Enter your LastNmae" >
+                             <span class="text-danger" asp-validation-for="LastName"></span>
                         </div>
                         <div class="mb-3">
-                            <label for="exampleInputEmail1" class="form-label">Phone Number</label>
-                            <input type="number" class="form-control" id="validationCustom01" 
-                             required placeholder="Enter your PhoneNo." max-width="12" 
+                            <label for="exampleInputEmail1" asp-for="PhoneNumber" class="form-label">Phone Number</label>
+                            <input type="number" class="form-control" id="validationCustom01" asp-for="PhoneNumber"
+                              placeholder="Enter your PhoneNo." max-width="12" 
                              min-width="10">
+                             <span class="text-danger" asp-validation-for="PhoneNumber"></span>
                         </div>
                         <div class="mb-3">
-                            <label for="exampleInputEmail1" class="form-label">Email address</label>
-                            <input type="email" class="form-control" id="exampleInputEmail1" 
+                            <label for="exampleInputEmail1" asp-for="Email" class="form-label">Email address</label>
+                            <input type="email" class="form-control" id="exampleInputEmail1" asp-for="Email"
                             placeholder="name@gmail.com" aria-describedby="emailHelp">
+                            <span class="text-danger" asp-validation-for="Email"></span>
                         </div>
                         <div class="mb-3">
-                          <label for="exampleInputPassword1" class="form-label">Password</label>
-                          <input type="password" class="form-control" id="exampleInputPassword1"
+                          <label for="exampleInputPassword1" asp-for="Password" class="form-label">Password</label>
+                          <input type="password" class="form-control" id="exampleInputPassword1" asp-for="Password"
                           placeholder="EnterPassword">
+                          <span class="text-danger" asp-validation-for="Password"></span>
                         </div>
                         <div class="mb-3">
                             <label for="exampleInputPassword1" class="form-label">Confirm Password</label>
-                            <input type="password" class="form-control" id="exampleInputPassword1"
-                            placeholder="EnterPassword">
+                            <input type="password" class="form-control" id="exampleInputPassword1" name="password1"
+                            required placeholder="EnterPassword">
+                
                           </div>
-                        <button type="button" class="button mt-2">Register</button>
+                        <button type="submit" class="button mt-2">Register</button>
                         @*<button type="button" class="button mt-3" onclick="location.href='@Url.Action("Resetpass", "Home")'">Reset my Password</button>*@
                         <p class="d-flex justify-content-center mt-5 createacc">Aready Registered?
                             <a class="nav-link text-dark registerlogin" asp-area="" asp-controller="Home" asp-action="Login">Login now</a></p>

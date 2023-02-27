@@ -1,15 +1,17 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace CIWeb.ViewModels;
+namespace CIWeb.Models;
 
-public partial class UserSkill
+public partial class MissionRating
 {
-    public long UserSkillId { get; set; }
+    public long MissionRatingId { get; set; }
 
-    public long SkillId { get; set; }
+    public long MissionId { get; set; }
 
     public long UserId { get; set; }
+
+    public string Rating { get; set; } = null!;
 
     public DateTime CreatedAt { get; set; }
 
@@ -17,7 +19,7 @@ public partial class UserSkill
 
     public DateTime? DeletedAt { get; set; }
 
-    public virtual Skill Skill { get; set; } = null!;
+    public virtual Mission Mission { get; set; } = null!;
 
     public virtual User User { get; set; } = null!;
 }

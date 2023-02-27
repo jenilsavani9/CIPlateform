@@ -1,13 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace CIWeb.ViewModels;
+namespace CIWeb.Models;
 
-public partial class StoryInvite
+public partial class MissionInvite
 {
-    public long StoryInviteId { get; set; }
+    public long MissionInviteId { get; set; }
 
-    public long StoryId { get; set; }
+    public long MissionId { get; set; }
 
     public long FromUserId { get; set; }
 
@@ -21,7 +21,7 @@ public partial class StoryInvite
 
     public virtual User FromUser { get; set; } = null!;
 
-    public virtual Story Story { get; set; } = null!;
+    public virtual Mission Mission { get; set; } = null!;
 
     public virtual User ToUser { get; set; } = null!;
 }

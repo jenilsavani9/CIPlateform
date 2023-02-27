@@ -8,6 +8,8 @@
     ".NETCoreApp,Version=v6.0": {
       "CIWeb/1.0.0": {
         "dependencies": {
+          "Microsoft.EntityFrameworkCore": "7.0.3",
+          "Microsoft.EntityFrameworkCore.Design": "7.0.3",
           "Microsoft.EntityFrameworkCore.SqlServer": "7.0.3",
           "Microsoft.EntityFrameworkCore.Tools": "7.0.3"
         },
