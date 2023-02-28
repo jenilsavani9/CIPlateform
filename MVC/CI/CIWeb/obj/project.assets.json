@@ -947,6 +947,34 @@
             "rid": "win"
           }
         }
+      },
+      "CI.Entities/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v6.0",
+        "dependencies": {
+          "Microsoft.EntityFrameworkCore": "7.0.3",
+          "Microsoft.EntityFrameworkCore.SqlServer": "7.0.3"
+        },
+        "compile": {
+          "bin/placeholder/CI.Entities.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/CI.Entities.dll": {}
+        }
+      },
+      "CI.Repository/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v6.0",
+        "dependencies": {
+          "Microsoft.EntityFrameworkCore": "7.0.3",
+          "Microsoft.EntityFrameworkCore.SqlServer": "7.0.3"
+        },
+        "compile": {
+          "bin/placeholder/CI.Repository.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/CI.Repository.dll": {}
+        }
       }
     }
   },
@@ -3283,10 +3311,22 @@
         "useSharedDesignerContext.txt",
         "version.txt"
       ]
+    },
+    "CI.Entities/1.0.0": {
+      "type": "project",
+      "path": "../CI.Entities/CI.Entities.csproj",
+      "msbuildProject": "../CI.Entities/CI.Entities.csproj"
+    },
+    "CI.Repository/1.0.0": {
+      "type": "project",
+      "path": "../CI.Repository/CI.Repository.csproj",
+      "msbuildProject": "../CI.Repository/CI.Repository.csproj"
     }
   },
   "projectFileDependencyGroups": {
     "net6.0": [
+      "CI.Entities >= 1.0.0",
+      "CI.Repository >= 1.0.0",
       "Microsoft.EntityFrameworkCore >= 7.0.3",
       "Microsoft.EntityFrameworkCore.Design >= 7.0.3",
       "Microsoft.EntityFrameworkCore.SqlServer >= 7.0.3",
@@ -3326,7 +3366,14 @@
       "frameworks": {
         "net6.0": {
           "targetAlias": "net6.0",
-          "projectReferences": {}
+          "projectReferences": {
+            "C:\\Users\\pci114\\Desktop\\internship\\CIPlateform\\MVC\\CI\\CI.Entities\\CI.Entities.csproj": {
+              "projectPath": "C:\\Users\\pci114\\Desktop\\internship\\CIPlateform\\MVC\\CI\\CI.Entities\\CI.Entities.csproj"
+            },
+            "C:\\Users\\pci114\\Desktop\\internship\\CIPlateform\\MVC\\CI\\CI.Repository\\CI.Repository.csproj": {
+              "projectPath": "C:\\Users\\pci114\\Desktop\\internship\\CIPlateform\\MVC\\CI\\CI.Repository\\CI.Repository.csproj"
+            }
+          }
         }
       },
       "warningProperties": {

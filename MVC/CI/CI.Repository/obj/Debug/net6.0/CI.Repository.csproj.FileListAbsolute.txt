@@ -1,0 +1,14 @@
+C:\Users\pci114\Desktop\internship\CIPlateform\MVC\CI\CI.Repository\bin\Debug\net6.0\CI.Repository.deps.json
+C:\Users\pci114\Desktop\internship\CIPlateform\MVC\CI\CI.Repository\bin\Debug\net6.0\CI.Repository.runtimeconfig.json
+C:\Users\pci114\Desktop\internship\CIPlateform\MVC\CI\CI.Repository\bin\Debug\net6.0\CI.Repository.dll
+C:\Users\pci114\Desktop\internship\CIPlateform\MVC\CI\CI.Repository\bin\Debug\net6.0\ref\CI.Repository.dll
+C:\Users\pci114\Desktop\internship\CIPlateform\MVC\CI\CI.Repository\bin\Debug\net6.0\CI.Repository.pdb
+C:\Users\pci114\Desktop\internship\CIPlateform\MVC\CI\CI.Repository\obj\Debug\net6.0\CI.Repository.csproj.AssemblyReference.cache
+C:\Users\pci114\Desktop\internship\CIPlateform\MVC\CI\CI.Repository\obj\Debug\net6.0\CI.Repository.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\pci114\Desktop\internship\CIPlateform\MVC\CI\CI.Repository\obj\Debug\net6.0\CI.Repository.AssemblyInfoInputs.cache
+C:\Users\pci114\Desktop\internship\CIPlateform\MVC\CI\CI.Repository\obj\Debug\net6.0\CI.Repository.AssemblyInfo.cs
+C:\Users\pci114\Desktop\internship\CIPlateform\MVC\CI\CI.Repository\obj\Debug\net6.0\CI.Repository.csproj.CoreCompileInputs.cache
+C:\Users\pci114\Desktop\internship\CIPlateform\MVC\CI\CI.Repository\obj\Debug\net6.0\CI.Repository.dll
+C:\Users\pci114\Desktop\internship\CIPlateform\MVC\CI\CI.Repository\obj\Debug\net6.0\ref\CI.Repository.dll
+C:\Users\pci114\Desktop\internship\CIPlateform\MVC\CI\CI.Repository\obj\Debug\net6.0\CI.Repository.pdb
+C:\Users\pci114\Desktop\internship\CIPlateform\MVC\CI\CI.Repository\obj\Debug\net6.0\CI.Repository.genruntimeconfig.cache
