@@ -1,4 +1,5 @@
-﻿using CIWeb.Data;
+﻿using CI.Entities.Data;
+using CI.Entities.Models;
 using CIWeb.Models;
 using Microsoft.AspNetCore.Mvc;
 using System.Diagnostics;
@@ -45,8 +46,21 @@ namespace CIWeb.Controllers
 
         [HttpPost]
         [Route("/register")]
-        public IActionResult Register(User obj)
+        public IActionResult Register(User obj, IFormCollection form)
         {
+
+            var ConfirmPassword = form["password1"];
+            var Password = form["Password"];
+            if (string.IsNullOrEmpty(ConfirmPassword))
+            {
+                ViewBag.Message = "Enter Confirm Password";
+                return View(obj);
+            }
+            if (Password != ConfirmPassword)
+            {
+                ViewBag.Message = "Password Does't Match!";
+                return View(obj);
+            }
             if (obj.FirstName == null)
             {
                 ModelState.AddModelError("FirstName", "FirstName Is required!");
@@ -55,6 +69,11 @@ namespace CIWeb.Controllers
             if (obj.LastName == null)
             {
                 ModelState.AddModelError("LastName", "LastName Is required!");
+                return View();
+            }
+            if (obj.PhoneNumber == null)
+            {
+                ModelState.AddModelError("PhoneNumber", "PhoneNumber Is required!");
                 return View();
             }
             if (obj.Email == null)
@@ -67,9 +86,9 @@ namespace CIWeb.Controllers
                 ModelState.AddModelError("Password", "Password Is required!");
                 return View();
             }
-            //if (obj.Password == obj.Password1)
+            //if (obj.Password != obj.Password1)
             //{
-            //    ModelState.AddModelError("Password", "Password Is required!");
+            //    ModelState.AddModelError("Password", "Password does Not Match!");
             //    return View();
             //}
 

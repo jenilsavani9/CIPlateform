@@ -1,4 +1,5 @@
-﻿@*
+﻿@using CI.Entities.Models
+@*
     For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 *@
 
@@ -21,7 +22,7 @@
             <div class="col-lg-4 col-md-12 col-sm-12">
             <div class="card ms-5 me-4 border-0 centerRegistrationForm">
                 <div class="card-body">
-                    <form method="POST">
+                    <form asp-action="Register" asp-controller="HomeController">
                         <div class="mb-3">
                             <label for="exampleInputEmail1" asp-for="FirstName" class="form-label">First Name</label>
                             <input type="text" class="form-control" id="validationCustom01" asp-for="FirstName"
@@ -49,18 +50,17 @@
                         </div>
                         <div class="mb-3">
                           <label for="exampleInputPassword1" asp-for="Password" class="form-label">Password</label>
-                          <input type="password" class="form-control" id="exampleInputPassword1" asp-for="Password"
+                          <input type="password" class="form-control" id="exampleInputPassword1" asp-for="Password" onchange="Validate()"
                           placeholder="EnterPassword">
                           <span class="text-danger" asp-validation-for="Password"></span>
                         </div>
                         <div class="mb-3">
-                            <label for="exampleInputPassword1" class="form-label">Confirm Password</label>
-                            <input type="password" class="form-control" id="exampleInputPassword1" name="password1"
-                            required placeholder="EnterPassword">
-                
+                            <label for="exampleInputPassword2" class="form-label">Confirm Password</label>
+                            <input type="password" class="form-control" id="exampleInputPassword2" name="password1"
+                             placeholder="EnterPassword">
+                            <span class="text-danger">@{@ViewBag.Message}</span>
                           </div>
-                        <button type="submit" class="button mt-2">Register</button>
-                        @*<button type="button" class="button mt-3" onclick="location.href='@Url.Action("Resetpass", "Home")'">Reset my Password</button>*@
+                        <button type="submit" class="button mt-2 disabled" id="register-btn" onclick="ValidatePassword()">Register</button>
                         <p class="d-flex justify-content-center mt-5 createacc">Aready Registered?
                             <a class="nav-link text-dark registerlogin" asp-area="" asp-controller="Home" asp-action="Login">Login now</a></p>
                     </form> 
@@ -68,6 +68,19 @@
                 </div>
               </div>
             </div>
+
+            @*<script type="text/javascript">
+                function Validate() {
+                    var password = document.getElementById("exampleInputPassword1").value;
+                    var confirmPassword = document.getElementById("exampleInputPassword2").value;
+                    if (password != confirmPassword) {
+                        document.getElementById("register-btn").setAttribute('disabled', true);
+                    } else {
+                        document.getElementById("register-btn").setAttribute('disabled', false);
+                    }
+                    
+                }
+            </script>*@
        
 </body>
 </html>

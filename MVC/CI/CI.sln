@@ -3,7 +3,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.2.32616.157
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CIWeb", "CIWeb\CIWeb.csproj", "{05EDB568-FDE0-4265-A509-E8FC62B38D98}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CIWeb", "CIWeb\CIWeb.csproj", "{05EDB568-FDE0-4265-A509-E8FC62B38D98}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CI.Entities", "CI.Entities\CI.Entities.csproj", "{A2F90D6A-158C-44F6-97B0-2AAB8A1D13C4}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CI.Repository", "CI.Repository\CI.Repository.csproj", "{0A86A18F-BAF8-4645-9181-D4E9B3D3D7A6}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +19,14 @@ Global
 		{05EDB568-FDE0-4265-A509-E8FC62B38D98}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{05EDB568-FDE0-4265-A509-E8FC62B38D98}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{05EDB568-FDE0-4265-A509-E8FC62B38D98}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A2F90D6A-158C-44F6-97B0-2AAB8A1D13C4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A2F90D6A-158C-44F6-97B0-2AAB8A1D13C4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A2F90D6A-158C-44F6-97B0-2AAB8A1D13C4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A2F90D6A-158C-44F6-97B0-2AAB8A1D13C4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0A86A18F-BAF8-4645-9181-D4E9B3D3D7A6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0A86A18F-BAF8-4645-9181-D4E9B3D3D7A6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0A86A18F-BAF8-4645-9181-D4E9B3D3D7A6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0A86A18F-BAF8-4645-9181-D4E9B3D3D7A6}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

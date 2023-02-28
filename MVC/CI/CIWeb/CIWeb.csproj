@@ -147,4 +147,9 @@
     </PackageReference>
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\CI.Entities\CI.Entities.csproj" />
+    <ProjectReference Include="..\CI.Repository\CI.Repository.csproj" />
+  </ItemGroup>
+
 </Project>
