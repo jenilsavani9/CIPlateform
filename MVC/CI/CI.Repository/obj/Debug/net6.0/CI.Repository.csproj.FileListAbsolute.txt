@@ -12,3 +12,17 @@ C:\Users\pci114\Desktop\internship\CIPlateform\MVC\CI\CI.Repository\obj\Debug\ne
 C:\Users\pci114\Desktop\internship\CIPlateform\MVC\CI\CI.Repository\obj\Debug\net6.0\ref\CI.Repository.dll
 C:\Users\pci114\Desktop\internship\CIPlateform\MVC\CI\CI.Repository\obj\Debug\net6.0\CI.Repository.pdb
 C:\Users\pci114\Desktop\internship\CIPlateform\MVC\CI\CI.Repository\obj\Debug\net6.0\CI.Repository.genruntimeconfig.cache
+C:\Users\jenil\OneDrive\Desktop\CIPlateform\MVC\CI\CI.Repository\bin\Debug\net6.0\CI.Repository.deps.json
+C:\Users\jenil\OneDrive\Desktop\CIPlateform\MVC\CI\CI.Repository\bin\Debug\net6.0\CI.Repository.runtimeconfig.json
+C:\Users\jenil\OneDrive\Desktop\CIPlateform\MVC\CI\CI.Repository\bin\Debug\net6.0\CI.Repository.dll
+C:\Users\jenil\OneDrive\Desktop\CIPlateform\MVC\CI\CI.Repository\bin\Debug\net6.0\CI.Repository.pdb
+C:\Users\jenil\OneDrive\Desktop\CIPlateform\MVC\CI\CI.Repository\obj\Debug\net6.0\CI.Repository.csproj.AssemblyReference.cache
+C:\Users\jenil\OneDrive\Desktop\CIPlateform\MVC\CI\CI.Repository\obj\Debug\net6.0\CI.Repository.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\jenil\OneDrive\Desktop\CIPlateform\MVC\CI\CI.Repository\obj\Debug\net6.0\CI.Repository.AssemblyInfoInputs.cache
+C:\Users\jenil\OneDrive\Desktop\CIPlateform\MVC\CI\CI.Repository\obj\Debug\net6.0\CI.Repository.AssemblyInfo.cs
+C:\Users\jenil\OneDrive\Desktop\CIPlateform\MVC\CI\CI.Repository\obj\Debug\net6.0\CI.Repository.csproj.CoreCompileInputs.cache
+C:\Users\jenil\OneDrive\Desktop\CIPlateform\MVC\CI\CI.Repository\obj\Debug\net6.0\CI.Repository.dll
+C:\Users\jenil\OneDrive\Desktop\CIPlateform\MVC\CI\CI.Repository\obj\Debug\net6.0\refint\CI.Repository.dll
+C:\Users\jenil\OneDrive\Desktop\CIPlateform\MVC\CI\CI.Repository\obj\Debug\net6.0\CI.Repository.pdb
+C:\Users\jenil\OneDrive\Desktop\CIPlateform\MVC\CI\CI.Repository\obj\Debug\net6.0\CI.Repository.genruntimeconfig.cache
+C:\Users\jenil\OneDrive\Desktop\CIPlateform\MVC\CI\CI.Repository\obj\Debug\net6.0\ref\CI.Repository.dll

@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "m69l3eG6fs7HludDiXnh9DB6EqA9RekkB86sC9xTMWE=",
+  "Hash": "CjtWw+3oq0AAe9mFReBiCty9fkeyTU/aUiz5nar+gKA=",
   "Source": "CIWeb",
   "BasePath": "_content/CIWeb",
   "Mode": "Default",
@@ -10,17 +10,17 @@
     {
       "Name": "CIWeb\\wwwroot",
       "Source": "CIWeb",
-      "ContentRoot": "C:\\Users\\pci114\\Desktop\\internship\\CIPlateform\\MVC\\CI\\CIWeb\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\jenil\\OneDrive\\Desktop\\CIPlateform\\MVC\\CI\\CIWeb\\wwwroot\\",
       "BasePath": "_content/CIWeb",
       "Pattern": "**"
     }
   ],
   "Assets": [
     {
-      "Identity": "C:\\Users\\pci114\\Desktop\\internship\\CIPlateform\\MVC\\CI\\CIWeb\\obj\\Debug\\net6.0\\scopedcss\\bundle\\CIWeb.styles.css",
+      "Identity": "C:\\Users\\jenil\\OneDrive\\Desktop\\CIPlateform\\MVC\\CI\\CIWeb\\obj\\Debug\\net6.0\\scopedcss\\bundle\\CIWeb.styles.css",
       "SourceId": "CIWeb",
       "SourceType": "Computed",
-      "ContentRoot": "C:\\Users\\pci114\\Desktop\\internship\\CIPlateform\\MVC\\CI\\CIWeb\\obj\\Debug\\net6.0\\scopedcss\\bundle\\",
+      "ContentRoot": "C:\\Users\\jenil\\OneDrive\\Desktop\\CIPlateform\\MVC\\CI\\CIWeb\\obj\\Debug\\net6.0\\scopedcss\\bundle\\",
       "BasePath": "_content/CIWeb",
       "RelativePath": "CIWeb.styles.css",
       "AssetKind": "All",
@@ -31,13 +31,13 @@
       "AssetTraitValue": "ApplicationBundle",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "C:\\Users\\pci114\\Desktop\\internship\\CIPlateform\\MVC\\CI\\CIWeb\\obj\\Debug\\net6.0\\scopedcss\\bundle\\CIWeb.styles.css"
+      "OriginalItemSpec": "C:\\Users\\jenil\\OneDrive\\Desktop\\CIPlateform\\MVC\\CI\\CIWeb\\obj\\Debug\\net6.0\\scopedcss\\bundle\\CIWeb.styles.css"
     },
     {
-      "Identity": "C:\\Users\\pci114\\Desktop\\internship\\CIPlateform\\MVC\\CI\\CIWeb\\obj\\Debug\\net6.0\\scopedcss\\projectbundle\\CIWeb.bundle.scp.css",
+      "Identity": "C:\\Users\\jenil\\OneDrive\\Desktop\\CIPlateform\\MVC\\CI\\CIWeb\\obj\\Debug\\net6.0\\scopedcss\\projectbundle\\CIWeb.bundle.scp.css",
       "SourceId": "CIWeb",
       "SourceType": "Computed",
-      "ContentRoot": "C:\\Users\\pci114\\Desktop\\internship\\CIPlateform\\MVC\\CI\\CIWeb\\obj\\Debug\\net6.0\\scopedcss\\projectbundle\\",
+      "ContentRoot": "C:\\Users\\jenil\\OneDrive\\Desktop\\CIPlateform\\MVC\\CI\\CIWeb\\obj\\Debug\\net6.0\\scopedcss\\projectbundle\\",
       "BasePath": "_content/CIWeb",
       "RelativePath": "CIWeb.bundle.scp.css",
       "AssetKind": "All",
@@ -48,13 +48,13 @@
       "AssetTraitValue": "ProjectBundle",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "C:\\Users\\pci114\\Desktop\\internship\\CIPlateform\\MVC\\CI\\CIWeb\\obj\\Debug\\net6.0\\scopedcss\\projectbundle\\CIWeb.bundle.scp.css"
+      "OriginalItemSpec": "C:\\Users\\jenil\\OneDrive\\Desktop\\CIPlateform\\MVC\\CI\\CIWeb\\obj\\Debug\\net6.0\\scopedcss\\projectbundle\\CIWeb.bundle.scp.css"
     },
     {
-      "Identity": "C:\\Users\\pci114\\Desktop\\internship\\CIPlateform\\MVC\\CI\\CIWeb\\wwwroot\\css\\bootstrap.min.css",
+      "Identity": "C:\\Users\\jenil\\OneDrive\\Desktop\\CIPlateform\\MVC\\CI\\CIWeb\\wwwroot\\css\\bootstrap.min.css",
       "SourceId": "CIWeb",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\pci114\\Desktop\\internship\\CIPlateform\\MVC\\CI\\CIWeb\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\jenil\\OneDrive\\Desktop\\CIPlateform\\MVC\\CI\\CIWeb\\wwwroot\\",
       "BasePath": "_content/CIWeb",
       "RelativePath": "css/bootstrap.min.css",
       "AssetKind": "All",
@@ -68,10 +68,10 @@
       "OriginalItemSpec": "wwwroot\\css\\bootstrap.min.css"
     },
     {
-      "Identity": "C:\\Users\\pci114\\Desktop\\internship\\CIPlateform\\MVC\\CI\\CIWeb\\wwwroot\\css\\bootstrap.min.css.map",
+      "Identity": "C:\\Users\\jenil\\OneDrive\\Desktop\\CIPlateform\\MVC\\CI\\CIWeb\\wwwroot\\css\\bootstrap.min.css.map",
       "SourceId": "CIWeb",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\pci114\\Desktop\\internship\\CIPlateform\\MVC\\CI\\CIWeb\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\jenil\\OneDrive\\Desktop\\CIPlateform\\MVC\\CI\\CIWeb\\wwwroot\\",
       "BasePath": "_content/CIWeb",
       "RelativePath": "css/bootstrap.min.css.map",
       "AssetKind": "All",
@@ -85,10 +85,10 @@
       "OriginalItemSpec": "wwwroot\\css\\bootstrap.min.css.map"
     },
     {
-      "Identity": "C:\\Users\\pci114\\Desktop\\internship\\CIPlateform\\MVC\\CI\\CIWeb\\wwwroot\\css\\home.css",
+      "Identity": "C:\\Users\\jenil\\OneDrive\\Desktop\\CIPlateform\\MVC\\CI\\CIWeb\\wwwroot\\css\\home.css",
       "SourceId": "CIWeb",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\pci114\\Desktop\\internship\\CIPlateform\\MVC\\CI\\CIWeb\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\jenil\\OneDrive\\Desktop\\CIPlateform\\MVC\\CI\\CIWeb\\wwwroot\\",
       "BasePath": "_content/CIWeb",
       "RelativePath": "css/home.css",
       "AssetKind": "All",
@@ -102,10 +102,10 @@
       "OriginalItemSpec": "wwwroot\\css\\home.css"
     },
     {
-      "Identity": "C:\\Users\\pci114\\Desktop\\internship\\CIPlateform\\MVC\\CI\\CIWeb\\wwwroot\\css\\LandingPage.css",
+      "Identity": "C:\\Users\\jenil\\OneDrive\\Desktop\\CIPlateform\\MVC\\CI\\CIWeb\\wwwroot\\css\\LandingPage.css",
       "SourceId": "CIWeb",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\pci114\\Desktop\\internship\\CIPlateform\\MVC\\CI\\CIWeb\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\jenil\\OneDrive\\Desktop\\CIPlateform\\MVC\\CI\\CIWeb\\wwwroot\\",
       "BasePath": "_content/CIWeb",
       "RelativePath": "css/LandingPage.css",
       "AssetKind": "All",
@@ -119,10 +119,10 @@
       "OriginalItemSpec": "wwwroot\\css\\LandingPage.css"
     },
     {
-      "Identity": "C:\\Users\\pci114\\Desktop\\internship\\CIPlateform\\MVC\\CI\\CIWeb\\wwwroot\\css\\navbar.css",
+      "Identity": "C:\\Users\\jenil\\OneDrive\\Desktop\\CIPlateform\\MVC\\CI\\CIWeb\\wwwroot\\css\\navbar.css",
       "SourceId": "CIWeb",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\pci114\\Desktop\\internship\\CIPlateform\\MVC\\CI\\CIWeb\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\jenil\\OneDrive\\Desktop\\CIPlateform\\MVC\\CI\\CIWeb\\wwwroot\\",
       "BasePath": "_content/CIWeb",
       "RelativePath": "css/navbar.css",
       "AssetKind": "All",
@@ -136,10 +136,10 @@
       "OriginalItemSpec": "wwwroot\\css\\navbar.css"
     },
     {
-      "Identity": "C:\\Users\\pci114\\Desktop\\internship\\CIPlateform\\MVC\\CI\\CIWeb\\wwwroot\\css\\PageNotFound.css",
+      "Identity": "C:\\Users\\jenil\\OneDrive\\Desktop\\CIPlateform\\MVC\\CI\\CIWeb\\wwwroot\\css\\PageNotFound.css",
       "SourceId": "CIWeb",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\pci114\\Desktop\\internship\\CIPlateform\\MVC\\CI\\CIWeb\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\jenil\\OneDrive\\Desktop\\CIPlateform\\MVC\\CI\\CIWeb\\wwwroot\\",
       "BasePath": "_content/CIWeb",
       "RelativePath": "css/PageNotFound.css",
       "AssetKind": "All",
@@ -153,10 +153,10 @@
       "OriginalItemSpec": "wwwroot\\css\\PageNotFound.css"
     },
     {
-      "Identity": "C:\\Users\\pci114\\Desktop\\internship\\CIPlateform\\MVC\\CI\\CIWeb\\wwwroot\\css\\site.css",
+      "Identity": "C:\\Users\\jenil\\OneDrive\\Desktop\\CIPlateform\\MVC\\CI\\CIWeb\\wwwroot\\css\\site.css",
       "SourceId": "CIWeb",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\pci114\\Desktop\\internship\\CIPlateform\\MVC\\CI\\CIWeb\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\jenil\\OneDrive\\Desktop\\CIPlateform\\MVC\\CI\\CIWeb\\wwwroot\\",
       "BasePath": "_content/CIWeb",
       "RelativePath": "css/site.css",
       "AssetKind": "All",
@@ -170,10 +170,10 @@
       "OriginalItemSpec": "wwwroot\\css\\site.css"
     },
     {
-      "Identity": "C:\\Users\\pci114\\Desktop\\internship\\CIPlateform\\MVC\\CI\\CIWeb\\wwwroot\\css\\StoryListing.css",
+      "Identity": "C:\\Users\\jenil\\OneDrive\\Desktop\\CIPlateform\\MVC\\CI\\CIWeb\\wwwroot\\css\\StoryListing.css",
       "SourceId": "CIWeb",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\pci114\\Desktop\\internship\\CIPlateform\\MVC\\CI\\CIWeb\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\jenil\\OneDrive\\Desktop\\CIPlateform\\MVC\\CI\\CIWeb\\wwwroot\\",
       "BasePath": "_content/CIWeb",
       "RelativePath": "css/StoryListing.css",
       "AssetKind": "All",
@@ -187,10 +187,10 @@
       "OriginalItemSpec": "wwwroot\\css\\StoryListing.css"
     },
     {
-      "Identity": "C:\\Users\\pci114\\Desktop\\internship\\CIPlateform\\MVC\\CI\\CIWeb\\wwwroot\\css\\volunteering.css",
+      "Identity": "C:\\Users\\jenil\\OneDrive\\Desktop\\CIPlateform\\MVC\\CI\\CIWeb\\wwwroot\\css\\volunteering.css",
       "SourceId": "CIWeb",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\pci114\\Desktop\\internship\\CIPlateform\\MVC\\CI\\CIWeb\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\jenil\\OneDrive\\Desktop\\CIPlateform\\MVC\\CI\\CIWeb\\wwwroot\\",
       "BasePath": "_content/CIWeb",
       "RelativePath": "css/volunteering.css",
       "AssetKind": "All",
@@ -204,10 +204,10 @@
       "OriginalItemSpec": "wwwroot\\css\\volunteering.css"
     },
     {
-      "Identity": "C:\\Users\\pci114\\Desktop\\internship\\CIPlateform\\MVC\\CI\\CIWeb\\wwwroot\\favicon.ico",
+      "Identity": "C:\\Users\\jenil\\OneDrive\\Desktop\\CIPlateform\\MVC\\CI\\CIWeb\\wwwroot\\favicon.ico",
       "SourceId": "CIWeb",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\pci114\\Desktop\\internship\\CIPlateform\\MVC\\CI\\CIWeb\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\jenil\\OneDrive\\Desktop\\CIPlateform\\MVC\\CI\\CIWeb\\wwwroot\\",
       "BasePath": "_content/CIWeb",
       "RelativePath": "favicon.ico",
       "AssetKind": "All",
@@ -221,10 +221,10 @@
       "OriginalItemSpec": "wwwroot\\favicon.ico"
     },
     {
-      "Identity": "C:\\Users\\pci114\\Desktop\\internship\\CIPlateform\\MVC\\CI\\CIWeb\\wwwroot\\img\\404-Page-image.png",
+      "Identity": "C:\\Users\\jenil\\OneDrive\\Desktop\\CIPlateform\\MVC\\CI\\CIWeb\\wwwroot\\img\\404-Page-image.png",
       "SourceId": "CIWeb",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\pci114\\Desktop\\internship\\CIPlateform\\MVC\\CI\\CIWeb\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\jenil\\OneDrive\\Desktop\\CIPlateform\\MVC\\CI\\CIWeb\\wwwroot\\",
       "BasePath": "_content/CIWeb",
       "RelativePath": "img/404-Page-image.png",
       "AssetKind": "All",
@@ -238,10 +238,10 @@
       "OriginalItemSpec": "wwwroot\\img\\404-Page-image.png"
     },
     {
-      "Identity": "C:\\Users\\pci114\\Desktop\\internship\\CIPlateform\\MVC\\CI\\CIWeb\\wwwroot\\img\\achieved.png",
+      "Identity": "C:\\Users\\jenil\\OneDrive\\Desktop\\CIPlateform\\MVC\\CI\\CIWeb\\wwwroot\\img\\achieved.png",
       "SourceId": "CIWeb",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\pci114\\Desktop\\internship\\CIPlateform\\MVC\\CI\\CIWeb\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\jenil\\OneDrive\\Desktop\\CIPlateform\\MVC\\CI\\CIWeb\\wwwroot\\",
       "BasePath": "_content/CIWeb",
       "RelativePath": "img/achieved.png",
       "AssetKind": "All",
@@ -255,10 +255,10 @@
       "OriginalItemSpec": "wwwroot\\img\\achieved.png"
     },
     {
-      "Identity": "C:\\Users\\pci114\\Desktop\\internship\\CIPlateform\\MVC\\CI\\CIWeb\\wwwroot\\img\\add.png",
+      "Identity": "C:\\Users\\jenil\\OneDrive\\Desktop\\CIPlateform\\MVC\\CI\\CIWeb\\wwwroot\\img\\add.png",
       "SourceId": "CIWeb",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\pci114\\Desktop\\internship\\CIPlateform\\MVC\\CI\\CIWeb\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\jenil\\OneDrive\\Desktop\\CIPlateform\\MVC\\CI\\CIWeb\\wwwroot\\",
       "BasePath": "_content/CIWeb",
       "RelativePath": "img/add.png",
       "AssetKind": "All",
@@ -272,10 +272,10 @@
       "OriginalItemSpec": "wwwroot\\img\\add.png"
     },
     {
-      "Identity": "C:\\Users\\pci114\\Desktop\\internship\\CIPlateform\\MVC\\CI\\CIWeb\\wwwroot\\img\\add1.png",
+      "Identity": "C:\\Users\\jenil\\OneDrive\\Desktop\\CIPlateform\\MVC\\CI\\CIWeb\\wwwroot\\img\\add1.png",
       "SourceId": "CIWeb",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\pci114\\Desktop\\internship\\CIPlateform\\MVC\\CI\\CIWeb\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\jenil\\OneDrive\\Desktop\\CIPlateform\\MVC\\CI\\CIWeb\\wwwroot\\",
       "BasePath": "_content/CIWeb",
       "RelativePath": "img/add1.png",
       "AssetKind": "All",
@@ -289,10 +289,10 @@
       "OriginalItemSpec": "wwwroot\\img\\add1.png"
     },
     {
-      "Identity": "C:\\Users\\pci114\\Desktop\\internship\\CIPlateform\\MVC\\CI\\CIWeb\\wwwroot\\img\\Already-volunteered.png",
+      "Identity": "C:\\Users\\jenil\\OneDrive\\Desktop\\CIPlateform\\MVC\\CI\\CIWeb\\wwwroot\\img\\Already-volunteered.png",
       "SourceId": "CIWeb",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\pci114\\Desktop\\internship\\CIPlateform\\MVC\\CI\\CIWeb\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\jenil\\OneDrive\\Desktop\\CIPlateform\\MVC\\CI\\CIWeb\\wwwroot\\",
       "BasePath": "_content/CIWeb",
       "RelativePath": "img/Already-volunteered.png",
       "AssetKind": "All",
@@ -306,10 +306,10 @@
       "OriginalItemSpec": "wwwroot\\img\\Already-volunteered.png"
     },
     {
-      "Identity": "C:\\Users\\pci114\\Desktop\\internship\\CIPlateform\\MVC\\CI\\CIWeb\\wwwroot\\img\\Animal-welfare-_-save-birds-campaign.png",
+      "Identity": "C:\\Users\\jenil\\OneDrive\\Desktop\\CIPlateform\\MVC\\CI\\CIWeb\\wwwroot\\img\\Animal-welfare-_-save-birds-campaign.png",
       "SourceId": "CIWeb",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\pci114\\Desktop\\internship\\CIPlateform\\MVC\\CI\\CIWeb\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\jenil\\OneDrive\\Desktop\\CIPlateform\\MVC\\CI\\CIWeb\\wwwroot\\",
       "BasePath": "_content/CIWeb",
       "RelativePath": "img/Animal-welfare-_-save-birds-campaign.png",
       "AssetKind": "All",
@@ -323,10 +323,10 @@
       "OriginalItemSpec": "wwwroot\\img\\Animal-welfare-_-save-birds-campaign.png"
     },
     {
-      "Identity": "C:\\Users\\pci114\\Desktop\\internship\\CIPlateform\\MVC\\CI\\CIWeb\\wwwroot\\img\\Animal-welfare-_-save-birds-campaign-1.png",
+      "Identity": "C:\\Users\\jenil\\OneDrive\\Desktop\\CIPlateform\\MVC\\CI\\CIWeb\\wwwroot\\img\\Animal-welfare-_-save-birds-campaign-1.png",
       "SourceId": "CIWeb",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\pci114\\Desktop\\internship\\CIPlateform\\MVC\\CI\\CIWeb\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\jenil\\OneDrive\\Desktop\\CIPlateform\\MVC\\CI\\CIWeb\\wwwroot\\",
       "BasePath": "_content/CIWeb",
       "RelativePath": "img/Animal-welfare-_-save-birds-campaign-1.png",
       "AssetKind": "All",
@@ -340,10 +340,10 @@
       "OriginalItemSpec": "wwwroot\\img\\Animal-welfare-_-save-birds-campaign-1.png"
     },
     {
-      "Identity": "C:\\Users\\pci114\\Desktop\\internship\\CIPlateform\\MVC\\CI\\CIWeb\\wwwroot\\img\\arrow.png",
+      "Identity": "C:\\Users\\jenil\\OneDrive\\Desktop\\CIPlateform\\MVC\\CI\\CIWeb\\wwwroot\\img\\arrow.png",
       "SourceId": "CIWeb",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\pci114\\Desktop\\internship\\CIPlateform\\MVC\\CI\\CIWeb\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\jenil\\OneDrive\\Desktop\\CIPlateform\\MVC\\CI\\CIWeb\\wwwroot\\",
       "BasePath": "_content/CIWeb",
       "RelativePath": "img/arrow.png",
       "AssetKind": "All",
@@ -357,10 +357,10 @@
       "OriginalItemSpec": "wwwroot\\img\\arrow.png"
     },
     {
-      "Identity": "C:\\Users\\pci114\\Desktop\\internship\\CIPlateform\\MVC\\CI\\CIWeb\\wwwroot\\img\\bell.png",
+      "Identity": "C:\\Users\\jenil\\OneDrive\\Desktop\\CIPlateform\\MVC\\CI\\CIWeb\\wwwroot\\img\\bell.png",
       "SourceId": "CIWeb",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\pci114\\Desktop\\internship\\CIPlateform\\MVC\\CI\\CIWeb\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\jenil\\OneDrive\\Desktop\\CIPlateform\\MVC\\CI\\CIWeb\\wwwroot\\",
       "BasePath": "_content/CIWeb",
       "RelativePath": "img/bell.png",
       "AssetKind": "All",
@@ -374,10 +374,10 @@
       "OriginalItemSpec": "wwwroot\\img\\bell.png"
     },
     {
-      "Identity": "C:\\Users\\pci114\\Desktop\\internship\\CIPlateform\\MVC\\CI\\CIWeb\\wwwroot\\img\\bell-big.png",
+      "Identity": "C:\\Users\\jenil\\OneDrive\\Desktop\\CIPlateform\\MVC\\CI\\CIWeb\\wwwroot\\img\\bell-big.png",
       "SourceId": "CIWeb",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\pci114\\Desktop\\internship\\CIPlateform\\MVC\\CI\\CIWeb\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\jenil\\OneDrive\\Desktop\\CIPlateform\\MVC\\CI\\CIWeb\\wwwroot\\",
       "BasePath": "_content/CIWeb",
       "RelativePath": "img/bell-big.png",
       "AssetKind": "All",
@@ -391,10 +391,10 @@
       "OriginalItemSpec": "wwwroot\\img\\bell-big.png"
     },
     {
-      "Identity": "C:\\Users\\pci114\\Desktop\\internship\\CIPlateform\\MVC\\CI\\CIWeb\\wwwroot\\img\\bin.png",
+      "Identity": "C:\\Users\\jenil\\OneDrive\\Desktop\\CIPlateform\\MVC\\CI\\CIWeb\\wwwroot\\img\\bin.png",
       "SourceId": "CIWeb",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\pci114\\Desktop\\internship\\CIPlateform\\MVC\\CI\\CIWeb\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\jenil\\OneDrive\\Desktop\\CIPlateform\\MVC\\CI\\CIWeb\\wwwroot\\",
       "BasePath": "_content/CIWeb",
       "RelativePath": "img/bin.png",
       "AssetKind": "All",
@@ -408,10 +408,10 @@
       "OriginalItemSpec": "wwwroot\\img\\bin.png"
     },
     {
-      "Identity": "C:\\Users\\pci114\\Desktop\\internship\\CIPlateform\\MVC\\CI\\CIWeb\\wwwroot\\img\\calender.png",
+      "Identity": "C:\\Users\\jenil\\OneDrive\\Desktop\\CIPlateform\\MVC\\CI\\CIWeb\\wwwroot\\img\\calender.png",
       "SourceId": "CIWeb",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\pci114\\Desktop\\internship\\CIPlateform\\MVC\\CI\\CIWeb\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\jenil\\OneDrive\\Desktop\\CIPlateform\\MVC\\CI\\CIWeb\\wwwroot\\",
       "BasePath": "_content/CIWeb",
       "RelativePath": "img/calender.png",
       "AssetKind": "All",
@@ -425,10 +425,10 @@
       "OriginalItemSpec": "wwwroot\\img\\calender.png"
     },
     {
-      "Identity": "C:\\Users\\pci114\\Desktop\\internship\\CIPlateform\\MVC\\CI\\CIWeb\\wwwroot\\img\\cancel.png",
+      "Identity": "C:\\Users\\jenil\\OneDrive\\Desktop\\CIPlateform\\MVC\\CI\\CIWeb\\wwwroot\\img\\cancel.png",
       "SourceId": "CIWeb",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\pci114\\Desktop\\internship\\CIPlateform\\MVC\\CI\\CIWeb\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\jenil\\OneDrive\\Desktop\\CIPlateform\\MVC\\CI\\CIWeb\\wwwroot\\",
       "BasePath": "_content/CIWeb",
       "RelativePath": "img/cancel.png",
       "AssetKind": "All",
@@ -442,10 +442,10 @@
       "OriginalItemSpec": "wwwroot\\img\\cancel.png"
     },
     {
-      "Identity": "C:\\Users\\pci114\\Desktop\\internship\\CIPlateform\\MVC\\CI\\CIWeb\\wwwroot\\img\\cancel1.png",
+      "Identity": "C:\\Users\\jenil\\OneDrive\\Desktop\\CIPlateform\\MVC\\CI\\CIWeb\\wwwroot\\img\\cancel1.png",
       "SourceId": "CIWeb",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\pci114\\Desktop\\internship\\CIPlateform\\MVC\\CI\\CIWeb\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\jenil\\OneDrive\\Desktop\\CIPlateform\\MVC\\CI\\CIWeb\\wwwroot\\",
       "BasePath": "_content/CIWeb",
       "RelativePath": "img/cancel1.png",
       "AssetKind": "All",
@@ -459,10 +459,10 @@
       "OriginalItemSpec": "wwwroot\\img\\cancel1.png"
     },
     {
-      "Identity": "C:\\Users\\pci114\\Desktop\\internship\\CIPlateform\\MVC\\CI\\CIWeb\\wwwroot\\img\\checked.png",
+      "Identity": "C:\\Users\\jenil\\OneDrive\\Desktop\\CIPlateform\\MVC\\CI\\CIWeb\\wwwroot\\img\\checked.png",
       "SourceId": "CIWeb",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\pci114\\Desktop\\internship\\CIPlateform\\MVC\\CI\\CIWeb\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\jenil\\OneDrive\\Desktop\\CIPlateform\\MVC\\CI\\CIWeb\\wwwroot\\",
       "BasePath": "_content/CIWeb",
       "RelativePath": "img/checked.png",
       "AssetKind": "All",
@@ -476,10 +476,10 @@
       "OriginalItemSpec": "wwwroot\\img\\checked.png"
     },
     {
-      "Identity": "C:\\Users\\pci114\\Desktop\\internship\\CIPlateform\\MVC\\CI\\CIWeb\\wwwroot\\img\\cross.png",
+      "Identity": "C:\\Users\\jenil\\OneDrive\\Desktop\\CIPlateform\\MVC\\CI\\CIWeb\\wwwroot\\img\\cross.png",
       "SourceId": "CIWeb",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\pci114\\Desktop\\internship\\CIPlateform\\MVC\\CI\\CIWeb\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\jenil\\OneDrive\\Desktop\\CIPlateform\\MVC\\CI\\CIWeb\\wwwroot\\",
       "BasePath": "_content/CIWeb",
       "RelativePath": "img/cross.png",
       "AssetKind": "All",
@@ -493,10 +493,10 @@
       "OriginalItemSpec": "wwwroot\\img\\cross.png"
     },
     {
-      "Identity": "C:\\Users\\pci114\\Desktop\\internship\\CIPlateform\\MVC\\CI\\CIWeb\\wwwroot\\img\\CSR-initiative-stands-for-Coffee--and-Farmer-Equity.png",
+      "Identity": "C:\\Users\\jenil\\OneDrive\\Desktop\\CIPlateform\\MVC\\CI\\CIWeb\\wwwroot\\img\\CSR-initiative-stands-for-Coffee--and-Farmer-Equity.png",
       "SourceId": "CIWeb",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\pci114\\Desktop\\internship\\CIPlateform\\MVC\\CI\\CIWeb\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\jenil\\OneDrive\\Desktop\\CIPlateform\\MVC\\CI\\CIWeb\\wwwroot\\",
       "BasePath": "_content/CIWeb",
       "RelativePath": "img/CSR-initiative-stands-for-Coffee--and-Farmer-Equity.png",
       "AssetKind": "All",
@@ -510,10 +510,10 @@
       "OriginalItemSpec": "wwwroot\\img\\CSR-initiative-stands-for-Coffee--and-Farmer-Equity.png"
     },
     {
-      "Identity": "C:\\Users\\pci114\\Desktop\\internship\\CIPlateform\\MVC\\CI\\CIWeb\\wwwroot\\img\\CSR-initiative-stands-for-Coffee--and-Farmer-Equity-1.png",
+      "Identity": "C:\\Users\\jenil\\OneDrive\\Desktop\\CIPlateform\\MVC\\CI\\CIWeb\\wwwroot\\img\\CSR-initiative-stands-for-Coffee--and-Farmer-Equity-1.png",
       "SourceId": "CIWeb",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\pci114\\Desktop\\internship\\CIPlateform\\MVC\\CI\\CIWeb\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\jenil\\OneDrive\\Desktop\\CIPlateform\\MVC\\CI\\CIWeb\\wwwroot\\",
       "BasePath": "_content/CIWeb",
       "RelativePath": "img/CSR-initiative-stands-for-Coffee--and-Farmer-Equity-1.png",
       "AssetKind": "All",
@@ -527,10 +527,10 @@
       "OriginalItemSpec": "wwwroot\\img\\CSR-initiative-stands-for-Coffee--and-Farmer-Equity-1.png"
     },
     {
-      "Identity": "C:\\Users\\pci114\\Desktop\\internship\\CIPlateform\\MVC\\CI\\CIWeb\\wwwroot\\img\\CSR-initiative-stands-for-Coffee--and-Farmer-Equity-2.png",
+      "Identity": "C:\\Users\\jenil\\OneDrive\\Desktop\\CIPlateform\\MVC\\CI\\CIWeb\\wwwroot\\img\\CSR-initiative-stands-for-Coffee--and-Farmer-Equity-2.png",
       "SourceId": "CIWeb",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\pci114\\Desktop\\internship\\CIPlateform\\MVC\\CI\\CIWeb\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\jenil\\OneDrive\\Desktop\\CIPlateform\\MVC\\CI\\CIWeb\\wwwroot\\",
       "BasePath": "_content/CIWeb",
       "RelativePath": "img/CSR-initiative-stands-for-Coffee--and-Farmer-Equity-2.png",
       "AssetKind": "All",
@@ -544,10 +544,10 @@
       "OriginalItemSpec": "wwwroot\\img\\CSR-initiative-stands-for-Coffee--and-Farmer-Equity-2.png"
     },
     {
-      "Identity": "C:\\Users\\pci114\\Desktop\\internship\\CIPlateform\\MVC\\CI\\CIWeb\\wwwroot\\img\\CSR-initiative-stands-for-Coffee--and-Farmer-Equity-3.png",
+      "Identity": "C:\\Users\\jenil\\OneDrive\\Desktop\\CIPlateform\\MVC\\CI\\CIWeb\\wwwroot\\img\\CSR-initiative-stands-for-Coffee--and-Farmer-Equity-3.png",
       "SourceId": "CIWeb",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\pci114\\Desktop\\internship\\CIPlateform\\MVC\\CI\\CIWeb\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\jenil\\OneDrive\\Desktop\\CIPlateform\\MVC\\CI\\CIWeb\\wwwroot\\",
       "BasePath": "_content/CIWeb",
       "RelativePath": "img/CSR-initiative-stands-for-Coffee--and-Farmer-Equity-3.png",
       "AssetKind": "All",
@@ -561,10 +561,10 @@
       "OriginalItemSpec": "wwwroot\\img\\CSR-initiative-stands-for-Coffee--and-Farmer-Equity-3.png"
     },
     {
-      "Identity": "C:\\Users\\pci114\\Desktop\\internship\\CIPlateform\\MVC\\CI\\CIWeb\\wwwroot\\img\\CSR-initiative-stands-for-Coffee--and-Farmer-Equity-4.png",
+      "Identity": "C:\\Users\\jenil\\OneDrive\\Desktop\\CIPlateform\\MVC\\CI\\CIWeb\\wwwroot\\img\\CSR-initiative-stands-for-Coffee--and-Farmer-Equity-4.png",
       "SourceId": "CIWeb",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\pci114\\Desktop\\internship\\CIPlateform\\MVC\\CI\\CIWeb\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\jenil\\OneDrive\\Desktop\\CIPlateform\\MVC\\CI\\CIWeb\\wwwroot\\",
       "BasePath": "_content/CIWeb",
       "RelativePath": "img/CSR-initiative-stands-for-Coffee--and-Farmer-Equity-4.png",
       "AssetKind": "All",
@@ -578,10 +578,10 @@
       "OriginalItemSpec": "wwwroot\\img\\CSR-initiative-stands-for-Coffee--and-Farmer-Equity-4.png"
     },
     {
-      "Identity": "C:\\Users\\pci114\\Desktop\\internship\\CIPlateform\\MVC\\CI\\CIWeb\\wwwroot\\img\\CSR-initiative-stands-for-Coffee--and-Farmer-Equity-5.png",
+      "Identity": "C:\\Users\\jenil\\OneDrive\\Desktop\\CIPlateform\\MVC\\CI\\CIWeb\\wwwroot\\img\\CSR-initiative-stands-for-Coffee--and-Farmer-Equity-5.png",
       "SourceId": "CIWeb",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\pci114\\Desktop\\internship\\CIPlateform\\MVC\\CI\\CIWeb\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\jenil\\OneDrive\\Desktop\\CIPlateform\\MVC\\CI\\CIWeb\\wwwroot\\",
       "BasePath": "_content/CIWeb",
       "RelativePath": "img/CSR-initiative-stands-for-Coffee--and-Farmer-Equity-5.png",
       "AssetKind": "All",
@@ -595,10 +595,10 @@
       "OriginalItemSpec": "wwwroot\\img\\CSR-initiative-stands-for-Coffee--and-Farmer-Equity-5.png"
     },
     {
-      "Identity": "C:\\Users\\pci114\\Desktop\\internship\\CIPlateform\\MVC\\CI\\CIWeb\\wwwroot\\img\\CSR-initiative-stands-for-Coffee--and-Farmer-Equity-6.png",
+      "Identity": "C:\\Users\\jenil\\OneDrive\\Desktop\\CIPlateform\\MVC\\CI\\CIWeb\\wwwroot\\img\\CSR-initiative-stands-for-Coffee--and-Farmer-Equity-6.png",
       "SourceId": "CIWeb",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\pci114\\Desktop\\internship\\CIPlateform\\MVC\\CI\\CIWeb\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\jenil\\OneDrive\\Desktop\\CIPlateform\\MVC\\CI\\CIWeb\\wwwroot\\",
       "BasePath": "_content/CIWeb",
       "RelativePath": "img/CSR-initiative-stands-for-Coffee--and-Farmer-Equity-6.png",
       "AssetKind": "All",
@@ -612,10 +612,10 @@
       "OriginalItemSpec": "wwwroot\\img\\CSR-initiative-stands-for-Coffee--and-Farmer-Equity-6.png"
     },
     {
-      "Identity": "C:\\Users\\pci114\\Desktop\\internship\\CIPlateform\\MVC\\CI\\CIWeb\\wwwroot\\img\\deadline.png",
+      "Identity": "C:\\Users\\jenil\\OneDrive\\Desktop\\CIPlateform\\MVC\\CI\\CIWeb\\wwwroot\\img\\deadline.png",
       "SourceId": "CIWeb",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\pci114\\Desktop\\internship\\CIPlateform\\MVC\\CI\\CIWeb\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\jenil\\OneDrive\\Desktop\\CIPlateform\\MVC\\CI\\CIWeb\\wwwroot\\",
       "BasePath": "_content/CIWeb",
       "RelativePath": "img/deadline.png",
       "AssetKind": "All",
@@ -629,10 +629,10 @@
       "OriginalItemSpec": "wwwroot\\img\\deadline.png"
     },
     {
-      "Identity": "C:\\Users\\pci114\\Desktop\\internship\\CIPlateform\\MVC\\CI\\CIWeb\\wwwroot\\img\\doc.png",
+      "Identity": "C:\\Users\\jenil\\OneDrive\\Desktop\\CIPlateform\\MVC\\CI\\CIWeb\\wwwroot\\img\\doc.png",
       "SourceId": "CIWeb",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\pci114\\Desktop\\internship\\CIPlateform\\MVC\\CI\\CIWeb\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\jenil\\OneDrive\\Desktop\\CIPlateform\\MVC\\CI\\CIWeb\\wwwroot\\",
       "BasePath": "_content/CIWeb",
       "RelativePath": "img/doc.png",
       "AssetKind": "All",
@@ -646,10 +646,10 @@
       "OriginalItemSpec": "wwwroot\\img\\doc.png"
     },
     {
-      "Identity": "C:\\Users\\pci114\\Desktop\\internship\\CIPlateform\\MVC\\CI\\CIWeb\\wwwroot\\img\\down.png",
+      "Identity": "C:\\Users\\jenil\\OneDrive\\Desktop\\CIPlateform\\MVC\\CI\\CIWeb\\wwwroot\\img\\down.png",
       "SourceId": "CIWeb",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\pci114\\Desktop\\internship\\CIPlateform\\MVC\\CI\\CIWeb\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\jenil\\OneDrive\\Desktop\\CIPlateform\\MVC\\CI\\CIWeb\\wwwroot\\",
       "BasePath": "_content/CIWeb",
       "RelativePath": "img/down.png",
       "AssetKind": "All",
@@ -663,10 +663,10 @@
       "OriginalItemSpec": "wwwroot\\img\\down.png"
     },
     {
-      "Identity": "C:\\Users\\pci114\\Desktop\\internship\\CIPlateform\\MVC\\CI\\CIWeb\\wwwroot\\img\\drag-and-drop.png",
+      "Identity": "C:\\Users\\jenil\\OneDrive\\Desktop\\CIPlateform\\MVC\\CI\\CIWeb\\wwwroot\\img\\drag-and-drop.png",
       "SourceId": "CIWeb",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\pci114\\Desktop\\internship\\CIPlateform\\MVC\\CI\\CIWeb\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\jenil\\OneDrive\\Desktop\\CIPlateform\\MVC\\CI\\CIWeb\\wwwroot\\",
       "BasePath": "_content/CIWeb",
       "RelativePath": "img/drag-and-drop.png",
       "AssetKind": "All",
@@ -680,10 +680,10 @@
       "OriginalItemSpec": "wwwroot\\img\\drag-and-drop.png"
     },
     {
-      "Identity": "C:\\Users\\pci114\\Desktop\\internship\\CIPlateform\\MVC\\CI\\CIWeb\\wwwroot\\img\\drop-down.png",
+      "Identity": "C:\\Users\\jenil\\OneDrive\\Desktop\\CIPlateform\\MVC\\CI\\CIWeb\\wwwroot\\img\\drop-down.png",
       "SourceId": "CIWeb",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\pci114\\Desktop\\internship\\CIPlateform\\MVC\\CI\\CIWeb\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\jenil\\OneDrive\\Desktop\\CIPlateform\\MVC\\CI\\CIWeb\\wwwroot\\",
       "BasePath": "_content/CIWeb",
       "RelativePath": "img/drop-down.png",
       "AssetKind": "All",
@@ -697,10 +697,10 @@
       "OriginalItemSpec": "wwwroot\\img\\drop-down.png"
     },
     {
-      "Identity": "C:\\Users\\pci114\\Desktop\\internship\\CIPlateform\\MVC\\CI\\CIWeb\\wwwroot\\img\\Education-Supplies-for-Every--Pair-of-Shoes-Sold.png",
+      "Identity": "C:\\Users\\jenil\\OneDrive\\Desktop\\CIPlateform\\MVC\\CI\\CIWeb\\wwwroot\\img\\Education-Supplies-for-Every--Pair-of-Shoes-Sold.png",
       "SourceId": "CIWeb",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\pci114\\Desktop\\internship\\CIPlateform\\MVC\\CI\\CIWeb\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\jenil\\OneDrive\\Desktop\\CIPlateform\\MVC\\CI\\CIWeb\\wwwroot\\",
       "BasePath": "_content/CIWeb",
       "RelativePath": "img/Education-Supplies-for-Every--Pair-of-Shoes-Sold.png",
       "AssetKind": "All",
@@ -714,10 +714,10 @@
       "OriginalItemSpec": "wwwroot\\img\\Education-Supplies-for-Every--Pair-of-Shoes-Sold.png"
     },
     {
-      "Identity": "C:\\Users\\pci114\\Desktop\\internship\\CIPlateform\\MVC\\CI\\CIWeb\\wwwroot\\img\\Education-Supplies-for-Every--Pair-of-Shoes-Sold-1.png",
+      "Identity": "C:\\Users\\jenil\\OneDrive\\Desktop\\CIPlateform\\MVC\\CI\\CIWeb\\wwwroot\\img\\Education-Supplies-for-Every--Pair-of-Shoes-Sold-1.png",
       "SourceId": "CIWeb",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\pci114\\Desktop\\internship\\CIPlateform\\MVC\\CI\\CIWeb\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\jenil\\OneDrive\\Desktop\\CIPlateform\\MVC\\CI\\CIWeb\\wwwroot\\",
       "BasePath": "_content/CIWeb",
       "RelativePath": "img/Education-Supplies-for-Every--Pair-of-Shoes-Sold-1.png",
       "AssetKind": "All",
@@ -731,10 +731,10 @@
       "OriginalItemSpec": "wwwroot\\img\\Education-Supplies-for-Every--Pair-of-Shoes-Sold-1.png"
     },
     {
-      "Identity": "C:\\Users\\pci114\\Desktop\\internship\\CIPlateform\\MVC\\CI\\CIWeb\\wwwroot\\img\\Education-Supplies-for-Every--Pair-of-Shoes-Sold-2.png",
+      "Identity": "C:\\Users\\jenil\\OneDrive\\Desktop\\CIPlateform\\MVC\\CI\\CIWeb\\wwwroot\\img\\Education-Supplies-for-Every--Pair-of-Shoes-Sold-2.png",
       "SourceId": "CIWeb",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\pci114\\Desktop\\internship\\CIPlateform\\MVC\\CI\\CIWeb\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\jenil\\OneDrive\\Desktop\\CIPlateform\\MVC\\CI\\CIWeb\\wwwroot\\",
       "BasePath": "_content/CIWeb",
       "RelativePath": "img/Education-Supplies-for-Every--Pair-of-Shoes-Sold-2.png",
       "AssetKind": "All",
@@ -748,10 +748,10 @@
       "OriginalItemSpec": "wwwroot\\img\\Education-Supplies-for-Every--Pair-of-Shoes-Sold-2.png"
     },
     {
-      "Identity": "C:\\Users\\pci114\\Desktop\\internship\\CIPlateform\\MVC\\CI\\CIWeb\\wwwroot\\img\\eye.png",
+      "Identity": "C:\\Users\\jenil\\OneDrive\\Desktop\\CIPlateform\\MVC\\CI\\CIWeb\\wwwroot\\img\\eye.png",
       "SourceId": "CIWeb",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\pci114\\Desktop\\internship\\CIPlateform\\MVC\\CI\\CIWeb\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\jenil\\OneDrive\\Desktop\\CIPlateform\\MVC\\CI\\CIWeb\\wwwroot\\",
       "BasePath": "_content/CIWeb",
       "RelativePath": "img/eye.png",
       "AssetKind": "All",
@@ -765,10 +765,10 @@
       "OriginalItemSpec": "wwwroot\\img\\eye.png"
     },
     {
-      "Identity": "C:\\Users\\pci114\\Desktop\\internship\\CIPlateform\\MVC\\CI\\CIWeb\\wwwroot\\img\\facebook.png",
+      "Identity": "C:\\Users\\jenil\\OneDrive\\Desktop\\CIPlateform\\MVC\\CI\\CIWeb\\wwwroot\\img\\facebook.png",
       "SourceId": "CIWeb",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\pci114\\Desktop\\internship\\CIPlateform\\MVC\\CI\\CIWeb\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\jenil\\OneDrive\\Desktop\\CIPlateform\\MVC\\CI\\CIWeb\\wwwroot\\",
       "BasePath": "_content/CIWeb",
       "RelativePath": "img/facebook.png",
       "AssetKind": "All",
@@ -782,10 +782,10 @@
       "OriginalItemSpec": "wwwroot\\img\\facebook.png"
     },
     {
-      "Identity": "C:\\Users\\pci114\\Desktop\\internship\\CIPlateform\\MVC\\CI\\CIWeb\\wwwroot\\img\\filter.png",
+      "Identity": "C:\\Users\\jenil\\OneDrive\\Desktop\\CIPlateform\\MVC\\CI\\CIWeb\\wwwroot\\img\\filter.png",
       "SourceId": "CIWeb",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\pci114\\Desktop\\internship\\CIPlateform\\MVC\\CI\\CIWeb\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\jenil\\OneDrive\\Desktop\\CIPlateform\\MVC\\CI\\CIWeb\\wwwroot\\",
       "BasePath": "_content/CIWeb",
       "RelativePath": "img/filter.png",
       "AssetKind": "All",
@@ -799,10 +799,10 @@
       "OriginalItemSpec": "wwwroot\\img\\filter.png"
     },
     {
-      "Identity": "C:\\Users\\pci114\\Desktop\\internship\\CIPlateform\\MVC\\CI\\CIWeb\\wwwroot\\img\\gift.png",
+      "Identity": "C:\\Users\\jenil\\OneDrive\\Desktop\\CIPlateform\\MVC\\CI\\CIWeb\\wwwroot\\img\\gift.png",
       "SourceId": "CIWeb",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\pci114\\Desktop\\internship\\CIPlateform\\MVC\\CI\\CIWeb\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\jenil\\OneDrive\\Desktop\\CIPlateform\\MVC\\CI\\CIWeb\\wwwroot\\",
       "BasePath": "_content/CIWeb",
       "RelativePath": "img/gift.png",
       "AssetKind": "All",
@@ -816,10 +816,10 @@
       "OriginalItemSpec": "wwwroot\\img\\gift.png"
     },
     {
-      "Identity": "C:\\Users\\pci114\\Desktop\\internship\\CIPlateform\\MVC\\CI\\CIWeb\\wwwroot\\img\\graph.png",
+      "Identity": "C:\\Users\\jenil\\OneDrive\\Desktop\\CIPlateform\\MVC\\CI\\CIWeb\\wwwroot\\img\\graph.png",
       "SourceId": "CIWeb",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\pci114\\Desktop\\internship\\CIPlateform\\MVC\\CI\\CIWeb\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\jenil\\OneDrive\\Desktop\\CIPlateform\\MVC\\CI\\CIWeb\\wwwroot\\",
       "BasePath": "_content/CIWeb",
       "RelativePath": "img/graph.png",
       "AssetKind": "All",
@@ -833,10 +833,10 @@
       "OriginalItemSpec": "wwwroot\\img\\graph.png"
     },
     {
-      "Identity": "C:\\Users\\pci114\\Desktop\\internship\\CIPlateform\\MVC\\CI\\CIWeb\\wwwroot\\img\\grid.png",
+      "Identity": "C:\\Users\\jenil\\OneDrive\\Desktop\\CIPlateform\\MVC\\CI\\CIWeb\\wwwroot\\img\\grid.png",
       "SourceId": "CIWeb",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\pci114\\Desktop\\internship\\CIPlateform\\MVC\\CI\\CIWeb\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\jenil\\OneDrive\\Desktop\\CIPlateform\\MVC\\CI\\CIWeb\\wwwroot\\",
       "BasePath": "_content/CIWeb",
       "RelativePath": "img/grid.png",
       "AssetKind": "All",
@@ -850,10 +850,10 @@
       "OriginalItemSpec": "wwwroot\\img\\grid.png"
     },
     {
-      "Identity": "C:\\Users\\pci114\\Desktop\\internship\\CIPlateform\\MVC\\CI\\CIWeb\\wwwroot\\img\\Grow-Trees-On-the-path-to-environment-sustainability.png",
+      "Identity": "C:\\Users\\jenil\\OneDrive\\Desktop\\CIPlateform\\MVC\\CI\\CIWeb\\wwwroot\\img\\Grow-Trees-On-the-path-to-environment-sustainability.png",
       "SourceId": "CIWeb",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\pci114\\Desktop\\internship\\CIPlateform\\MVC\\CI\\CIWeb\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\jenil\\OneDrive\\Desktop\\CIPlateform\\MVC\\CI\\CIWeb\\wwwroot\\",
       "BasePath": "_content/CIWeb",
       "RelativePath": "img/Grow-Trees-On-the-path-to-environment-sustainability.png",
       "AssetKind": "All",
@@ -867,10 +867,10 @@
       "OriginalItemSpec": "wwwroot\\img\\Grow-Trees-On-the-path-to-environment-sustainability.png"
     },
     {
-      "Identity": "C:\\Users\\pci114\\Desktop\\internship\\CIPlateform\\MVC\\CI\\CIWeb\\wwwroot\\img\\Grow-Trees-On-the-path-to-environment-sustainability-1.png",
+      "Identity": "C:\\Users\\jenil\\OneDrive\\Desktop\\CIPlateform\\MVC\\CI\\CIWeb\\wwwroot\\img\\Grow-Trees-On-the-path-to-environment-sustainability-1.png",
       "SourceId": "CIWeb",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\pci114\\Desktop\\internship\\CIPlateform\\MVC\\CI\\CIWeb\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\jenil\\OneDrive\\Desktop\\CIPlateform\\MVC\\CI\\CIWeb\\wwwroot\\",
       "BasePath": "_content/CIWeb",
       "RelativePath": "img/Grow-Trees-On-the-path-to-environment-sustainability-1.png",
       "AssetKind": "All",
@@ -884,10 +884,10 @@
       "OriginalItemSpec": "wwwroot\\img\\Grow-Trees-On-the-path-to-environment-sustainability-1.png"
     },
     {
-      "Identity": "C:\\Users\\pci114\\Desktop\\internship\\CIPlateform\\MVC\\CI\\CIWeb\\wwwroot\\img\\Grow-Trees-On-the-path-to-environment-sustainability-2.png",
+      "Identity": "C:\\Users\\jenil\\OneDrive\\Desktop\\CIPlateform\\MVC\\CI\\CIWeb\\wwwroot\\img\\Grow-Trees-On-the-path-to-environment-sustainability-2.png",
       "SourceId": "CIWeb",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\pci114\\Desktop\\internship\\CIPlateform\\MVC\\CI\\CIWeb\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\jenil\\OneDrive\\Desktop\\CIPlateform\\MVC\\CI\\CIWeb\\wwwroot\\",
       "BasePath": "_content/CIWeb",
       "RelativePath": "img/Grow-Trees-On-the-path-to-environment-sustainability-2.png",
       "AssetKind": "All",
@@ -901,10 +901,10 @@
       "OriginalItemSpec": "wwwroot\\img\\Grow-Trees-On-the-path-to-environment-sustainability-2.png"
     },
     {
-      "Identity": "C:\\Users\\pci114\\Desktop\\internship\\CIPlateform\\MVC\\CI\\CIWeb\\wwwroot\\img\\Grow-Trees-On-the-path-to-environment-sustainability-3.png",
+      "Identity": "C:\\Users\\jenil\\OneDrive\\Desktop\\CIPlateform\\MVC\\CI\\CIWeb\\wwwroot\\img\\Grow-Trees-On-the-path-to-environment-sustainability-3.png",
       "SourceId": "CIWeb",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\pci114\\Desktop\\internship\\CIPlateform\\MVC\\CI\\CIWeb\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\jenil\\OneDrive\\Desktop\\CIPlateform\\MVC\\CI\\CIWeb\\wwwroot\\",
       "BasePath": "_content/CIWeb",
       "RelativePath": "img/Grow-Trees-On-the-path-to-environment-sustainability-3.png",
       "AssetKind": "All",
@@ -918,10 +918,10 @@
       "OriginalItemSpec": "wwwroot\\img\\Grow-Trees-On-the-path-to-environment-sustainability-3.png"
     },
     {
-      "Identity": "C:\\Users\\pci114\\Desktop\\internship\\CIPlateform\\MVC\\CI\\CIWeb\\wwwroot\\img\\Grow-Trees-On-the-path-to-environment-sustainability-4.png",
+      "Identity": "C:\\Users\\jenil\\OneDrive\\Desktop\\CIPlateform\\MVC\\CI\\CIWeb\\wwwroot\\img\\Grow-Trees-On-the-path-to-environment-sustainability-4.png",
       "SourceId": "CIWeb",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\pci114\\Desktop\\internship\\CIPlateform\\MVC\\CI\\CIWeb\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\jenil\\OneDrive\\Desktop\\CIPlateform\\MVC\\CI\\CIWeb\\wwwroot\\",
       "BasePath": "_content/CIWeb",
       "RelativePath": "img/Grow-Trees-On-the-path-to-environment-sustainability-4.png",
       "AssetKind": "All",
@@ -935,10 +935,10 @@
       "OriginalItemSpec": "wwwroot\\img\\Grow-Trees-On-the-path-to-environment-sustainability-4.png"
     },
     {
-      "Identity": "C:\\Users\\pci114\\Desktop\\internship\\CIPlateform\\MVC\\CI\\CIWeb\\wwwroot\\img\\Grow-Trees-On-the-path-to-environment-sustainability-5.png",
+      "Identity": "C:\\Users\\jenil\\OneDrive\\Desktop\\CIPlateform\\MVC\\CI\\CIWeb\\wwwroot\\img\\Grow-Trees-On-the-path-to-environment-sustainability-5.png",
       "SourceId": "CIWeb",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\pci114\\Desktop\\internship\\CIPlateform\\MVC\\CI\\CIWeb\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\jenil\\OneDrive\\Desktop\\CIPlateform\\MVC\\CI\\CIWeb\\wwwroot\\",
       "BasePath": "_content/CIWeb",
       "RelativePath": "img/Grow-Trees-On-the-path-to-environment-sustainability-5.png",
       "AssetKind": "All",
@@ -952,10 +952,10 @@
       "OriginalItemSpec": "wwwroot\\img\\Grow-Trees-On-the-path-to-environment-sustainability-5.png"
     },
     {
-      "Identity": "C:\\Users\\pci114\\Desktop\\internship\\CIPlateform\\MVC\\CI\\CIWeb\\wwwroot\\img\\Grow-Trees-On-the-path-to-environment-sustainability-login.png",
+      "Identity": "C:\\Users\\jenil\\OneDrive\\Desktop\\CIPlateform\\MVC\\CI\\CIWeb\\wwwroot\\img\\Grow-Trees-On-the-path-to-environment-sustainability-login.png",
       "SourceId": "CIWeb",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\pci114\\Desktop\\internship\\CIPlateform\\MVC\\CI\\CIWeb\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\jenil\\OneDrive\\Desktop\\CIPlateform\\MVC\\CI\\CIWeb\\wwwroot\\",
       "BasePath": "_content/CIWeb",
       "RelativePath": "img/Grow-Trees-On-the-path-to-environment-sustainability-login.png",
       "AssetKind": "All",
@@ -969,10 +969,10 @@
       "OriginalItemSpec": "wwwroot\\img\\Grow-Trees-On-the-path-to-environment-sustainability-login.png"
     },
     {
-      "Identity": "C:\\Users\\pci114\\Desktop\\internship\\CIPlateform\\MVC\\CI\\CIWeb\\wwwroot\\img\\heart.png",
+      "Identity": "C:\\Users\\jenil\\OneDrive\\Desktop\\CIPlateform\\MVC\\CI\\CIWeb\\wwwroot\\img\\heart.png",
       "SourceId": "CIWeb",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\pci114\\Desktop\\internship\\CIPlateform\\MVC\\CI\\CIWeb\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\jenil\\OneDrive\\Desktop\\CIPlateform\\MVC\\CI\\CIWeb\\wwwroot\\",
       "BasePath": "_content/CIWeb",
       "RelativePath": "img/heart.png",
       "AssetKind": "All",
@@ -986,10 +986,10 @@
       "OriginalItemSpec": "wwwroot\\img\\heart.png"
     },
     {
-      "Identity": "C:\\Users\\pci114\\Desktop\\internship\\CIPlateform\\MVC\\CI\\CIWeb\\wwwroot\\img\\heart1.png",
+      "Identity": "C:\\Users\\jenil\\OneDrive\\Desktop\\CIPlateform\\MVC\\CI\\CIWeb\\wwwroot\\img\\heart1.png",
       "SourceId": "CIWeb",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\pci114\\Desktop\\internship\\CIPlateform\\MVC\\CI\\CIWeb\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\jenil\\OneDrive\\Desktop\\CIPlateform\\MVC\\CI\\CIWeb\\wwwroot\\",
       "BasePath": "_content/CIWeb",
       "RelativePath": "img/heart1.png",
       "AssetKind": "All",
@@ -1003,10 +1003,10 @@
       "OriginalItemSpec": "wwwroot\\img\\heart1.png"
     },
     {
-      "Identity": "C:\\Users\\pci114\\Desktop\\internship\\CIPlateform\\MVC\\CI\\CIWeb\\wwwroot\\img\\hours.png",
+      "Identity": "C:\\Users\\jenil\\OneDrive\\Desktop\\CIPlateform\\MVC\\CI\\CIWeb\\wwwroot\\img\\hours.png",
       "SourceId": "CIWeb",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\pci114\\Desktop\\internship\\CIPlateform\\MVC\\CI\\CIWeb\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\jenil\\OneDrive\\Desktop\\CIPlateform\\MVC\\CI\\CIWeb\\wwwroot\\",
       "BasePath": "_content/CIWeb",
       "RelativePath": "img/hours.png",
       "AssetKind": "All",
@@ -1020,10 +1020,10 @@
       "OriginalItemSpec": "wwwroot\\img\\hours.png"
     },
     {
-      "Identity": "C:\\Users\\pci114\\Desktop\\internship\\CIPlateform\\MVC\\CI\\CIWeb\\wwwroot\\img\\image.png",
+      "Identity": "C:\\Users\\jenil\\OneDrive\\Desktop\\CIPlateform\\MVC\\CI\\CIWeb\\wwwroot\\img\\image.png",
       "SourceId": "CIWeb",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\pci114\\Desktop\\internship\\CIPlateform\\MVC\\CI\\CIWeb\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\jenil\\OneDrive\\Desktop\\CIPlateform\\MVC\\CI\\CIWeb\\wwwroot\\",
       "BasePath": "_content/CIWeb",
       "RelativePath": "img/image.png",
       "AssetKind": "All",
@@ -1037,10 +1037,10 @@
       "OriginalItemSpec": "wwwroot\\img\\image.png"
     },
     {
-      "Identity": "C:\\Users\\pci114\\Desktop\\internship\\CIPlateform\\MVC\\CI\\CIWeb\\wwwroot\\img\\image1.png",
+      "Identity": "C:\\Users\\jenil\\OneDrive\\Desktop\\CIPlateform\\MVC\\CI\\CIWeb\\wwwroot\\img\\image1.png",
       "SourceId": "CIWeb",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\pci114\\Desktop\\internship\\CIPlateform\\MVC\\CI\\CIWeb\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\jenil\\OneDrive\\Desktop\\CIPlateform\\MVC\\CI\\CIWeb\\wwwroot\\",
       "BasePath": "_content/CIWeb",
       "RelativePath": "img/image1.png",
       "AssetKind": "All",
@@ -1054,10 +1054,10 @@
       "OriginalItemSpec": "wwwroot\\img\\image1.png"
     },
     {
-      "Identity": "C:\\Users\\pci114\\Desktop\\internship\\CIPlateform\\MVC\\CI\\CIWeb\\wwwroot\\img\\image2.png",
+      "Identity": "C:\\Users\\jenil\\OneDrive\\Desktop\\CIPlateform\\MVC\\CI\\CIWeb\\wwwroot\\img\\image2.png",
       "SourceId": "CIWeb",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\pci114\\Desktop\\internship\\CIPlateform\\MVC\\CI\\CIWeb\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\jenil\\OneDrive\\Desktop\\CIPlateform\\MVC\\CI\\CIWeb\\wwwroot\\",
       "BasePath": "_content/CIWeb",
       "RelativePath": "img/image2.png",
       "AssetKind": "All",
@@ -1071,10 +1071,10 @@
       "OriginalItemSpec": "wwwroot\\img\\image2.png"
     },
     {
-      "Identity": "C:\\Users\\pci114\\Desktop\\internship\\CIPlateform\\MVC\\CI\\CIWeb\\wwwroot\\img\\img.png",
+      "Identity": "C:\\Users\\jenil\\OneDrive\\Desktop\\CIPlateform\\MVC\\CI\\CIWeb\\wwwroot\\img\\img.png",
       "SourceId": "CIWeb",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\pci114\\Desktop\\internship\\CIPlateform\\MVC\\CI\\CIWeb\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\jenil\\OneDrive\\Desktop\\CIPlateform\\MVC\\CI\\CIWeb\\wwwroot\\",
       "BasePath": "_content/CIWeb",
       "RelativePath": "img/img.png",
       "AssetKind": "All",
@@ -1088,10 +1088,10 @@
       "OriginalItemSpec": "wwwroot\\img\\img.png"
     },
     {
-      "Identity": "C:\\Users\\pci114\\Desktop\\internship\\CIPlateform\\MVC\\CI\\CIWeb\\wwwroot\\img\\img1.png",
+      "Identity": "C:\\Users\\jenil\\OneDrive\\Desktop\\CIPlateform\\MVC\\CI\\CIWeb\\wwwroot\\img\\img1.png",
       "SourceId": "CIWeb",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\pci114\\Desktop\\internship\\CIPlateform\\MVC\\CI\\CIWeb\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\jenil\\OneDrive\\Desktop\\CIPlateform\\MVC\\CI\\CIWeb\\wwwroot\\",
       "BasePath": "_content/CIWeb",
       "RelativePath": "img/img1.png",
       "AssetKind": "All",
@@ -1105,10 +1105,10 @@
       "OriginalItemSpec": "wwwroot\\img\\img1.png"
     },
     {
-      "Identity": "C:\\Users\\pci114\\Desktop\\internship\\CIPlateform\\MVC\\CI\\CIWeb\\wwwroot\\img\\img11.png",
+      "Identity": "C:\\Users\\jenil\\OneDrive\\Desktop\\CIPlateform\\MVC\\CI\\CIWeb\\wwwroot\\img\\img11.png",
       "SourceId": "CIWeb",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\pci114\\Desktop\\internship\\CIPlateform\\MVC\\CI\\CIWeb\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\jenil\\OneDrive\\Desktop\\CIPlateform\\MVC\\CI\\CIWeb\\wwwroot\\",
       "BasePath": "_content/CIWeb",
       "RelativePath": "img/img11.png",
       "AssetKind": "All",
@@ -1122,10 +1122,10 @@
       "OriginalItemSpec": "wwwroot\\img\\img11.png"
     },
     {
-      "Identity": "C:\\Users\\pci114\\Desktop\\internship\\CIPlateform\\MVC\\CI\\CIWeb\\wwwroot\\img\\img2.png",
+      "Identity": "C:\\Users\\jenil\\OneDrive\\Desktop\\CIPlateform\\MVC\\CI\\CIWeb\\wwwroot\\img\\img2.png",
       "SourceId": "CIWeb",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\pci114\\Desktop\\internship\\CIPlateform\\MVC\\CI\\CIWeb\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\jenil\\OneDrive\\Desktop\\CIPlateform\\MVC\\CI\\CIWeb\\wwwroot\\",
       "BasePath": "_content/CIWeb",
       "RelativePath": "img/img2.png",
       "AssetKind": "All",
@@ -1139,10 +1139,10 @@
       "OriginalItemSpec": "wwwroot\\img\\img2.png"
     },
     {
-      "Identity": "C:\\Users\\pci114\\Desktop\\internship\\CIPlateform\\MVC\\CI\\CIWeb\\wwwroot\\img\\img22.png",
+      "Identity": "C:\\Users\\jenil\\OneDrive\\Desktop\\CIPlateform\\MVC\\CI\\CIWeb\\wwwroot\\img\\img22.png",
       "SourceId": "CIWeb",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\pci114\\Desktop\\internship\\CIPlateform\\MVC\\CI\\CIWeb\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\jenil\\OneDrive\\Desktop\\CIPlateform\\MVC\\CI\\CIWeb\\wwwroot\\",
       "BasePath": "_content/CIWeb",
       "RelativePath": "img/img22.png",
       "AssetKind": "All",
@@ -1156,10 +1156,10 @@
       "OriginalItemSpec": "wwwroot\\img\\img22.png"
     },
     {
-      "Identity": "C:\\Users\\pci114\\Desktop\\internship\\CIPlateform\\MVC\\CI\\CIWeb\\wwwroot\\img\\img3.png",
+      "Identity": "C:\\Users\\jenil\\OneDrive\\Desktop\\CIPlateform\\MVC\\CI\\CIWeb\\wwwroot\\img\\img3.png",
       "SourceId": "CIWeb",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\pci114\\Desktop\\internship\\CIPlateform\\MVC\\CI\\CIWeb\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\jenil\\OneDrive\\Desktop\\CIPlateform\\MVC\\CI\\CIWeb\\wwwroot\\",
       "BasePath": "_content/CIWeb",
       "RelativePath": "img/img3.png",
       "AssetKind": "All",
@@ -1173,10 +1173,10 @@
       "OriginalItemSpec": "wwwroot\\img\\img3.png"
     },
     {
-      "Identity": "C:\\Users\\pci114\\Desktop\\internship\\CIPlateform\\MVC\\CI\\CIWeb\\wwwroot\\img\\img33.png",
+      "Identity": "C:\\Users\\jenil\\OneDrive\\Desktop\\CIPlateform\\MVC\\CI\\CIWeb\\wwwroot\\img\\img33.png",
       "SourceId": "CIWeb",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\pci114\\Desktop\\internship\\CIPlateform\\MVC\\CI\\CIWeb\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\jenil\\OneDrive\\Desktop\\CIPlateform\\MVC\\CI\\CIWeb\\wwwroot\\",
       "BasePath": "_content/CIWeb",
       "RelativePath": "img/img33.png",
       "AssetKind": "All",
@@ -1190,10 +1190,10 @@
       "OriginalItemSpec": "wwwroot\\img\\img33.png"
     },
     {
-      "Identity": "C:\\Users\\pci114\\Desktop\\internship\\CIPlateform\\MVC\\CI\\CIWeb\\wwwroot\\img\\info.png",
+      "Identity": "C:\\Users\\jenil\\OneDrive\\Desktop\\CIPlateform\\MVC\\CI\\CIWeb\\wwwroot\\img\\info.png",
       "SourceId": "CIWeb",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\pci114\\Desktop\\internship\\CIPlateform\\MVC\\CI\\CIWeb\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\jenil\\OneDrive\\Desktop\\CIPlateform\\MVC\\CI\\CIWeb\\wwwroot\\",
       "BasePath": "_content/CIWeb",
       "RelativePath": "img/info.png",
       "AssetKind": "All",
@@ -1207,10 +1207,10 @@
       "OriginalItemSpec": "wwwroot\\img\\info.png"
     },
     {
-      "Identity": "C:\\Users\\pci114\\Desktop\\internship\\CIPlateform\\MVC\\CI\\CIWeb\\wwwroot\\img\\left.png",
+      "Identity": "C:\\Users\\jenil\\OneDrive\\Desktop\\CIPlateform\\MVC\\CI\\CIWeb\\wwwroot\\img\\left.png",
       "SourceId": "CIWeb",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\pci114\\Desktop\\internship\\CIPlateform\\MVC\\CI\\CIWeb\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\jenil\\OneDrive\\Desktop\\CIPlateform\\MVC\\CI\\CIWeb\\wwwroot\\",
       "BasePath": "_content/CIWeb",
       "RelativePath": "img/left.png",
       "AssetKind": "All",
@@ -1224,10 +1224,10 @@
       "OriginalItemSpec": "wwwroot\\img\\left.png"
     },
     {
-      "Identity": "C:\\Users\\pci114\\Desktop\\internship\\CIPlateform\\MVC\\CI\\CIWeb\\wwwroot\\img\\left1.png",
+      "Identity": "C:\\Users\\jenil\\OneDrive\\Desktop\\CIPlateform\\MVC\\CI\\CIWeb\\wwwroot\\img\\left1.png",
       "SourceId": "CIWeb",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\pci114\\Desktop\\internship\\CIPlateform\\MVC\\CI\\CIWeb\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\jenil\\OneDrive\\Desktop\\CIPlateform\\MVC\\CI\\CIWeb\\wwwroot\\",
       "BasePath": "_content/CIWeb",
       "RelativePath": "img/left1.png",
       "AssetKind": "All",
@@ -1241,10 +1241,10 @@
       "OriginalItemSpec": "wwwroot\\img\\left1.png"
     },
     {
-      "Identity": "C:\\Users\\pci114\\Desktop\\internship\\CIPlateform\\MVC\\CI\\CIWeb\\wwwroot\\img\\linkedin.png",
+      "Identity": "C:\\Users\\jenil\\OneDrive\\Desktop\\CIPlateform\\MVC\\CI\\CIWeb\\wwwroot\\img\\linkedin.png",
       "SourceId": "CIWeb",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\pci114\\Desktop\\internship\\CIPlateform\\MVC\\CI\\CIWeb\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\jenil\\OneDrive\\Desktop\\CIPlateform\\MVC\\CI\\CIWeb\\wwwroot\\",
       "BasePath": "_content/CIWeb",
       "RelativePath": "img/linkedin.png",
       "AssetKind": "All",
@@ -1258,10 +1258,10 @@
       "OriginalItemSpec": "wwwroot\\img\\linkedin.png"
     },
     {
-      "Identity": "C:\\Users\\pci114\\Desktop\\internship\\CIPlateform\\MVC\\CI\\CIWeb\\wwwroot\\img\\list.png",
+      "Identity": "C:\\Users\\jenil\\OneDrive\\Desktop\\CIPlateform\\MVC\\CI\\CIWeb\\wwwroot\\img\\list.png",
       "SourceId": "CIWeb",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\pci114\\Desktop\\internship\\CIPlateform\\MVC\\CI\\CIWeb\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\jenil\\OneDrive\\Desktop\\CIPlateform\\MVC\\CI\\CIWeb\\wwwroot\\",
       "BasePath": "_content/CIWeb",
       "RelativePath": "img/list.png",
       "AssetKind": "All",
@@ -1275,10 +1275,10 @@
       "OriginalItemSpec": "wwwroot\\img\\list.png"
     },
     {
-      "Identity": "C:\\Users\\pci114\\Desktop\\internship\\CIPlateform\\MVC\\CI\\CIWeb\\wwwroot\\img\\logo.png",
+      "Identity": "C:\\Users\\jenil\\OneDrive\\Desktop\\CIPlateform\\MVC\\CI\\CIWeb\\wwwroot\\img\\logo.png",
       "SourceId": "CIWeb",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\pci114\\Desktop\\internship\\CIPlateform\\MVC\\CI\\CIWeb\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\jenil\\OneDrive\\Desktop\\CIPlateform\\MVC\\CI\\CIWeb\\wwwroot\\",
       "BasePath": "_content/CIWeb",
       "RelativePath": "img/logo.png",
       "AssetKind": "All",
@@ -1292,10 +1292,10 @@
       "OriginalItemSpec": "wwwroot\\img\\logo.png"
     },
     {
-      "Identity": "C:\\Users\\pci114\\Desktop\\internship\\CIPlateform\\MVC\\CI\\CIWeb\\wwwroot\\img\\menu-bar.svg",
+      "Identity": "C:\\Users\\jenil\\OneDrive\\Desktop\\CIPlateform\\MVC\\CI\\CIWeb\\wwwroot\\img\\menu-bar.svg",
       "SourceId": "CIWeb",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\pci114\\Desktop\\internship\\CIPlateform\\MVC\\CI\\CIWeb\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\jenil\\OneDrive\\Desktop\\CIPlateform\\MVC\\CI\\CIWeb\\wwwroot\\",
       "BasePath": "_content/CIWeb",
       "RelativePath": "img/menu-bar.svg",
       "AssetKind": "All",
@@ -1309,10 +1309,10 @@
       "OriginalItemSpec": "wwwroot\\img\\menu-bar.svg"
     },
     {
-      "Identity": "C:\\Users\\pci114\\Desktop\\internship\\CIPlateform\\MVC\\CI\\CIWeb\\wwwroot\\img\\mission.png",
+      "Identity": "C:\\Users\\jenil\\OneDrive\\Desktop\\CIPlateform\\MVC\\CI\\CIWeb\\wwwroot\\img\\mission.png",
       "SourceId": "CIWeb",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\pci114\\Desktop\\internship\\CIPlateform\\MVC\\CI\\CIWeb\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\jenil\\OneDrive\\Desktop\\CIPlateform\\MVC\\CI\\CIWeb\\wwwroot\\",
       "BasePath": "_content/CIWeb",
       "RelativePath": "img/mission.png",
       "AssetKind": "All",
@@ -1326,10 +1326,10 @@
       "OriginalItemSpec": "wwwroot\\img\\mission.png"
     },
     {
-      "Identity": "C:\\Users\\pci114\\Desktop\\internship\\CIPlateform\\MVC\\CI\\CIWeb\\wwwroot\\img\\my-story.png",
+      "Identity": "C:\\Users\\jenil\\OneDrive\\Desktop\\CIPlateform\\MVC\\CI\\CIWeb\\wwwroot\\img\\my-story.png",
       "SourceId": "CIWeb",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\pci114\\Desktop\\internship\\CIPlateform\\MVC\\CI\\CIWeb\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\jenil\\OneDrive\\Desktop\\CIPlateform\\MVC\\CI\\CIWeb\\wwwroot\\",
       "BasePath": "_content/CIWeb",
       "RelativePath": "img/my-story.png",
       "AssetKind": "All",
@@ -1343,10 +1343,10 @@
       "OriginalItemSpec": "wwwroot\\img\\my-story.png"
     },
     {
-      "Identity": "C:\\Users\\pci114\\Desktop\\internship\\CIPlateform\\MVC\\CI\\CIWeb\\wwwroot\\img\\new-message.png",
+      "Identity": "C:\\Users\\jenil\\OneDrive\\Desktop\\CIPlateform\\MVC\\CI\\CIWeb\\wwwroot\\img\\new-message.png",
       "SourceId": "CIWeb",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\pci114\\Desktop\\internship\\CIPlateform\\MVC\\CI\\CIWeb\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\jenil\\OneDrive\\Desktop\\CIPlateform\\MVC\\CI\\CIWeb\\wwwroot\\",
       "BasePath": "_content/CIWeb",
       "RelativePath": "img/new-message.png",
       "AssetKind": "All",
@@ -1360,10 +1360,10 @@
       "OriginalItemSpec": "wwwroot\\img\\new-message.png"
     },
     {
-      "Identity": "C:\\Users\\pci114\\Desktop\\internship\\CIPlateform\\MVC\\CI\\CIWeb\\wwwroot\\img\\next.png",
+      "Identity": "C:\\Users\\jenil\\OneDrive\\Desktop\\CIPlateform\\MVC\\CI\\CIWeb\\wwwroot\\img\\next.png",
       "SourceId": "CIWeb",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\pci114\\Desktop\\internship\\CIPlateform\\MVC\\CI\\CIWeb\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\jenil\\OneDrive\\Desktop\\CIPlateform\\MVC\\CI\\CIWeb\\wwwroot\\",
       "BasePath": "_content/CIWeb",
       "RelativePath": "img/next.png",
       "AssetKind": "All",
@@ -1377,10 +1377,10 @@
       "OriginalItemSpec": "wwwroot\\img\\next.png"
     },
     {
-      "Identity": "C:\\Users\\pci114\\Desktop\\internship\\CIPlateform\\MVC\\CI\\CIWeb\\wwwroot\\img\\Nourish-the-Children-in--African-country.png",
+      "Identity": "C:\\Users\\jenil\\OneDrive\\Desktop\\CIPlateform\\MVC\\CI\\CIWeb\\wwwroot\\img\\Nourish-the-Children-in--African-country.png",
       "SourceId": "CIWeb",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\pci114\\Desktop\\internship\\CIPlateform\\MVC\\CI\\CIWeb\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\jenil\\OneDrive\\Desktop\\CIPlateform\\MVC\\CI\\CIWeb\\wwwroot\\",
       "BasePath": "_content/CIWeb",
       "RelativePath": "img/Nourish-the-Children-in--African-country.png",
       "AssetKind": "All",
@@ -1394,10 +1394,10 @@
       "OriginalItemSpec": "wwwroot\\img\\Nourish-the-Children-in--African-country.png"
     },
     {
-      "Identity": "C:\\Users\\pci114\\Desktop\\internship\\CIPlateform\\MVC\\CI\\CIWeb\\wwwroot\\img\\Nourish-the-Children-in--African-country-1.png",
+      "Identity": "C:\\Users\\jenil\\OneDrive\\Desktop\\CIPlateform\\MVC\\CI\\CIWeb\\wwwroot\\img\\Nourish-the-Children-in--African-country-1.png",
       "SourceId": "CIWeb",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\pci114\\Desktop\\internship\\CIPlateform\\MVC\\CI\\CIWeb\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\jenil\\OneDrive\\Desktop\\CIPlateform\\MVC\\CI\\CIWeb\\wwwroot\\",
       "BasePath": "_content/CIWeb",
       "RelativePath": "img/Nourish-the-Children-in--African-country-1.png",
       "AssetKind": "All",
@@ -1411,10 +1411,10 @@
       "OriginalItemSpec": "wwwroot\\img\\Nourish-the-Children-in--African-country-1.png"
     },
     {
-      "Identity": "C:\\Users\\pci114\\Desktop\\internship\\CIPlateform\\MVC\\CI\\CIWeb\\wwwroot\\img\\Open-Volunteering-Requests.png",
+      "Identity": "C:\\Users\\jenil\\OneDrive\\Desktop\\CIPlateform\\MVC\\CI\\CIWeb\\wwwroot\\img\\Open-Volunteering-Requests.png",
       "SourceId": "CIWeb",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\pci114\\Desktop\\internship\\CIPlateform\\MVC\\CI\\CIWeb\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\jenil\\OneDrive\\Desktop\\CIPlateform\\MVC\\CI\\CIWeb\\wwwroot\\",
       "BasePath": "_content/CIWeb",
       "RelativePath": "img/Open-Volunteering-Requests.png",
       "AssetKind": "All",
@@ -1428,10 +1428,10 @@
       "OriginalItemSpec": "wwwroot\\img\\Open-Volunteering-Requests.png"
     },
     {
-      "Identity": "C:\\Users\\pci114\\Desktop\\internship\\CIPlateform\\MVC\\CI\\CIWeb\\wwwroot\\img\\organization.png",
+      "Identity": "C:\\Users\\jenil\\OneDrive\\Desktop\\CIPlateform\\MVC\\CI\\CIWeb\\wwwroot\\img\\organization.png",
       "SourceId": "CIWeb",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\pci114\\Desktop\\internship\\CIPlateform\\MVC\\CI\\CIWeb\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\jenil\\OneDrive\\Desktop\\CIPlateform\\MVC\\CI\\CIWeb\\wwwroot\\",
       "BasePath": "_content/CIWeb",
       "RelativePath": "img/organization.png",
       "AssetKind": "All",
@@ -1445,10 +1445,10 @@
       "OriginalItemSpec": "wwwroot\\img\\organization.png"
     },
     {
-      "Identity": "C:\\Users\\pci114\\Desktop\\internship\\CIPlateform\\MVC\\CI\\CIWeb\\wwwroot\\img\\pdf.png",
+      "Identity": "C:\\Users\\jenil\\OneDrive\\Desktop\\CIPlateform\\MVC\\CI\\CIWeb\\wwwroot\\img\\pdf.png",
       "SourceId": "CIWeb",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\pci114\\Desktop\\internship\\CIPlateform\\MVC\\CI\\CIWeb\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\jenil\\OneDrive\\Desktop\\CIPlateform\\MVC\\CI\\CIWeb\\wwwroot\\",
       "BasePath": "_content/CIWeb",
       "RelativePath": "img/pdf.png",
       "AssetKind": "All",
@@ -1462,10 +1462,10 @@
       "OriginalItemSpec": "wwwroot\\img\\pdf.png"
     },
     {
-      "Identity": "C:\\Users\\pci114\\Desktop\\internship\\CIPlateform\\MVC\\CI\\CIWeb\\wwwroot\\img\\pin.png",
+      "Identity": "C:\\Users\\jenil\\OneDrive\\Desktop\\CIPlateform\\MVC\\CI\\CIWeb\\wwwroot\\img\\pin.png",
       "SourceId": "CIWeb",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\pci114\\Desktop\\internship\\CIPlateform\\MVC\\CI\\CIWeb\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\jenil\\OneDrive\\Desktop\\CIPlateform\\MVC\\CI\\CIWeb\\wwwroot\\",
       "BasePath": "_content/CIWeb",
       "RelativePath": "img/pin.png",
       "AssetKind": "All",
@@ -1479,10 +1479,10 @@
       "OriginalItemSpec": "wwwroot\\img\\pin.png"
     },
     {
-      "Identity": "C:\\Users\\pci114\\Desktop\\internship\\CIPlateform\\MVC\\CI\\CIWeb\\wwwroot\\img\\pin1.png",
+      "Identity": "C:\\Users\\jenil\\OneDrive\\Desktop\\CIPlateform\\MVC\\CI\\CIWeb\\wwwroot\\img\\pin1.png",
       "SourceId": "CIWeb",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\pci114\\Desktop\\internship\\CIPlateform\\MVC\\CI\\CIWeb\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\jenil\\OneDrive\\Desktop\\CIPlateform\\MVC\\CI\\CIWeb\\wwwroot\\",
       "BasePath": "_content/CIWeb",
       "RelativePath": "img/pin1.png",
       "AssetKind": "All",
@@ -1496,10 +1496,10 @@
       "OriginalItemSpec": "wwwroot\\img\\pin1.png"
     },
     {
-      "Identity": "C:\\Users\\pci114\\Desktop\\internship\\CIPlateform\\MVC\\CI\\CIWeb\\wwwroot\\img\\Plantation-and-Afforestation-programme.png",
+      "Identity": "C:\\Users\\jenil\\OneDrive\\Desktop\\CIPlateform\\MVC\\CI\\CIWeb\\wwwroot\\img\\Plantation-and-Afforestation-programme.png",
       "SourceId": "CIWeb",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\pci114\\Desktop\\internship\\CIPlateform\\MVC\\CI\\CIWeb\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\jenil\\OneDrive\\Desktop\\CIPlateform\\MVC\\CI\\CIWeb\\wwwroot\\",
       "BasePath": "_content/CIWeb",
       "RelativePath": "img/Plantation-and-Afforestation-programme.png",
       "AssetKind": "All",
@@ -1513,10 +1513,10 @@
       "OriginalItemSpec": "wwwroot\\img\\Plantation-and-Afforestation-programme.png"
     },
     {
-      "Identity": "C:\\Users\\pci114\\Desktop\\internship\\CIPlateform\\MVC\\CI\\CIWeb\\wwwroot\\img\\Plantation-and-Afforestation-programme-1.png",
+      "Identity": "C:\\Users\\jenil\\OneDrive\\Desktop\\CIPlateform\\MVC\\CI\\CIWeb\\wwwroot\\img\\Plantation-and-Afforestation-programme-1.png",
       "SourceId": "CIWeb",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\pci114\\Desktop\\internship\\CIPlateform\\MVC\\CI\\CIWeb\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\jenil\\OneDrive\\Desktop\\CIPlateform\\MVC\\CI\\CIWeb\\wwwroot\\",
       "BasePath": "_content/CIWeb",
       "RelativePath": "img/Plantation-and-Afforestation-programme-1.png",
       "AssetKind": "All",
@@ -1530,10 +1530,10 @@
       "OriginalItemSpec": "wwwroot\\img\\Plantation-and-Afforestation-programme-1.png"
     },
     {
-      "Identity": "C:\\Users\\pci114\\Desktop\\internship\\CIPlateform\\MVC\\CI\\CIWeb\\wwwroot\\img\\previous.png",
+      "Identity": "C:\\Users\\jenil\\OneDrive\\Desktop\\CIPlateform\\MVC\\CI\\CIWeb\\wwwroot\\img\\previous.png",
       "SourceId": "CIWeb",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\pci114\\Desktop\\internship\\CIPlateform\\MVC\\CI\\CIWeb\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\jenil\\OneDrive\\Desktop\\CIPlateform\\MVC\\CI\\CIWeb\\wwwroot\\",
       "BasePath": "_content/CIWeb",
       "RelativePath": "img/previous.png",
       "AssetKind": "All",
@@ -1547,10 +1547,10 @@
       "OriginalItemSpec": "wwwroot\\img\\previous.png"
     },
     {
-      "Identity": "C:\\Users\\pci114\\Desktop\\internship\\CIPlateform\\MVC\\CI\\CIWeb\\wwwroot\\img\\right.png",
+      "Identity": "C:\\Users\\jenil\\OneDrive\\Desktop\\CIPlateform\\MVC\\CI\\CIWeb\\wwwroot\\img\\right.png",
       "SourceId": "CIWeb",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\pci114\\Desktop\\internship\\CIPlateform\\MVC\\CI\\CIWeb\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\jenil\\OneDrive\\Desktop\\CIPlateform\\MVC\\CI\\CIWeb\\wwwroot\\",
       "BasePath": "_content/CIWeb",
       "RelativePath": "img/right.png",
       "AssetKind": "All",
@@ -1564,10 +1564,10 @@
       "OriginalItemSpec": "wwwroot\\img\\right.png"
     },
     {
-      "Identity": "C:\\Users\\pci114\\Desktop\\internship\\CIPlateform\\MVC\\CI\\CIWeb\\wwwroot\\img\\right-arrow.png",
+      "Identity": "C:\\Users\\jenil\\OneDrive\\Desktop\\CIPlateform\\MVC\\CI\\CIWeb\\wwwroot\\img\\right-arrow.png",
       "SourceId": "CIWeb",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\pci114\\Desktop\\internship\\CIPlateform\\MVC\\CI\\CIWeb\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\jenil\\OneDrive\\Desktop\\CIPlateform\\MVC\\CI\\CIWeb\\wwwroot\\",
       "BasePath": "_content/CIWeb",
       "RelativePath": "img/right-arrow.png",
       "AssetKind": "All",
@@ -1581,10 +1581,10 @@
       "OriginalItemSpec": "wwwroot\\img\\right-arrow.png"
     },
     {
-      "Identity": "C:\\Users\\pci114\\Desktop\\internship\\CIPlateform\\MVC\\CI\\CIWeb\\wwwroot\\img\\right-arrow1.png",
+      "Identity": "C:\\Users\\jenil\\OneDrive\\Desktop\\CIPlateform\\MVC\\CI\\CIWeb\\wwwroot\\img\\right-arrow1.png",
       "SourceId": "CIWeb",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\pci114\\Desktop\\internship\\CIPlateform\\MVC\\CI\\CIWeb\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\jenil\\OneDrive\\Desktop\\CIPlateform\\MVC\\CI\\CIWeb\\wwwroot\\",
       "BasePath": "_content/CIWeb",
       "RelativePath": "img/right-arrow1.png",
       "AssetKind": "All",
@@ -1598,10 +1598,10 @@
       "OriginalItemSpec": "wwwroot\\img\\right-arrow1.png"
     },
     {
-      "Identity": "C:\\Users\\pci114\\Desktop\\internship\\CIPlateform\\MVC\\CI\\CIWeb\\wwwroot\\img\\right-arrow2.png",
+      "Identity": "C:\\Users\\jenil\\OneDrive\\Desktop\\CIPlateform\\MVC\\CI\\CIWeb\\wwwroot\\img\\right-arrow2.png",
       "SourceId": "CIWeb",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\pci114\\Desktop\\internship\\CIPlateform\\MVC\\CI\\CIWeb\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\jenil\\OneDrive\\Desktop\\CIPlateform\\MVC\\CI\\CIWeb\\wwwroot\\",
       "BasePath": "_content/CIWeb",
       "RelativePath": "img/right-arrow2.png",
       "AssetKind": "All",
@@ -1615,10 +1615,10 @@
       "OriginalItemSpec": "wwwroot\\img\\right-arrow2.png"
     },
     {
-      "Identity": "C:\\Users\\pci114\\Desktop\\internship\\CIPlateform\\MVC\\CI\\CIWeb\\wwwroot\\img\\right-white.png",
+      "Identity": "C:\\Users\\jenil\\OneDrive\\Desktop\\CIPlateform\\MVC\\CI\\CIWeb\\wwwroot\\img\\right-white.png",
       "SourceId": "CIWeb",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\pci114\\Desktop\\internship\\CIPlateform\\MVC\\CI\\CIWeb\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\jenil\\OneDrive\\Desktop\\CIPlateform\\MVC\\CI\\CIWeb\\wwwroot\\",
       "BasePath": "_content/CIWeb",
       "RelativePath": "img/right-white.png",
       "AssetKind": "All",
@@ -1632,10 +1632,10 @@
       "OriginalItemSpec": "wwwroot\\img\\right-white.png"
     },
     {
-      "Identity": "C:\\Users\\pci114\\Desktop\\internship\\CIPlateform\\MVC\\CI\\CIWeb\\wwwroot\\img\\search.png",
+      "Identity": "C:\\Users\\jenil\\OneDrive\\Desktop\\CIPlateform\\MVC\\CI\\CIWeb\\wwwroot\\img\\search.png",
       "SourceId": "CIWeb",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\pci114\\Desktop\\internship\\CIPlateform\\MVC\\CI\\CIWeb\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\jenil\\OneDrive\\Desktop\\CIPlateform\\MVC\\CI\\CIWeb\\wwwroot\\",
       "BasePath": "_content/CIWeb",
       "RelativePath": "img/search.png",
       "AssetKind": "All",
@@ -1649,10 +1649,10 @@
       "OriginalItemSpec": "wwwroot\\img\\search.png"
     },
     {
-      "Identity": "C:\\Users\\pci114\\Desktop\\internship\\CIPlateform\\MVC\\CI\\CIWeb\\wwwroot\\img\\Seats-left.png",
+      "Identity": "C:\\Users\\jenil\\OneDrive\\Desktop\\CIPlateform\\MVC\\CI\\CIWeb\\wwwroot\\img\\Seats-left.png",
       "SourceId": "CIWeb",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\pci114\\Desktop\\internship\\CIPlateform\\MVC\\CI\\CIWeb\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\jenil\\OneDrive\\Desktop\\CIPlateform\\MVC\\CI\\CIWeb\\wwwroot\\",
       "BasePath": "_content/CIWeb",
       "RelativePath": "img/Seats-left.png",
       "AssetKind": "All",
@@ -1666,10 +1666,10 @@
       "OriginalItemSpec": "wwwroot\\img\\Seats-left.png"
     },
     {
-      "Identity": "C:\\Users\\pci114\\Desktop\\internship\\CIPlateform\\MVC\\CI\\CIWeb\\wwwroot\\img\\selected-star.png",
+      "Identity": "C:\\Users\\jenil\\OneDrive\\Desktop\\CIPlateform\\MVC\\CI\\CIWeb\\wwwroot\\img\\selected-star.png",
       "SourceId": "CIWeb",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\pci114\\Desktop\\internship\\CIPlateform\\MVC\\CI\\CIWeb\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\jenil\\OneDrive\\Desktop\\CIPlateform\\MVC\\CI\\CIWeb\\wwwroot\\",
       "BasePath": "_content/CIWeb",
       "RelativePath": "img/selected-star.png",
       "AssetKind": "All",
@@ -1683,10 +1683,10 @@
       "OriginalItemSpec": "wwwroot\\img\\selected-star.png"
     },
     {
-      "Identity": "C:\\Users\\pci114\\Desktop\\internship\\CIPlateform\\MVC\\CI\\CIWeb\\wwwroot\\img\\settings.png",
+      "Identity": "C:\\Users\\jenil\\OneDrive\\Desktop\\CIPlateform\\MVC\\CI\\CIWeb\\wwwroot\\img\\settings.png",
       "SourceId": "CIWeb",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\pci114\\Desktop\\internship\\CIPlateform\\MVC\\CI\\CIWeb\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\jenil\\OneDrive\\Desktop\\CIPlateform\\MVC\\CI\\CIWeb\\wwwroot\\",
       "BasePath": "_content/CIWeb",
       "RelativePath": "img/settings.png",
       "AssetKind": "All",
@@ -1700,10 +1700,10 @@
       "OriginalItemSpec": "wwwroot\\img\\settings.png"
     },
     {
-      "Identity": "C:\\Users\\pci114\\Desktop\\internship\\CIPlateform\\MVC\\CI\\CIWeb\\wwwroot\\img\\star.png",
+      "Identity": "C:\\Users\\jenil\\OneDrive\\Desktop\\CIPlateform\\MVC\\CI\\CIWeb\\wwwroot\\img\\star.png",
       "SourceId": "CIWeb",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\pci114\\Desktop\\internship\\CIPlateform\\MVC\\CI\\CIWeb\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\jenil\\OneDrive\\Desktop\\CIPlateform\\MVC\\CI\\CIWeb\\wwwroot\\",
       "BasePath": "_content/CIWeb",
       "RelativePath": "img/star.png",
       "AssetKind": "All",
@@ -1717,10 +1717,10 @@
       "OriginalItemSpec": "wwwroot\\img\\star.png"
     },
     {
-      "Identity": "C:\\Users\\pci114\\Desktop\\internship\\CIPlateform\\MVC\\CI\\CIWeb\\wwwroot\\img\\star-empty.png",
+      "Identity": "C:\\Users\\jenil\\OneDrive\\Desktop\\CIPlateform\\MVC\\CI\\CIWeb\\wwwroot\\img\\star-empty.png",
       "SourceId": "CIWeb",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\pci114\\Desktop\\internship\\CIPlateform\\MVC\\CI\\CIWeb\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\jenil\\OneDrive\\Desktop\\CIPlateform\\MVC\\CI\\CIWeb\\wwwroot\\",
       "BasePath": "_content/CIWeb",
       "RelativePath": "img/star-empty.png",
       "AssetKind": "All",
@@ -1734,10 +1734,10 @@
       "OriginalItemSpec": "wwwroot\\img\\star-empty.png"
     },
     {
-      "Identity": "C:\\Users\\pci114\\Desktop\\internship\\CIPlateform\\MVC\\CI\\CIWeb\\wwwroot\\img\\Thumbs.db",
+      "Identity": "C:\\Users\\jenil\\OneDrive\\Desktop\\CIPlateform\\MVC\\CI\\CIWeb\\wwwroot\\img\\Thumbs.db",
       "SourceId": "CIWeb",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\pci114\\Desktop\\internship\\CIPlateform\\MVC\\CI\\CIWeb\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\jenil\\OneDrive\\Desktop\\CIPlateform\\MVC\\CI\\CIWeb\\wwwroot\\",
       "BasePath": "_content/CIWeb",
       "RelativePath": "img/Thumbs.db",
       "AssetKind": "All",
@@ -1751,10 +1751,10 @@
       "OriginalItemSpec": "wwwroot\\img\\Thumbs.db"
     },
     {
-      "Identity": "C:\\Users\\pci114\\Desktop\\internship\\CIPlateform\\MVC\\CI\\CIWeb\\wwwroot\\img\\twitter.png",
+      "Identity": "C:\\Users\\jenil\\OneDrive\\Desktop\\CIPlateform\\MVC\\CI\\CIWeb\\wwwroot\\img\\twitter.png",
       "SourceId": "CIWeb",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\pci114\\Desktop\\internship\\CIPlateform\\MVC\\CI\\CIWeb\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\jenil\\OneDrive\\Desktop\\CIPlateform\\MVC\\CI\\CIWeb\\wwwroot\\",
       "BasePath": "_content/CIWeb",
       "RelativePath": "img/twitter.png",
       "AssetKind": "All",
@@ -1768,10 +1768,10 @@
       "OriginalItemSpec": "wwwroot\\img\\twitter.png"
     },
     {
-      "Identity": "C:\\Users\\pci114\\Desktop\\internship\\CIPlateform\\MVC\\CI\\CIWeb\\wwwroot\\img\\up.png",
+      "Identity": "C:\\Users\\jenil\\OneDrive\\Desktop\\CIPlateform\\MVC\\CI\\CIWeb\\wwwroot\\img\\up.png",
       "SourceId": "CIWeb",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\pci114\\Desktop\\internship\\CIPlateform\\MVC\\CI\\CIWeb\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\jenil\\OneDrive\\Desktop\\CIPlateform\\MVC\\CI\\CIWeb\\wwwroot\\",
       "BasePath": "_content/CIWeb",
       "RelativePath": "img/up.png",
       "AssetKind": "All",
@@ -1785,10 +1785,10 @@
       "OriginalItemSpec": "wwwroot\\img\\up.png"
     },
     {
-      "Identity": "C:\\Users\\pci114\\Desktop\\internship\\CIPlateform\\MVC\\CI\\CIWeb\\wwwroot\\img\\user.png",
+      "Identity": "C:\\Users\\jenil\\OneDrive\\Desktop\\CIPlateform\\MVC\\CI\\CIWeb\\wwwroot\\img\\user.png",
       "SourceId": "CIWeb",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\pci114\\Desktop\\internship\\CIPlateform\\MVC\\CI\\CIWeb\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\jenil\\OneDrive\\Desktop\\CIPlateform\\MVC\\CI\\CIWeb\\wwwroot\\",
       "BasePath": "_content/CIWeb",
       "RelativePath": "img/user.png",
       "AssetKind": "All",
@@ -1802,10 +1802,10 @@
       "OriginalItemSpec": "wwwroot\\img\\user.png"
     },
     {
-      "Identity": "C:\\Users\\pci114\\Desktop\\internship\\CIPlateform\\MVC\\CI\\CIWeb\\wwwroot\\img\\user1.png",
+      "Identity": "C:\\Users\\jenil\\OneDrive\\Desktop\\CIPlateform\\MVC\\CI\\CIWeb\\wwwroot\\img\\user1.png",
       "SourceId": "CIWeb",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\pci114\\Desktop\\internship\\CIPlateform\\MVC\\CI\\CIWeb\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\jenil\\OneDrive\\Desktop\\CIPlateform\\MVC\\CI\\CIWeb\\wwwroot\\",
       "BasePath": "_content/CIWeb",
       "RelativePath": "img/user1.png",
       "AssetKind": "All",
@@ -1819,10 +1819,10 @@
       "OriginalItemSpec": "wwwroot\\img\\user1.png"
     },
     {
-      "Identity": "C:\\Users\\pci114\\Desktop\\internship\\CIPlateform\\MVC\\CI\\CIWeb\\wwwroot\\img\\user-img.png",
+      "Identity": "C:\\Users\\jenil\\OneDrive\\Desktop\\CIPlateform\\MVC\\CI\\CIWeb\\wwwroot\\img\\user-img.png",
       "SourceId": "CIWeb",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\pci114\\Desktop\\internship\\CIPlateform\\MVC\\CI\\CIWeb\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\jenil\\OneDrive\\Desktop\\CIPlateform\\MVC\\CI\\CIWeb\\wwwroot\\",
       "BasePath": "_content/CIWeb",
       "RelativePath": "img/user-img.png",
       "AssetKind": "All",
@@ -1836,10 +1836,10 @@
       "OriginalItemSpec": "wwwroot\\img\\user-img.png"
     },
     {
-      "Identity": "C:\\Users\\pci114\\Desktop\\internship\\CIPlateform\\MVC\\CI\\CIWeb\\wwwroot\\img\\user-img-large.png",
+      "Identity": "C:\\Users\\jenil\\OneDrive\\Desktop\\CIPlateform\\MVC\\CI\\CIWeb\\wwwroot\\img\\user-img-large.png",
       "SourceId": "CIWeb",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\pci114\\Desktop\\internship\\CIPlateform\\MVC\\CI\\CIWeb\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\jenil\\OneDrive\\Desktop\\CIPlateform\\MVC\\CI\\CIWeb\\wwwroot\\",
       "BasePath": "_content/CIWeb",
       "RelativePath": "img/user-img-large.png",
       "AssetKind": "All",
@@ -1853,10 +1853,10 @@
       "OriginalItemSpec": "wwwroot\\img\\user-img-large.png"
     },
     {
-      "Identity": "C:\\Users\\pci114\\Desktop\\internship\\CIPlateform\\MVC\\CI\\CIWeb\\wwwroot\\img\\volunteer1.png",
+      "Identity": "C:\\Users\\jenil\\OneDrive\\Desktop\\CIPlateform\\MVC\\CI\\CIWeb\\wwwroot\\img\\volunteer1.png",
       "SourceId": "CIWeb",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\pci114\\Desktop\\internship\\CIPlateform\\MVC\\CI\\CIWeb\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\jenil\\OneDrive\\Desktop\\CIPlateform\\MVC\\CI\\CIWeb\\wwwroot\\",
       "BasePath": "_content/CIWeb",
       "RelativePath": "img/volunteer1.png",
       "AssetKind": "All",
@@ -1870,10 +1870,10 @@
       "OriginalItemSpec": "wwwroot\\img\\volunteer1.png"
     },
     {
-      "Identity": "C:\\Users\\pci114\\Desktop\\internship\\CIPlateform\\MVC\\CI\\CIWeb\\wwwroot\\img\\volunteer2.png",
+      "Identity": "C:\\Users\\jenil\\OneDrive\\Desktop\\CIPlateform\\MVC\\CI\\CIWeb\\wwwroot\\img\\volunteer2.png",
       "SourceId": "CIWeb",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\pci114\\Desktop\\internship\\CIPlateform\\MVC\\CI\\CIWeb\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\jenil\\OneDrive\\Desktop\\CIPlateform\\MVC\\CI\\CIWeb\\wwwroot\\",
       "BasePath": "_content/CIWeb",
       "RelativePath": "img/volunteer2.png",
       "AssetKind": "All",
@@ -1887,10 +1887,10 @@
       "OriginalItemSpec": "wwwroot\\img\\volunteer2.png"
     },
     {
-      "Identity": "C:\\Users\\pci114\\Desktop\\internship\\CIPlateform\\MVC\\CI\\CIWeb\\wwwroot\\img\\volunteer3.png",
+      "Identity": "C:\\Users\\jenil\\OneDrive\\Desktop\\CIPlateform\\MVC\\CI\\CIWeb\\wwwroot\\img\\volunteer3.png",
       "SourceId": "CIWeb",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\pci114\\Desktop\\internship\\CIPlateform\\MVC\\CI\\CIWeb\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\jenil\\OneDrive\\Desktop\\CIPlateform\\MVC\\CI\\CIWeb\\wwwroot\\",
       "BasePath": "_content/CIWeb",
       "RelativePath": "img/volunteer3.png",
       "AssetKind": "All",
@@ -1904,10 +1904,10 @@
       "OriginalItemSpec": "wwwroot\\img\\volunteer3.png"
     },
     {
-      "Identity": "C:\\Users\\pci114\\Desktop\\internship\\CIPlateform\\MVC\\CI\\CIWeb\\wwwroot\\img\\volunteer4.png",
+      "Identity": "C:\\Users\\jenil\\OneDrive\\Desktop\\CIPlateform\\MVC\\CI\\CIWeb\\wwwroot\\img\\volunteer4.png",
       "SourceId": "CIWeb",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\pci114\\Desktop\\internship\\CIPlateform\\MVC\\CI\\CIWeb\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\jenil\\OneDrive\\Desktop\\CIPlateform\\MVC\\CI\\CIWeb\\wwwroot\\",
       "BasePath": "_content/CIWeb",
       "RelativePath": "img/volunteer4.png",
       "AssetKind": "All",
@@ -1921,10 +1921,10 @@
       "OriginalItemSpec": "wwwroot\\img\\volunteer4.png"
     },
     {
-      "Identity": "C:\\Users\\pci114\\Desktop\\internship\\CIPlateform\\MVC\\CI\\CIWeb\\wwwroot\\img\\volunteer5.png",
+      "Identity": "C:\\Users\\jenil\\OneDrive\\Desktop\\CIPlateform\\MVC\\CI\\CIWeb\\wwwroot\\img\\volunteer5.png",
       "SourceId": "CIWeb",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\pci114\\Desktop\\internship\\CIPlateform\\MVC\\CI\\CIWeb\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\jenil\\OneDrive\\Desktop\\CIPlateform\\MVC\\CI\\CIWeb\\wwwroot\\",
       "BasePath": "_content/CIWeb",
       "RelativePath": "img/volunteer5.png",
       "AssetKind": "All",
@@ -1938,10 +1938,10 @@
       "OriginalItemSpec": "wwwroot\\img\\volunteer5.png"
     },
     {
-      "Identity": "C:\\Users\\pci114\\Desktop\\internship\\CIPlateform\\MVC\\CI\\CIWeb\\wwwroot\\img\\volunteer6.png",
+      "Identity": "C:\\Users\\jenil\\OneDrive\\Desktop\\CIPlateform\\MVC\\CI\\CIWeb\\wwwroot\\img\\volunteer6.png",
       "SourceId": "CIWeb",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\pci114\\Desktop\\internship\\CIPlateform\\MVC\\CI\\CIWeb\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\jenil\\OneDrive\\Desktop\\CIPlateform\\MVC\\CI\\CIWeb\\wwwroot\\",
       "BasePath": "_content/CIWeb",
       "RelativePath": "img/volunteer6.png",
       "AssetKind": "All",
@@ -1955,10 +1955,10 @@
       "OriginalItemSpec": "wwwroot\\img\\volunteer6.png"
     },
     {
-      "Identity": "C:\\Users\\pci114\\Desktop\\internship\\CIPlateform\\MVC\\CI\\CIWeb\\wwwroot\\img\\volunteer7.png",
+      "Identity": "C:\\Users\\jenil\\OneDrive\\Desktop\\CIPlateform\\MVC\\CI\\CIWeb\\wwwroot\\img\\volunteer7.png",
       "SourceId": "CIWeb",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\pci114\\Desktop\\internship\\CIPlateform\\MVC\\CI\\CIWeb\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\jenil\\OneDrive\\Desktop\\CIPlateform\\MVC\\CI\\CIWeb\\wwwroot\\",
       "BasePath": "_content/CIWeb",
       "RelativePath": "img/volunteer7.png",
       "AssetKind": "All",
@@ -1972,10 +1972,10 @@
       "OriginalItemSpec": "wwwroot\\img\\volunteer7.png"
     },
     {
-      "Identity": "C:\\Users\\pci114\\Desktop\\internship\\CIPlateform\\MVC\\CI\\CIWeb\\wwwroot\\img\\volunteer8.png",
+      "Identity": "C:\\Users\\jenil\\OneDrive\\Desktop\\CIPlateform\\MVC\\CI\\CIWeb\\wwwroot\\img\\volunteer8.png",
       "SourceId": "CIWeb",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\pci114\\Desktop\\internship\\CIPlateform\\MVC\\CI\\CIWeb\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\jenil\\OneDrive\\Desktop\\CIPlateform\\MVC\\CI\\CIWeb\\wwwroot\\",
       "BasePath": "_content/CIWeb",
       "RelativePath": "img/volunteer8.png",
       "AssetKind": "All",
@@ -1989,10 +1989,10 @@
       "OriginalItemSpec": "wwwroot\\img\\volunteer8.png"
     },
     {
-      "Identity": "C:\\Users\\pci114\\Desktop\\internship\\CIPlateform\\MVC\\CI\\CIWeb\\wwwroot\\img\\volunteer9.png",
+      "Identity": "C:\\Users\\jenil\\OneDrive\\Desktop\\CIPlateform\\MVC\\CI\\CIWeb\\wwwroot\\img\\volunteer9.png",
       "SourceId": "CIWeb",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\pci114\\Desktop\\internship\\CIPlateform\\MVC\\CI\\CIWeb\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\jenil\\OneDrive\\Desktop\\CIPlateform\\MVC\\CI\\CIWeb\\wwwroot\\",
       "BasePath": "_content/CIWeb",
       "RelativePath": "img/volunteer9.png",
       "AssetKind": "All",
@@ -2006,10 +2006,10 @@
       "OriginalItemSpec": "wwwroot\\img\\volunteer9.png"
     },
     {
-      "Identity": "C:\\Users\\pci114\\Desktop\\internship\\CIPlateform\\MVC\\CI\\CIWeb\\wwwroot\\img\\Volunteering-Rank.png",
+      "Identity": "C:\\Users\\jenil\\OneDrive\\Desktop\\CIPlateform\\MVC\\CI\\CIWeb\\wwwroot\\img\\Volunteering-Rank.png",
       "SourceId": "CIWeb",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\pci114\\Desktop\\internship\\CIPlateform\\MVC\\CI\\CIWeb\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\jenil\\OneDrive\\Desktop\\CIPlateform\\MVC\\CI\\CIWeb\\wwwroot\\",
       "BasePath": "_content/CIWeb",
       "RelativePath": "img/Volunteering-Rank.png",
       "AssetKind": "All",
@@ -2023,10 +2023,10 @@
       "OriginalItemSpec": "wwwroot\\img\\Volunteering-Rank.png"
     },
     {
-      "Identity": "C:\\Users\\pci114\\Desktop\\internship\\CIPlateform\\MVC\\CI\\CIWeb\\wwwroot\\img\\Voted-Missions.png",
+      "Identity": "C:\\Users\\jenil\\OneDrive\\Desktop\\CIPlateform\\MVC\\CI\\CIWeb\\wwwroot\\img\\Voted-Missions.png",
       "SourceId": "CIWeb",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\pci114\\Desktop\\internship\\CIPlateform\\MVC\\CI\\CIWeb\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\jenil\\OneDrive\\Desktop\\CIPlateform\\MVC\\CI\\CIWeb\\wwwroot\\",
       "BasePath": "_content/CIWeb",
       "RelativePath": "img/Voted-Missions.png",
       "AssetKind": "All",
@@ -2040,10 +2040,10 @@
       "OriginalItemSpec": "wwwroot\\img\\Voted-Missions.png"
     },
     {
-      "Identity": "C:\\Users\\pci114\\Desktop\\internship\\CIPlateform\\MVC\\CI\\CIWeb\\wwwroot\\img\\web.png",
+      "Identity": "C:\\Users\\jenil\\OneDrive\\Desktop\\CIPlateform\\MVC\\CI\\CIWeb\\wwwroot\\img\\web.png",
       "SourceId": "CIWeb",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\pci114\\Desktop\\internship\\CIPlateform\\MVC\\CI\\CIWeb\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\jenil\\OneDrive\\Desktop\\CIPlateform\\MVC\\CI\\CIWeb\\wwwroot\\",
       "BasePath": "_content/CIWeb",
       "RelativePath": "img/web.png",
       "AssetKind": "All",
@@ -2057,10 +2057,10 @@
       "OriginalItemSpec": "wwwroot\\img\\web.png"
     },
     {
-      "Identity": "C:\\Users\\pci114\\Desktop\\internship\\CIPlateform\\MVC\\CI\\CIWeb\\wwwroot\\img\\xlsx.png",
+      "Identity": "C:\\Users\\jenil\\OneDrive\\Desktop\\CIPlateform\\MVC\\CI\\CIWeb\\wwwroot\\img\\xlsx.png",
       "SourceId": "CIWeb",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\pci114\\Desktop\\internship\\CIPlateform\\MVC\\CI\\CIWeb\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\jenil\\OneDrive\\Desktop\\CIPlateform\\MVC\\CI\\CIWeb\\wwwroot\\",
       "BasePath": "_content/CIWeb",
       "RelativePath": "img/xlsx.png",
       "AssetKind": "All",
@@ -2074,10 +2074,10 @@
       "OriginalItemSpec": "wwwroot\\img\\xlsx.png"
     },
     {
-      "Identity": "C:\\Users\\pci114\\Desktop\\internship\\CIPlateform\\MVC\\CI\\CIWeb\\wwwroot\\js\\bootstrap.bundle.min.js",
+      "Identity": "C:\\Users\\jenil\\OneDrive\\Desktop\\CIPlateform\\MVC\\CI\\CIWeb\\wwwroot\\js\\bootstrap.bundle.min.js",
       "SourceId": "CIWeb",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\pci114\\Desktop\\internship\\CIPlateform\\MVC\\CI\\CIWeb\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\jenil\\OneDrive\\Desktop\\CIPlateform\\MVC\\CI\\CIWeb\\wwwroot\\",
       "BasePath": "_content/CIWeb",
       "RelativePath": "js/bootstrap.bundle.min.js",
       "AssetKind": "All",
@@ -2091,10 +2091,10 @@
       "OriginalItemSpec": "wwwroot\\js\\bootstrap.bundle.min.js"
     },
     {
-      "Identity": "C:\\Users\\pci114\\Desktop\\internship\\CIPlateform\\MVC\\CI\\CIWeb\\wwwroot\\js\\bootstrap.bundle.min.js.map",
+      "Identity": "C:\\Users\\jenil\\OneDrive\\Desktop\\CIPlateform\\MVC\\CI\\CIWeb\\wwwroot\\js\\bootstrap.bundle.min.js.map",
       "SourceId": "CIWeb",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\pci114\\Desktop\\internship\\CIPlateform\\MVC\\CI\\CIWeb\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\jenil\\OneDrive\\Desktop\\CIPlateform\\MVC\\CI\\CIWeb\\wwwroot\\",
       "BasePath": "_content/CIWeb",
       "RelativePath": "js/bootstrap.bundle.min.js.map",
       "AssetKind": "All",
@@ -2108,10 +2108,10 @@
       "OriginalItemSpec": "wwwroot\\js\\bootstrap.bundle.min.js.map"
     },
     {
-      "Identity": "C:\\Users\\pci114\\Desktop\\internship\\CIPlateform\\MVC\\CI\\CIWeb\\wwwroot\\js\\filter.js",
+      "Identity": "C:\\Users\\jenil\\OneDrive\\Desktop\\CIPlateform\\MVC\\CI\\CIWeb\\wwwroot\\js\\filter.js",
       "SourceId": "CIWeb",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\pci114\\Desktop\\internship\\CIPlateform\\MVC\\CI\\CIWeb\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\jenil\\OneDrive\\Desktop\\CIPlateform\\MVC\\CI\\CIWeb\\wwwroot\\",
       "BasePath": "_content/CIWeb",
       "RelativePath": "js/filter.js",
       "AssetKind": "All",
@@ -2125,10 +2125,10 @@
       "OriginalItemSpec": "wwwroot\\js\\filter.js"
     },
     {
-      "Identity": "C:\\Users\\pci114\\Desktop\\internship\\CIPlateform\\MVC\\CI\\CIWeb\\wwwroot\\js\\popper.js",
+      "Identity": "C:\\Users\\jenil\\OneDrive\\Desktop\\CIPlateform\\MVC\\CI\\CIWeb\\wwwroot\\js\\popper.js",
       "SourceId": "CIWeb",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\pci114\\Desktop\\internship\\CIPlateform\\MVC\\CI\\CIWeb\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\jenil\\OneDrive\\Desktop\\CIPlateform\\MVC\\CI\\CIWeb\\wwwroot\\",
       "BasePath": "_content/CIWeb",
       "RelativePath": "js/popper.js",
       "AssetKind": "All",
@@ -2142,10 +2142,10 @@
       "OriginalItemSpec": "wwwroot\\js\\popper.js"
     },
     {
-      "Identity": "C:\\Users\\pci114\\Desktop\\internship\\CIPlateform\\MVC\\CI\\CIWeb\\wwwroot\\js\\site.js",
+      "Identity": "C:\\Users\\jenil\\OneDrive\\Desktop\\CIPlateform\\MVC\\CI\\CIWeb\\wwwroot\\js\\site.js",
       "SourceId": "CIWeb",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\pci114\\Desktop\\internship\\CIPlateform\\MVC\\CI\\CIWeb\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\jenil\\OneDrive\\Desktop\\CIPlateform\\MVC\\CI\\CIWeb\\wwwroot\\",
       "BasePath": "_content/CIWeb",
       "RelativePath": "js/site.js",
       "AssetKind": "All",
@@ -2159,10 +2159,10 @@
       "OriginalItemSpec": "wwwroot\\js\\site.js"
     },
     {
-      "Identity": "C:\\Users\\pci114\\Desktop\\internship\\CIPlateform\\MVC\\CI\\CIWeb\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.css",
+      "Identity": "C:\\Users\\jenil\\OneDrive\\Desktop\\CIPlateform\\MVC\\CI\\CIWeb\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.css",
       "SourceId": "CIWeb",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\pci114\\Desktop\\internship\\CIPlateform\\MVC\\CI\\CIWeb\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\jenil\\OneDrive\\Desktop\\CIPlateform\\MVC\\CI\\CIWeb\\wwwroot\\",
       "BasePath": "_content/CIWeb",
       "RelativePath": "lib/bootstrap/dist/css/bootstrap.css",
       "AssetKind": "All",
@@ -2176,10 +2176,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.css"
     },
     {
-      "Identity": "C:\\Users\\pci114\\Desktop\\internship\\CIPlateform\\MVC\\CI\\CIWeb\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.css.map",
+      "Identity": "C:\\Users\\jenil\\OneDrive\\Desktop\\CIPlateform\\MVC\\CI\\CIWeb\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.css.map",
       "SourceId": "CIWeb",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\pci114\\Desktop\\internship\\CIPlateform\\MVC\\CI\\CIWeb\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\jenil\\OneDrive\\Desktop\\CIPlateform\\MVC\\CI\\CIWeb\\wwwroot\\",
       "BasePath": "_content/CIWeb",
       "RelativePath": "lib/bootstrap/dist/css/bootstrap.css.map",
       "AssetKind": "All",
@@ -2193,10 +2193,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.css.map"
     },
     {
-      "Identity": "C:\\Users\\pci114\\Desktop\\internship\\CIPlateform\\MVC\\CI\\CIWeb\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.min.css",
+      "Identity": "C:\\Users\\jenil\\OneDrive\\Desktop\\CIPlateform\\MVC\\CI\\CIWeb\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.min.css",
       "SourceId": "CIWeb",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\pci114\\Desktop\\internship\\CIPlateform\\MVC\\CI\\CIWeb\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\jenil\\OneDrive\\Desktop\\CIPlateform\\MVC\\CI\\CIWeb\\wwwroot\\",
       "BasePath": "_content/CIWeb",
       "RelativePath": "lib/bootstrap/dist/css/bootstrap.min.css",
       "AssetKind": "All",
@@ -2210,10 +2210,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.min.css"
     },
     {
-      "Identity": "C:\\Users\\pci114\\Desktop\\internship\\CIPlateform\\MVC\\CI\\CIWeb\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.min.css.map",
+      "Identity": "C:\\Users\\jenil\\OneDrive\\Desktop\\CIPlateform\\MVC\\CI\\CIWeb\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.min.css.map",
       "SourceId": "CIWeb",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\pci114\\Desktop\\internship\\CIPlateform\\MVC\\CI\\CIWeb\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\jenil\\OneDrive\\Desktop\\CIPlateform\\MVC\\CI\\CIWeb\\wwwroot\\",
       "BasePath": "_content/CIWeb",
       "RelativePath": "lib/bootstrap/dist/css/bootstrap.min.css.map",
       "AssetKind": "All",
@@ -2227,10 +2227,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.min.css.map"
     },
     {
-      "Identity": "C:\\Users\\pci114\\Desktop\\internship\\CIPlateform\\MVC\\CI\\CIWeb\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.css",
+      "Identity": "C:\\Users\\jenil\\OneDrive\\Desktop\\CIPlateform\\MVC\\CI\\CIWeb\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.css",
       "SourceId": "CIWeb",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\pci114\\Desktop\\internship\\CIPlateform\\MVC\\CI\\CIWeb\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\jenil\\OneDrive\\Desktop\\CIPlateform\\MVC\\CI\\CIWeb\\wwwroot\\",
       "BasePath": "_content/CIWeb",
       "RelativePath": "lib/bootstrap/dist/css/bootstrap.rtl.css",
       "AssetKind": "All",
@@ -2244,10 +2244,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.css"
     },
     {
-      "Identity": "C:\\Users\\pci114\\Desktop\\internship\\CIPlateform\\MVC\\CI\\CIWeb\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.css.map",
+      "Identity": "C:\\Users\\jenil\\OneDrive\\Desktop\\CIPlateform\\MVC\\CI\\CIWeb\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.css.map",
       "SourceId": "CIWeb",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\pci114\\Desktop\\internship\\CIPlateform\\MVC\\CI\\CIWeb\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\jenil\\OneDrive\\Desktop\\CIPlateform\\MVC\\CI\\CIWeb\\wwwroot\\",
       "BasePath": "_content/CIWeb",
       "RelativePath": "lib/bootstrap/dist/css/bootstrap.rtl.css.map",
       "AssetKind": "All",
@@ -2261,10 +2261,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.css.map"
     },
     {
-      "Identity": "C:\\Users\\pci114\\Desktop\\internship\\CIPlateform\\MVC\\CI\\CIWeb\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.min.css",
+      "Identity": "C:\\Users\\jenil\\OneDrive\\Desktop\\CIPlateform\\MVC\\CI\\CIWeb\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.min.css",
       "SourceId": "CIWeb",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\pci114\\Desktop\\internship\\CIPlateform\\MVC\\CI\\CIWeb\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\jenil\\OneDrive\\Desktop\\CIPlateform\\MVC\\CI\\CIWeb\\wwwroot\\",
       "BasePath": "_content/CIWeb",
       "RelativePath": "lib/bootstrap/dist/css/bootstrap.rtl.min.css",
       "AssetKind": "All",
@@ -2278,10 +2278,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.min.css"
     },
     {
-      "Identity": "C:\\Users\\pci114\\Desktop\\internship\\CIPlateform\\MVC\\CI\\CIWeb\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.min.css.map",
+      "Identity": "C:\\Users\\jenil\\OneDrive\\Desktop\\CIPlateform\\MVC\\CI\\CIWeb\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.min.css.map",
       "SourceId": "CIWeb",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\pci114\\Desktop\\internship\\CIPlateform\\MVC\\CI\\CIWeb\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\jenil\\OneDrive\\Desktop\\CIPlateform\\MVC\\CI\\CIWeb\\wwwroot\\",
       "BasePath": "_content/CIWeb",
       "RelativePath": "lib/bootstrap/dist/css/bootstrap.rtl.min.css.map",
       "AssetKind": "All",
@@ -2295,10 +2295,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.min.css.map"
     },
     {
-      "Identity": "C:\\Users\\pci114\\Desktop\\internship\\CIPlateform\\MVC\\CI\\CIWeb\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.css",
+      "Identity": "C:\\Users\\jenil\\OneDrive\\Desktop\\CIPlateform\\MVC\\CI\\CIWeb\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.css",
       "SourceId": "CIWeb",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\pci114\\Desktop\\internship\\CIPlateform\\MVC\\CI\\CIWeb\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\jenil\\OneDrive\\Desktop\\CIPlateform\\MVC\\CI\\CIWeb\\wwwroot\\",
       "BasePath": "_content/CIWeb",
       "RelativePath": "lib/bootstrap/dist/css/bootstrap-grid.css",
       "AssetKind": "All",
@@ -2312,10 +2312,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.css"
     },
     {
-      "Identity": "C:\\Users\\pci114\\Desktop\\internship\\CIPlateform\\MVC\\CI\\CIWeb\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.css.map",
+      "Identity": "C:\\Users\\jenil\\OneDrive\\Desktop\\CIPlateform\\MVC\\CI\\CIWeb\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.css.map",
       "SourceId": "CIWeb",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\pci114\\Desktop\\internship\\CIPlateform\\MVC\\CI\\CIWeb\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\jenil\\OneDrive\\Desktop\\CIPlateform\\MVC\\CI\\CIWeb\\wwwroot\\",
       "BasePath": "_content/CIWeb",
       "RelativePath": "lib/bootstrap/dist/css/bootstrap-grid.css.map",
       "AssetKind": "All",
@@ -2329,10 +2329,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.css.map"
     },
     {
-      "Identity": "C:\\Users\\pci114\\Desktop\\internship\\CIPlateform\\MVC\\CI\\CIWeb\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.min.css",
+      "Identity": "C:\\Users\\jenil\\OneDrive\\Desktop\\CIPlateform\\MVC\\CI\\CIWeb\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.min.css",
       "SourceId": "CIWeb",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\pci114\\Desktop\\internship\\CIPlateform\\MVC\\CI\\CIWeb\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\jenil\\OneDrive\\Desktop\\CIPlateform\\MVC\\CI\\CIWeb\\wwwroot\\",
       "BasePath": "_content/CIWeb",
       "RelativePath": "lib/bootstrap/dist/css/bootstrap-grid.min.css",
       "AssetKind": "All",
@@ -2346,10 +2346,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.min.css"
     },
     {
-      "Identity": "C:\\Users\\pci114\\Desktop\\internship\\CIPlateform\\MVC\\CI\\CIWeb\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.min.css.map",
+      "Identity": "C:\\Users\\jenil\\OneDrive\\Desktop\\CIPlateform\\MVC\\CI\\CIWeb\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.min.css.map",
       "SourceId": "CIWeb",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\pci114\\Desktop\\internship\\CIPlateform\\MVC\\CI\\CIWeb\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\jenil\\OneDrive\\Desktop\\CIPlateform\\MVC\\CI\\CIWeb\\wwwroot\\",
       "BasePath": "_content/CIWeb",
       "RelativePath": "lib/bootstrap/dist/css/bootstrap-grid.min.css.map",
       "AssetKind": "All",
@@ -2363,10 +2363,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.min.css.map"
     },
     {
-      "Identity": "C:\\Users\\pci114\\Desktop\\internship\\CIPlateform\\MVC\\CI\\CIWeb\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.css",
+      "Identity": "C:\\Users\\jenil\\OneDrive\\Desktop\\CIPlateform\\MVC\\CI\\CIWeb\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.css",
       "SourceId": "CIWeb",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\pci114\\Desktop\\internship\\CIPlateform\\MVC\\CI\\CIWeb\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\jenil\\OneDrive\\Desktop\\CIPlateform\\MVC\\CI\\CIWeb\\wwwroot\\",
       "BasePath": "_content/CIWeb",
       "RelativePath": "lib/bootstrap/dist/css/bootstrap-grid.rtl.css",
       "AssetKind": "All",
@@ -2380,10 +2380,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.css"
     },
     {
-      "Identity": "C:\\Users\\pci114\\Desktop\\internship\\CIPlateform\\MVC\\CI\\CIWeb\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.css.map",
+      "Identity": "C:\\Users\\jenil\\OneDrive\\Desktop\\CIPlateform\\MVC\\CI\\CIWeb\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.css.map",
       "SourceId": "CIWeb",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\pci114\\Desktop\\internship\\CIPlateform\\MVC\\CI\\CIWeb\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\jenil\\OneDrive\\Desktop\\CIPlateform\\MVC\\CI\\CIWeb\\wwwroot\\",
       "BasePath": "_content/CIWeb",
       "RelativePath": "lib/bootstrap/dist/css/bootstrap-grid.rtl.css.map",
       "AssetKind": "All",
@@ -2397,10 +2397,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.css.map"
     },
     {
-      "Identity": "C:\\Users\\pci114\\Desktop\\internship\\CIPlateform\\MVC\\CI\\CIWeb\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.min.css",
+      "Identity": "C:\\Users\\jenil\\OneDrive\\Desktop\\CIPlateform\\MVC\\CI\\CIWeb\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.min.css",
       "SourceId": "CIWeb",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\pci114\\Desktop\\internship\\CIPlateform\\MVC\\CI\\CIWeb\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\jenil\\OneDrive\\Desktop\\CIPlateform\\MVC\\CI\\CIWeb\\wwwroot\\",
       "BasePath": "_content/CIWeb",
       "RelativePath": "lib/bootstrap/dist/css/bootstrap-grid.rtl.min.css",
       "AssetKind": "All",
@@ -2414,10 +2414,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.min.css"
     },
     {
-      "Identity": "C:\\Users\\pci114\\Desktop\\internship\\CIPlateform\\MVC\\CI\\CIWeb\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.min.css.map",
+      "Identity": "C:\\Users\\jenil\\OneDrive\\Desktop\\CIPlateform\\MVC\\CI\\CIWeb\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.min.css.map",
       "SourceId": "CIWeb",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\pci114\\Desktop\\internship\\CIPlateform\\MVC\\CI\\CIWeb\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\jenil\\OneDrive\\Desktop\\CIPlateform\\MVC\\CI\\CIWeb\\wwwroot\\",
       "BasePath": "_content/CIWeb",
       "RelativePath": "lib/bootstrap/dist/css/bootstrap-grid.rtl.min.css.map",
       "AssetKind": "All",
@@ -2431,10 +2431,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.min.css.map"
     },
     {
-      "Identity": "C:\\Users\\pci114\\Desktop\\internship\\CIPlateform\\MVC\\CI\\CIWeb\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.css",
+      "Identity": "C:\\Users\\jenil\\OneDrive\\Desktop\\CIPlateform\\MVC\\CI\\CIWeb\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.css",
       "SourceId": "CIWeb",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\pci114\\Desktop\\internship\\CIPlateform\\MVC\\CI\\CIWeb\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\jenil\\OneDrive\\Desktop\\CIPlateform\\MVC\\CI\\CIWeb\\wwwroot\\",
       "BasePath": "_content/CIWeb",
       "RelativePath": "lib/bootstrap/dist/css/bootstrap-reboot.css",
       "AssetKind": "All",
@@ -2448,10 +2448,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.css"
     },
     {
-      "Identity": "C:\\Users\\pci114\\Desktop\\internship\\CIPlateform\\MVC\\CI\\CIWeb\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.css.map",
+      "Identity": "C:\\Users\\jenil\\OneDrive\\Desktop\\CIPlateform\\MVC\\CI\\CIWeb\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.css.map",
       "SourceId": "CIWeb",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\pci114\\Desktop\\internship\\CIPlateform\\MVC\\CI\\CIWeb\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\jenil\\OneDrive\\Desktop\\CIPlateform\\MVC\\CI\\CIWeb\\wwwroot\\",
       "BasePath": "_content/CIWeb",
       "RelativePath": "lib/bootstrap/dist/css/bootstrap-reboot.css.map",
       "AssetKind": "All",
@@ -2465,10 +2465,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.css.map"
     },
     {
-      "Identity": "C:\\Users\\pci114\\Desktop\\internship\\CIPlateform\\MVC\\CI\\CIWeb\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.min.css",
+      "Identity": "C:\\Users\\jenil\\OneDrive\\Desktop\\CIPlateform\\MVC\\CI\\CIWeb\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.min.css",
       "SourceId": "CIWeb",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\pci114\\Desktop\\internship\\CIPlateform\\MVC\\CI\\CIWeb\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\jenil\\OneDrive\\Desktop\\CIPlateform\\MVC\\CI\\CIWeb\\wwwroot\\",
       "BasePath": "_content/CIWeb",
       "RelativePath": "lib/bootstrap/dist/css/bootstrap-reboot.min.css",
       "AssetKind": "All",
@@ -2482,10 +2482,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.min.css"
     },
     {
-      "Identity": "C:\\Users\\pci114\\Desktop\\internship\\CIPlateform\\MVC\\CI\\CIWeb\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.min.css.map",
+      "Identity": "C:\\Users\\jenil\\OneDrive\\Desktop\\CIPlateform\\MVC\\CI\\CIWeb\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.min.css.map",
       "SourceId": "CIWeb",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\pci114\\Desktop\\internship\\CIPlateform\\MVC\\CI\\CIWeb\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\jenil\\OneDrive\\Desktop\\CIPlateform\\MVC\\CI\\CIWeb\\wwwroot\\",
       "BasePath": "_content/CIWeb",
       "RelativePath": "lib/bootstrap/dist/css/bootstrap-reboot.min.css.map",
       "AssetKind": "All",
@@ -2499,10 +2499,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.min.css.map"
     },
     {
-      "Identity": "C:\\Users\\pci114\\Desktop\\internship\\CIPlateform\\MVC\\CI\\CIWeb\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.css",
+      "Identity": "C:\\Users\\jenil\\OneDrive\\Desktop\\CIPlateform\\MVC\\CI\\CIWeb\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.css",
       "SourceId": "CIWeb",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\pci114\\Desktop\\internship\\CIPlateform\\MVC\\CI\\CIWeb\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\jenil\\OneDrive\\Desktop\\CIPlateform\\MVC\\CI\\CIWeb\\wwwroot\\",
       "BasePath": "_content/CIWeb",
       "RelativePath": "lib/bootstrap/dist/css/bootstrap-reboot.rtl.css",
       "AssetKind": "All",
@@ -2516,10 +2516,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.css"
     },
     {
-      "Identity": "C:\\Users\\pci114\\Desktop\\internship\\CIPlateform\\MVC\\CI\\CIWeb\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.css.map",
+      "Identity": "C:\\Users\\jenil\\OneDrive\\Desktop\\CIPlateform\\MVC\\CI\\CIWeb\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.css.map",
       "SourceId": "CIWeb",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\pci114\\Desktop\\internship\\CIPlateform\\MVC\\CI\\CIWeb\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\jenil\\OneDrive\\Desktop\\CIPlateform\\MVC\\CI\\CIWeb\\wwwroot\\",
       "BasePath": "_content/CIWeb",
       "RelativePath": "lib/bootstrap/dist/css/bootstrap-reboot.rtl.css.map",
       "AssetKind": "All",
@@ -2533,10 +2533,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.css.map"
     },
     {
-      "Identity": "C:\\Users\\pci114\\Desktop\\internship\\CIPlateform\\MVC\\CI\\CIWeb\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.min.css",
+      "Identity": "C:\\Users\\jenil\\OneDrive\\Desktop\\CIPlateform\\MVC\\CI\\CIWeb\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.min.css",
       "SourceId": "CIWeb",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\pci114\\Desktop\\internship\\CIPlateform\\MVC\\CI\\CIWeb\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\jenil\\OneDrive\\Desktop\\CIPlateform\\MVC\\CI\\CIWeb\\wwwroot\\",
       "BasePath": "_content/CIWeb",
       "RelativePath": "lib/bootstrap/dist/css/bootstrap-reboot.rtl.min.css",
       "AssetKind": "All",
@@ -2550,10 +2550,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.min.css"
     },
     {
-      "Identity": "C:\\Users\\pci114\\Desktop\\internship\\CIPlateform\\MVC\\CI\\CIWeb\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.min.css.map",
+      "Identity": "C:\\Users\\jenil\\OneDrive\\Desktop\\CIPlateform\\MVC\\CI\\CIWeb\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.min.css.map",
       "SourceId": "CIWeb",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\pci114\\Desktop\\internship\\CIPlateform\\MVC\\CI\\CIWeb\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\jenil\\OneDrive\\Desktop\\CIPlateform\\MVC\\CI\\CIWeb\\wwwroot\\",
       "BasePath": "_content/CIWeb",
       "RelativePath": "lib/bootstrap/dist/css/bootstrap-reboot.rtl.min.css.map",
       "AssetKind": "All",
@@ -2567,10 +2567,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.min.css.map"
     },
     {
-      "Identity": "C:\\Users\\pci114\\Desktop\\internship\\CIPlateform\\MVC\\CI\\CIWeb\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.css",
+      "Identity": "C:\\Users\\jenil\\OneDrive\\Desktop\\CIPlateform\\MVC\\CI\\CIWeb\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.css",
       "SourceId": "CIWeb",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\pci114\\Desktop\\internship\\CIPlateform\\MVC\\CI\\CIWeb\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\jenil\\OneDrive\\Desktop\\CIPlateform\\MVC\\CI\\CIWeb\\wwwroot\\",
       "BasePath": "_content/CIWeb",
       "RelativePath": "lib/bootstrap/dist/css/bootstrap-utilities.css",
       "AssetKind": "All",
@@ -2584,10 +2584,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.css"
     },
     {
-      "Identity": "C:\\Users\\pci114\\Desktop\\internship\\CIPlateform\\MVC\\CI\\CIWeb\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.css.map",
+      "Identity": "C:\\Users\\jenil\\OneDrive\\Desktop\\CIPlateform\\MVC\\CI\\CIWeb\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.css.map",
       "SourceId": "CIWeb",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\pci114\\Desktop\\internship\\CIPlateform\\MVC\\CI\\CIWeb\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\jenil\\OneDrive\\Desktop\\CIPlateform\\MVC\\CI\\CIWeb\\wwwroot\\",
       "BasePath": "_content/CIWeb",
       "RelativePath": "lib/bootstrap/dist/css/bootstrap-utilities.css.map",
       "AssetKind": "All",
@@ -2601,10 +2601,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.css.map"
     },
     {
-      "Identity": "C:\\Users\\pci114\\Desktop\\internship\\CIPlateform\\MVC\\CI\\CIWeb\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.min.css",
+      "Identity": "C:\\Users\\jenil\\OneDrive\\Desktop\\CIPlateform\\MVC\\CI\\CIWeb\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.min.css",
       "SourceId": "CIWeb",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\pci114\\Desktop\\internship\\CIPlateform\\MVC\\CI\\CIWeb\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\jenil\\OneDrive\\Desktop\\CIPlateform\\MVC\\CI\\CIWeb\\wwwroot\\",
       "BasePath": "_content/CIWeb",
       "RelativePath": "lib/bootstrap/dist/css/bootstrap-utilities.min.css",
       "AssetKind": "All",
@@ -2618,10 +2618,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.min.css"
     },
     {
-      "Identity": "C:\\Users\\pci114\\Desktop\\internship\\CIPlateform\\MVC\\CI\\CIWeb\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.min.css.map",
+      "Identity": "C:\\Users\\jenil\\OneDrive\\Desktop\\CIPlateform\\MVC\\CI\\CIWeb\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.min.css.map",
       "SourceId": "CIWeb",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\pci114\\Desktop\\internship\\CIPlateform\\MVC\\CI\\CIWeb\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\jenil\\OneDrive\\Desktop\\CIPlateform\\MVC\\CI\\CIWeb\\wwwroot\\",
       "BasePath": "_content/CIWeb",
       "RelativePath": "lib/bootstrap/dist/css/bootstrap-utilities.min.css.map",
       "AssetKind": "All",
@@ -2635,10 +2635,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.min.css.map"
     },
     {
-      "Identity": "C:\\Users\\pci114\\Desktop\\internship\\CIPlateform\\MVC\\CI\\CIWeb\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.css",
+      "Identity": "C:\\Users\\jenil\\OneDrive\\Desktop\\CIPlateform\\MVC\\CI\\CIWeb\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.css",
       "SourceId": "CIWeb",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\pci114\\Desktop\\internship\\CIPlateform\\MVC\\CI\\CIWeb\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\jenil\\OneDrive\\Desktop\\CIPlateform\\MVC\\CI\\CIWeb\\wwwroot\\",
       "BasePath": "_content/CIWeb",
       "RelativePath": "lib/bootstrap/dist/css/bootstrap-utilities.rtl.css",
       "AssetKind": "All",
@@ -2652,10 +2652,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.css"
     },
     {
-      "Identity": "C:\\Users\\pci114\\Desktop\\internship\\CIPlateform\\MVC\\CI\\CIWeb\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.css.map",
+      "Identity": "C:\\Users\\jenil\\OneDrive\\Desktop\\CIPlateform\\MVC\\CI\\CIWeb\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.css.map",
       "SourceId": "CIWeb",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\pci114\\Desktop\\internship\\CIPlateform\\MVC\\CI\\CIWeb\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\jenil\\OneDrive\\Desktop\\CIPlateform\\MVC\\CI\\CIWeb\\wwwroot\\",
       "BasePath": "_content/CIWeb",
       "RelativePath": "lib/bootstrap/dist/css/bootstrap-utilities.rtl.css.map",
       "AssetKind": "All",
@@ -2669,10 +2669,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.css.map"
     },
     {
-      "Identity": "C:\\Users\\pci114\\Desktop\\internship\\CIPlateform\\MVC\\CI\\CIWeb\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.min.css",
+      "Identity": "C:\\Users\\jenil\\OneDrive\\Desktop\\CIPlateform\\MVC\\CI\\CIWeb\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.min.css",
       "SourceId": "CIWeb",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\pci114\\Desktop\\internship\\CIPlateform\\MVC\\CI\\CIWeb\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\jenil\\OneDrive\\Desktop\\CIPlateform\\MVC\\CI\\CIWeb\\wwwroot\\",
       "BasePath": "_content/CIWeb",
       "RelativePath": "lib/bootstrap/dist/css/bootstrap-utilities.rtl.min.css",
       "AssetKind": "All",
@@ -2686,10 +2686,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.min.css"
     },
     {
-      "Identity": "C:\\Users\\pci114\\Desktop\\internship\\CIPlateform\\MVC\\CI\\CIWeb\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.min.css.map",
+      "Identity": "C:\\Users\\jenil\\OneDrive\\Desktop\\CIPlateform\\MVC\\CI\\CIWeb\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.min.css.map",
       "SourceId": "CIWeb",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\pci114\\Desktop\\internship\\CIPlateform\\MVC\\CI\\CIWeb\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\jenil\\OneDrive\\Desktop\\CIPlateform\\MVC\\CI\\CIWeb\\wwwroot\\",
       "BasePath": "_content/CIWeb",
       "RelativePath": "lib/bootstrap/dist/css/bootstrap-utilities.rtl.min.css.map",
       "AssetKind": "All",
@@ -2703,10 +2703,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.min.css.map"
     },
     {
-      "Identity": "C:\\Users\\pci114\\Desktop\\internship\\CIPlateform\\MVC\\CI\\CIWeb\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.js",
+      "Identity": "C:\\Users\\jenil\\OneDrive\\Desktop\\CIPlateform\\MVC\\CI\\CIWeb\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.js",
       "SourceId": "CIWeb",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\pci114\\Desktop\\internship\\CIPlateform\\MVC\\CI\\CIWeb\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\jenil\\OneDrive\\Desktop\\CIPlateform\\MVC\\CI\\CIWeb\\wwwroot\\",
       "BasePath": "_content/CIWeb",
       "RelativePath": "lib/bootstrap/dist/js/bootstrap.bundle.js",
       "AssetKind": "All",
@@ -2720,10 +2720,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.js"
     },
     {
-      "Identity": "C:\\Users\\pci114\\Desktop\\internship\\CIPlateform\\MVC\\CI\\CIWeb\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.js.map",
+      "Identity": "C:\\Users\\jenil\\OneDrive\\Desktop\\CIPlateform\\MVC\\CI\\CIWeb\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.js.map",
       "SourceId": "CIWeb",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\pci114\\Desktop\\internship\\CIPlateform\\MVC\\CI\\CIWeb\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\jenil\\OneDrive\\Desktop\\CIPlateform\\MVC\\CI\\CIWeb\\wwwroot\\",
       "BasePath": "_content/CIWeb",
       "RelativePath": "lib/bootstrap/dist/js/bootstrap.bundle.js.map",
       "AssetKind": "All",
@@ -2737,10 +2737,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.js.map"
     },
     {
-      "Identity": "C:\\Users\\pci114\\Desktop\\internship\\CIPlateform\\MVC\\CI\\CIWeb\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.min.js",
+      "Identity": "C:\\Users\\jenil\\OneDrive\\Desktop\\CIPlateform\\MVC\\CI\\CIWeb\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.min.js",
       "SourceId": "CIWeb",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\pci114\\Desktop\\internship\\CIPlateform\\MVC\\CI\\CIWeb\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\jenil\\OneDrive\\Desktop\\CIPlateform\\MVC\\CI\\CIWeb\\wwwroot\\",
       "BasePath": "_content/CIWeb",
       "RelativePath": "lib/bootstrap/dist/js/bootstrap.bundle.min.js",
       "AssetKind": "All",
@@ -2754,10 +2754,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.min.js"
     },
     {
-      "Identity": "C:\\Users\\pci114\\Desktop\\internship\\CIPlateform\\MVC\\CI\\CIWeb\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.min.js.map",
+      "Identity": "C:\\Users\\jenil\\OneDrive\\Desktop\\CIPlateform\\MVC\\CI\\CIWeb\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.min.js.map",
       "SourceId": "CIWeb",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\pci114\\Desktop\\internship\\CIPlateform\\MVC\\CI\\CIWeb\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\jenil\\OneDrive\\Desktop\\CIPlateform\\MVC\\CI\\CIWeb\\wwwroot\\",
       "BasePath": "_content/CIWeb",
       "RelativePath": "lib/bootstrap/dist/js/bootstrap.bundle.min.js.map",
       "AssetKind": "All",
@@ -2771,10 +2771,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.min.js.map"
     },
     {
-      "Identity": "C:\\Users\\pci114\\Desktop\\internship\\CIPlateform\\MVC\\CI\\CIWeb\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.js",
+      "Identity": "C:\\Users\\jenil\\OneDrive\\Desktop\\CIPlateform\\MVC\\CI\\CIWeb\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.js",
       "SourceId": "CIWeb",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\pci114\\Desktop\\internship\\CIPlateform\\MVC\\CI\\CIWeb\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\jenil\\OneDrive\\Desktop\\CIPlateform\\MVC\\CI\\CIWeb\\wwwroot\\",
       "BasePath": "_content/CIWeb",
       "RelativePath": "lib/bootstrap/dist/js/bootstrap.esm.js",
       "AssetKind": "All",
@@ -2788,10 +2788,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.js"
     },
     {
-      "Identity": "C:\\Users\\pci114\\Desktop\\internship\\CIPlateform\\MVC\\CI\\CIWeb\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.js.map",
+      "Identity": "C:\\Users\\jenil\\OneDrive\\Desktop\\CIPlateform\\MVC\\CI\\CIWeb\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.js.map",
       "SourceId": "CIWeb",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\pci114\\Desktop\\internship\\CIPlateform\\MVC\\CI\\CIWeb\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\jenil\\OneDrive\\Desktop\\CIPlateform\\MVC\\CI\\CIWeb\\wwwroot\\",
       "BasePath": "_content/CIWeb",
       "RelativePath": "lib/bootstrap/dist/js/bootstrap.esm.js.map",
       "AssetKind": "All",
@@ -2805,10 +2805,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.js.map"
     },
     {
-      "Identity": "C:\\Users\\pci114\\Desktop\\internship\\CIPlateform\\MVC\\CI\\CIWeb\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.min.js",
+      "Identity": "C:\\Users\\jenil\\OneDrive\\Desktop\\CIPlateform\\MVC\\CI\\CIWeb\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.min.js",
       "SourceId": "CIWeb",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\pci114\\Desktop\\internship\\CIPlateform\\MVC\\CI\\CIWeb\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\jenil\\OneDrive\\Desktop\\CIPlateform\\MVC\\CI\\CIWeb\\wwwroot\\",
       "BasePath": "_content/CIWeb",
       "RelativePath": "lib/bootstrap/dist/js/bootstrap.esm.min.js",
       "AssetKind": "All",
@@ -2822,10 +2822,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.min.js"
     },
     {
-      "Identity": "C:\\Users\\pci114\\Desktop\\internship\\CIPlateform\\MVC\\CI\\CIWeb\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.min.js.map",
+      "Identity": "C:\\Users\\jenil\\OneDrive\\Desktop\\CIPlateform\\MVC\\CI\\CIWeb\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.min.js.map",
       "SourceId": "CIWeb",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\pci114\\Desktop\\internship\\CIPlateform\\MVC\\CI\\CIWeb\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\jenil\\OneDrive\\Desktop\\CIPlateform\\MVC\\CI\\CIWeb\\wwwroot\\",
       "BasePath": "_content/CIWeb",
       "RelativePath": "lib/bootstrap/dist/js/bootstrap.esm.min.js.map",
       "AssetKind": "All",
@@ -2839,10 +2839,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.min.js.map"
     },
     {
-      "Identity": "C:\\Users\\pci114\\Desktop\\internship\\CIPlateform\\MVC\\CI\\CIWeb\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.js",
+      "Identity": "C:\\Users\\jenil\\OneDrive\\Desktop\\CIPlateform\\MVC\\CI\\CIWeb\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.js",
       "SourceId": "CIWeb",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\pci114\\Desktop\\internship\\CIPlateform\\MVC\\CI\\CIWeb\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\jenil\\OneDrive\\Desktop\\CIPlateform\\MVC\\CI\\CIWeb\\wwwroot\\",
       "BasePath": "_content/CIWeb",
       "RelativePath": "lib/bootstrap/dist/js/bootstrap.js",
       "AssetKind": "All",
@@ -2856,10 +2856,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.js"
     },
     {
-      "Identity": "C:\\Users\\pci114\\Desktop\\internship\\CIPlateform\\MVC\\CI\\CIWeb\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.js.map",
+      "Identity": "C:\\Users\\jenil\\OneDrive\\Desktop\\CIPlateform\\MVC\\CI\\CIWeb\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.js.map",
       "SourceId": "CIWeb",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\pci114\\Desktop\\internship\\CIPlateform\\MVC\\CI\\CIWeb\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\jenil\\OneDrive\\Desktop\\CIPlateform\\MVC\\CI\\CIWeb\\wwwroot\\",
       "BasePath": "_content/CIWeb",
       "RelativePath": "lib/bootstrap/dist/js/bootstrap.js.map",
       "AssetKind": "All",
@@ -2873,10 +2873,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.js.map"
     },
     {
-      "Identity": "C:\\Users\\pci114\\Desktop\\internship\\CIPlateform\\MVC\\CI\\CIWeb\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.min.js",
+      "Identity": "C:\\Users\\jenil\\OneDrive\\Desktop\\CIPlateform\\MVC\\CI\\CIWeb\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.min.js",
       "SourceId": "CIWeb",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\pci114\\Desktop\\internship\\CIPlateform\\MVC\\CI\\CIWeb\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\jenil\\OneDrive\\Desktop\\CIPlateform\\MVC\\CI\\CIWeb\\wwwroot\\",
       "BasePath": "_content/CIWeb",
       "RelativePath": "lib/bootstrap/dist/js/bootstrap.min.js",
       "AssetKind": "All",
@@ -2890,10 +2890,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.min.js"
     },
     {
-      "Identity": "C:\\Users\\pci114\\Desktop\\internship\\CIPlateform\\MVC\\CI\\CIWeb\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.min.js.map",
+      "Identity": "C:\\Users\\jenil\\OneDrive\\Desktop\\CIPlateform\\MVC\\CI\\CIWeb\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.min.js.map",
       "SourceId": "CIWeb",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\pci114\\Desktop\\internship\\CIPlateform\\MVC\\CI\\CIWeb\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\jenil\\OneDrive\\Desktop\\CIPlateform\\MVC\\CI\\CIWeb\\wwwroot\\",
       "BasePath": "_content/CIWeb",
       "RelativePath": "lib/bootstrap/dist/js/bootstrap.min.js.map",
       "AssetKind": "All",
@@ -2907,10 +2907,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.min.js.map"
     },
     {
-      "Identity": "C:\\Users\\pci114\\Desktop\\internship\\CIPlateform\\MVC\\CI\\CIWeb\\wwwroot\\lib\\bootstrap\\LICENSE",
+      "Identity": "C:\\Users\\jenil\\OneDrive\\Desktop\\CIPlateform\\MVC\\CI\\CIWeb\\wwwroot\\lib\\bootstrap\\LICENSE",
       "SourceId": "CIWeb",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\pci114\\Desktop\\internship\\CIPlateform\\MVC\\CI\\CIWeb\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\jenil\\OneDrive\\Desktop\\CIPlateform\\MVC\\CI\\CIWeb\\wwwroot\\",
       "BasePath": "_content/CIWeb",
       "RelativePath": "lib/bootstrap/LICENSE",
       "AssetKind": "All",
@@ -2924,10 +2924,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\LICENSE"
     },
     {
-      "Identity": "C:\\Users\\pci114\\Desktop\\internship\\CIPlateform\\MVC\\CI\\CIWeb\\wwwroot\\lib\\jquery\\dist\\jquery.js",
+      "Identity": "C:\\Users\\jenil\\OneDrive\\Desktop\\CIPlateform\\MVC\\CI\\CIWeb\\wwwroot\\lib\\jquery\\dist\\jquery.js",
       "SourceId": "CIWeb",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\pci114\\Desktop\\internship\\CIPlateform\\MVC\\CI\\CIWeb\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\jenil\\OneDrive\\Desktop\\CIPlateform\\MVC\\CI\\CIWeb\\wwwroot\\",
       "BasePath": "_content/CIWeb",
       "RelativePath": "lib/jquery/dist/jquery.js",
       "AssetKind": "All",
@@ -2941,10 +2941,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\jquery\\dist\\jquery.js"
     },
     {
-      "Identity": "C:\\Users\\pci114\\Desktop\\internship\\CIPlateform\\MVC\\CI\\CIWeb\\wwwroot\\lib\\jquery\\dist\\jquery.min.js",
+      "Identity": "C:\\Users\\jenil\\OneDrive\\Desktop\\CIPlateform\\MVC\\CI\\CIWeb\\wwwroot\\lib\\jquery\\dist\\jquery.min.js",
       "SourceId": "CIWeb",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\pci114\\Desktop\\internship\\CIPlateform\\MVC\\CI\\CIWeb\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\jenil\\OneDrive\\Desktop\\CIPlateform\\MVC\\CI\\CIWeb\\wwwroot\\",
       "BasePath": "_content/CIWeb",
       "RelativePath": "lib/jquery/dist/jquery.min.js",
       "AssetKind": "All",
@@ -2958,10 +2958,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\jquery\\dist\\jquery.min.js"
     },
     {
-      "Identity": "C:\\Users\\pci114\\Desktop\\internship\\CIPlateform\\MVC\\CI\\CIWeb\\wwwroot\\lib\\jquery\\dist\\jquery.min.map",
+      "Identity": "C:\\Users\\jenil\\OneDrive\\Desktop\\CIPlateform\\MVC\\CI\\CIWeb\\wwwroot\\lib\\jquery\\dist\\jquery.min.map",
       "SourceId": "CIWeb",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\pci114\\Desktop\\internship\\CIPlateform\\MVC\\CI\\CIWeb\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\jenil\\OneDrive\\Desktop\\CIPlateform\\MVC\\CI\\CIWeb\\wwwroot\\",
       "BasePath": "_content/CIWeb",
       "RelativePath": "lib/jquery/dist/jquery.min.map",
       "AssetKind": "All",
@@ -2975,10 +2975,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\jquery\\dist\\jquery.min.map"
     },
     {
-      "Identity": "C:\\Users\\pci114\\Desktop\\internship\\CIPlateform\\MVC\\CI\\CIWeb\\wwwroot\\lib\\jquery\\LICENSE.txt",
+      "Identity": "C:\\Users\\jenil\\OneDrive\\Desktop\\CIPlateform\\MVC\\CI\\CIWeb\\wwwroot\\lib\\jquery\\LICENSE.txt",
       "SourceId": "CIWeb",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\pci114\\Desktop\\internship\\CIPlateform\\MVC\\CI\\CIWeb\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\jenil\\OneDrive\\Desktop\\CIPlateform\\MVC\\CI\\CIWeb\\wwwroot\\",
       "BasePath": "_content/CIWeb",
       "RelativePath": "lib/jquery/LICENSE.txt",
       "AssetKind": "All",
@@ -2992,10 +2992,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\jquery\\LICENSE.txt"
     },
     {
-      "Identity": "C:\\Users\\pci114\\Desktop\\internship\\CIPlateform\\MVC\\CI\\CIWeb\\wwwroot\\lib\\jquery-validation\\dist\\additional-methods.js",
+      "Identity": "C:\\Users\\jenil\\OneDrive\\Desktop\\CIPlateform\\MVC\\CI\\CIWeb\\wwwroot\\lib\\jquery-validation\\dist\\additional-methods.js",
       "SourceId": "CIWeb",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\pci114\\Desktop\\internship\\CIPlateform\\MVC\\CI\\CIWeb\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\jenil\\OneDrive\\Desktop\\CIPlateform\\MVC\\CI\\CIWeb\\wwwroot\\",
       "BasePath": "_content/CIWeb",
       "RelativePath": "lib/jquery-validation/dist/additional-methods.js",
       "AssetKind": "All",
@@ -3009,10 +3009,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\jquery-validation\\dist\\additional-methods.js"
     },
     {
-      "Identity": "C:\\Users\\pci114\\Desktop\\internship\\CIPlateform\\MVC\\CI\\CIWeb\\wwwroot\\lib\\jquery-validation\\dist\\additional-methods.min.js",
+      "Identity": "C:\\Users\\jenil\\OneDrive\\Desktop\\CIPlateform\\MVC\\CI\\CIWeb\\wwwroot\\lib\\jquery-validation\\dist\\additional-methods.min.js",
       "SourceId": "CIWeb",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\pci114\\Desktop\\internship\\CIPlateform\\MVC\\CI\\CIWeb\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\jenil\\OneDrive\\Desktop\\CIPlateform\\MVC\\CI\\CIWeb\\wwwroot\\",
       "BasePath": "_content/CIWeb",
       "RelativePath": "lib/jquery-validation/dist/additional-methods.min.js",
       "AssetKind": "All",
@@ -3026,10 +3026,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\jquery-validation\\dist\\additional-methods.min.js"
     },
     {
-      "Identity": "C:\\Users\\pci114\\Desktop\\internship\\CIPlateform\\MVC\\CI\\CIWeb\\wwwroot\\lib\\jquery-validation\\dist\\jquery.validate.js",
+      "Identity": "C:\\Users\\jenil\\OneDrive\\Desktop\\CIPlateform\\MVC\\CI\\CIWeb\\wwwroot\\lib\\jquery-validation\\dist\\jquery.validate.js",
       "SourceId": "CIWeb",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\pci114\\Desktop\\internship\\CIPlateform\\MVC\\CI\\CIWeb\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\jenil\\OneDrive\\Desktop\\CIPlateform\\MVC\\CI\\CIWeb\\wwwroot\\",
       "BasePath": "_content/CIWeb",
       "RelativePath": "lib/jquery-validation/dist/jquery.validate.js",
       "AssetKind": "All",
@@ -3043,10 +3043,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\jquery-validation\\dist\\jquery.validate.js"
     },
     {
-      "Identity": "C:\\Users\\pci114\\Desktop\\internship\\CIPlateform\\MVC\\CI\\CIWeb\\wwwroot\\lib\\jquery-validation\\dist\\jquery.validate.min.js",
+      "Identity": "C:\\Users\\jenil\\OneDrive\\Desktop\\CIPlateform\\MVC\\CI\\CIWeb\\wwwroot\\lib\\jquery-validation\\dist\\jquery.validate.min.js",
       "SourceId": "CIWeb",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\pci114\\Desktop\\internship\\CIPlateform\\MVC\\CI\\CIWeb\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\jenil\\OneDrive\\Desktop\\CIPlateform\\MVC\\CI\\CIWeb\\wwwroot\\",
       "BasePath": "_content/CIWeb",
       "RelativePath": "lib/jquery-validation/dist/jquery.validate.min.js",
       "AssetKind": "All",
@@ -3060,10 +3060,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\jquery-validation\\dist\\jquery.validate.min.js"
     },
     {
-      "Identity": "C:\\Users\\pci114\\Desktop\\internship\\CIPlateform\\MVC\\CI\\CIWeb\\wwwroot\\lib\\jquery-validation\\LICENSE.md",
+      "Identity": "C:\\Users\\jenil\\OneDrive\\Desktop\\CIPlateform\\MVC\\CI\\CIWeb\\wwwroot\\lib\\jquery-validation\\LICENSE.md",
       "SourceId": "CIWeb",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\pci114\\Desktop\\internship\\CIPlateform\\MVC\\CI\\CIWeb\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\jenil\\OneDrive\\Desktop\\CIPlateform\\MVC\\CI\\CIWeb\\wwwroot\\",
       "BasePath": "_content/CIWeb",
       "RelativePath": "lib/jquery-validation/LICENSE.md",
       "AssetKind": "All",
@@ -3077,10 +3077,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\jquery-validation\\LICENSE.md"
     },
     {
-      "Identity": "C:\\Users\\pci114\\Desktop\\internship\\CIPlateform\\MVC\\CI\\CIWeb\\wwwroot\\lib\\jquery-validation-unobtrusive\\jquery.validate.unobtrusive.js",
+      "Identity": "C:\\Users\\jenil\\OneDrive\\Desktop\\CIPlateform\\MVC\\CI\\CIWeb\\wwwroot\\lib\\jquery-validation-unobtrusive\\jquery.validate.unobtrusive.js",
       "SourceId": "CIWeb",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\pci114\\Desktop\\internship\\CIPlateform\\MVC\\CI\\CIWeb\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\jenil\\OneDrive\\Desktop\\CIPlateform\\MVC\\CI\\CIWeb\\wwwroot\\",
       "BasePath": "_content/CIWeb",
       "RelativePath": "lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.js",
       "AssetKind": "All",
@@ -3094,10 +3094,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\jquery-validation-unobtrusive\\jquery.validate.unobtrusive.js"
     },
     {
-      "Identity": "C:\\Users\\pci114\\Desktop\\internship\\CIPlateform\\MVC\\CI\\CIWeb\\wwwroot\\lib\\jquery-validation-unobtrusive\\jquery.validate.unobtrusive.min.js",
+      "Identity": "C:\\Users\\jenil\\OneDrive\\Desktop\\CIPlateform\\MVC\\CI\\CIWeb\\wwwroot\\lib\\jquery-validation-unobtrusive\\jquery.validate.unobtrusive.min.js",
       "SourceId": "CIWeb",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\pci114\\Desktop\\internship\\CIPlateform\\MVC\\CI\\CIWeb\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\jenil\\OneDrive\\Desktop\\CIPlateform\\MVC\\CI\\CIWeb\\wwwroot\\",
       "BasePath": "_content/CIWeb",
       "RelativePath": "lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.min.js",
       "AssetKind": "All",
@@ -3111,10 +3111,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\jquery-validation-unobtrusive\\jquery.validate.unobtrusive.min.js"
     },
     {
-      "Identity": "C:\\Users\\pci114\\Desktop\\internship\\CIPlateform\\MVC\\CI\\CIWeb\\wwwroot\\lib\\jquery-validation-unobtrusive\\LICENSE.txt",
+      "Identity": "C:\\Users\\jenil\\OneDrive\\Desktop\\CIPlateform\\MVC\\CI\\CIWeb\\wwwroot\\lib\\jquery-validation-unobtrusive\\LICENSE.txt",
       "SourceId": "CIWeb",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\pci114\\Desktop\\internship\\CIPlateform\\MVC\\CI\\CIWeb\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\jenil\\OneDrive\\Desktop\\CIPlateform\\MVC\\CI\\CIWeb\\wwwroot\\",
       "BasePath": "_content/CIWeb",
       "RelativePath": "lib/jquery-validation-unobtrusive/LICENSE.txt",
       "AssetKind": "All",
