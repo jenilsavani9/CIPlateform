@@ -1,695 +1,731 @@
 {
   "Files": [
     {
-      "Id": "C:\\Users\\jenil\\OneDrive\\Desktop\\internship\\CI\\MVC\\CI\\CIWeb\\obj\\Debug\\net6.0\\scopedcss\\projectbundle\\CIWeb.bundle.scp.css",
+      "Id": "C:\\Users\\jenil\\OneDrive\\Desktop\\CIPlateform\\MVC\\CI\\CIWeb\\obj\\Debug\\net6.0\\scopedcss\\projectbundle\\CIWeb.bundle.scp.css",
       "PackagePath": "staticwebassets\\CIWeb.bundle.scp.css"
     },
     {
-      "Id": "C:\\Users\\jenil\\OneDrive\\Desktop\\internship\\CI\\MVC\\CI\\CIWeb\\wwwroot\\css\\bootstrap.min.css",
+      "Id": "C:\\Users\\jenil\\OneDrive\\Desktop\\CIPlateform\\MVC\\CI\\CIWeb\\wwwroot\\css\\LandingPage.css",
+      "PackagePath": "staticwebassets\\css\\LandingPage.css"
+    },
+    {
+      "Id": "C:\\Users\\jenil\\OneDrive\\Desktop\\CIPlateform\\MVC\\CI\\CIWeb\\wwwroot\\css\\PageNotFound.css",
+      "PackagePath": "staticwebassets\\css\\PageNotFound.css"
+    },
+    {
+      "Id": "C:\\Users\\jenil\\OneDrive\\Desktop\\CIPlateform\\MVC\\CI\\CIWeb\\wwwroot\\css\\StoryListing.css",
+      "PackagePath": "staticwebassets\\css\\StoryListing.css"
+    },
+    {
+      "Id": "C:\\Users\\jenil\\OneDrive\\Desktop\\CIPlateform\\MVC\\CI\\CIWeb\\wwwroot\\css\\bootstrap.min.css",
       "PackagePath": "staticwebassets\\css\\bootstrap.min.css"
     },
     {
-      "Id": "C:\\Users\\jenil\\OneDrive\\Desktop\\internship\\CI\\MVC\\CI\\CIWeb\\wwwroot\\css\\forgotPassword.css",
-      "PackagePath": "staticwebassets\\css\\forgotPassword.css"
+      "Id": "C:\\Users\\jenil\\OneDrive\\Desktop\\CIPlateform\\MVC\\CI\\CIWeb\\wwwroot\\css\\bootstrap.min.css.map",
+      "PackagePath": "staticwebassets\\css\\bootstrap.min.css.map"
     },
     {
-      "Id": "C:\\Users\\jenil\\OneDrive\\Desktop\\internship\\CI\\MVC\\CI\\CIWeb\\wwwroot\\css\\home.css",
+      "Id": "C:\\Users\\jenil\\OneDrive\\Desktop\\CIPlateform\\MVC\\CI\\CIWeb\\wwwroot\\css\\home.css",
       "PackagePath": "staticwebassets\\css\\home.css"
     },
     {
-      "Id": "C:\\Users\\jenil\\OneDrive\\Desktop\\internship\\CI\\MVC\\CI\\CIWeb\\wwwroot\\css\\site.css",
+      "Id": "C:\\Users\\jenil\\OneDrive\\Desktop\\CIPlateform\\MVC\\CI\\CIWeb\\wwwroot\\css\\navbar.css",
+      "PackagePath": "staticwebassets\\css\\navbar.css"
+    },
+    {
+      "Id": "C:\\Users\\jenil\\OneDrive\\Desktop\\CIPlateform\\MVC\\CI\\CIWeb\\wwwroot\\css\\site.css",
       "PackagePath": "staticwebassets\\css\\site.css"
     },
     {
-      "Id": "C:\\Users\\jenil\\OneDrive\\Desktop\\internship\\CI\\MVC\\CI\\CIWeb\\wwwroot\\css\\style.css",
-      "PackagePath": "staticwebassets\\css\\style.css"
+      "Id": "C:\\Users\\jenil\\OneDrive\\Desktop\\CIPlateform\\MVC\\CI\\CIWeb\\wwwroot\\css\\volunteering.css",
+      "PackagePath": "staticwebassets\\css\\volunteering.css"
     },
     {
-      "Id": "C:\\Users\\jenil\\OneDrive\\Desktop\\internship\\CI\\MVC\\CI\\CIWeb\\wwwroot\\favicon.ico",
+      "Id": "C:\\Users\\jenil\\OneDrive\\Desktop\\CIPlateform\\MVC\\CI\\CIWeb\\wwwroot\\favicon.ico",
       "PackagePath": "staticwebassets\\favicon.ico"
     },
     {
-      "Id": "C:\\Users\\jenil\\OneDrive\\Desktop\\internship\\CI\\MVC\\CI\\CIWeb\\wwwroot\\img\\404-Page-image.png",
+      "Id": "C:\\Users\\jenil\\OneDrive\\Desktop\\CIPlateform\\MVC\\CI\\CIWeb\\wwwroot\\img\\404-Page-image.png",
       "PackagePath": "staticwebassets\\img\\404-Page-image.png"
     },
     {
-      "Id": "C:\\Users\\jenil\\OneDrive\\Desktop\\internship\\CI\\MVC\\CI\\CIWeb\\wwwroot\\img\\Already-volunteered.png",
+      "Id": "C:\\Users\\jenil\\OneDrive\\Desktop\\CIPlateform\\MVC\\CI\\CIWeb\\wwwroot\\img\\Already-volunteered.png",
       "PackagePath": "staticwebassets\\img\\Already-volunteered.png"
     },
     {
-      "Id": "C:\\Users\\jenil\\OneDrive\\Desktop\\internship\\CI\\MVC\\CI\\CIWeb\\wwwroot\\img\\Animal-welfare-_-save-birds-campaign-1.png",
+      "Id": "C:\\Users\\jenil\\OneDrive\\Desktop\\CIPlateform\\MVC\\CI\\CIWeb\\wwwroot\\img\\Animal-welfare-_-save-birds-campaign-1.png",
       "PackagePath": "staticwebassets\\img\\Animal-welfare-_-save-birds-campaign-1.png"
     },
     {
-      "Id": "C:\\Users\\jenil\\OneDrive\\Desktop\\internship\\CI\\MVC\\CI\\CIWeb\\wwwroot\\img\\Animal-welfare-_-save-birds-campaign.png",
+      "Id": "C:\\Users\\jenil\\OneDrive\\Desktop\\CIPlateform\\MVC\\CI\\CIWeb\\wwwroot\\img\\Animal-welfare-_-save-birds-campaign.png",
       "PackagePath": "staticwebassets\\img\\Animal-welfare-_-save-birds-campaign.png"
     },
     {
-      "Id": "C:\\Users\\jenil\\OneDrive\\Desktop\\internship\\CI\\MVC\\CI\\CIWeb\\wwwroot\\img\\CSR-initiative-stands-for-Coffee--and-Farmer-Equity-1.png",
+      "Id": "C:\\Users\\jenil\\OneDrive\\Desktop\\CIPlateform\\MVC\\CI\\CIWeb\\wwwroot\\img\\CSR-initiative-stands-for-Coffee--and-Farmer-Equity-1.png",
       "PackagePath": "staticwebassets\\img\\CSR-initiative-stands-for-Coffee--and-Farmer-Equity-1.png"
     },
     {
-      "Id": "C:\\Users\\jenil\\OneDrive\\Desktop\\internship\\CI\\MVC\\CI\\CIWeb\\wwwroot\\img\\CSR-initiative-stands-for-Coffee--and-Farmer-Equity-2.png",
+      "Id": "C:\\Users\\jenil\\OneDrive\\Desktop\\CIPlateform\\MVC\\CI\\CIWeb\\wwwroot\\img\\CSR-initiative-stands-for-Coffee--and-Farmer-Equity-2.png",
       "PackagePath": "staticwebassets\\img\\CSR-initiative-stands-for-Coffee--and-Farmer-Equity-2.png"
     },
     {
-      "Id": "C:\\Users\\jenil\\OneDrive\\Desktop\\internship\\CI\\MVC\\CI\\CIWeb\\wwwroot\\img\\CSR-initiative-stands-for-Coffee--and-Farmer-Equity-3.png",
+      "Id": "C:\\Users\\jenil\\OneDrive\\Desktop\\CIPlateform\\MVC\\CI\\CIWeb\\wwwroot\\img\\CSR-initiative-stands-for-Coffee--and-Farmer-Equity-3.png",
       "PackagePath": "staticwebassets\\img\\CSR-initiative-stands-for-Coffee--and-Farmer-Equity-3.png"
     },
     {
-      "Id": "C:\\Users\\jenil\\OneDrive\\Desktop\\internship\\CI\\MVC\\CI\\CIWeb\\wwwroot\\img\\CSR-initiative-stands-for-Coffee--and-Farmer-Equity-4.png",
+      "Id": "C:\\Users\\jenil\\OneDrive\\Desktop\\CIPlateform\\MVC\\CI\\CIWeb\\wwwroot\\img\\CSR-initiative-stands-for-Coffee--and-Farmer-Equity-4.png",
       "PackagePath": "staticwebassets\\img\\CSR-initiative-stands-for-Coffee--and-Farmer-Equity-4.png"
     },
     {
-      "Id": "C:\\Users\\jenil\\OneDrive\\Desktop\\internship\\CI\\MVC\\CI\\CIWeb\\wwwroot\\img\\CSR-initiative-stands-for-Coffee--and-Farmer-Equity-5.png",
+      "Id": "C:\\Users\\jenil\\OneDrive\\Desktop\\CIPlateform\\MVC\\CI\\CIWeb\\wwwroot\\img\\CSR-initiative-stands-for-Coffee--and-Farmer-Equity-5.png",
       "PackagePath": "staticwebassets\\img\\CSR-initiative-stands-for-Coffee--and-Farmer-Equity-5.png"
     },
     {
-      "Id": "C:\\Users\\jenil\\OneDrive\\Desktop\\internship\\CI\\MVC\\CI\\CIWeb\\wwwroot\\img\\CSR-initiative-stands-for-Coffee--and-Farmer-Equity-6.png",
+      "Id": "C:\\Users\\jenil\\OneDrive\\Desktop\\CIPlateform\\MVC\\CI\\CIWeb\\wwwroot\\img\\CSR-initiative-stands-for-Coffee--and-Farmer-Equity-6.png",
       "PackagePath": "staticwebassets\\img\\CSR-initiative-stands-for-Coffee--and-Farmer-Equity-6.png"
     },
     {
-      "Id": "C:\\Users\\jenil\\OneDrive\\Desktop\\internship\\CI\\MVC\\CI\\CIWeb\\wwwroot\\img\\CSR-initiative-stands-for-Coffee--and-Farmer-Equity.png",
+      "Id": "C:\\Users\\jenil\\OneDrive\\Desktop\\CIPlateform\\MVC\\CI\\CIWeb\\wwwroot\\img\\CSR-initiative-stands-for-Coffee--and-Farmer-Equity.png",
       "PackagePath": "staticwebassets\\img\\CSR-initiative-stands-for-Coffee--and-Farmer-Equity.png"
     },
     {
-      "Id": "C:\\Users\\jenil\\OneDrive\\Desktop\\internship\\CI\\MVC\\CI\\CIWeb\\wwwroot\\img\\Education-Supplies-for-Every--Pair-of-Shoes-Sold-1.png",
+      "Id": "C:\\Users\\jenil\\OneDrive\\Desktop\\CIPlateform\\MVC\\CI\\CIWeb\\wwwroot\\img\\Education-Supplies-for-Every--Pair-of-Shoes-Sold-1.png",
       "PackagePath": "staticwebassets\\img\\Education-Supplies-for-Every--Pair-of-Shoes-Sold-1.png"
     },
     {
-      "Id": "C:\\Users\\jenil\\OneDrive\\Desktop\\internship\\CI\\MVC\\CI\\CIWeb\\wwwroot\\img\\Education-Supplies-for-Every--Pair-of-Shoes-Sold-2.png",
+      "Id": "C:\\Users\\jenil\\OneDrive\\Desktop\\CIPlateform\\MVC\\CI\\CIWeb\\wwwroot\\img\\Education-Supplies-for-Every--Pair-of-Shoes-Sold-2.png",
       "PackagePath": "staticwebassets\\img\\Education-Supplies-for-Every--Pair-of-Shoes-Sold-2.png"
     },
     {
-      "Id": "C:\\Users\\jenil\\OneDrive\\Desktop\\internship\\CI\\MVC\\CI\\CIWeb\\wwwroot\\img\\Education-Supplies-for-Every--Pair-of-Shoes-Sold.png",
+      "Id": "C:\\Users\\jenil\\OneDrive\\Desktop\\CIPlateform\\MVC\\CI\\CIWeb\\wwwroot\\img\\Education-Supplies-for-Every--Pair-of-Shoes-Sold.png",
       "PackagePath": "staticwebassets\\img\\Education-Supplies-for-Every--Pair-of-Shoes-Sold.png"
     },
     {
-      "Id": "C:\\Users\\jenil\\OneDrive\\Desktop\\internship\\CI\\MVC\\CI\\CIWeb\\wwwroot\\img\\Grow-Trees-On-the-path-to-environment-sustainability-1.png",
+      "Id": "C:\\Users\\jenil\\OneDrive\\Desktop\\CIPlateform\\MVC\\CI\\CIWeb\\wwwroot\\img\\Grow-Trees-On-the-path-to-environment-sustainability-1.png",
       "PackagePath": "staticwebassets\\img\\Grow-Trees-On-the-path-to-environment-sustainability-1.png"
     },
     {
-      "Id": "C:\\Users\\jenil\\OneDrive\\Desktop\\internship\\CI\\MVC\\CI\\CIWeb\\wwwroot\\img\\Grow-Trees-On-the-path-to-environment-sustainability-2.png",
+      "Id": "C:\\Users\\jenil\\OneDrive\\Desktop\\CIPlateform\\MVC\\CI\\CIWeb\\wwwroot\\img\\Grow-Trees-On-the-path-to-environment-sustainability-2.png",
       "PackagePath": "staticwebassets\\img\\Grow-Trees-On-the-path-to-environment-sustainability-2.png"
     },
     {
-      "Id": "C:\\Users\\jenil\\OneDrive\\Desktop\\internship\\CI\\MVC\\CI\\CIWeb\\wwwroot\\img\\Grow-Trees-On-the-path-to-environment-sustainability-3.png",
+      "Id": "C:\\Users\\jenil\\OneDrive\\Desktop\\CIPlateform\\MVC\\CI\\CIWeb\\wwwroot\\img\\Grow-Trees-On-the-path-to-environment-sustainability-3.png",
       "PackagePath": "staticwebassets\\img\\Grow-Trees-On-the-path-to-environment-sustainability-3.png"
     },
     {
-      "Id": "C:\\Users\\jenil\\OneDrive\\Desktop\\internship\\CI\\MVC\\CI\\CIWeb\\wwwroot\\img\\Grow-Trees-On-the-path-to-environment-sustainability-4.png",
+      "Id": "C:\\Users\\jenil\\OneDrive\\Desktop\\CIPlateform\\MVC\\CI\\CIWeb\\wwwroot\\img\\Grow-Trees-On-the-path-to-environment-sustainability-4.png",
       "PackagePath": "staticwebassets\\img\\Grow-Trees-On-the-path-to-environment-sustainability-4.png"
     },
     {
-      "Id": "C:\\Users\\jenil\\OneDrive\\Desktop\\internship\\CI\\MVC\\CI\\CIWeb\\wwwroot\\img\\Grow-Trees-On-the-path-to-environment-sustainability-5.png",
+      "Id": "C:\\Users\\jenil\\OneDrive\\Desktop\\CIPlateform\\MVC\\CI\\CIWeb\\wwwroot\\img\\Grow-Trees-On-the-path-to-environment-sustainability-5.png",
       "PackagePath": "staticwebassets\\img\\Grow-Trees-On-the-path-to-environment-sustainability-5.png"
     },
     {
-      "Id": "C:\\Users\\jenil\\OneDrive\\Desktop\\internship\\CI\\MVC\\CI\\CIWeb\\wwwroot\\img\\Grow-Trees-On-the-path-to-environment-sustainability-login.png",
+      "Id": "C:\\Users\\jenil\\OneDrive\\Desktop\\CIPlateform\\MVC\\CI\\CIWeb\\wwwroot\\img\\Grow-Trees-On-the-path-to-environment-sustainability-login.png",
       "PackagePath": "staticwebassets\\img\\Grow-Trees-On-the-path-to-environment-sustainability-login.png"
     },
     {
-      "Id": "C:\\Users\\jenil\\OneDrive\\Desktop\\internship\\CI\\MVC\\CI\\CIWeb\\wwwroot\\img\\Grow-Trees-On-the-path-to-environment-sustainability.png",
+      "Id": "C:\\Users\\jenil\\OneDrive\\Desktop\\CIPlateform\\MVC\\CI\\CIWeb\\wwwroot\\img\\Grow-Trees-On-the-path-to-environment-sustainability.png",
       "PackagePath": "staticwebassets\\img\\Grow-Trees-On-the-path-to-environment-sustainability.png"
     },
     {
-      "Id": "C:\\Users\\jenil\\OneDrive\\Desktop\\internship\\CI\\MVC\\CI\\CIWeb\\wwwroot\\img\\Nourish-the-Children-in--African-country-1.png",
+      "Id": "C:\\Users\\jenil\\OneDrive\\Desktop\\CIPlateform\\MVC\\CI\\CIWeb\\wwwroot\\img\\Nourish-the-Children-in--African-country-1.png",
       "PackagePath": "staticwebassets\\img\\Nourish-the-Children-in--African-country-1.png"
     },
     {
-      "Id": "C:\\Users\\jenil\\OneDrive\\Desktop\\internship\\CI\\MVC\\CI\\CIWeb\\wwwroot\\img\\Nourish-the-Children-in--African-country.png",
+      "Id": "C:\\Users\\jenil\\OneDrive\\Desktop\\CIPlateform\\MVC\\CI\\CIWeb\\wwwroot\\img\\Nourish-the-Children-in--African-country.png",
       "PackagePath": "staticwebassets\\img\\Nourish-the-Children-in--African-country.png"
     },
     {
-      "Id": "C:\\Users\\jenil\\OneDrive\\Desktop\\internship\\CI\\MVC\\CI\\CIWeb\\wwwroot\\img\\Open-Volunteering-Requests.png",
+      "Id": "C:\\Users\\jenil\\OneDrive\\Desktop\\CIPlateform\\MVC\\CI\\CIWeb\\wwwroot\\img\\Open-Volunteering-Requests.png",
       "PackagePath": "staticwebassets\\img\\Open-Volunteering-Requests.png"
     },
     {
-      "Id": "C:\\Users\\jenil\\OneDrive\\Desktop\\internship\\CI\\MVC\\CI\\CIWeb\\wwwroot\\img\\Plantation-and-Afforestation-programme-1.png",
+      "Id": "C:\\Users\\jenil\\OneDrive\\Desktop\\CIPlateform\\MVC\\CI\\CIWeb\\wwwroot\\img\\Plantation-and-Afforestation-programme-1.png",
       "PackagePath": "staticwebassets\\img\\Plantation-and-Afforestation-programme-1.png"
     },
     {
-      "Id": "C:\\Users\\jenil\\OneDrive\\Desktop\\internship\\CI\\MVC\\CI\\CIWeb\\wwwroot\\img\\Plantation-and-Afforestation-programme.png",
+      "Id": "C:\\Users\\jenil\\OneDrive\\Desktop\\CIPlateform\\MVC\\CI\\CIWeb\\wwwroot\\img\\Plantation-and-Afforestation-programme.png",
       "PackagePath": "staticwebassets\\img\\Plantation-and-Afforestation-programme.png"
     },
     {
-      "Id": "C:\\Users\\jenil\\OneDrive\\Desktop\\internship\\CI\\MVC\\CI\\CIWeb\\wwwroot\\img\\Seats-left.png",
+      "Id": "C:\\Users\\jenil\\OneDrive\\Desktop\\CIPlateform\\MVC\\CI\\CIWeb\\wwwroot\\img\\Seats-left.png",
       "PackagePath": "staticwebassets\\img\\Seats-left.png"
     },
     {
-      "Id": "C:\\Users\\jenil\\OneDrive\\Desktop\\internship\\CI\\MVC\\CI\\CIWeb\\wwwroot\\img\\Thumbs.db",
+      "Id": "C:\\Users\\jenil\\OneDrive\\Desktop\\CIPlateform\\MVC\\CI\\CIWeb\\wwwroot\\img\\Thumbs.db",
       "PackagePath": "staticwebassets\\img\\Thumbs.db"
     },
     {
-      "Id": "C:\\Users\\jenil\\OneDrive\\Desktop\\internship\\CI\\MVC\\CI\\CIWeb\\wwwroot\\img\\Volunteering-Rank.png",
+      "Id": "C:\\Users\\jenil\\OneDrive\\Desktop\\CIPlateform\\MVC\\CI\\CIWeb\\wwwroot\\img\\Volunteering-Rank.png",
       "PackagePath": "staticwebassets\\img\\Volunteering-Rank.png"
     },
     {
-      "Id": "C:\\Users\\jenil\\OneDrive\\Desktop\\internship\\CI\\MVC\\CI\\CIWeb\\wwwroot\\img\\Voted-Missions.png",
+      "Id": "C:\\Users\\jenil\\OneDrive\\Desktop\\CIPlateform\\MVC\\CI\\CIWeb\\wwwroot\\img\\Voted-Missions.png",
       "PackagePath": "staticwebassets\\img\\Voted-Missions.png"
     },
     {
-      "Id": "C:\\Users\\jenil\\OneDrive\\Desktop\\internship\\CI\\MVC\\CI\\CIWeb\\wwwroot\\img\\achieved.png",
+      "Id": "C:\\Users\\jenil\\OneDrive\\Desktop\\CIPlateform\\MVC\\CI\\CIWeb\\wwwroot\\img\\achieved.png",
       "PackagePath": "staticwebassets\\img\\achieved.png"
     },
     {
-      "Id": "C:\\Users\\jenil\\OneDrive\\Desktop\\internship\\CI\\MVC\\CI\\CIWeb\\wwwroot\\img\\add.png",
+      "Id": "C:\\Users\\jenil\\OneDrive\\Desktop\\CIPlateform\\MVC\\CI\\CIWeb\\wwwroot\\img\\add.png",
       "PackagePath": "staticwebassets\\img\\add.png"
     },
     {
-      "Id": "C:\\Users\\jenil\\OneDrive\\Desktop\\internship\\CI\\MVC\\CI\\CIWeb\\wwwroot\\img\\add1.png",
+      "Id": "C:\\Users\\jenil\\OneDrive\\Desktop\\CIPlateform\\MVC\\CI\\CIWeb\\wwwroot\\img\\add1.png",
       "PackagePath": "staticwebassets\\img\\add1.png"
     },
     {
-      "Id": "C:\\Users\\jenil\\OneDrive\\Desktop\\internship\\CI\\MVC\\CI\\CIWeb\\wwwroot\\img\\arrow.png",
+      "Id": "C:\\Users\\jenil\\OneDrive\\Desktop\\CIPlateform\\MVC\\CI\\CIWeb\\wwwroot\\img\\arrow.png",
       "PackagePath": "staticwebassets\\img\\arrow.png"
     },
     {
-      "Id": "C:\\Users\\jenil\\OneDrive\\Desktop\\internship\\CI\\MVC\\CI\\CIWeb\\wwwroot\\img\\bell-big.png",
+      "Id": "C:\\Users\\jenil\\OneDrive\\Desktop\\CIPlateform\\MVC\\CI\\CIWeb\\wwwroot\\img\\bell-big.png",
       "PackagePath": "staticwebassets\\img\\bell-big.png"
     },
     {
-      "Id": "C:\\Users\\jenil\\OneDrive\\Desktop\\internship\\CI\\MVC\\CI\\CIWeb\\wwwroot\\img\\bell.png",
+      "Id": "C:\\Users\\jenil\\OneDrive\\Desktop\\CIPlateform\\MVC\\CI\\CIWeb\\wwwroot\\img\\bell.png",
       "PackagePath": "staticwebassets\\img\\bell.png"
     },
     {
-      "Id": "C:\\Users\\jenil\\OneDrive\\Desktop\\internship\\CI\\MVC\\CI\\CIWeb\\wwwroot\\img\\bin.png",
+      "Id": "C:\\Users\\jenil\\OneDrive\\Desktop\\CIPlateform\\MVC\\CI\\CIWeb\\wwwroot\\img\\bin.png",
       "PackagePath": "staticwebassets\\img\\bin.png"
     },
     {
-      "Id": "C:\\Users\\jenil\\OneDrive\\Desktop\\internship\\CI\\MVC\\CI\\CIWeb\\wwwroot\\img\\calender.png",
+      "Id": "C:\\Users\\jenil\\OneDrive\\Desktop\\CIPlateform\\MVC\\CI\\CIWeb\\wwwroot\\img\\calender.png",
       "PackagePath": "staticwebassets\\img\\calender.png"
     },
     {
-      "Id": "C:\\Users\\jenil\\OneDrive\\Desktop\\internship\\CI\\MVC\\CI\\CIWeb\\wwwroot\\img\\cancel.png",
+      "Id": "C:\\Users\\jenil\\OneDrive\\Desktop\\CIPlateform\\MVC\\CI\\CIWeb\\wwwroot\\img\\cancel.png",
       "PackagePath": "staticwebassets\\img\\cancel.png"
     },
     {
-      "Id": "C:\\Users\\jenil\\OneDrive\\Desktop\\internship\\CI\\MVC\\CI\\CIWeb\\wwwroot\\img\\cancel1.png",
+      "Id": "C:\\Users\\jenil\\OneDrive\\Desktop\\CIPlateform\\MVC\\CI\\CIWeb\\wwwroot\\img\\cancel1.png",
       "PackagePath": "staticwebassets\\img\\cancel1.png"
     },
     {
-      "Id": "C:\\Users\\jenil\\OneDrive\\Desktop\\internship\\CI\\MVC\\CI\\CIWeb\\wwwroot\\img\\checked.png",
+      "Id": "C:\\Users\\jenil\\OneDrive\\Desktop\\CIPlateform\\MVC\\CI\\CIWeb\\wwwroot\\img\\checked.png",
       "PackagePath": "staticwebassets\\img\\checked.png"
     },
     {
-      "Id": "C:\\Users\\jenil\\OneDrive\\Desktop\\internship\\CI\\MVC\\CI\\CIWeb\\wwwroot\\img\\cross.png",
+      "Id": "C:\\Users\\jenil\\OneDrive\\Desktop\\CIPlateform\\MVC\\CI\\CIWeb\\wwwroot\\img\\cross.png",
       "PackagePath": "staticwebassets\\img\\cross.png"
     },
     {
-      "Id": "C:\\Users\\jenil\\OneDrive\\Desktop\\internship\\CI\\MVC\\CI\\CIWeb\\wwwroot\\img\\deadline.png",
+      "Id": "C:\\Users\\jenil\\OneDrive\\Desktop\\CIPlateform\\MVC\\CI\\CIWeb\\wwwroot\\img\\deadline.png",
       "PackagePath": "staticwebassets\\img\\deadline.png"
     },
     {
-      "Id": "C:\\Users\\jenil\\OneDrive\\Desktop\\internship\\CI\\MVC\\CI\\CIWeb\\wwwroot\\img\\doc.png",
+      "Id": "C:\\Users\\jenil\\OneDrive\\Desktop\\CIPlateform\\MVC\\CI\\CIWeb\\wwwroot\\img\\doc.png",
       "PackagePath": "staticwebassets\\img\\doc.png"
     },
     {
-      "Id": "C:\\Users\\jenil\\OneDrive\\Desktop\\internship\\CI\\MVC\\CI\\CIWeb\\wwwroot\\img\\down.png",
+      "Id": "C:\\Users\\jenil\\OneDrive\\Desktop\\CIPlateform\\MVC\\CI\\CIWeb\\wwwroot\\img\\down.png",
       "PackagePath": "staticwebassets\\img\\down.png"
     },
     {
-      "Id": "C:\\Users\\jenil\\OneDrive\\Desktop\\internship\\CI\\MVC\\CI\\CIWeb\\wwwroot\\img\\drag-and-drop.png",
+      "Id": "C:\\Users\\jenil\\OneDrive\\Desktop\\CIPlateform\\MVC\\CI\\CIWeb\\wwwroot\\img\\drag-and-drop.png",
       "PackagePath": "staticwebassets\\img\\drag-and-drop.png"
     },
     {
-      "Id": "C:\\Users\\jenil\\OneDrive\\Desktop\\internship\\CI\\MVC\\CI\\CIWeb\\wwwroot\\img\\drop-down.png",
+      "Id": "C:\\Users\\jenil\\OneDrive\\Desktop\\CIPlateform\\MVC\\CI\\CIWeb\\wwwroot\\img\\drop-down.png",
       "PackagePath": "staticwebassets\\img\\drop-down.png"
     },
     {
-      "Id": "C:\\Users\\jenil\\OneDrive\\Desktop\\internship\\CI\\MVC\\CI\\CIWeb\\wwwroot\\img\\eye.png",
+      "Id": "C:\\Users\\jenil\\OneDrive\\Desktop\\CIPlateform\\MVC\\CI\\CIWeb\\wwwroot\\img\\eye.png",
       "PackagePath": "staticwebassets\\img\\eye.png"
     },
     {
-      "Id": "C:\\Users\\jenil\\OneDrive\\Desktop\\internship\\CI\\MVC\\CI\\CIWeb\\wwwroot\\img\\facebook.png",
+      "Id": "C:\\Users\\jenil\\OneDrive\\Desktop\\CIPlateform\\MVC\\CI\\CIWeb\\wwwroot\\img\\facebook.png",
       "PackagePath": "staticwebassets\\img\\facebook.png"
     },
     {
-      "Id": "C:\\Users\\jenil\\OneDrive\\Desktop\\internship\\CI\\MVC\\CI\\CIWeb\\wwwroot\\img\\filter.png",
+      "Id": "C:\\Users\\jenil\\OneDrive\\Desktop\\CIPlateform\\MVC\\CI\\CIWeb\\wwwroot\\img\\filter.png",
       "PackagePath": "staticwebassets\\img\\filter.png"
     },
     {
-      "Id": "C:\\Users\\jenil\\OneDrive\\Desktop\\internship\\CI\\MVC\\CI\\CIWeb\\wwwroot\\img\\gift.png",
+      "Id": "C:\\Users\\jenil\\OneDrive\\Desktop\\CIPlateform\\MVC\\CI\\CIWeb\\wwwroot\\img\\gift.png",
       "PackagePath": "staticwebassets\\img\\gift.png"
     },
     {
-      "Id": "C:\\Users\\jenil\\OneDrive\\Desktop\\internship\\CI\\MVC\\CI\\CIWeb\\wwwroot\\img\\graph.png",
+      "Id": "C:\\Users\\jenil\\OneDrive\\Desktop\\CIPlateform\\MVC\\CI\\CIWeb\\wwwroot\\img\\graph.png",
       "PackagePath": "staticwebassets\\img\\graph.png"
     },
     {
-      "Id": "C:\\Users\\jenil\\OneDrive\\Desktop\\internship\\CI\\MVC\\CI\\CIWeb\\wwwroot\\img\\grid.png",
+      "Id": "C:\\Users\\jenil\\OneDrive\\Desktop\\CIPlateform\\MVC\\CI\\CIWeb\\wwwroot\\img\\grid.png",
       "PackagePath": "staticwebassets\\img\\grid.png"
     },
     {
-      "Id": "C:\\Users\\jenil\\OneDrive\\Desktop\\internship\\CI\\MVC\\CI\\CIWeb\\wwwroot\\img\\heart.png",
+      "Id": "C:\\Users\\jenil\\OneDrive\\Desktop\\CIPlateform\\MVC\\CI\\CIWeb\\wwwroot\\img\\heart.png",
       "PackagePath": "staticwebassets\\img\\heart.png"
     },
     {
-      "Id": "C:\\Users\\jenil\\OneDrive\\Desktop\\internship\\CI\\MVC\\CI\\CIWeb\\wwwroot\\img\\heart1.png",
+      "Id": "C:\\Users\\jenil\\OneDrive\\Desktop\\CIPlateform\\MVC\\CI\\CIWeb\\wwwroot\\img\\heart1.png",
       "PackagePath": "staticwebassets\\img\\heart1.png"
     },
     {
-      "Id": "C:\\Users\\jenil\\OneDrive\\Desktop\\internship\\CI\\MVC\\CI\\CIWeb\\wwwroot\\img\\hours.png",
+      "Id": "C:\\Users\\jenil\\OneDrive\\Desktop\\CIPlateform\\MVC\\CI\\CIWeb\\wwwroot\\img\\hours.png",
       "PackagePath": "staticwebassets\\img\\hours.png"
     },
     {
-      "Id": "C:\\Users\\jenil\\OneDrive\\Desktop\\internship\\CI\\MVC\\CI\\CIWeb\\wwwroot\\img\\image.png",
+      "Id": "C:\\Users\\jenil\\OneDrive\\Desktop\\CIPlateform\\MVC\\CI\\CIWeb\\wwwroot\\img\\image.png",
       "PackagePath": "staticwebassets\\img\\image.png"
     },
     {
-      "Id": "C:\\Users\\jenil\\OneDrive\\Desktop\\internship\\CI\\MVC\\CI\\CIWeb\\wwwroot\\img\\image1.png",
+      "Id": "C:\\Users\\jenil\\OneDrive\\Desktop\\CIPlateform\\MVC\\CI\\CIWeb\\wwwroot\\img\\image1.png",
       "PackagePath": "staticwebassets\\img\\image1.png"
     },
     {
-      "Id": "C:\\Users\\jenil\\OneDrive\\Desktop\\internship\\CI\\MVC\\CI\\CIWeb\\wwwroot\\img\\image2.png",
+      "Id": "C:\\Users\\jenil\\OneDrive\\Desktop\\CIPlateform\\MVC\\CI\\CIWeb\\wwwroot\\img\\image2.png",
       "PackagePath": "staticwebassets\\img\\image2.png"
     },
     {
-      "Id": "C:\\Users\\jenil\\OneDrive\\Desktop\\internship\\CI\\MVC\\CI\\CIWeb\\wwwroot\\img\\img.png",
+      "Id": "C:\\Users\\jenil\\OneDrive\\Desktop\\CIPlateform\\MVC\\CI\\CIWeb\\wwwroot\\img\\img.png",
       "PackagePath": "staticwebassets\\img\\img.png"
     },
     {
-      "Id": "C:\\Users\\jenil\\OneDrive\\Desktop\\internship\\CI\\MVC\\CI\\CIWeb\\wwwroot\\img\\img1.png",
+      "Id": "C:\\Users\\jenil\\OneDrive\\Desktop\\CIPlateform\\MVC\\CI\\CIWeb\\wwwroot\\img\\img1.png",
       "PackagePath": "staticwebassets\\img\\img1.png"
     },
     {
-      "Id": "C:\\Users\\jenil\\OneDrive\\Desktop\\internship\\CI\\MVC\\CI\\CIWeb\\wwwroot\\img\\img11.png",
+      "Id": "C:\\Users\\jenil\\OneDrive\\Desktop\\CIPlateform\\MVC\\CI\\CIWeb\\wwwroot\\img\\img11.png",
       "PackagePath": "staticwebassets\\img\\img11.png"
     },
     {
-      "Id": "C:\\Users\\jenil\\OneDrive\\Desktop\\internship\\CI\\MVC\\CI\\CIWeb\\wwwroot\\img\\img2.png",
+      "Id": "C:\\Users\\jenil\\OneDrive\\Desktop\\CIPlateform\\MVC\\CI\\CIWeb\\wwwroot\\img\\img2.png",
       "PackagePath": "staticwebassets\\img\\img2.png"
     },
     {
-      "Id": "C:\\Users\\jenil\\OneDrive\\Desktop\\internship\\CI\\MVC\\CI\\CIWeb\\wwwroot\\img\\img22.png",
+      "Id": "C:\\Users\\jenil\\OneDrive\\Desktop\\CIPlateform\\MVC\\CI\\CIWeb\\wwwroot\\img\\img22.png",
       "PackagePath": "staticwebassets\\img\\img22.png"
     },
     {
-      "Id": "C:\\Users\\jenil\\OneDrive\\Desktop\\internship\\CI\\MVC\\CI\\CIWeb\\wwwroot\\img\\img3.png",
+      "Id": "C:\\Users\\jenil\\OneDrive\\Desktop\\CIPlateform\\MVC\\CI\\CIWeb\\wwwroot\\img\\img3.png",
       "PackagePath": "staticwebassets\\img\\img3.png"
     },
     {
-      "Id": "C:\\Users\\jenil\\OneDrive\\Desktop\\internship\\CI\\MVC\\CI\\CIWeb\\wwwroot\\img\\img33.png",
+      "Id": "C:\\Users\\jenil\\OneDrive\\Desktop\\CIPlateform\\MVC\\CI\\CIWeb\\wwwroot\\img\\img33.png",
       "PackagePath": "staticwebassets\\img\\img33.png"
     },
     {
-      "Id": "C:\\Users\\jenil\\OneDrive\\Desktop\\internship\\CI\\MVC\\CI\\CIWeb\\wwwroot\\img\\info.png",
+      "Id": "C:\\Users\\jenil\\OneDrive\\Desktop\\CIPlateform\\MVC\\CI\\CIWeb\\wwwroot\\img\\info.png",
       "PackagePath": "staticwebassets\\img\\info.png"
     },
     {
-      "Id": "C:\\Users\\jenil\\OneDrive\\Desktop\\internship\\CI\\MVC\\CI\\CIWeb\\wwwroot\\img\\left.png",
+      "Id": "C:\\Users\\jenil\\OneDrive\\Desktop\\CIPlateform\\MVC\\CI\\CIWeb\\wwwroot\\img\\left.png",
       "PackagePath": "staticwebassets\\img\\left.png"
     },
     {
-      "Id": "C:\\Users\\jenil\\OneDrive\\Desktop\\internship\\CI\\MVC\\CI\\CIWeb\\wwwroot\\img\\left1.png",
+      "Id": "C:\\Users\\jenil\\OneDrive\\Desktop\\CIPlateform\\MVC\\CI\\CIWeb\\wwwroot\\img\\left1.png",
       "PackagePath": "staticwebassets\\img\\left1.png"
     },
     {
-      "Id": "C:\\Users\\jenil\\OneDrive\\Desktop\\internship\\CI\\MVC\\CI\\CIWeb\\wwwroot\\img\\linkedin.png",
+      "Id": "C:\\Users\\jenil\\OneDrive\\Desktop\\CIPlateform\\MVC\\CI\\CIWeb\\wwwroot\\img\\linkedin.png",
       "PackagePath": "staticwebassets\\img\\linkedin.png"
     },
     {
-      "Id": "C:\\Users\\jenil\\OneDrive\\Desktop\\internship\\CI\\MVC\\CI\\CIWeb\\wwwroot\\img\\list.png",
+      "Id": "C:\\Users\\jenil\\OneDrive\\Desktop\\CIPlateform\\MVC\\CI\\CIWeb\\wwwroot\\img\\list.png",
       "PackagePath": "staticwebassets\\img\\list.png"
     },
     {
-      "Id": "C:\\Users\\jenil\\OneDrive\\Desktop\\internship\\CI\\MVC\\CI\\CIWeb\\wwwroot\\img\\logo.png",
+      "Id": "C:\\Users\\jenil\\OneDrive\\Desktop\\CIPlateform\\MVC\\CI\\CIWeb\\wwwroot\\img\\logo.png",
       "PackagePath": "staticwebassets\\img\\logo.png"
     },
     {
-      "Id": "C:\\Users\\jenil\\OneDrive\\Desktop\\internship\\CI\\MVC\\CI\\CIWeb\\wwwroot\\img\\mission.png",
+      "Id": "C:\\Users\\jenil\\OneDrive\\Desktop\\CIPlateform\\MVC\\CI\\CIWeb\\wwwroot\\img\\menu-bar.svg",
+      "PackagePath": "staticwebassets\\img\\menu-bar.svg"
+    },
+    {
+      "Id": "C:\\Users\\jenil\\OneDrive\\Desktop\\CIPlateform\\MVC\\CI\\CIWeb\\wwwroot\\img\\mission.png",
       "PackagePath": "staticwebassets\\img\\mission.png"
     },
     {
-      "Id": "C:\\Users\\jenil\\OneDrive\\Desktop\\internship\\CI\\MVC\\CI\\CIWeb\\wwwroot\\img\\my-story.png",
+      "Id": "C:\\Users\\jenil\\OneDrive\\Desktop\\CIPlateform\\MVC\\CI\\CIWeb\\wwwroot\\img\\my-story.png",
       "PackagePath": "staticwebassets\\img\\my-story.png"
     },
     {
-      "Id": "C:\\Users\\jenil\\OneDrive\\Desktop\\internship\\CI\\MVC\\CI\\CIWeb\\wwwroot\\img\\new-message.png",
+      "Id": "C:\\Users\\jenil\\OneDrive\\Desktop\\CIPlateform\\MVC\\CI\\CIWeb\\wwwroot\\img\\new-message.png",
       "PackagePath": "staticwebassets\\img\\new-message.png"
     },
     {
-      "Id": "C:\\Users\\jenil\\OneDrive\\Desktop\\internship\\CI\\MVC\\CI\\CIWeb\\wwwroot\\img\\next.png",
+      "Id": "C:\\Users\\jenil\\OneDrive\\Desktop\\CIPlateform\\MVC\\CI\\CIWeb\\wwwroot\\img\\next.png",
       "PackagePath": "staticwebassets\\img\\next.png"
     },
     {
-      "Id": "C:\\Users\\jenil\\OneDrive\\Desktop\\internship\\CI\\MVC\\CI\\CIWeb\\wwwroot\\img\\organization.png",
+      "Id": "C:\\Users\\jenil\\OneDrive\\Desktop\\CIPlateform\\MVC\\CI\\CIWeb\\wwwroot\\img\\organization.png",
       "PackagePath": "staticwebassets\\img\\organization.png"
     },
     {
-      "Id": "C:\\Users\\jenil\\OneDrive\\Desktop\\internship\\CI\\MVC\\CI\\CIWeb\\wwwroot\\img\\pdf.png",
+      "Id": "C:\\Users\\jenil\\OneDrive\\Desktop\\CIPlateform\\MVC\\CI\\CIWeb\\wwwroot\\img\\pdf.png",
       "PackagePath": "staticwebassets\\img\\pdf.png"
     },
     {
-      "Id": "C:\\Users\\jenil\\OneDrive\\Desktop\\internship\\CI\\MVC\\CI\\CIWeb\\wwwroot\\img\\pin.png",
+      "Id": "C:\\Users\\jenil\\OneDrive\\Desktop\\CIPlateform\\MVC\\CI\\CIWeb\\wwwroot\\img\\pin.png",
       "PackagePath": "staticwebassets\\img\\pin.png"
     },
     {
-      "Id": "C:\\Users\\jenil\\OneDrive\\Desktop\\internship\\CI\\MVC\\CI\\CIWeb\\wwwroot\\img\\pin1.png",
+      "Id": "C:\\Users\\jenil\\OneDrive\\Desktop\\CIPlateform\\MVC\\CI\\CIWeb\\wwwroot\\img\\pin1.png",
       "PackagePath": "staticwebassets\\img\\pin1.png"
     },
     {
-      "Id": "C:\\Users\\jenil\\OneDrive\\Desktop\\internship\\CI\\MVC\\CI\\CIWeb\\wwwroot\\img\\previous.png",
+      "Id": "C:\\Users\\jenil\\OneDrive\\Desktop\\CIPlateform\\MVC\\CI\\CIWeb\\wwwroot\\img\\previous.png",
       "PackagePath": "staticwebassets\\img\\previous.png"
     },
     {
-      "Id": "C:\\Users\\jenil\\OneDrive\\Desktop\\internship\\CI\\MVC\\CI\\CIWeb\\wwwroot\\img\\right-arrow.png",
+      "Id": "C:\\Users\\jenil\\OneDrive\\Desktop\\CIPlateform\\MVC\\CI\\CIWeb\\wwwroot\\img\\right-arrow.png",
       "PackagePath": "staticwebassets\\img\\right-arrow.png"
     },
     {
-      "Id": "C:\\Users\\jenil\\OneDrive\\Desktop\\internship\\CI\\MVC\\CI\\CIWeb\\wwwroot\\img\\right-arrow1.png",
+      "Id": "C:\\Users\\jenil\\OneDrive\\Desktop\\CIPlateform\\MVC\\CI\\CIWeb\\wwwroot\\img\\right-arrow1.png",
       "PackagePath": "staticwebassets\\img\\right-arrow1.png"
     },
     {
-      "Id": "C:\\Users\\jenil\\OneDrive\\Desktop\\internship\\CI\\MVC\\CI\\CIWeb\\wwwroot\\img\\right-arrow2.png",
+      "Id": "C:\\Users\\jenil\\OneDrive\\Desktop\\CIPlateform\\MVC\\CI\\CIWeb\\wwwroot\\img\\right-arrow2.png",
       "PackagePath": "staticwebassets\\img\\right-arrow2.png"
     },
     {
-      "Id": "C:\\Users\\jenil\\OneDrive\\Desktop\\internship\\CI\\MVC\\CI\\CIWeb\\wwwroot\\img\\right-white.png",
+      "Id": "C:\\Users\\jenil\\OneDrive\\Desktop\\CIPlateform\\MVC\\CI\\CIWeb\\wwwroot\\img\\right-white.png",
       "PackagePath": "staticwebassets\\img\\right-white.png"
     },
     {
-      "Id": "C:\\Users\\jenil\\OneDrive\\Desktop\\internship\\CI\\MVC\\CI\\CIWeb\\wwwroot\\img\\right.png",
+      "Id": "C:\\Users\\jenil\\OneDrive\\Desktop\\CIPlateform\\MVC\\CI\\CIWeb\\wwwroot\\img\\right.png",
       "PackagePath": "staticwebassets\\img\\right.png"
     },
     {
-      "Id": "C:\\Users\\jenil\\OneDrive\\Desktop\\internship\\CI\\MVC\\CI\\CIWeb\\wwwroot\\img\\search.png",
+      "Id": "C:\\Users\\jenil\\OneDrive\\Desktop\\CIPlateform\\MVC\\CI\\CIWeb\\wwwroot\\img\\search.png",
       "PackagePath": "staticwebassets\\img\\search.png"
     },
     {
-      "Id": "C:\\Users\\jenil\\OneDrive\\Desktop\\internship\\CI\\MVC\\CI\\CIWeb\\wwwroot\\img\\selected-star.png",
+      "Id": "C:\\Users\\jenil\\OneDrive\\Desktop\\CIPlateform\\MVC\\CI\\CIWeb\\wwwroot\\img\\selected-star.png",
       "PackagePath": "staticwebassets\\img\\selected-star.png"
     },
     {
-      "Id": "C:\\Users\\jenil\\OneDrive\\Desktop\\internship\\CI\\MVC\\CI\\CIWeb\\wwwroot\\img\\settings.png",
+      "Id": "C:\\Users\\jenil\\OneDrive\\Desktop\\CIPlateform\\MVC\\CI\\CIWeb\\wwwroot\\img\\settings.png",
       "PackagePath": "staticwebassets\\img\\settings.png"
     },
     {
-      "Id": "C:\\Users\\jenil\\OneDrive\\Desktop\\internship\\CI\\MVC\\CI\\CIWeb\\wwwroot\\img\\star-empty.png",
+      "Id": "C:\\Users\\jenil\\OneDrive\\Desktop\\CIPlateform\\MVC\\CI\\CIWeb\\wwwroot\\img\\star-empty.png",
       "PackagePath": "staticwebassets\\img\\star-empty.png"
     },
     {
-      "Id": "C:\\Users\\jenil\\OneDrive\\Desktop\\internship\\CI\\MVC\\CI\\CIWeb\\wwwroot\\img\\star.png",
+      "Id": "C:\\Users\\jenil\\OneDrive\\Desktop\\CIPlateform\\MVC\\CI\\CIWeb\\wwwroot\\img\\star.png",
       "PackagePath": "staticwebassets\\img\\star.png"
     },
     {
-      "Id": "C:\\Users\\jenil\\OneDrive\\Desktop\\internship\\CI\\MVC\\CI\\CIWeb\\wwwroot\\img\\twitter.png",
+      "Id": "C:\\Users\\jenil\\OneDrive\\Desktop\\CIPlateform\\MVC\\CI\\CIWeb\\wwwroot\\img\\twitter.png",
       "PackagePath": "staticwebassets\\img\\twitter.png"
     },
     {
-      "Id": "C:\\Users\\jenil\\OneDrive\\Desktop\\internship\\CI\\MVC\\CI\\CIWeb\\wwwroot\\img\\up.png",
+      "Id": "C:\\Users\\jenil\\OneDrive\\Desktop\\CIPlateform\\MVC\\CI\\CIWeb\\wwwroot\\img\\up.png",
       "PackagePath": "staticwebassets\\img\\up.png"
     },
     {
-      "Id": "C:\\Users\\jenil\\OneDrive\\Desktop\\internship\\CI\\MVC\\CI\\CIWeb\\wwwroot\\img\\user-img-large.png",
+      "Id": "C:\\Users\\jenil\\OneDrive\\Desktop\\CIPlateform\\MVC\\CI\\CIWeb\\wwwroot\\img\\user-img-large.png",
       "PackagePath": "staticwebassets\\img\\user-img-large.png"
     },
     {
-      "Id": "C:\\Users\\jenil\\OneDrive\\Desktop\\internship\\CI\\MVC\\CI\\CIWeb\\wwwroot\\img\\user-img.png",
+      "Id": "C:\\Users\\jenil\\OneDrive\\Desktop\\CIPlateform\\MVC\\CI\\CIWeb\\wwwroot\\img\\user-img.png",
       "PackagePath": "staticwebassets\\img\\user-img.png"
     },
     {
-      "Id": "C:\\Users\\jenil\\OneDrive\\Desktop\\internship\\CI\\MVC\\CI\\CIWeb\\wwwroot\\img\\user.png",
+      "Id": "C:\\Users\\jenil\\OneDrive\\Desktop\\CIPlateform\\MVC\\CI\\CIWeb\\wwwroot\\img\\user.png",
       "PackagePath": "staticwebassets\\img\\user.png"
     },
     {
-      "Id": "C:\\Users\\jenil\\OneDrive\\Desktop\\internship\\CI\\MVC\\CI\\CIWeb\\wwwroot\\img\\user1.png",
+      "Id": "C:\\Users\\jenil\\OneDrive\\Desktop\\CIPlateform\\MVC\\CI\\CIWeb\\wwwroot\\img\\user1.png",
       "PackagePath": "staticwebassets\\img\\user1.png"
     },
     {
-      "Id": "C:\\Users\\jenil\\OneDrive\\Desktop\\internship\\CI\\MVC\\CI\\CIWeb\\wwwroot\\img\\volunteer1.png",
+      "Id": "C:\\Users\\jenil\\OneDrive\\Desktop\\CIPlateform\\MVC\\CI\\CIWeb\\wwwroot\\img\\volunteer1.png",
       "PackagePath": "staticwebassets\\img\\volunteer1.png"
     },
     {
-      "Id": "C:\\Users\\jenil\\OneDrive\\Desktop\\internship\\CI\\MVC\\CI\\CIWeb\\wwwroot\\img\\volunteer2.png",
+      "Id": "C:\\Users\\jenil\\OneDrive\\Desktop\\CIPlateform\\MVC\\CI\\CIWeb\\wwwroot\\img\\volunteer2.png",
       "PackagePath": "staticwebassets\\img\\volunteer2.png"
     },
     {
-      "Id": "C:\\Users\\jenil\\OneDrive\\Desktop\\internship\\CI\\MVC\\CI\\CIWeb\\wwwroot\\img\\volunteer3.png",
+      "Id": "C:\\Users\\jenil\\OneDrive\\Desktop\\CIPlateform\\MVC\\CI\\CIWeb\\wwwroot\\img\\volunteer3.png",
       "PackagePath": "staticwebassets\\img\\volunteer3.png"
     },
     {
-      "Id": "C:\\Users\\jenil\\OneDrive\\Desktop\\internship\\CI\\MVC\\CI\\CIWeb\\wwwroot\\img\\volunteer4.png",
+      "Id": "C:\\Users\\jenil\\OneDrive\\Desktop\\CIPlateform\\MVC\\CI\\CIWeb\\wwwroot\\img\\volunteer4.png",
       "PackagePath": "staticwebassets\\img\\volunteer4.png"
     },
     {
-      "Id": "C:\\Users\\jenil\\OneDrive\\Desktop\\internship\\CI\\MVC\\CI\\CIWeb\\wwwroot\\img\\volunteer5.png",
+      "Id": "C:\\Users\\jenil\\OneDrive\\Desktop\\CIPlateform\\MVC\\CI\\CIWeb\\wwwroot\\img\\volunteer5.png",
       "PackagePath": "staticwebassets\\img\\volunteer5.png"
     },
     {
-      "Id": "C:\\Users\\jenil\\OneDrive\\Desktop\\internship\\CI\\MVC\\CI\\CIWeb\\wwwroot\\img\\volunteer6.png",
+      "Id": "C:\\Users\\jenil\\OneDrive\\Desktop\\CIPlateform\\MVC\\CI\\CIWeb\\wwwroot\\img\\volunteer6.png",
       "PackagePath": "staticwebassets\\img\\volunteer6.png"
     },
     {
-      "Id": "C:\\Users\\jenil\\OneDrive\\Desktop\\internship\\CI\\MVC\\CI\\CIWeb\\wwwroot\\img\\volunteer7.png",
+      "Id": "C:\\Users\\jenil\\OneDrive\\Desktop\\CIPlateform\\MVC\\CI\\CIWeb\\wwwroot\\img\\volunteer7.png",
       "PackagePath": "staticwebassets\\img\\volunteer7.png"
     },
     {
-      "Id": "C:\\Users\\jenil\\OneDrive\\Desktop\\internship\\CI\\MVC\\CI\\CIWeb\\wwwroot\\img\\volunteer8.png",
+      "Id": "C:\\Users\\jenil\\OneDrive\\Desktop\\CIPlateform\\MVC\\CI\\CIWeb\\wwwroot\\img\\volunteer8.png",
       "PackagePath": "staticwebassets\\img\\volunteer8.png"
     },
     {
-      "Id": "C:\\Users\\jenil\\OneDrive\\Desktop\\internship\\CI\\MVC\\CI\\CIWeb\\wwwroot\\img\\volunteer9.png",
+      "Id": "C:\\Users\\jenil\\OneDrive\\Desktop\\CIPlateform\\MVC\\CI\\CIWeb\\wwwroot\\img\\volunteer9.png",
       "PackagePath": "staticwebassets\\img\\volunteer9.png"
     },
     {
-      "Id": "C:\\Users\\jenil\\OneDrive\\Desktop\\internship\\CI\\MVC\\CI\\CIWeb\\wwwroot\\img\\web.png",
+      "Id": "C:\\Users\\jenil\\OneDrive\\Desktop\\CIPlateform\\MVC\\CI\\CIWeb\\wwwroot\\img\\web.png",
       "PackagePath": "staticwebassets\\img\\web.png"
     },
     {
-      "Id": "C:\\Users\\jenil\\OneDrive\\Desktop\\internship\\CI\\MVC\\CI\\CIWeb\\wwwroot\\img\\xlsx.png",
+      "Id": "C:\\Users\\jenil\\OneDrive\\Desktop\\CIPlateform\\MVC\\CI\\CIWeb\\wwwroot\\img\\xlsx.png",
       "PackagePath": "staticwebassets\\img\\xlsx.png"
     },
     {
-      "Id": "C:\\Users\\jenil\\OneDrive\\Desktop\\internship\\CI\\MVC\\CI\\CIWeb\\wwwroot\\js\\site.js",
+      "Id": "C:\\Users\\jenil\\OneDrive\\Desktop\\CIPlateform\\MVC\\CI\\CIWeb\\wwwroot\\js\\bootstrap.bundle.min.js",
+      "PackagePath": "staticwebassets\\js\\bootstrap.bundle.min.js"
+    },
+    {
+      "Id": "C:\\Users\\jenil\\OneDrive\\Desktop\\CIPlateform\\MVC\\CI\\CIWeb\\wwwroot\\js\\bootstrap.bundle.min.js.map",
+      "PackagePath": "staticwebassets\\js\\bootstrap.bundle.min.js.map"
+    },
+    {
+      "Id": "C:\\Users\\jenil\\OneDrive\\Desktop\\CIPlateform\\MVC\\CI\\CIWeb\\wwwroot\\js\\filter.js",
+      "PackagePath": "staticwebassets\\js\\filter.js"
+    },
+    {
+      "Id": "C:\\Users\\jenil\\OneDrive\\Desktop\\CIPlateform\\MVC\\CI\\CIWeb\\wwwroot\\js\\popper.js",
+      "PackagePath": "staticwebassets\\js\\popper.js"
+    },
+    {
+      "Id": "C:\\Users\\jenil\\OneDrive\\Desktop\\CIPlateform\\MVC\\CI\\CIWeb\\wwwroot\\js\\site.js",
       "PackagePath": "staticwebassets\\js\\site.js"
     },
     {
-      "Id": "C:\\Users\\jenil\\OneDrive\\Desktop\\internship\\CI\\MVC\\CI\\CIWeb\\wwwroot\\lib\\bootstrap\\LICENSE",
+      "Id": "C:\\Users\\jenil\\OneDrive\\Desktop\\CIPlateform\\MVC\\CI\\CIWeb\\wwwroot\\lib\\bootstrap\\LICENSE",
       "PackagePath": "staticwebassets\\lib\\bootstrap"
     },
     {
-      "Id": "C:\\Users\\jenil\\OneDrive\\Desktop\\internship\\CI\\MVC\\CI\\CIWeb\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.css",
+      "Id": "C:\\Users\\jenil\\OneDrive\\Desktop\\CIPlateform\\MVC\\CI\\CIWeb\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.css",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.css"
     },
     {
-      "Id": "C:\\Users\\jenil\\OneDrive\\Desktop\\internship\\CI\\MVC\\CI\\CIWeb\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.css.map",
+      "Id": "C:\\Users\\jenil\\OneDrive\\Desktop\\CIPlateform\\MVC\\CI\\CIWeb\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.css.map",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.css.map"
     },
     {
-      "Id": "C:\\Users\\jenil\\OneDrive\\Desktop\\internship\\CI\\MVC\\CI\\CIWeb\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.min.css",
+      "Id": "C:\\Users\\jenil\\OneDrive\\Desktop\\CIPlateform\\MVC\\CI\\CIWeb\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.min.css",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.min.css"
     },
     {
-      "Id": "C:\\Users\\jenil\\OneDrive\\Desktop\\internship\\CI\\MVC\\CI\\CIWeb\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.min.css.map",
+      "Id": "C:\\Users\\jenil\\OneDrive\\Desktop\\CIPlateform\\MVC\\CI\\CIWeb\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.min.css.map",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.min.css.map"
     },
     {
-      "Id": "C:\\Users\\jenil\\OneDrive\\Desktop\\internship\\CI\\MVC\\CI\\CIWeb\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.css",
+      "Id": "C:\\Users\\jenil\\OneDrive\\Desktop\\CIPlateform\\MVC\\CI\\CIWeb\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.css",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.css"
     },
     {
-      "Id": "C:\\Users\\jenil\\OneDrive\\Desktop\\internship\\CI\\MVC\\CI\\CIWeb\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.css.map",
+      "Id": "C:\\Users\\jenil\\OneDrive\\Desktop\\CIPlateform\\MVC\\CI\\CIWeb\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.css.map",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.css.map"
     },
     {
-      "Id": "C:\\Users\\jenil\\OneDrive\\Desktop\\internship\\CI\\MVC\\CI\\CIWeb\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.min.css",
+      "Id": "C:\\Users\\jenil\\OneDrive\\Desktop\\CIPlateform\\MVC\\CI\\CIWeb\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.min.css",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.min.css"
     },
     {
-      "Id": "C:\\Users\\jenil\\OneDrive\\Desktop\\internship\\CI\\MVC\\CI\\CIWeb\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.min.css.map",
+      "Id": "C:\\Users\\jenil\\OneDrive\\Desktop\\CIPlateform\\MVC\\CI\\CIWeb\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.min.css.map",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.min.css.map"
     },
     {
-      "Id": "C:\\Users\\jenil\\OneDrive\\Desktop\\internship\\CI\\MVC\\CI\\CIWeb\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.css",
+      "Id": "C:\\Users\\jenil\\OneDrive\\Desktop\\CIPlateform\\MVC\\CI\\CIWeb\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.css",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.css"
     },
     {
-      "Id": "C:\\Users\\jenil\\OneDrive\\Desktop\\internship\\CI\\MVC\\CI\\CIWeb\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.css.map",
+      "Id": "C:\\Users\\jenil\\OneDrive\\Desktop\\CIPlateform\\MVC\\CI\\CIWeb\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.css.map",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.css.map"
     },
     {
-      "Id": "C:\\Users\\jenil\\OneDrive\\Desktop\\internship\\CI\\MVC\\CI\\CIWeb\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.min.css",
+      "Id": "C:\\Users\\jenil\\OneDrive\\Desktop\\CIPlateform\\MVC\\CI\\CIWeb\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.min.css",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.min.css"
     },
     {
-      "Id": "C:\\Users\\jenil\\OneDrive\\Desktop\\internship\\CI\\MVC\\CI\\CIWeb\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.min.css.map",
+      "Id": "C:\\Users\\jenil\\OneDrive\\Desktop\\CIPlateform\\MVC\\CI\\CIWeb\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.min.css.map",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.min.css.map"
     },
     {
-      "Id": "C:\\Users\\jenil\\OneDrive\\Desktop\\internship\\CI\\MVC\\CI\\CIWeb\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.css",
+      "Id": "C:\\Users\\jenil\\OneDrive\\Desktop\\CIPlateform\\MVC\\CI\\CIWeb\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.css",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.css"
     },
     {
-      "Id": "C:\\Users\\jenil\\OneDrive\\Desktop\\internship\\CI\\MVC\\CI\\CIWeb\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.css.map",
+      "Id": "C:\\Users\\jenil\\OneDrive\\Desktop\\CIPlateform\\MVC\\CI\\CIWeb\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.css.map",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.css.map"
     },
     {
-      "Id": "C:\\Users\\jenil\\OneDrive\\Desktop\\internship\\CI\\MVC\\CI\\CIWeb\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.min.css",
+      "Id": "C:\\Users\\jenil\\OneDrive\\Desktop\\CIPlateform\\MVC\\CI\\CIWeb\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.min.css",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.min.css"
     },
     {
-      "Id": "C:\\Users\\jenil\\OneDrive\\Desktop\\internship\\CI\\MVC\\CI\\CIWeb\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.min.css.map",
+      "Id": "C:\\Users\\jenil\\OneDrive\\Desktop\\CIPlateform\\MVC\\CI\\CIWeb\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.min.css.map",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.min.css.map"
     },
     {
-      "Id": "C:\\Users\\jenil\\OneDrive\\Desktop\\internship\\CI\\MVC\\CI\\CIWeb\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.css",
+      "Id": "C:\\Users\\jenil\\OneDrive\\Desktop\\CIPlateform\\MVC\\CI\\CIWeb\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.css",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.css"
     },
     {
-      "Id": "C:\\Users\\jenil\\OneDrive\\Desktop\\internship\\CI\\MVC\\CI\\CIWeb\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.css.map",
+      "Id": "C:\\Users\\jenil\\OneDrive\\Desktop\\CIPlateform\\MVC\\CI\\CIWeb\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.css.map",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.css.map"
     },
     {
-      "Id": "C:\\Users\\jenil\\OneDrive\\Desktop\\internship\\CI\\MVC\\CI\\CIWeb\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.min.css",
+      "Id": "C:\\Users\\jenil\\OneDrive\\Desktop\\CIPlateform\\MVC\\CI\\CIWeb\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.min.css",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.min.css"
     },
     {
-      "Id": "C:\\Users\\jenil\\OneDrive\\Desktop\\internship\\CI\\MVC\\CI\\CIWeb\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.min.css.map",
+      "Id": "C:\\Users\\jenil\\OneDrive\\Desktop\\CIPlateform\\MVC\\CI\\CIWeb\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.min.css.map",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.min.css.map"
     },
     {
-      "Id": "C:\\Users\\jenil\\OneDrive\\Desktop\\internship\\CI\\MVC\\CI\\CIWeb\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.css",
+      "Id": "C:\\Users\\jenil\\OneDrive\\Desktop\\CIPlateform\\MVC\\CI\\CIWeb\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.css",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.css"
     },
     {
-      "Id": "C:\\Users\\jenil\\OneDrive\\Desktop\\internship\\CI\\MVC\\CI\\CIWeb\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.css.map",
+      "Id": "C:\\Users\\jenil\\OneDrive\\Desktop\\CIPlateform\\MVC\\CI\\CIWeb\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.css.map",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.css.map"
     },
     {
-      "Id": "C:\\Users\\jenil\\OneDrive\\Desktop\\internship\\CI\\MVC\\CI\\CIWeb\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.min.css",
+      "Id": "C:\\Users\\jenil\\OneDrive\\Desktop\\CIPlateform\\MVC\\CI\\CIWeb\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.min.css",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.min.css"
     },
     {
-      "Id": "C:\\Users\\jenil\\OneDrive\\Desktop\\internship\\CI\\MVC\\CI\\CIWeb\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.min.css.map",
+      "Id": "C:\\Users\\jenil\\OneDrive\\Desktop\\CIPlateform\\MVC\\CI\\CIWeb\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.min.css.map",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.min.css.map"
     },
     {
-      "Id": "C:\\Users\\jenil\\OneDrive\\Desktop\\internship\\CI\\MVC\\CI\\CIWeb\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.css",
+      "Id": "C:\\Users\\jenil\\OneDrive\\Desktop\\CIPlateform\\MVC\\CI\\CIWeb\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.css",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.css"
     },
     {
-      "Id": "C:\\Users\\jenil\\OneDrive\\Desktop\\internship\\CI\\MVC\\CI\\CIWeb\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.css.map",
+      "Id": "C:\\Users\\jenil\\OneDrive\\Desktop\\CIPlateform\\MVC\\CI\\CIWeb\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.css.map",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.css.map"
     },
     {
-      "Id": "C:\\Users\\jenil\\OneDrive\\Desktop\\internship\\CI\\MVC\\CI\\CIWeb\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.min.css",
+      "Id": "C:\\Users\\jenil\\OneDrive\\Desktop\\CIPlateform\\MVC\\CI\\CIWeb\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.min.css",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.min.css"
     },
     {
-      "Id": "C:\\Users\\jenil\\OneDrive\\Desktop\\internship\\CI\\MVC\\CI\\CIWeb\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.min.css.map",
+      "Id": "C:\\Users\\jenil\\OneDrive\\Desktop\\CIPlateform\\MVC\\CI\\CIWeb\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.min.css.map",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.min.css.map"
     },
     {
-      "Id": "C:\\Users\\jenil\\OneDrive\\Desktop\\internship\\CI\\MVC\\CI\\CIWeb\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.css",
+      "Id": "C:\\Users\\jenil\\OneDrive\\Desktop\\CIPlateform\\MVC\\CI\\CIWeb\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.css",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.css"
     },
     {
-      "Id": "C:\\Users\\jenil\\OneDrive\\Desktop\\internship\\CI\\MVC\\CI\\CIWeb\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.css.map",
+      "Id": "C:\\Users\\jenil\\OneDrive\\Desktop\\CIPlateform\\MVC\\CI\\CIWeb\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.css.map",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.css.map"
     },
     {
-      "Id": "C:\\Users\\jenil\\OneDrive\\Desktop\\internship\\CI\\MVC\\CI\\CIWeb\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.min.css",
+      "Id": "C:\\Users\\jenil\\OneDrive\\Desktop\\CIPlateform\\MVC\\CI\\CIWeb\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.min.css",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.min.css"
     },
     {
-      "Id": "C:\\Users\\jenil\\OneDrive\\Desktop\\internship\\CI\\MVC\\CI\\CIWeb\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.min.css.map",
+      "Id": "C:\\Users\\jenil\\OneDrive\\Desktop\\CIPlateform\\MVC\\CI\\CIWeb\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.min.css.map",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.min.css.map"
     },
     {
-      "Id": "C:\\Users\\jenil\\OneDrive\\Desktop\\internship\\CI\\MVC\\CI\\CIWeb\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.js",
+      "Id": "C:\\Users\\jenil\\OneDrive\\Desktop\\CIPlateform\\MVC\\CI\\CIWeb\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.js",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.js"
     },
     {
-      "Id": "C:\\Users\\jenil\\OneDrive\\Desktop\\internship\\CI\\MVC\\CI\\CIWeb\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.js.map",
+      "Id": "C:\\Users\\jenil\\OneDrive\\Desktop\\CIPlateform\\MVC\\CI\\CIWeb\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.js.map",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.js.map"
     },
     {
-      "Id": "C:\\Users\\jenil\\OneDrive\\Desktop\\internship\\CI\\MVC\\CI\\CIWeb\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.min.js",
+      "Id": "C:\\Users\\jenil\\OneDrive\\Desktop\\CIPlateform\\MVC\\CI\\CIWeb\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.min.js",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.min.js"
     },
     {
-      "Id": "C:\\Users\\jenil\\OneDrive\\Desktop\\internship\\CI\\MVC\\CI\\CIWeb\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.min.js.map",
+      "Id": "C:\\Users\\jenil\\OneDrive\\Desktop\\CIPlateform\\MVC\\CI\\CIWeb\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.min.js.map",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.min.js.map"
     },
     {
-      "Id": "C:\\Users\\jenil\\OneDrive\\Desktop\\internship\\CI\\MVC\\CI\\CIWeb\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.js",
+      "Id": "C:\\Users\\jenil\\OneDrive\\Desktop\\CIPlateform\\MVC\\CI\\CIWeb\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.js",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.esm.js"
     },
     {
-      "Id": "C:\\Users\\jenil\\OneDrive\\Desktop\\internship\\CI\\MVC\\CI\\CIWeb\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.js.map",
+      "Id": "C:\\Users\\jenil\\OneDrive\\Desktop\\CIPlateform\\MVC\\CI\\CIWeb\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.js.map",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.esm.js.map"
     },
     {
-      "Id": "C:\\Users\\jenil\\OneDrive\\Desktop\\internship\\CI\\MVC\\CI\\CIWeb\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.min.js",
+      "Id": "C:\\Users\\jenil\\OneDrive\\Desktop\\CIPlateform\\MVC\\CI\\CIWeb\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.min.js",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.esm.min.js"
     },
     {
-      "Id": "C:\\Users\\jenil\\OneDrive\\Desktop\\internship\\CI\\MVC\\CI\\CIWeb\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.min.js.map",
+      "Id": "C:\\Users\\jenil\\OneDrive\\Desktop\\CIPlateform\\MVC\\CI\\CIWeb\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.min.js.map",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.esm.min.js.map"
     },
     {
-      "Id": "C:\\Users\\jenil\\OneDrive\\Desktop\\internship\\CI\\MVC\\CI\\CIWeb\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.js",
+      "Id": "C:\\Users\\jenil\\OneDrive\\Desktop\\CIPlateform\\MVC\\CI\\CIWeb\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.js",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.js"
     },
     {
-      "Id": "C:\\Users\\jenil\\OneDrive\\Desktop\\internship\\CI\\MVC\\CI\\CIWeb\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.js.map",
+      "Id": "C:\\Users\\jenil\\OneDrive\\Desktop\\CIPlateform\\MVC\\CI\\CIWeb\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.js.map",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.js.map"
     },
     {
-      "Id": "C:\\Users\\jenil\\OneDrive\\Desktop\\internship\\CI\\MVC\\CI\\CIWeb\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.min.js",
+      "Id": "C:\\Users\\jenil\\OneDrive\\Desktop\\CIPlateform\\MVC\\CI\\CIWeb\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.min.js",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.min.js"
     },
     {
-      "Id": "C:\\Users\\jenil\\OneDrive\\Desktop\\internship\\CI\\MVC\\CI\\CIWeb\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.min.js.map",
+      "Id": "C:\\Users\\jenil\\OneDrive\\Desktop\\CIPlateform\\MVC\\CI\\CIWeb\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.min.js.map",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.min.js.map"
     },
     {
-      "Id": "C:\\Users\\jenil\\OneDrive\\Desktop\\internship\\CI\\MVC\\CI\\CIWeb\\wwwroot\\lib\\jquery-validation-unobtrusive\\LICENSE.txt",
+      "Id": "C:\\Users\\jenil\\OneDrive\\Desktop\\CIPlateform\\MVC\\CI\\CIWeb\\wwwroot\\lib\\jquery-validation-unobtrusive\\LICENSE.txt",
       "PackagePath": "staticwebassets\\lib\\jquery-validation-unobtrusive\\LICENSE.txt"
     },
     {
-      "Id": "C:\\Users\\jenil\\OneDrive\\Desktop\\internship\\CI\\MVC\\CI\\CIWeb\\wwwroot\\lib\\jquery-validation-unobtrusive\\jquery.validate.unobtrusive.js",
+      "Id": "C:\\Users\\jenil\\OneDrive\\Desktop\\CIPlateform\\MVC\\CI\\CIWeb\\wwwroot\\lib\\jquery-validation-unobtrusive\\jquery.validate.unobtrusive.js",
       "PackagePath": "staticwebassets\\lib\\jquery-validation-unobtrusive\\jquery.validate.unobtrusive.js"
     },
     {
-      "Id": "C:\\Users\\jenil\\OneDrive\\Desktop\\internship\\CI\\MVC\\CI\\CIWeb\\wwwroot\\lib\\jquery-validation-unobtrusive\\jquery.validate.unobtrusive.min.js",
+      "Id": "C:\\Users\\jenil\\OneDrive\\Desktop\\CIPlateform\\MVC\\CI\\CIWeb\\wwwroot\\lib\\jquery-validation-unobtrusive\\jquery.validate.unobtrusive.min.js",
       "PackagePath": "staticwebassets\\lib\\jquery-validation-unobtrusive\\jquery.validate.unobtrusive.min.js"
     },
     {
-      "Id": "C:\\Users\\jenil\\OneDrive\\Desktop\\internship\\CI\\MVC\\CI\\CIWeb\\wwwroot\\lib\\jquery-validation\\LICENSE.md",
+      "Id": "C:\\Users\\jenil\\OneDrive\\Desktop\\CIPlateform\\MVC\\CI\\CIWeb\\wwwroot\\lib\\jquery-validation\\LICENSE.md",
       "PackagePath": "staticwebassets\\lib\\jquery-validation\\LICENSE.md"
     },
     {
-      "Id": "C:\\Users\\jenil\\OneDrive\\Desktop\\internship\\CI\\MVC\\CI\\CIWeb\\wwwroot\\lib\\jquery-validation\\dist\\additional-methods.js",
+      "Id": "C:\\Users\\jenil\\OneDrive\\Desktop\\CIPlateform\\MVC\\CI\\CIWeb\\wwwroot\\lib\\jquery-validation\\dist\\additional-methods.js",
       "PackagePath": "staticwebassets\\lib\\jquery-validation\\dist\\additional-methods.js"
     },
     {
-      "Id": "C:\\Users\\jenil\\OneDrive\\Desktop\\internship\\CI\\MVC\\CI\\CIWeb\\wwwroot\\lib\\jquery-validation\\dist\\additional-methods.min.js",
+      "Id": "C:\\Users\\jenil\\OneDrive\\Desktop\\CIPlateform\\MVC\\CI\\CIWeb\\wwwroot\\lib\\jquery-validation\\dist\\additional-methods.min.js",
       "PackagePath": "staticwebassets\\lib\\jquery-validation\\dist\\additional-methods.min.js"
     },
     {
-      "Id": "C:\\Users\\jenil\\OneDrive\\Desktop\\internship\\CI\\MVC\\CI\\CIWeb\\wwwroot\\lib\\jquery-validation\\dist\\jquery.validate.js",
+      "Id": "C:\\Users\\jenil\\OneDrive\\Desktop\\CIPlateform\\MVC\\CI\\CIWeb\\wwwroot\\lib\\jquery-validation\\dist\\jquery.validate.js",
       "PackagePath": "staticwebassets\\lib\\jquery-validation\\dist\\jquery.validate.js"
     },
     {
-      "Id": "C:\\Users\\jenil\\OneDrive\\Desktop\\internship\\CI\\MVC\\CI\\CIWeb\\wwwroot\\lib\\jquery-validation\\dist\\jquery.validate.min.js",
+      "Id": "C:\\Users\\jenil\\OneDrive\\Desktop\\CIPlateform\\MVC\\CI\\CIWeb\\wwwroot\\lib\\jquery-validation\\dist\\jquery.validate.min.js",
       "PackagePath": "staticwebassets\\lib\\jquery-validation\\dist\\jquery.validate.min.js"
     },
     {
-      "Id": "C:\\Users\\jenil\\OneDrive\\Desktop\\internship\\CI\\MVC\\CI\\CIWeb\\wwwroot\\lib\\jquery\\LICENSE.txt",
+      "Id": "C:\\Users\\jenil\\OneDrive\\Desktop\\CIPlateform\\MVC\\CI\\CIWeb\\wwwroot\\lib\\jquery\\LICENSE.txt",
       "PackagePath": "staticwebassets\\lib\\jquery\\LICENSE.txt"
     },
     {
-      "Id": "C:\\Users\\jenil\\OneDrive\\Desktop\\internship\\CI\\MVC\\CI\\CIWeb\\wwwroot\\lib\\jquery\\dist\\jquery.js",
+      "Id": "C:\\Users\\jenil\\OneDrive\\Desktop\\CIPlateform\\MVC\\CI\\CIWeb\\wwwroot\\lib\\jquery\\dist\\jquery.js",
       "PackagePath": "staticwebassets\\lib\\jquery\\dist\\jquery.js"
     },
     {
-      "Id": "C:\\Users\\jenil\\OneDrive\\Desktop\\internship\\CI\\MVC\\CI\\CIWeb\\wwwroot\\lib\\jquery\\dist\\jquery.min.js",
+      "Id": "C:\\Users\\jenil\\OneDrive\\Desktop\\CIPlateform\\MVC\\CI\\CIWeb\\wwwroot\\lib\\jquery\\dist\\jquery.min.js",
       "PackagePath": "staticwebassets\\lib\\jquery\\dist\\jquery.min.js"
     },
     {
-      "Id": "C:\\Users\\jenil\\OneDrive\\Desktop\\internship\\CI\\MVC\\CI\\CIWeb\\wwwroot\\lib\\jquery\\dist\\jquery.min.map",
+      "Id": "C:\\Users\\jenil\\OneDrive\\Desktop\\CIPlateform\\MVC\\CI\\CIWeb\\wwwroot\\lib\\jquery\\dist\\jquery.min.map",
       "PackagePath": "staticwebassets\\lib\\jquery\\dist\\jquery.min.map"
     },
     {
