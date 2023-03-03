@@ -23,6 +23,12 @@ namespace CIWeb.Controllers
             return View();
         }
 
+        public IActionResult Test()
+        {
+            List<Mission> mission = _db.Missions.ToList();
+            return View(mission);
+        }
+
         public IActionResult Privacy()
         {
             return View();

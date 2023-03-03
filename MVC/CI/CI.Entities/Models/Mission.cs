@@ -7,13 +7,13 @@ public partial class Mission
 {
     public long MissionId { get; set; }
 
-    public long CityId { get; set; }
+    public long? CityId { get; set; }
 
-    public long CountryId { get; set; }
+    public long? CountryId { get; set; }
 
-    public long ThemeId { get; set; }
+    public long? ThemeId { get; set; }
 
-    public string Title { get; set; } = null!;
+    public string? Title { get; set; }
 
     public string? ShortDescription { get; set; }
 
@@ -23,7 +23,7 @@ public partial class Mission
 
     public DateTime? EndDate { get; set; }
 
-    public string MissionType { get; set; } = null!;
+    public string? MissionType { get; set; }
 
     public string? Status { get; set; }
 
@@ -39,11 +39,11 @@ public partial class Mission
 
     public DateTime? DeletedAt { get; set; }
 
-    public virtual City City { get; set; } = null!;
+    public virtual City? City { get; set; }
 
     public virtual ICollection<Comment> Comments { get; } = new List<Comment>();
 
-    public virtual Country Country { get; set; } = null!;
+    public virtual Country? Country { get; set; }
 
     public virtual ICollection<FavoriteMission> FavoriteMissions { get; } = new List<FavoriteMission>();
 
@@ -63,7 +63,7 @@ public partial class Mission
 
     public virtual ICollection<Story> Stories { get; } = new List<Story>();
 
-    public virtual MissionTheme Theme { get; set; } = null!;
+    public virtual MissionTheme? Theme { get; set; }
 
     public virtual ICollection<Timesheet> Timesheets { get; } = new List<Timesheet>();
 }
