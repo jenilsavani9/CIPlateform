@@ -123,11 +123,7 @@ namespace CIWeb.Controllers
                 user.Password = obj.Password;
                 _db.SaveChanges();
 
-
-
-
-
-            return RedirectToAction("Login", "User");
+                return RedirectToAction("Login", "User");
         }
 
 
