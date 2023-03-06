@@ -1,5 +1,7 @@
-﻿@model IEnumerable<CI.Entities.Models.Mission>;
-
+﻿@*@model IEnumerable<CI.Entities.Models.Mission>;*@
+@using CIWeb.Models;
+@using CI.Entities.Models;
+@model PaginationList<Mission>
 @{
     Layout = "_Navbar";
     ViewData["Title"] = "Home Page";
@@ -39,7 +41,7 @@
 
         <div class="container">
             <div class="filters-section d-flex align-items-center flex-wrap">
-
+                
             </div>
             <div class="d-flex align-items-center justify-content-between mission-listing-title">
                 <div class="landing-page-mission-header">
@@ -241,28 +243,28 @@
 
 
             </div>
+
+            @{
+            var prevDisabled = !Model.HasPreviousPage ? "disabled" : "";
+            var nextDisabled = !Model.HasNextPage ? "disabled" : "";
+            
+           
+            }
+            <center>
+            <a asp-action="Test" asp-route-pageNumber="@(Model.PageIndex-1)" class="btn btn-default @prevDisabled">Previous</a>
+
+            <a asp-action="Test" asp-route-pageNumber="1" class="btn">1</a>
+            <a asp-action="Test" asp-route-pageNumber="2" class="btn btn-default">2</a>
+            <a asp-action="Test" asp-route-pageNumber="3" class="btn btn-default">3</a>
+            <a asp-action="Test" asp-route-pageNumber="4" class="btn btn-default">4</a>
+            <a asp-action="Test" asp-route-pageNumber="5" class="btn btn-default">5</a>
+            <a asp-action="Test" asp-route-pageNumber="@(Model.PageIndex+1)" class="btn btn-default @nextDisabled">Next</a>
+        </center>
         </div>
 
-        <div class="d-flex justify-content-center">
-            <nav aria-label="Page navigation example">
-                <ul class="pagination">
-                    <li class="page-item">
-                        <a class="page-link" href="#" aria-label="Previous">
-                            <span aria-hidden="true">&laquo;</span>
-                        </a>
-                    </li>
-                    <li class="page-item "><a class="page-link page-item-current" href="#">1</a></li>
-                    <li class="page-item"><a class="page-link" href="#">2</a></li>
-                    <li class="page-item"><a class="page-link" href="#">3</a></li>
-                    <li class="page-item">
-                        <a class="page-link" href="#" aria-label="Next">
-                            <span aria-hidden="true">&raquo;</span>
-                        </a>
-                    </li>
-                </ul>
-            </nav>
-        </div>
     </div>
+
+    
     <script src="~/js/filter.js"></script>
 </body>
 

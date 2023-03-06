@@ -3,6 +3,8 @@ using CI.Entities.Models;
 using CIWeb.Models;
 using Microsoft.AspNetCore.Mvc;
 using System.Diagnostics;
+using System.Text.Json;
+using cloudscribe.Pagination.Models;
 
 namespace CIWeb.Controllers
 {
@@ -18,18 +20,69 @@ namespace CIWeb.Controllers
             _db = db;
         }
 
-        public IActionResult Index()
+        public IActionResult Index(int? pageNumber, string? searchTerm)
+        {
+            int pageSize = 9;
+            ViewBag.data = HttpContext.Session.GetString("firstname");
+
+            List<Mission> mission = _db.Missions.ToList();
+
+            if (searchTerm == null)
+            {
+                return View(PaginationList<Mission>.Create(_db.Missions.ToList(), pageNumber ?? 1, pageSize));
+            }
+
+            else
+            {
+                var isFound = _db.Missions.Where(m => m.Title.ToLower().Contains(searchTerm.ToLower()));
+                var isShortDescFound = _db.Missions.Where(m => m.ShortDescription.ToLower().Contains(searchTerm.ToLower()));
+                if (isFound.Any() || isShortDescFound.Any())
+                {
+
+                    return View(PaginationList<Mission>.Create(_db.Missions.Where(m => m.Title.ToLower().Contains(searchTerm.ToLower()) || m.ShortDescription.ToLower().Contains(searchTerm.ToLower())
+                    ).ToList(), pageNumber ?? 1, pageSize));
+                }
+
+                else
+                {
+                    return RedirectToAction("NoMission", "Home");
+                }
+            }
+        }
+
+        public IActionResult Test(int? pageNumber, string? searchTerm)
+        {
+            int pageSize = 2;
+
+            if (searchTerm == null)
+            {
+                return View(PaginationList<Mission>.Create(_db.Missions.ToList(), pageNumber ?? 1, pageSize));
+            }
+
+            else
+            {
+                var isFound = _db.Missions.Where(m => m.Title.ToLower().Contains(searchTerm.ToLower()));
+                var isShortDescFound = _db.Missions.Where(m => m.ShortDescription.ToLower().Contains(searchTerm.ToLower()));
+                if (isFound.Any() || isShortDescFound.Any())
+                {
+
+                    return View(PaginationList<Mission>.Create(_db.Missions.Where(m => m.Title.ToLower().Contains(searchTerm.ToLower()) || m.ShortDescription.ToLower().Contains(searchTerm.ToLower())
+                    ).ToList(), pageNumber ?? 1, pageSize));
+                }
+
+                else
+                {
+                    return RedirectToAction("Noission", "Home");
+                }
+            }
+        }
+
+        public IActionResult Privacy()
         {
             return View();
         }
 
-        public IActionResult Test()
-        {
-            List<Mission> mission = _db.Missions.ToList();
-            return View(mission);
-        }
-
-        public IActionResult Privacy()
+        public IActionResult NoMission()
         {
             return View();
         }

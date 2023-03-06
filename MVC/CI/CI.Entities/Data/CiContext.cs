@@ -361,7 +361,7 @@ public partial class CiContext : DbContext
                 .IsUnicode(false)
                 .HasColumnName("organization_name");
             entity.Property(e => e.ShortDescription)
-                .HasColumnType("text")
+                .IsUnicode(false)
                 .HasColumnName("short_description");
             entity.Property(e => e.StartDate)
                 .HasColumnType("datetime")
@@ -372,7 +372,6 @@ public partial class CiContext : DbContext
                 .HasColumnName("status");
             entity.Property(e => e.ThemeId).HasColumnName("theme_id");
             entity.Property(e => e.Title)
-                .HasMaxLength(128)
                 .IsUnicode(false)
                 .HasColumnName("title");
             entity.Property(e => e.UpdatedAt)

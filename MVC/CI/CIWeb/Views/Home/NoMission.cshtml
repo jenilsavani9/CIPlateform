@@ -1,0 +1,55 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+    Layout = "_Navbar";
+    ViewData["Title"] = "No Mission Found";
+}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Home</title>
+  
+    <link rel="stylesheet" href="~/css/LandingPage.css" />
+
+   
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+
+    <script>
+        $(document).ready(function () {
+            $('#list').click(function (event) { event.preventDefault(); $('#products .item').addClass('list-group-item'); });
+            $('#grid').click(function (event) { event.preventDefault(); $('#products .item').removeClass('list-group-item'); $('#products .item').addClass('grid-group-item'); });
+        });
+
+    </script>
+
+
+
+</head>
+
+<body>
+
+    <div class="">
+        
+
+        <div class="container text-center mt-5">
+            
+            <h4>No Mission Found</h4>
+            <a class="btn" asp-action="Index" asp-controller="Home" style="border:1px solid #fa8503; border-radius:30px">Return Home Page</a>
+            
+            
+        </div>
+
+    </div>
+
+    
+    <script src="~/js/filter.js"></script>
+</body>
+
+</html>

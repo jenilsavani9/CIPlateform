@@ -5,6 +5,8 @@ using System.Net.Mail;
 using System.Net;
 using Microsoft.AspNetCore.Authorization;
 using CIWeb.Models;
+using Microsoft.AspNetCore.Authentication;
+using Microsoft.AspNetCore.Authentication.Cookies;
 
 namespace CIWeb.Controllers
 {
@@ -192,6 +194,8 @@ namespace CIWeb.Controllers
 
         public IActionResult Login()
         {
+            HttpContext.Session.Remove("userID");
+            HttpContext.Session.Remove("firstname");
             return View();
         }
 
@@ -210,10 +214,13 @@ namespace CIWeb.Controllers
                 return View();
             }
             User user = _db.Users.FirstOrDefault(u => u.Email == obj.Email);
+            var username = obj.Email.Split("@")[0];
             if (user != null)
             {
                 if (user.Password == obj.Password)
                 {
+                    HttpContext.Session.SetString("userID", username);
+                    HttpContext.Session.SetString("firstname", user.FirstName);
                     return RedirectToAction("Index", "Home");
                 }
                 else
@@ -228,6 +235,14 @@ namespace CIWeb.Controllers
                 return View();
             }
             return View();
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> Logout()
+        {
+            await HttpContext.SignOutAsync(CookieAuthenticationDefaults.AuthenticationScheme);
+            return RedirectToAction(nameof(HomeController.Index), "Home");
         }
     }
 }

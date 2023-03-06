@@ -323,3 +323,6 @@ C:\Users\pci114\Desktop\CIPlateform\MVC\CI\CIWeb\obj\Debug\net6.0\CIWeb.dll
 C:\Users\pci114\Desktop\CIPlateform\MVC\CI\CIWeb\obj\Debug\net6.0\ref\CIWeb.dll
 C:\Users\pci114\Desktop\CIPlateform\MVC\CI\CIWeb\obj\Debug\net6.0\CIWeb.pdb
 C:\Users\pci114\Desktop\CIPlateform\MVC\CI\CIWeb\obj\Debug\net6.0\CIWeb.genruntimeconfig.cache
+C:\Users\pci114\Desktop\CIPlateform\MVC\CI\CIWeb\bin\Debug\net6.0\cloudscribe.Pagination.Models.dll
+C:\Users\pci114\Desktop\CIPlateform\MVC\CI\CIWeb\bin\Debug\net6.0\cloudscribe.Web.Pagination.dll
+C:\Users\pci114\Desktop\CIPlateform\MVC\CI\CIWeb\obj\Debug\net6.0\CIWeb.MvcApplicationPartsAssemblyInfo.cs

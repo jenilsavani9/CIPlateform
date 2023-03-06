@@ -41,8 +41,6 @@ function addElement(current, value) {
     crossButton.addEventListener('click', function () {
         let elementToBeRemoved = document.getElementById(value);
 
-        console.log(elementToBeRemoved);
-        console.log(current);
         elementToBeRemoved.remove();
 
         current.checked = false;
