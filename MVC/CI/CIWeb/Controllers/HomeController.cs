@@ -3,8 +3,6 @@ using CI.Entities.Models;
 using CIWeb.Models;
 using Microsoft.AspNetCore.Mvc;
 using System.Diagnostics;
-using System.Text.Json;
-using cloudscribe.Pagination.Models;
 
 namespace CIWeb.Controllers
 {
@@ -20,12 +18,29 @@ namespace CIWeb.Controllers
             _db = db;
         }
 
-        public IActionResult Index(int? pageNumber, string? searchTerm)
+        public IActionResult Index(int? pageNumber, string? searchTerm, string? sortOrder)
         {
             int pageSize = 9;
             ViewBag.data = HttpContext.Session.GetString("firstname");
 
             List<Mission> mission = _db.Missions.ToList();
+
+            if (searchTerm == null && sortOrder != null)
+            {
+                switch (sortOrder)
+                {
+                    case "title":
+                        return View(PaginationList<Mission>.Create(_db.Missions.OrderBy(o => o.Title).ToList(), pageNumber ?? 1, pageSize));
+                        
+                    case "deadline":
+                        return View(PaginationList<Mission>.Create(_db.Missions.OrderBy(o => o.EndDate).ToList(), pageNumber ?? 1, pageSize));
+                        
+                    default:
+                        return View(PaginationList<Mission>.Create(_db.Missions.ToList(), pageNumber ?? 1, pageSize));
+                        
+                }
+                
+            }
 
             if (searchTerm == null)
             {
@@ -38,7 +53,6 @@ namespace CIWeb.Controllers
                 var isShortDescFound = _db.Missions.Where(m => m.ShortDescription.ToLower().Contains(searchTerm.ToLower()));
                 if (isFound.Any() || isShortDescFound.Any())
                 {
-
                     return View(PaginationList<Mission>.Create(_db.Missions.Where(m => m.Title.ToLower().Contains(searchTerm.ToLower()) || m.ShortDescription.ToLower().Contains(searchTerm.ToLower())
                     ).ToList(), pageNumber ?? 1, pageSize));
                 }

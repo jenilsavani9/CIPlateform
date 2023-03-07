@@ -62,9 +62,9 @@
                                         Sort By
                                     </a>
                                     <ul class="dropdown-menu">
-                                        <li><a class="dropdown-item" id="" href="#">Action</a></li>
-                                        <li><a class="dropdown-item" href="#">Another action</a></li>
-                                        <li><a class="dropdown-item" href="#">Something else here</a></li>
+                                        <li><a class="dropdown-item" id="" asp-action="Index" asp-route-sortOrder="title">Title</a></li>
+      
+                                        <li><a class="dropdown-item" asp-action="Index" asp-route-sortOrder="deadline">Deadline</a></li>
                                     </ul>
                                 </div>
                                 <div class="btn-group d-none d-lg-flex" style="box-shadow: none;">
@@ -122,7 +122,8 @@
                                     </div>
                                     <div class="rule d-flex mt-1">
                                             <hr>
-                                            <button class="date-btn mt-1">From 10/01/2019 until 25/02/2019</button>
+                                            
+                                            <button class="date-btn mt-1">From @item.StartDate.ToString().Split(" ")[0] until @item.EndDate.ToString().Split(" ")[0]</button>
                                             <hr>
                                     </div>
                                     <div class="row landing-page-box-border">
@@ -194,7 +195,7 @@
                                     </div>
                                     <div class="rule d-flex mt-1">
                                             <hr>
-                                            <button class="date-btn mt-1">From 10/01/2019 until 25/02/2019</button>
+                                            <button class="date-btn mt-1">From @item.StartDate.ToString().Split(" ")[0] until @item.EndDate.ToString().Split(" ")[0]</button>
                                             <hr>
                                     </div>
                                     <div class="row landing-page-box-border">
@@ -251,14 +252,14 @@
            
             }
             <center>
-                <a asp-action="Test" asp-route-pageNumber="@(Model.PageIndex-1)" class="btn btn-default @prevDisabled">Previous</a>
+                <a asp-action="Index" asp-route-pageNumber="@(Model.PageIndex-1)" class="btn btn-default @prevDisabled">Previous</a>
 
-                <a asp-action="Test" asp-route-pageNumber="1" class="btn">1</a>
-                <a asp-action="Test" asp-route-pageNumber="2" class="btn btn-default">2</a>
-                <a asp-action="Test" asp-route-pageNumber="3" class="btn btn-default">3</a>
-                <a asp-action="Test" asp-route-pageNumber="4" class="btn btn-default">4</a>
-                <a asp-action="Test" asp-route-pageNumber="5" class="btn btn-default">5</a>
-                <a asp-action="Test" asp-route-pageNumber="@(Model.PageIndex+1)" class="btn btn-default @nextDisabled">Next</a>
+                <a asp-action="Index" asp-route-pageNumber="1" class="btn">1</a>
+                <a asp-action="Index" asp-route-pageNumber="2" class="btn btn-default">2</a>
+                <a asp-action="Index" asp-route-pageNumber="3" class="btn btn-default">3</a>
+                <a asp-action="Index" asp-route-pageNumber="4" class="btn btn-default">4</a>
+                <a asp-action="Index" asp-route-pageNumber="5" class="btn btn-default">5</a>
+                <a asp-action="Index" asp-route-pageNumber="@(Model.PageIndex+1)" class="btn btn-default @nextDisabled">Next</a>
             </center>
         </div>
 
