@@ -3,7 +3,7 @@
 @using CI.Entities.Models;
 @model PaginationList<Mission>
 @{
-    Layout = "_Navbar";
+    Layout = "_TestNavbar";
     ViewData["Title"] = "Home Page";
 }
 
@@ -18,9 +18,9 @@
   
     <link rel="stylesheet" href="~/css/LandingPage.css" />
 
-   
-    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-
+    <script src="https://code.jquery.com/jquery-3.1.1.min.js">
+    //<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
 
     <script>
         $(document).ready(function () {
@@ -45,7 +45,7 @@
             </div>
             <div class="d-flex align-items-center justify-content-between mission-listing-title">
                 <div class="landing-page-mission-header">
-                    Explore <b>72 missions</b>
+                    Explore <b id="landing_total_missions">72 missions</b>
                 </div>
 
                 <div>
@@ -82,7 +82,7 @@
                 </div>
             </div>
             <div id="products" class="row view-group">
-                @foreach(var item in Model)
+                @*@foreach(var item in data)
                 {
                     if (item.MissionType == "Time")
                     {
@@ -236,7 +236,7 @@
                             </div>
                         </div>
                     }
-                }
+                }*@
 
 
            
@@ -244,13 +244,13 @@
 
             </div>
 
-            @{
+            @*@{
             var prevDisabled = !Model.HasPreviousPage ? "disabled" : "";
             var nextDisabled = !Model.HasNextPage ? "disabled" : "";
             
            
-            }
-            <center>
+            }*@
+            @*<center>
             <a asp-action="Test" asp-route-pageNumber="@(Model.PageIndex-1)" class="btn btn-default @prevDisabled">Previous</a>
 
             <a asp-action="Test" asp-route-pageNumber="1" class="btn">1</a>
@@ -259,12 +259,143 @@
             <a asp-action="Test" asp-route-pageNumber="4" class="btn btn-default">4</a>
             <a asp-action="Test" asp-route-pageNumber="5" class="btn btn-default">5</a>
             <a asp-action="Test" asp-route-pageNumber="@(Model.PageIndex+1)" class="btn btn-default @nextDisabled">Next</a>
-        </center>
+        </center>*@
         </div>
 
     </div>
 
-    
+    <script>
+
+        //$(window).load(function() {
+        //    console.log("jkhhflhflhfkhhflhfhslk")
+        //    $(document).ready(function() {
+        //        // GET BY ID
+           
+        //            $.ajax({
+        //                type: 'GET',
+        //                url: "https://localhost:44398/api/test",
+        //                contentType: false,
+        //                processData: false,
+        //                cache: false,
+           
+        //                success: function (data) {
+
+                           
+                        
+
+        //                    console.log(data);
+
+        //                },
+        //                error: errorCallback
+             
+        //        });
+        //    )};
+      
+
+        //};
+
+        function returnCards(response) {
+            return response.map(item => 
+                `
+                <div class="item col-12 col-md-6 col-xl-4">
+                            <div class="thumbnail card">
+                                <div class="img-event">
+                                    <img class="group list-group-image img-fluid" style="width:100%;"
+                                         src="/img/Grow-Trees-On-the-path-to-environment-sustainability.png" alt="" />
+                                    <div class="landing-page-top-right"><img src="/img/pin.png" alt=""> ${item.city.name}</div>
+                                    <div class="landing-page-bottom-right d-flex flex-column">
+                                        <button class="mb-2 landing-page-btn-img">
+                                            <img src="/img/heart.png" alt="">
+                                        </button><button class="landing-page-btn-img">
+                                            <img src="/img/user.png"
+                                                 alt="">
+                                        </button>
+                                    </div>
+
+                                    <div class="landing-page-bottom-center">${item.theme.title}</div>
+                                </div>
+                                <div class="caption card-body">
+                                    <h4 class="group card-title inner list-group-item-heading">
+                                       ${item.title}
+                                    </h4>
+                                    <p class="group inner landing-page-list-group-item-text">
+                                       ${item.desc}
+                                    </p>
+                                    <div class="d-flex justify-content-between landing-page-card-rating">
+                                        <div>Tree Canada</div>
+                                        <div>
+                                            <img src="/img/selected-star.png" alt="">
+                                            <img src="/img/selected-star.png" alt="">
+                                            <img src="/img/selected-star.png" alt="">
+                                            <img src="/img/star.png" alt="">
+                                            <img src="/img/star.png" alt="">
+                                        </div>
+                                    </div>
+                                    <div class="rule d-flex mt-1">
+                                            <hr>
+                                            <button class="date-btn mt-1">From ${item.startdate.substring(0,10)} until ${item.enddate.substring(0,10)}</button>
+                                            <hr>
+                                    </div>
+                                    <div class="row landing-page-box-border">
+                                        <div class="col-6 col-md-6 d-flex align-items-center">
+                                            <p class="lead me-2 pt-2">
+                                                <img src="/img/Seats-left.png" alt="">
+                                                <div>
+                                                    <div>10</div>
+                                                    <div class="landing-page-card-vol-small">Seats Left</div>
+                                                </div>
+                                            </p>
+                                        </div>
+                                        <div class="col-6 col-md-6 d-flex align-items-center">
+                                            <p class="lead me-2 pt-2">
+                                                <img src="/img/deadline.png" alt="">
+                                                <div>
+                                                    <div>09/01/2023</div>
+                                                    <div class="landing-page-card-vol-small">Deadline</div>
+                                                </div>
+                                            </p>
+                                        </div>
+                                    </div>
+                                    <div class="d-flex justify-content-center">
+                                        <div class="">
+                                            <a class="btn mt-2 landing-page-apply-mission-btn" asp-controller="Volunteer" asp-action="Index">
+                                                Apply <img src="/img/right-arrow.png" alt="">
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                ` 
+            ).join('')
+
+        }
+
+        $(window).load(function () {
+            //cards
+            $.ajax({
+                type: "GET",
+                url: "api/test",
+                dataType: 'json',
+                success: function (response) {
+                    
+                    var element = document.getElementById("products");
+                    element.innerHTML = returnCards(response);
+                    
+                },
+                failure: function (response) {
+                    alert(response.responseText);
+                },
+                error: function (response) {
+                    alert(response.responseText);
+                }
+            });
+
+            //city
+            
+        });
+    </script>
+     
     <script src="~/js/filter.js"></script>
 </body>
 

@@ -211,11 +211,9 @@
             <div class="container">
                 <div class="col-md-4">
                     <div class="input-group rounded">
-                        <form asp-action="Index" class="searchspace d-flex">
                             <i class="fas fa-search ms-1 mt-2"></i>
-                            <input type="search" asp-for="searchTerm" class="form-control rounded searchbar ms-2" id="searchbarmobile" placeholder="Search"
-                                   aria-label="Search" aria-describedby="search-addon"  />
-                        </form>
+                            <input type="search" id="livesearchtags" name="livesearchtags" class="form-control rounded searchbar ms-2" placeholder="Search"
+                                   aria-label="Search" aria-describedby="search-addon" onkeyup=searchOnKeyUp()  />
                     </div>
                 </div>
                 <div class="dropdown-section col-md-8 d-flex justify-content-end" style="height: 50px">
@@ -295,6 +293,60 @@
     </div>
 
 
+    <script>
+
+        document.getElementById('livesearchtags').addEventListener('keyup', function (e) {
+        //Run LiveSearch on ever key up 
+            LiveSearch()
+        });
+
+        function LiveSearch() {
+        //Get the input value
+            let value = document.getElementById('livesearchtags').value
+
+            $.ajax({
+            type: "GET",
+            // You can use the absolute url eg www.site.com/MyControllerName/LiveTagSearch or the relative path live below  
+            url: "api/search",
+            // Attach the value to a parameter called search
+            data: { search: value },
+            datatype: "html",
+            success: function (data) {
+                      // Insert the returned search results html into the result element 
+                     console.log(data);
+            }
+        });
+}
+
+        //function searchOnKeyUp(){
+        //    $("#searchbarmobile").keyup(function () {
+        //        var that = this,
+        //        value = $(this).val();
+        //        $.ajax({
+        //            type: "GET",
+        //            url: "api/search",
+        //            dataType: 'json',
+        //            data: {
+        //                'searchTerm' : value
+        //            },
+        //            success: function (response) {
+                        
+        //                console.log(response);
+        //                //var element = document.getElementById("products");
+        //                //element.innerHTML = returnCards(response);
+                    
+        //            },
+        //            failure: function (response) {
+        //                alert(response.responseText);
+        //            },
+        //            error: function (response) {
+        //                alert(response.responseText);
+        //            }
+        //        });
+
+        //}
+
+    </script>
 
 
     @*<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"

@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "peDNkXHd2mlYj80sHUVk0dHP2HdXF0QHxqieHcOkRnDxvTbRDKWhMFS0VPSaRRQCP4FfPlWxHjn1BsoXeSaKTQ==",
+  "dgSpecHash": "QyD+lYKwDWYhQm09mmCF2PpEquszwecBkwOgjw8x+uRg2ywQnmVIttn4m9RETMmKTY1ELDTaVM4wSBlmuNJTIg==",
   "success": true,
   "projectFilePath": "C:\\Users\\pci114\\Desktop\\CIPlateform\\MVC\\CI\\CI.Entities\\CI.Entities.csproj",
   "expectedPackageFiles": [
@@ -54,6 +54,7 @@
     "C:\\Users\\pci114\\.nuget\\packages\\microsoft.win32.registry\\5.0.0\\microsoft.win32.registry.5.0.0.nupkg.sha512",
     "C:\\Users\\pci114\\.nuget\\packages\\microsoft.win32.systemevents\\5.0.0\\microsoft.win32.systemevents.5.0.0.nupkg.sha512",
     "C:\\Users\\pci114\\.nuget\\packages\\mono.texttemplating\\2.2.1\\mono.texttemplating.2.2.1.nupkg.sha512",
+    "C:\\Users\\pci114\\.nuget\\packages\\newtonsoft.json\\13.0.3\\newtonsoft.json.13.0.3.nupkg.sha512",
     "C:\\Users\\pci114\\.nuget\\packages\\system.buffers\\4.5.1\\system.buffers.4.5.1.nupkg.sha512",
     "C:\\Users\\pci114\\.nuget\\packages\\system.codedom\\4.4.0\\system.codedom.4.4.0.nupkg.sha512",
     "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder\\system.collections\\4.3.0\\system.collections.4.3.0.nupkg.sha512",
