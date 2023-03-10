@@ -1,5 +1,4 @@
 ﻿@using CI.Entities.Models
-@model PaginationList<Mission>
 
 @{
     Layout = "";
@@ -60,7 +59,7 @@
                             <form asp-action="Index" class="input-group rounded">
                                 <i class="fas fa-search mt-2"></i>
 
-                                <input type="search" asp-for="searchTerm" class="form-control rounded ms-2" placeholder="Search Mission . . ."
+                                <input type="search" name="searchTerm" class="form-control rounded ms-2" placeholder="Search Mission . . ."
                                        aria-label="Search" aria-describedby="search-addon"  style="border: 0px" />
                             </form>
                         </div>
@@ -295,56 +294,7 @@
 
     <script>
 
-        document.getElementById('livesearchtags').addEventListener('keyup', function (e) {
-        //Run LiveSearch on ever key up 
-            LiveSearch()
-        });
-
-        function LiveSearch() {
-        //Get the input value
-            let value = document.getElementById('livesearchtags').value
-
-            $.ajax({
-            type: "GET",
-            // You can use the absolute url eg www.site.com/MyControllerName/LiveTagSearch or the relative path live below  
-            url: "api/search",
-            // Attach the value to a parameter called search
-            data: { search: value },
-            datatype: "html",
-            success: function (data) {
-                      // Insert the returned search results html into the result element 
-                     console.log(data);
-            }
-        });
-}
-
-        //function searchOnKeyUp(){
-        //    $("#searchbarmobile").keyup(function () {
-        //        var that = this,
-        //        value = $(this).val();
-        //        $.ajax({
-        //            type: "GET",
-        //            url: "api/search",
-        //            dataType: 'json',
-        //            data: {
-        //                'searchTerm' : value
-        //            },
-        //            success: function (response) {
-                        
-        //                console.log(response);
-        //                //var element = document.getElementById("products");
-        //                //element.innerHTML = returnCards(response);
-                    
-        //            },
-        //            failure: function (response) {
-        //                alert(response.responseText);
-        //            },
-        //            error: function (response) {
-        //                alert(response.responseText);
-        //            }
-        //        });
-
-        //}
+        
 
     </script>
 
@@ -359,7 +309,7 @@
             integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
             crossorigin="anonymous"></script>
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/6.1.0/mdb.min.js"></script>
-    <script src="~/js/filter.js"></script>
+    @*<script src="~/js/filter.js"></script>*@
 
 </body>
 

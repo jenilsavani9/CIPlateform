@@ -1,81 +1,65 @@
-﻿@*@model IEnumerable<CI.Entities.Models.Mission>;*@
-@using CIWeb.Models;
-@using CI.Entities.Models;
-@model PaginationList<Mission>
+﻿
+@model List<CI.Entities.Models.Mission>
+
 @{
     Layout = "_Navbar";
-    ViewData["Title"] = "Home Page";
 }
-
-<!DOCTYPE html>
-<html lang="en">
-
 <head>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Home</title>
-  
-    <link rel="stylesheet" href="~/css/LandingPage.css" />
+    <title>Landing Page</title>
 
-   
+    <link rel="stylesheet" href="~/css/landingpage.css" />
+
+    <script src="https://code.jquery.com/jquery-3.6.3.min.js" integrity="sha256-pvPw+upLPUjgMXY0G+8O0xUf+/Im1MZjXxxgOcBQBXU=" crossorigin="anonymous"></script>
     <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 
-
-    <script>
+<script>
         $(document).ready(function () {
             $('#list').click(function (event) { event.preventDefault(); $('#products .item').addClass('list-group-item'); });
             $('#grid').click(function (event) { event.preventDefault(); $('#products .item').removeClass('list-group-item'); $('#products .item').addClass('grid-group-item'); });
         });
 
     </script>
-
-
-
 </head>
 
-<body>
-
-    <div class="">
-        
-
+<div class="">
         <div class="container">
-            <div class="filters-section d-flex align-items-center flex-wrap">
-                
+            <div class="filters-section d-flex align-items-center flex-wrap justify-content-center" id="filters" onchange="function12()">
             </div>
             <div class="d-flex align-items-center justify-content-between mission-listing-title">
                 <div class="landing-page-mission-header">
-                    Explore <b>@Model.Count() Missions</b>
+                    Explore <b>@ViewBag.TotalMission missions</b>
                 </div>
 
                 <div>
 
                     <div class="row d-flex align-items-center">
 
-
-
                         <div class="my-3">
-                            <div class="pull-right d-flex sortby align-items-center">  
+                            <div class="pull-right sortby d-flex align-items-center">
                                 <div class="dropdown ms-1 pe-5 ps-2">
                                     <a class="text-reset me-4 dropdown-toggle" href="#" id="navbarDropdownMenuLink"
                                        role="button" data-mdb-toggle="dropdown" aria-expanded="false">
                                         Sort By
                                     </a>
                                     <ul class="dropdown-menu">
-                                        <li><a class="dropdown-item" asp-action="Index" asp-route-sortOrder="newest">Newest</a></li>
-                                        <li><a class="dropdown-item" id="" asp-action="Index" asp-route-sortOrder="oldest">Oldest</a></li>
-                                        <li><a class="dropdown-item">Lowest available seats</a></li>
-                                        <li><a class="dropdown-item">Highest available seats </a></li>
-                                        <li><a class="dropdown-item">Sort by my favorite</a></li>
-                                        <li><a class="dropdown-item">Sort by deadline</a></li>
+                                        <li><a class="dropdown-item" asp-action="Index" asp-route-sortOrder="newest" >Newest</a></li>
+                                        <li><a class="dropdown-item" id="" asp-action="Index" asp-route-sortOrder="oldest" >Oldest</a></li>
+                                        <li><a class="dropdown-item" href="#">Lowest available seats</a></li>
+                                        <li><a class="dropdown-item" href="#">Highest available seats</a></li>
+                                        <li><a class="dropdown-item" href="#">My favourites</a></li>
+                                        <li><a class="dropdown-item" href="#">Registration deadline</a></li>
+
                                     </ul>
                                 </div>
-                                <div class="btn-group d-none d-lg-flex" style="box-shadow: none;">
+                                <div class="btn-group d-flex shadow-none">
 
-                                        <button class="btn" id="grid">
+                                    <button class="btn" id="grid" onclick="gridview()">
                                         <img src="~/img/grid.png" alt="">
                                     </button>
-                                    <button class="btn" id="list">
+                                    <button class="btn" id="list" onclick="listview()">
                                         <img src="~/img/list.png" alt="">
                                     </button>
                                 </div>
@@ -143,7 +127,7 @@
                                             <p class="lead me-2 pt-2">
                                                 <img src="~/img/deadline.png" alt="">
                                                 <div>
-                                                    <div>09/01/2023</div>
+                                                    <div>@item.EndDate.ToString().Split(" ")[0]</div>
                                                     <div class="landing-page-card-vol-small">Deadline</div>
                                                 </div>
                                             </p>
@@ -241,59 +225,53 @@
                         </div>
                     }
                 }
-
-
-           
-
-
             </div>
-
-            @{
-            var prevDisabled = !Model.HasPreviousPage ? "disabled" : "";
-            var nextDisabled = !Model.HasNextPage ? "disabled" : "";
-            
-           
-            }
-            <center class="mt-3">
-                <a asp-action="Index" asp-route-pageNumber="@(Model.PageIndex-1)" class="btn btn-default @prevDisabled">Previous</a>
-                @for (var i = 1; i <= @Model.TotalPages; i++)
-                {
-                    <a asp-action="Index" asp-route-pageNumber=@i class="btn btn-default">@i</a>
-                }
-                <a asp-action="Index" asp-route-pageNumber="@(Model.PageIndex+1)" class="btn btn-default @nextDisabled">Next</a>
-            </center>
         </div>
-
     </div>
+   
+<nav aria-label="Page navigation example mt-5" class="d-flex justify-content-center">
+    <ul class="pagination">
+        @if(@ViewBag.currentUrl.Contains('?')){
+            <li class="page-item @(ViewBag.CurrentPage == 0 ? "disabled" : "")">
+                <a class="page-link" href="@ViewBag.currentUrl&pageIndex=@(ViewBag.CurrentPage - 1)" aria-label="Previous">
+                    <span aria-hidden="true">&laquo;</span>
+                </a>
+            </li>
+            @for (int i = 0; i < ViewBag.TotalPages; i++)
+            {
+                <li class="page-item @(i == ViewBag.CurrentPage ? "active" : "")">
+                    <a class="page-link" href="@ViewBag.currentUrl&pageIndex=@i">@((i + 1).ToString())</a>
+                </li>
+            }
+            <li class="page-item @(ViewBag.CurrentPage == ViewBag.TotalPages - 1 ? "disabled" : "")">
+                <a class="page-link" href="@ViewBag.currentUrl&pageIndex=@(ViewBag.CurrentPage + 1)" aria-label="Next">
+                    <span aria-hidden="true">&raquo;</span>
+                </a>
+            </li>
+        }
+        else{
+            <li class="page-item @(ViewBag.CurrentPage == 0 ? "disabled" : "")">
+                <a class="page-link" href="@ViewBag.currentUrl?pageIndex=@(ViewBag.CurrentPage - 1)" aria-label="Previous">
+                    <span aria-hidden="true">&laquo;</span>
+                </a>
+            </li>
+            @for (int i = 0; i < ViewBag.TotalPages; i++)
+            {
+                <li class="page-item @(i == ViewBag.CurrentPage ? "active" : "")">
+                    <a class="page-link" href="@ViewBag.currentUrl?pageIndex=@i">@((i + 1).ToString())</a>
+                </li>
+            }
+            <li class="page-item @(ViewBag.CurrentPage == ViewBag.TotalPages - 1 ? "disabled" : "")">
+                <a class="page-link" href="@ViewBag.currentUrl?pageIndex=@(ViewBag.CurrentPage + 1)" aria-label="Next">
+                    <span aria-hidden="true">&raquo;</span>
+                </a>
+            </li>
+        }
+        
+    </ul>
+</nav>
 
-    <script>
-        $(document).ready(function () {
-
-                    $('input[type=checkbox][id=city-filter]').change(function () {
-                        var selectCity = $('input[type=checkbox]:checked').map(function () {
-                            return $(this).val();
-                        }).get();
-
-                        if (selectCity.length > 0) {
-
-                            $('.item').hide();
-                            $.each(selectCity, function (index, value) {
-                                
-                                    $('.item:contains("' + value + '")').show();
-                               
-                                
-                            });
-                            
 
 
-                        } else {
 
-                            $('.item').show();
-                        }
-                    });
-                });
-    </script>
-    <script src="~/js/filter.js"></script>
-</body>
 
-</html>
