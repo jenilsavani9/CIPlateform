@@ -27,6 +27,10 @@ namespace CIWeb.Controllers
 
         private List<Country> countryElements = new List<Country>();
 
+        private List<MissionSkill> missionSkills = new List<MissionSkill>();
+
+        private List<Skill> Skills = new List<Skill>();
+
         private List<City> cityElements = new List<City>();
 
         private List<MissionTheme> themeElements = new List<MissionTheme>();
@@ -41,20 +45,22 @@ namespace CIWeb.Controllers
             _db = db;
         }
 
-        public IActionResult Index(long id, int? pageIndex, string searchQuery, long[] FCountries, long[] FCities, long[] FThemes, string sortOrder)
+        public IActionResult Index(long id, int? pageIndex, string searchQuery, long[] FCountries, long[] FCities, long[] FThemes, long[] FSkills, string sortOrder)
         {
 
             // Check if user is logged in
-            int? userId = HttpContext.Session.GetInt32("userID");
+            String? userId = HttpContext.Session.GetString("userEmail");
             
-            var user = _db.Users.Where(e => e.UserId == id).SingleOrDefault();
+            var user = _db.Users.Where(e => e.Email == userId).SingleOrDefault();
             ViewBag.user = user;
             ViewBag.Request = Request;
             Missions = _db.Missions.ToList();
             Countries = _db.Countries.ToList();
             Themes = _db.MissionThemes.ToList();
+            Skills = _db.Skills.ToList();
             ViewBag.countries = Countries;
             ViewBag.themes = Themes;
+            ViewBag.skills = Skills;
 
             if (!string.IsNullOrEmpty(searchQuery))
             {
@@ -131,13 +137,40 @@ namespace CIWeb.Controllers
                 ViewBag.themeElements = themeElements;
             }
 
+            if (FSkills != null && FSkills.Length > 0)
+            {
+                var element = new List<MissionSkill>();
+                var tempFinalList = new List<Mission>();
+                foreach (var skill in FSkills)
+                {
+                    var tempList = _db.MissionSkills.Where(m => m.SkillId == skill).ToList();
+                    element.AddRange(tempList);
+                    if (FinalMissionsList.Count > 0)
+                    {
+                        Missions = FinalMissionsList;
+                    }
+                    else
+                    {
+                        Missions = _db.Missions.ToList();
+                    }
+                    Missions = Missions.Where(m => m.ThemeId == skill).ToList();
+                    var themeElement = _db.MissionThemes.Where(m => m.MissionThemeId == skill).ToList();
+                    themeElements.AddRange(themeElement);
+                    tempFinalList.AddRange(Missions);
+                }
+                FinalMissionsList = tempFinalList;
+                ViewBag.FSkills = Request.Query["FSkill"];
+                ViewBag.skillElements = themeElements;
+            }
+
+
 
             //Pagination
             int pageSize = 9; // change this to your desired page size
             int skip = (pageIndex ?? 0) * pageSize;
             if (FinalMissionsList.Count() != 0)
             {
-                var missions = FinalMissionsList.Skip(skip).Take(pageSize).ToList();
+                var missions = FinalMissionsList.ToList();
                 foreach (var mission in missions)
                 {
                     City city = _db.Cities.Where(e => e.CityId == mission.CityId).FirstOrDefault();
@@ -209,11 +242,11 @@ namespace CIWeb.Controllers
                 ViewBag.CurrentPage = pageIndex ?? 0;
 
                 ViewBag.NoOfMissions = FinalMissionsList.Count();
-                ViewBag.missions = missionsVMList;
+                ViewBag.missions = missionsVMList.Skip(skip).Take(pageSize).ToList();
             }
             else
             {
-                var missions = Missions.Skip(skip).Take(pageSize).ToList();
+                var missions = Missions.ToList();
                 foreach (var mission in missions)
                 {
                     City city = _db.Cities.Where(e => e.CityId == mission.CityId).FirstOrDefault();
@@ -287,7 +320,7 @@ namespace CIWeb.Controllers
                 ViewBag.CurrentPage = pageIndex ?? 0;
 
                 ViewBag.NoOfMissions = Missions.Count();
-                ViewBag.missions = missionsVMList;
+                ViewBag.missions = missionsVMList.Skip(skip).Take(pageSize).ToList();
             }
 
             var MissionApp = _db.MissionApplications.ToList();
@@ -486,11 +519,14 @@ namespace CIWeb.Controllers
         public IActionResult NoMission()
         {
             List<City> Cities = _db.Cities.ToList();
-            ViewBag.Cities = Cities;
+            ViewBag.cities = Cities;
             List<Country> Country = _db.Countries.ToList();
-            ViewBag.Country = Country;
+            ViewBag.countries = Country;
             List<MissionTheme> Themes = _db.MissionThemes.ToList();
             ViewBag.Themes = Themes;
+            ViewBag.cityElements = Cities;
+            ViewBag.themeElements = Themes;
+            ViewBag.countryElements = Country;
             return View();
         }
 

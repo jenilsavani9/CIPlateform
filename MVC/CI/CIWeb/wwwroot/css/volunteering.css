@@ -215,3 +215,23 @@
 .vol-page-tab-comment-time {
     font-size: 12px;
 }
+
+/*last css*/
+
+.landing-page-bottom-center {
+    position: absolute;
+    border-radius: 30px;
+    background-color: #fff;
+    bottom: -18px;
+    left: 36%;
+    padding: 5px 10px;
+}
+
+.date-btn {
+    border-radius: 22px;
+    border: 2px solid #E8E8E8;
+    background-color: white;
+    width: auto;
+    font-size: 13px;
+    padding: 0 30px;
+}

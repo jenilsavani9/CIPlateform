@@ -177,22 +177,33 @@ For more information on enabling MVC for empty projects, visit https://go.micros
 
                         <ul class="navbar-nav col-md-6 justify-content-end">
                             <li class="nav-item d-flex align-items-center">
-
-                                <div class="dropdown">
-                                    <a class="text-reset dropdown-toggle d-flex align-items-center" href="#"
+                                @if (@ViewBag.user != null)
+                                {
+                                    <div class="dropdown">
+                                        <a class="text-reset dropdown-toggle d-flex align-items-center" href="#"
                                        id="navbarDropdownMenuLink" role="button" data-mdb-toggle="dropdown"
                                        aria-expanded="false">
-                                        <img src="~/img/profile.png" class="rounded-circle me-3" height="22" alt=""
-                                             loading="lazy" />
-                                        Gumnam
-                                    </a>
-                                    <ul class="dropdown-menu dropdown-menu-start"
+                                            <img src="~/img/user-img.png" class="rounded-circle me-3" height="22" alt=""
+                                             loading="lazy" style="
+                                                            width: 30px;
+                                                            height: 30px;
+                                                        " />
+                                            @ViewBag.user.FirstName
+                                        </a>
+                                        <ul class="dropdown-menu dropdown-menu-start"
                                         aria-labelledby="navbarDropdownMenuLink">
-                                        <li><a class="dropdown-item" href="#">My profile</a></li>
-                                        <li><a class="dropdown-item" href="#">Settings</a></li>
-                                        <li><a class="dropdown-item" href="#">Logout</a></li>
-                                    </ul>
-                                </div>
+                                            <li><a class="dropdown-item" href="#">My profile</a></li>
+                                            <li><a class="dropdown-item" href="#">Settings</a></li>
+                                            <li><a class="dropdown-item" asp-action="login" asp-controller="User">Logout</a></li>
+                                        </ul>
+                                    </div>
+                                }
+                                else
+                                {
+                                    <a class="btn me-2" role="button" aria-disabled="true" asp-action="Login" asp-controller="User" style="background-color:#f88735;color:#fff;box-shadow: none;">Login</a>
+                                    <a class="btn" role="button" aria-disabled="true" asp-action="Register" asp-controller="User" style="background-color:#f88735;color:#fff;box-shadow: none;">Register</a>
+
+                                }
 
 
                             </li>

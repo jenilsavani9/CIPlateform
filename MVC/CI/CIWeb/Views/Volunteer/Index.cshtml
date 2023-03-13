@@ -13,6 +13,7 @@
     <title>Volunteer</title>
     <link href="./css/bootstrap.min.css" rel="stylesheet" text="text/css" />
     <link rel="stylesheet" href="~/css/volunteering.css">
+
     <script src="./js/custom.js"></script>
 
     <script>
@@ -33,7 +34,7 @@
             <div class="vol-page-img-sec d-flex flex-column">
                 <div>
                     <img class="img-fluid vol-page-crousel" id="vol-page-crousel"
-                        src="./img/CSR-initiative-stands-for-Coffee--and-Farmer-Equity-2.png" alt="">
+                        src="~/img/CSR-initiative-stands-for-Coffee--and-Farmer-Equity-2.png" alt="">
                 </div>
                 <div class="d-flex mt-2" style="height: 100px;">
 
@@ -42,32 +43,32 @@
                             <div class="carousel-item active vol-page-crousel">
                                 <div class="row">
                                     <div class="col"><img class="img-fluid vol-img-change-1 vol-img-change-n"
-                                            src="./img/CSR-initiative-stands-for-Coffee--and-Farmer-Equity-2.png" alt=""
+                                            src="~/img/CSR-initiative-stands-for-Coffee--and-Farmer-Equity-2.png" alt=""
                                             onclick="onImageChange(1)"></div>
                                     <div class="col"><img class="img-fluid vol-img-change-2 vol-img-change-n"
-                                            src="./img/Grow-Trees-On-the-path-to-environment-sustainability-login.png"
+                                            src="~/img/Grow-Trees-On-the-path-to-environment-sustainability-login.png"
                                             alt="" onclick="onImageChange(2)"></div>
                                     <div class="col"><img class="img-fluid vol-img-change-3 vol-img-change-n"
-                                            src="./img/Animal-welfare-_-save-birds-campaign.png" alt=""
+                                            src="~/img/Animal-welfare-_-save-birds-campaign.png" alt=""
                                             onclick="onImageChange(3)"></div>
                                     <div class="col"><img class="img-fluid vol-img-change-4 vol-img-change-n"
-                                            src="./img/CSR-initiative-stands-for-Coffee--and-Farmer-Equity-2.png" alt=""
+                                            src="~/img/CSR-initiative-stands-for-Coffee--and-Farmer-Equity-2.png" alt=""
                                             onclick="onImageChange(4)"></div>
                                 </div>
                             </div>
                             <div class="carousel-item vol-page-crousel">
                                 <div class="row">
                                     <div class="col"><img class="img-fluid vol-img-change-5 vol-img-change-n"
-                                            src="./img/CSR-initiative-stands-for-Coffee--and-Farmer-Equity-2.png" alt=""
+                                            src="~/img/CSR-initiative-stands-for-Coffee--and-Farmer-Equity-2.png" alt=""
                                             onclick="onImageChange(5)"></div>
                                     <div class="col"><img class="img-fluid vol-img-change-6 vol-img-change-n"
-                                            src="./img/Grow-Trees-On-the-path-to-environment-sustainability-login.png"
+                                            src="~/img/Grow-Trees-On-the-path-to-environment-sustainability-login.png"
                                             alt="" onclick="onImageChange(6)"></div>
                                     <div class="col"><img class="img-fluid vol-img-change-7 vol-img-change-n"
-                                            src="./img/CSR-initiative-stands-for-Coffee--and-Farmer-Equity-2.png" alt=""
+                                            src="~/img/CSR-initiative-stands-for-Coffee--and-Farmer-Equity-2.png" alt=""
                                             onclick="onImageChange(7)"></div>
                                     <div class="col"><img class="img-fluid vol-img-change-8 vol-img-change-n"
-                                            src="./img/Animal-welfare-_-save-birds-campaign.png" alt=""
+                                            src="~/img/Animal-welfare-_-save-birds-campaign.png" alt=""
                                             onclick="onImageChange(8)"></div>
                                 </div>
                             </div>
@@ -93,9 +94,8 @@
             <div class="">
                 <div class="card vol-page-card ms-xl-4 shadow-none">
                     <div class="card-body">
-                        <h5 class="card-title" style="font-size: 38px">CSR initiative stands for coffee & Farmer Equity</h5>
-                        <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quidem fuga quis
-                            id sapiente blanditiis necessitatibus sit fugit at aut.</p>
+                        <h5 class="card-title" style="font-size: 38px">@ViewBag.mission[0].Title</h5>
+                        <p class="card-text">@ViewBag.mission[0].Description</p>
 
                         <div>
                             <div class="d-flex align-items-center">
@@ -109,7 +109,7 @@
                             <div class="row landing-page-box-border">
                                 <div class="col-6 col-md-6 d-flex align-items-center justify-content-center">
                                     <p class="lead me-2 pt-2">
-                                        <img src="./img/Seats-left.png" alt="">
+                                        <img src="~/img/Seats-left.png" alt="">
                                     <div>
                                         <div>10</div>
                                         <div class="landing-page-card-vol-small">Seats Left</div>
@@ -118,7 +118,7 @@
                                 </div>
                                 <div class="col-6 col-md-6 d-flex align-items-center">
                                     <p class="lead me-2 pt-2">
-                                        <img src="./img/achieved.png" alt="">
+                                        <img src="~/img/achieved.png" alt="">
                                     <div style="width: 100%;">
                                         <div>
 
@@ -138,10 +138,10 @@
                             <hr>
                             <div class="d-flex justify-content-around vol-page-group-btn">
                                 <div>
-                                    <button class="btn vol-page-group-btn-btn shadow-none"><img src="./img/heart1.png" alt=""> Add
+                                    <button class="btn vol-page-group-btn-btn shadow-none"><img src="~/img/heart1.png" alt=""> Add
                                         to Favourite</button>
                                 </div>
-                                <div><button class="btn vol-page-group-btn-btn shadow-none"><img src="./img/heart1.png" alt=""> Add
+                                <div><button class="btn vol-page-group-btn-btn shadow-none"><img src="~/img/heart1.png" alt=""> Add
                                         to Favourite</button>
                                 </div>
                             </div>
@@ -149,57 +149,57 @@
                             <div class="d-flex align-items-center mt-2">
                                 <hr>
                                 <div class="vol-page-hr-goal-star">
-                                    <img class="vol-page-main-card-star" src="./img/star-empty.png" alt="">
-                                    <img class="vol-page-main-card-star" src="./img/star-empty.png" alt="">
-                                    <img class="vol-page-main-card-star" src="./img/star-empty.png" alt="">
-                                    <img class="vol-page-main-card-star" src="./img/star-empty.png" alt="">
-                                    <img class="vol-page-main-card-star" src="./img/star-empty.png" alt="">
+                                    <img class="vol-page-main-card-star" src="~/img/star-empty.png" alt="">
+                                    <img class="vol-page-main-card-star" src="~/img/star-empty.png" alt="">
+                                    <img class="vol-page-main-card-star" src="~/img/star-empty.png" alt="">
+                                    <img class="vol-page-main-card-star" src="~/img/star-empty.png" alt="">
+                                    <img class="vol-page-main-card-star" src="~/img/star-empty.png" alt="">
                                 </div>
                                 <hr>
                             </div>
 
                             <div class="d-flex justify-content-between mt-2">
                                 <div class="vol-page-sub-card-info d-flex flex-column justify-content-between p-2">
-                                    <img src="./img/pin1.png" alt="" class="vol-page-main-card-sub-logo">
+                                    <img src="~/img/pin1.png" alt="" class="vol-page-main-card-sub-logo">
                                     <div>
-                                        <div>City</div>
-                                        <div>London</div>
+                                        <div style="font-size:12px">City</div>
+                                        <div style="font-size:14px">@ViewBag.city[0].Name</div>
                                     </div>
                                 </div>
 
                                 <div class="vol-page-sub-card-info d-flex flex-column justify-content-between p-2">
-                                    <img src="./img/pin1.png" alt="" class="vol-page-main-card-sub-logo">
+                                    <img src="~/img/web.png" alt="" class="vol-page-main-card-sub-logo">
                                     <div>
-                                        <div>City</div>
-                                        <div>London</div>
+                                        <div style="font-size:12px">Theme</div>
+                                        <div style="font-size:14px">@ViewBag.theme[0].Title</div>
                                     </div>
                                 </div>
 
                                 <div class="vol-page-sub-card-info d-flex flex-column justify-content-between p-2">
-                                    <img src="./img/pin1.png" alt="" class="vol-page-main-card-sub-logo">
+                                    <img src="~/img/calender.png" alt="" class="vol-page-main-card-sub-logo">
                                     <div>
-                                        <div>City</div>
-                                        <div>London</div>
+                                        <div style="font-size:12px">Date</div>
+                                        <div style="font-size:14px">London</div>
                                     </div>
                                 </div>
 
                                 <div class="vol-page-sub-card-info d-flex flex-column justify-content-between p-2">
-                                    <img src="./img/pin1.png" alt="" class="vol-page-main-card-sub-logo">
+                                    <img src="~/img/organization.png" alt="" class="vol-page-main-card-sub-logo">
                                     <div>
-                                        <div>City</div>
-                                        <div>London</div>
+                                        <div style="font-size:12px">Organization</div>
+                                        <div style="font-size:14px">@ViewBag.mission[0].OrganizationName</div>
                                     </div>
                                 </div>
                             </div>
 
 
                             <div class="mt-3 d-flex justify-content-center">
-                                <button class="btn vol-page-apply-btn shadow-none">Apply Now <img src="./img/right-arrow.png"
+                                <button class="btn vol-page-apply-btn shadow-none">Apply Now <img src="~/img/right-arrow.png"
                                         alt=""></button>
                             </div>
                         </div>
 
-                        <!-- <a href="#" class="btn">Apply Now <img src="./img/right-arrow.png" alt=""></a> -->
+                        <!-- <a href="#" class="btn">Apply Now <img src="~/img/right-arrow.png" alt=""></a> -->
                     </div>
                 </div>
             </div>
@@ -269,13 +269,13 @@
                         <div class="mb-2">
                             <div class="vol-page-tab-content-heading">Documents</div>
                             <div class="d-flex">
-                                <div class="vol-page-tab-content-doc"><img src="./img/pdf.png" alt=""
+                                <div class="vol-page-tab-content-doc"><img src="~/img/pdf.png" alt=""
                                         class="vol-page-tab-content-doc-info">lorem_ipsum.pdf
                                 </div>
-                                <div class="vol-page-tab-content-doc"><img src="./img/pdf.png" alt=""
+                                <div class="vol-page-tab-content-doc"><img src="~/img/pdf.png" alt=""
                                         class="vol-page-tab-content-doc-info">lorem_ipsum.pdf
                                 </div>
-                                <div class="vol-page-tab-content-doc"><img src="./img/pdf.png" alt=""
+                                <div class="vol-page-tab-content-doc"><img src="~/img/pdf.png" alt=""
                                         class="vol-page-tab-content-doc-info">lorem_ipsum.pdf
                                 </div>
                             </div>
@@ -307,7 +307,7 @@
                             <div class="card my-2">
                                 <div class="card-body d-flex">
                                     <div>
-                                        <img class="vol-page-tab-comments-img" src="./img/volunteer1.png" alt="">
+                                        <img class="vol-page-tab-comments-img" src="~/img/volunteer1.png" alt="">
                                     </div>
                                     <div class="d-flex flex-column justify-content-around ms-3">
                                         <div>
@@ -323,7 +323,7 @@
                             <div class="card my-2">
                                 <div class="card-body d-flex">
                                     <div>
-                                        <img class="vol-page-tab-comments-img" src="./img/volunteer1.png" alt="">
+                                        <img class="vol-page-tab-comments-img" src="~/img/volunteer1.png" alt="">
                                     </div>
                                     <div class="d-flex flex-column justify-content-around ms-3">
                                         <div>
@@ -339,7 +339,7 @@
                             <div class="card my-2">
                                 <div class="card-body d-flex">
                                     <div>
-                                        <img class="vol-page-tab-comments-img" src="./img/volunteer1.png" alt="">
+                                        <img class="vol-page-tab-comments-img" src="~/img/volunteer1.png" alt="">
                                     </div>
                                     <div class="d-flex flex-column justify-content-around ms-3">
                                         <div>
@@ -355,7 +355,7 @@
                             <div class="card my-2">
                                 <div class="card-body d-flex">
                                     <div>
-                                        <img class="vol-page-tab-comments-img" src="./img/volunteer1.png" alt="">
+                                        <img class="vol-page-tab-comments-img" src="~/img/volunteer1.png" alt="">
                                     </div>
                                     <div class="d-flex flex-column justify-content-around ms-3">
                                         <div>
@@ -390,11 +390,11 @@
                             Going, Math, Computer</span></div>
                     <hr>
                     <div class="vol-sec-2-right-1st-sub"><span>Ratings</span> <span class="vol-sec-2-right-1st-sub-sec">
-                            <img src="./img/star-empty.png" alt="">
-                            <img src="./img/star-empty.png" alt="">
-                            <img src="./img/star-empty.png" alt="">
-                            <img src="./img/star-empty.png" alt="">
-                            <img src="./img/star-empty.png" alt="">
+                            <img src="~/img/star-empty.png" alt="">
+                            <img src="~/img/star-empty.png" alt="">
+                            <img src="~/img/star-empty.png" alt="">
+                            <img src="~/img/star-empty.png" alt="">
+                            <img src="~/img/star-empty.png" alt="">
                         </span></div>
                 </div>
 
@@ -404,51 +404,51 @@
                     <div>
                         <div class="row">
                             <div class="col mt-1 text-center">
-                                <img class="vol-page-right-recent-vol-img" src="./img/volunteer1.png" alt="">
+                                <img class="vol-page-right-recent-vol-img" src="~/img/volunteer1.png" alt="">
                                 <div class="vol-page-right-2nd-vol-name">Andrew Johnson</div>
                             </div>
                             <div class="col mt-1 text-center">
-                                <img class="vol-page-right-recent-vol-img" src="./img/volunteer1.png" alt="">
+                                <img class="vol-page-right-recent-vol-img" src="~/img/volunteer1.png" alt="">
                                 <div class="vol-page-right-2nd-vol-name">Andrew Johnson</div>
                             </div>
                             <div class="col mt-1 text-center">
-                                <img class="vol-page-right-recent-vol-img" src="./img/volunteer1.png" alt="">
-                                <div class="vol-page-right-2nd-vol-name">Andrew Johnson</div>
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col mt-1 text-center">
-                                <img class="vol-page-right-recent-vol-img" src="./img/volunteer1.png" alt="">
-                                <div class="vol-page-right-2nd-vol-name">Andrew Johnson</div>
-                            </div>
-                            <div class="col mt-1 text-center">
-                                <img class="vol-page-right-recent-vol-img" src="./img/volunteer1.png" alt="">
-                                <div class="vol-page-right-2nd-vol-name">Andrew Johnson</div>
-                            </div>
-                            <div class="col mt-1 text-center">
-                                <img class="vol-page-right-recent-vol-img" src="./img/volunteer1.png" alt="">
+                                <img class="vol-page-right-recent-vol-img" src="~/img/volunteer1.png" alt="">
                                 <div class="vol-page-right-2nd-vol-name">Andrew Johnson</div>
                             </div>
                         </div>
                         <div class="row">
                             <div class="col mt-1 text-center">
-                                <img class="vol-page-right-recent-vol-img" src="./img/volunteer1.png" alt="">
+                                <img class="vol-page-right-recent-vol-img" src="~/img/volunteer1.png" alt="">
                                 <div class="vol-page-right-2nd-vol-name">Andrew Johnson</div>
                             </div>
                             <div class="col mt-1 text-center">
-                                <img class="vol-page-right-recent-vol-img" src="./img/volunteer1.png" alt="">
+                                <img class="vol-page-right-recent-vol-img" src="~/img/volunteer1.png" alt="">
                                 <div class="vol-page-right-2nd-vol-name">Andrew Johnson</div>
                             </div>
                             <div class="col mt-1 text-center">
-                                <img class="vol-page-right-recent-vol-img" src="./img/volunteer1.png" alt="">
+                                <img class="vol-page-right-recent-vol-img" src="~/img/volunteer1.png" alt="">
+                                <div class="vol-page-right-2nd-vol-name">Andrew Johnson</div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col mt-1 text-center">
+                                <img class="vol-page-right-recent-vol-img" src="~/img/volunteer1.png" alt="">
+                                <div class="vol-page-right-2nd-vol-name">Andrew Johnson</div>
+                            </div>
+                            <div class="col mt-1 text-center">
+                                <img class="vol-page-right-recent-vol-img" src="~/img/volunteer1.png" alt="">
+                                <div class="vol-page-right-2nd-vol-name">Andrew Johnson</div>
+                            </div>
+                            <div class="col mt-1 text-center">
+                                <img class="vol-page-right-recent-vol-img" src="~/img/volunteer1.png" alt="">
                                 <div class="vol-page-right-2nd-vol-name">Andrew Johnson</div>
                             </div>
                         </div>
                         <hr>
                         <div class="row text-center">
-                            <div class="col-2"><button class="btn shadow-none"><img src="./img/left.png" alt=""></button></div>
+                            <div class="col-2"><button class="btn shadow-none"><img src="~/img/left.png" alt=""></button></div>
                             <div class="col-8">Recent Volunteers</div>
-                            <div class="col-2"><button class="btn shadow-none"><img src="./img/right-arrow1.png" alt=""></button>
+                            <div class="col-2"><button class="btn shadow-none"><img src="~/img/right-arrow1.png" alt=""></button>
                             </div>
                         </div>
                     </div>
@@ -459,230 +459,194 @@
 
         <hr>
 
-        <div class="volunteering-sec-3 d-flex flex-column align-items-center">
-            <div class="vol-page-related-mis-headline">Related Missions</div>
-            <div class="d-flex flex-column flex-lg-row">
+        
+            <div class="vol-page-related-mis-headline" style="text-align: center;">Related Missions</div>
+            
 
-                <div class="item col-xs-4 col-lg-4">
-                    <div class="thumbnail card my-2 me-lg-2 vol-page-rel-card-width">
-                        <div class="img-event">
-                            <img class="group list-group-image img-fluid" style="width:100%;"
-                                src="./img/Grow-Trees-On-the-path-to-environment-sustainability.png" alt="" />
-                            <div class="landing-page-top-right"><img src="./img/pin.png" alt=""> Toronto</div>
-                            <div class="landing-page-bottom-right d-flex flex-column"><button
-                                    class="mb-2 landing-page-btn-img"><img src="./img/heart.png" alt=""></button><button
-                                    class="landing-page-btn-img"><img src="./img/user.png" alt=""></button></div>
+        @foreach (var item in ViewBag.relatedMission)
+            {
 
-                            <div class="landing-page-bottom-center">Environment</div>
-                        </div>
-                        <div class="caption card-body">
-                            <h4 class="group card-title inner list-group-item-heading">
-                                Grow Trees - on the path to Environment sustainability</h4>
-                            <p class="group inner landing-page-list-group-item-text">
-                                Lorem ipsum dolor sit amet, consectetuer adipiscing elit,
-                                sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.
-                            </p>
-                            <div class="d-flex justify-content-between mb-2 landing-page-card-rating">
-                                <div>Tree Canada</div>
-                                <div>
-                                    <img src="./img/selected-star.png" alt="">
-                                    <img src="./img/selected-star.png" alt="">
-                                    <img src="./img/selected-star.png" alt="">
-                                    <img src="./img/star.png" alt="">
-                                    <img src="./img/star.png" alt="">
+                if (item.MissionType == "Time")
+                {
+
+
+                    <div class="item col-12 col-md-6 col-xl-4">
+                        <div class="thumbnail card">
+                            <div class="img-event">
+                                <img class="group list-group-image img-fluid" style="width:100%;"
+                             src="~/img/Grow-Trees-On-the-path-to-environment-sustainability.png" alt="" />
+                                <div class="landing-page-top-right"><img src="~/img/pin.png" alt=""> @item.City.Name</div>
+                                <div class="landing-page-bottom-right d-flex flex-column">
+                                    <button class="mb-2 landing-page-btn-img">
+                                        <img src="~/img/heart.png" alt="">
+                                    </button><button class="landing-page-btn-img">
+                                        <img src="~/img/user.png"
+                                     alt="">
+                                    </button>
+                                </div>
+
+                                <div class="landing-page-bottom-center">@item.Theme.Title</div>
+                            </div>
+                            <div class="caption card-body">
+                                <h4 class="group card-title inner list-group-item-heading">
+                                    @item.Title
+                                </h4>
+                                <p class="group inner landing-page-list-group-item-text">
+                                    @item.Description
+                                </p>
+                                <div class="d-flex justify-content-between landing-page-card-rating">
+                                    <div>@item.OrganizationName</div>
+                                    <div>
+                                        <img src="~/img/selected-star.png" alt="">
+                                        <img src="~/img/selected-star.png" alt="">
+                                        <img src="~/img/selected-star.png" alt="">
+                                        <img src="~/img/star.png" alt="">
+                                        <img src="~/img/star.png" alt="">
+                                    </div>
+                                </div>
+                                <div class="rule d-flex mt-1">
+                                    <hr>
+                                    <button class="date-btn mt-1">From @item.StartDate.ToString().Split(" ")[0] until @item.EndDate.ToString().Split(" ")[0]</button>
+                                    <hr>
+                                </div>
+                                <div class="row landing-page-box-border">
+                                    <div class="col-6 col-md-6 d-flex align-items-center">
+                                        <p class="lead me-2 pt-2">
+                                            <img src="~/img/Seats-left.png" alt="">
+                                            <div>
+                                                <div>10</div>
+                                                <div class="landing-page-card-vol-small">Seats Left</div>
+                                            </div>
+                                        </p>
+                                    </div>
+                                    <div class="col-6 col-md-6 d-flex align-items-center">
+                                        <p class="lead me-2 pt-2">
+                                            <img src="~/img/deadline.png" alt="">
+                                            <div>
+                                                <div>@item.EndDate.ToString().Split(" ")[0]</div>
+                                                <div class="landing-page-card-vol-small">Deadline</div>
+                                            </div>
+                                        </p>
+                                    </div>
+                                </div>
+                                <div class="d-flex justify-content-center">
+                                    <div class="">
+
+                                        @if (@ViewBag.user != null)
+                                        {
+                                            <a class="btn mt-2 landing-page-apply-mission-btn" href="/missions/@item.MissionId">
+                                                    Apply <img src="~/img/right-arrow.png" alt="">
+                                                </a>
+                                        }
+                                        else
+                                        {
+                                            <a class="btn mt-2 landing-page-apply-mission-btn" asp-action="Login" asp-controller="User">
+                                                    Login <img src="~/img/right-arrow.png" alt="">
+                                                </a>
+                                        }
+
+
+                                        
+                                    </div>
                                 </div>
                             </div>
+                        </div>
+                    </div>
+                }
+                else if (item.MissionType == "Goal")
+                {
+                    <div class="item col-12 col-md-6 col-xl-4">
+                        <div class="thumbnail card">
+                            <div class="img-event">
+                                <img class="group list-group-image img-fluid" style="width:100%;"
+                             src="~/img/Grow-Trees-On-the-path-to-environment-sustainability.png" alt="" />
+                                <div class="landing-page-top-right"><img src="~/img/pin.png" alt="">@item.City.Name</div>
+                                <div class="landing-page-bottom-right d-flex flex-column">
+                                    <button class="mb-2 landing-page-btn-img">
+                                        <img src="~/img/heart.png" alt="">
+                                    </button><button class="landing-page-btn-img">
+                                        <img src="~/img/user.png"
+                                     alt="">
+                                    </button>
+                                </div>
 
-                            <div class="row landing-page-box-border">
-                                <div class="landing-page-mission-deadline-date d-flex">
+                                <div class="landing-page-bottom-center">@item.Theme.Title</div>
+                            </div>
+                            <div class="caption card-body">
+                                <h4 class="group card-title inner list-group-item-heading">
+                                    @item.Title
+                                </h4>
+                                <p class="group inner landing-page-list-group-item-text">
+                                    @item.Description
+                                </p>
+                                <div class="d-flex justify-content-between mb-2 landing-page-card-rating">
+                                    <div>@item.OrganizationName</div>
+                                    <div>
+                                        <img src="~/img/selected-star.png" alt="">
+                                        <img src="~/img/selected-star.png" alt="">
+                                        <img src="~/img/selected-star.png" alt="">
+                                        <img src="~/img/star.png" alt="">
+                                        <img src="~/img/star.png" alt="">
+                                    </div>
+                                </div>
+                                <div class="rule d-flex mt-1">
                                     <hr>
-                                    <p class="landing-page-mission-deadline-date-p">From 10/01/2019 until 25/02/2019</p>
+                                    <button class="date-btn mt-1">From @item.StartDate.ToString().Split(" ")[0] until @item.EndDate.ToString().Split(" ")[0]</button>
                                     <hr>
                                 </div>
-                                <div class="col-6 col-md-6 d-flex align-items-center">
-                                    <p class="lead me-2 pt-2">
-                                        <img src="./img/Seats-left.png" alt="">
-                                    <div>
+                                <div class="row landing-page-box-border">
+
+                                    <!-- <div class="col-6 col-md-6 d-flex align-items-center">
+                                      <p class="lead me-2 pt-2">
+                                        <img src="~/img/Seats-left.png" alt="">
+                                      <div>
                                         <div>10</div>
                                         <div class="landing-page-card-vol-small">Seats Left</div>
-                                    </div>
-                                    </p>
-                                </div>
-                                <div class="col-6 col-md-6 d-flex align-items-center">
-                                    <p class="lead me-2 pt-2">
-                                        <img src="./img/achieved.png" alt="">
-                                    <div style="width: 100%;">
-                                        <div>
+                                      </div>
+                                      </p>
+                                    </div> -->
+                                    <div class="col-12 d-flex align-items-center">
+                                        <p class="lead me-2 pt-2">
+                                            <img src="~/img/achieved.png" alt="">
+                                            <div style="width: 100%;">
+                                                <div>
 
-                                            <div class="progress" role="progressbar" aria-label="Success example"
-                                                aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"
-                                                style="height: 10px;">
-                                                <div class="progress-bar" style="width: 25%;"></div>
+                                                    <div class="progress" role="progressbar" aria-label="Success example" aria-valuenow="25"
+                                                 aria-valuemin="0" aria-valuemax="100" style="height: 10px;">
+                                                        <div class="progress-bar" style="width: 45%; background-color: #F88735;"></div>
+                                                    </div>
+
+                                                </div>
+                                                <div class="landing-page-card-vol-small">8000 achived</div>
                                             </div>
-
-                                        </div>
-                                        <div class="landing-page-card-vol-small">8000 achived</div>
                                     </div>
-                                    </p>
                                 </div>
-                            </div>
-                            <hr>
-                            <div class="d-flex justify-content-center">
-                                <div class="">
-                                    <a class="btn mt-2 landing-page-apply-mission-btn" href="">Apply <img
-                                            src="./img/right-arrow.png" alt=""></a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="item col-xs-4 col-lg-4">
-                    <div class="thumbnail card my-2 mx-lg-2 vol-page-rel-card-width">
-                        <div class="img-event">
-                            <img class="group list-group-image img-fluid" style="width:100%;"
-                                src="./img/Grow-Trees-On-the-path-to-environment-sustainability.png" alt="" />
-                            <div class="landing-page-top-right"><img src="./img/pin.png" alt=""> Toronto</div>
-                            <div class="landing-page-bottom-right d-flex flex-column"><button
-                                    class="mb-2 landing-page-btn-img"><img src="./img/heart.png" alt=""></button><button
-                                    class="landing-page-btn-img"><img src="./img/user.png" alt=""></button></div>
+                                <div class="d-flex justify-content-center">
+                                    <div class="">
+                                        @if (@ViewBag.user != null)
+                                        {
+                                            <a class="btn mt-2 landing-page-apply-mission-btn" href="/missions/@item.MissionId">
+                                                    Apply <img src="~/img/right-arrow.png" alt="">
+                                                </a>
+                                        }
+                                        else
+                                        {
+                                            <a class="btn mt-2 landing-page-apply-mission-btn" asp-action="Login" asp-controller="User">
+                                                    Login <img src="~/img/right-arrow.png" alt="">
+                                                </a>
+                                        }
 
-                            <div class="landing-page-bottom-center">Environment</div>
-                        </div>
-                        <div class="caption card-body">
-                            <h4 class="group card-title inner list-group-item-heading">
-                                Grow Trees - on the path to Environment sustainability</h4>
-                            <p class="group inner landing-page-list-group-item-text">
-                                Lorem ipsum dolor sit amet, consectetuer adipiscing elit,
-                                sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.
-                            </p>
-                            <div class="d-flex justify-content-between mb-2 landing-page-card-rating">
-                                <div>Tree Canada</div>
-                                <div>
-                                    <img src="./img/selected-star.png" alt="">
-                                    <img src="./img/selected-star.png" alt="">
-                                    <img src="./img/selected-star.png" alt="">
-                                    <img src="./img/star.png" alt="">
-                                    <img src="./img/star.png" alt="">
-                                </div>
-                            </div>
-
-                            <div class="row landing-page-box-border">
-                                <div class="landing-page-mission-deadline-date d-flex">
-                                    <hr>
-                                    <p class="landing-page-mission-deadline-date-p">From 10/01/2019 until 25/02/2019</p>
-                                    <hr>
-                                </div>
-                                <!-- <div class="col-6 col-md-6 d-flex align-items-center">
-                            <p class="lead me-2 pt-2">
-                              <img src="./img/Seats-left.png" alt="">
-                            <div>
-                              <div>10</div>
-                              <div class="landing-page-card-vol-small">Seats Left</div>
-                            </div>
-                            </p>
-                          </div> -->
-                                <div class="col-12 d-flex align-items-center">
-                                    <p class="lead me-2 pt-2">
-                                        <img src="./img/achieved.png" alt="">
-                                    <div style="width: 100%;">
-                                        <div>
-
-                                            <div class="progress" role="progressbar" aria-label="Success example"
-                                                aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"
-                                                style="height: 10px;">
-                                                <div class="progress-bar" style="width: 45%"></div>
-                                            </div>
-
-                                        </div>
-                                        <div class="landing-page-card-vol-small">8000 achived</div>
                                     </div>
                                 </div>
                             </div>
-                            <hr>
-                            <div class="d-flex justify-content-center">
-                                <div class="">
-                                    <a class="btn mt-2 landing-page-apply-mission-btn" href="">Apply <img
-                                            src="./img/right-arrow.png" alt=""></a>
-
-                                </div>
-                            </div>
                         </div>
                     </div>
-                </div>
+                }
 
-                <div class="item col-xs-4 col-lg-4">
-                    <div class="thumbnail card my-2 ms-lg-2 vol-page-rel-card-width">
-                        <div class="img-event">
-                            <img class="group list-group-image img-fluid" style="width:100%;"
-                                src="./img/Grow-Trees-On-the-path-to-environment-sustainability.png" alt="" />
-                            <div class="landing-page-top-right"><img src="./img/pin.png" alt=""> Toronto</div>
-                            <div class="landing-page-bottom-right d-flex flex-column"><button
-                                    class="mb-2 landing-page-btn-img"><img src="./img/heart.png" alt=""></button><button
-                                    class="landing-page-btn-img"><img src="./img/user.png" alt=""></button></div>
 
-                            <div class="landing-page-bottom-center">Environment</div>
-                        </div>
-                        <div class="caption card-body">
-                            <h4 class="group card-title inner list-group-item-heading">
-                                Grow Trees - on the path to Environment sustainability</h4>
-                            <p class="group inner landing-page-list-group-item-text">
-                                Lorem ipsum dolor sit amet, consectetuer adipiscing elit,
-                                sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.
-                            </p>
-                            <div class="d-flex justify-content-between mb-2 landing-page-card-rating">
-                                <div>Tree Canada</div>
-                                <div>
-                                    <img src="./img/selected-star.png" alt="">
-                                    <img src="./img/selected-star.png" alt="">
-                                    <img src="./img/selected-star.png" alt="">
-                                    <img src="./img/star.png" alt="">
-                                    <img src="./img/star.png" alt="">
-                                </div>
-                            </div>
 
-                            <!-- <div class="row landing-page-box-border">
-                          <div class="landing-page-mission-deadline-date d-flex">
-                                    <hr>
-                                    <p class="landing-page-mission-deadline-date-p">From 10/01/2019 until 25/02/2019</p>
-                                    <hr>
-                                </div>
-                          <div class="col-6 col-md-6 d-flex align-items-center">
-                            <p class="lead me-2 pt-2">
-                              <img src="./img/Seats-left.png" alt="">
-                            <div>
-                              <div>10</div>
-                              <div class="landing-page-card-vol-small">Seats Left</div>
-                            </div>
-                            </p>
-                          </div>
-                          <div class="col-12 d-flex align-items-center">
-                            <p class="lead me-2 pt-2">
-                              <img src="./img/achieved.png" alt="">
-                            <div style="width: 100%;">
-                              <div>
-          
-                                <div class="progress" role="progressbar" aria-label="Success example" aria-valuenow="25"
-                                  aria-valuemin="0" aria-valuemax="100" style="height: 10px;">
-                                  <div class="progress-bar bg-success" style="width: 45%"></div>
-                                </div>
-          
-                              </div>
-                              <div class="landing-page-card-vol-small">8000 achived</div>
-                            </div>
-                          </div> -->
-                            <hr>
-                            <div class="d-flex justify-content-center">
-                                <div class="">
-                                    <a class="btn mt-2 landing-page-apply-mission-btn" href="">Apply <img
-                                            src="./img/right-arrow.png" alt=""></a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-            </div>
-        </div>
+            }
+            
     </div>
 
 

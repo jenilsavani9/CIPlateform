@@ -1,20 +1,25 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\jenil\\OneDrive\\Desktop\\CIPlateform\\MVC\\CI\\CI.Entities\\CI.Entities.csproj": {}
+    "C:\\Users\\pci114\\Desktop\\CIPlateform\\MVC\\CI\\CI.Entities\\CI.Entities.csproj": {}
   },
   "projects": {
-    "C:\\Users\\jenil\\OneDrive\\Desktop\\CIPlateform\\MVC\\CI\\CI.Entities\\CI.Entities.csproj": {
+    "C:\\Users\\pci114\\Desktop\\CIPlateform\\MVC\\CI\\CI.Entities\\CI.Entities.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\jenil\\OneDrive\\Desktop\\CIPlateform\\MVC\\CI\\CI.Entities\\CI.Entities.csproj",
+        "projectUniqueName": "C:\\Users\\pci114\\Desktop\\CIPlateform\\MVC\\CI\\CI.Entities\\CI.Entities.csproj",
         "projectName": "CI.Entities",
-        "projectPath": "C:\\Users\\jenil\\OneDrive\\Desktop\\CIPlateform\\MVC\\CI\\CI.Entities\\CI.Entities.csproj",
-        "packagesPath": "C:\\Users\\jenil\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\jenil\\OneDrive\\Desktop\\CIPlateform\\MVC\\CI\\CI.Entities\\obj\\",
+        "projectPath": "C:\\Users\\pci114\\Desktop\\CIPlateform\\MVC\\CI\\CI.Entities\\CI.Entities.csproj",
+        "packagesPath": "C:\\Users\\pci114\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\pci114\\Desktop\\CIPlateform\\MVC\\CI\\CI.Entities\\obj\\",
         "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages",
+          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+        ],
         "configFilePaths": [
-          "C:\\Users\\jenil\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\pci114\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -83,8 +88,7 @@
             "net47",
             "net471",
             "net472",
-            "net48",
-            "net481"
+            "net48"
           ],
           "assetTargetFallback": true,
           "warn": true,
@@ -93,7 +97,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.102\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.100\\RuntimeIdentifierGraph.json"
         }
       }
     }

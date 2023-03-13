@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Authorization;
 using CIWeb.Models;
 using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Authentication.Cookies;
+using Microsoft.AspNetCore.Http;
 
 namespace CIWeb.Controllers
 {
@@ -194,7 +195,7 @@ namespace CIWeb.Controllers
 
         public IActionResult Login()
         {
-            HttpContext.Session.Remove("userID");
+            HttpContext.Session.Remove("userEmail");
             HttpContext.Session.Remove("firstname");
             return View();
         }
@@ -219,7 +220,7 @@ namespace CIWeb.Controllers
             {
                 if (user.Password == obj.Password)
                 {
-                    HttpContext.Session.SetString("userID", username);
+                    HttpContext.Session.SetString("userEmail", user.Email);
                     HttpContext.Session.SetString("firstname", user.FirstName);
                     return RedirectToAction("Index", "Home");
                 }

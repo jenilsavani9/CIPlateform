@@ -107,12 +107,12 @@
                         }
                         else
                         {
-                            <li><a class="dropdown-item" href="@ViewBag.currentUrl/?sortOrder=newest">Newest</a></li>
-                            <li><a class="dropdown-item" href="@ViewBag.currentUrl/?sortOrder=oldest">Oldest</a></li>
-                            <li><a class="dropdown-item" href="@ViewBag.currentUrl/?sortOrder=lowest">Lowest available seats </a></li>
-                            <li><a class="dropdown-item" href="@ViewBag.currentUrl/?sortOrder=highest">Highest available seats </a></li>
-                            <li><a class="dropdown-item" href="@ViewBag.currentUrl/?sortOrder=favourites">My favourites </a></li>
-                            <li><a class="dropdown-item" href="@ViewBag.currentUrl/?sortOrder=deadline">Registration deadline</a></li>
+                            <li><a class="dropdown-item" href="@ViewBag.currentUrl?sortOrder=newest">Newest</a></li>
+                            <li><a class="dropdown-item" href="@ViewBag.currentUrl?sortOrder=oldest">Oldest</a></li>
+                            <li><a class="dropdown-item" href="@ViewBag.currentUrl?sortOrder=lowest">Lowest available seats </a></li>
+                            <li><a class="dropdown-item" href="@ViewBag.currentUrl?sortOrder=highest">Highest available seats </a></li>
+                            <li><a class="dropdown-item" href="@ViewBag.currentUrl?sortOrder=favourites">My favourites </a></li>
+                            <li><a class="dropdown-item" href="@ViewBag.currentUrl?sortOrder=deadline">Registration deadline</a></li>
 
                         }
 
@@ -204,9 +204,22 @@
                                 </div>
                                 <div class="d-flex justify-content-center">
                                     <div class="">
-                                        <a class="btn mt-2 landing-page-apply-mission-btn" asp-controller="Volunteer" asp-action="Index">
-                                            Apply <img src="~/img/right-arrow.png" alt="">
-                                        </a>
+
+                                        @if (@ViewBag.user != null)
+                                        {
+                                            <a class="btn mt-2 landing-page-apply-mission-btn" href="/missions/@item.MissionId">
+                                                    Apply <img src="~/img/right-arrow.png" alt="">
+                                                </a>
+                                        }
+                                        else
+                                        {
+                                            <a class="btn mt-2 landing-page-apply-mission-btn" asp-action="Login" asp-controller="User">
+                                                    Login <img src="~/img/right-arrow.png" alt="">
+                                                </a>
+                                        }
+
+
+                                        
                                     </div>
                                 </div>
                             </div>
@@ -283,9 +296,18 @@
                                 </div>
                                 <div class="d-flex justify-content-center">
                                     <div class="">
-                                        <a class="btn mt-2 landing-page-apply-mission-btn" asp-controller="Volunteer" asp-action="Index">
-                                            Apply <img src="~/img/right-arrow.png" alt="">
-                                        </a>
+                                        @if (@ViewBag.user != null)
+                                        {
+                                            <a class="btn mt-2 landing-page-apply-mission-btn" href="/missions/@item.MissionId">
+                                                    Apply <img src="~/img/right-arrow.png" alt="">
+                                                </a>
+                                        }
+                                        else
+                                        {
+                                            <a class="btn mt-2 landing-page-apply-mission-btn" asp-action="Login" asp-controller="User">
+                                                    Login <img src="~/img/right-arrow.png" alt="">
+                                                </a>
+                                        }
 
                                     </div>
                                 </div>

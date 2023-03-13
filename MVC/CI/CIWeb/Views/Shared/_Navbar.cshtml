@@ -174,7 +174,7 @@
                         <ul class="navbar-nav col-md-6 justify-content-end">
                             <li class="nav-item d-flex align-items-center">
 
-                                @if (@ViewBag.data != null)
+                                @if (@ViewBag.user != null)
                                 {
                                     <div class="dropdown">
                                         <a class="text-reset dropdown-toggle d-flex align-items-center" href="#"
@@ -185,7 +185,7 @@
                                                             width: 30px;
                                                             height: 30px;
                                                         " />
-                                            @ViewBag.data
+                                            @ViewBag.user.FirstName
                                         </a>
                                         <ul class="dropdown-menu dropdown-menu-start"
                                         aria-labelledby="navbarDropdownMenuLink">
@@ -320,24 +320,19 @@
                             Theme
                         </a>
                         <ul class="dropdown-menu dropdown-menu-start dropdownlist" aria-labelledby="navbarDropdownMenuLink" style="max-height: 300px; overflow-y: scroll; ">
-                            @* @foreach (var items in ViewBag.Themes)
+                            @if (ViewBag.Themes != null)
                             {
-                            <li class="dropdown-checkbox">
-                            <input type="checkbox" value="@items.Title" name="@items.Title" id="theme-filter"
-                            class="ms-3 checkbox ">@items.Title
-                            </li>
-
-                            }*@
-                            @foreach (var theme in ViewBag.Themes)
-                            {
-                                <li>
-                                    <a class="dropdown-item dd-color" href="#">
-                                        <div class="form-check">
-                                            <input class="form-check-input" name="themes" type="checkbox" value=@theme.Title id=@theme.MissionThemeId onchange="updateUrlForThemes()" />
-                                            <label class="form-check-label" for=@theme.MissionThemeId>@theme.Title</label>
-                                        </div>
-                                    </a>
-                                </li>
+                                @foreach (var theme in ViewBag.Themes)
+                                {
+                                    <li>
+                                        <a class="dropdown-item dd-color" href="#">
+                                            <div class="form-check">
+                                                <input class="form-check-input" name="themes" type="checkbox" value=@theme.Title id=@theme.MissionThemeId onchange="updateUrlForThemes()" />
+                                                <label class="form-check-label" for=@theme.MissionThemeId>@theme.Title</label>
+                                            </div>
+                                        </a>
+                                    </li>
+                                }
                             }
                         </ul>
                     </div>
@@ -346,19 +341,21 @@
                            role="button" data-mdb-toggle="dropdown" aria-expanded="false">
                             skills
                         </a>
-                        <ul class="dropdown-menu dropdown-menu-start" aria-labelledby="navbarDropdownMenuLink" style="max-height: 300px; overflow-y: scroll; ">
-                            <li class="dropdown-checkbox">
-                                <input type="checkbox" value="Nutrition" name="Nutrition" id=""
-                                       class="ms-3 checkbox ">Nutrition
-                            </li>
-                            <li class="dropdown-checkbox">
-                                <input type="checkbox" value="Advocacy" name="Advocacy" id=""
-                                       class="ms-3 checkbox ">Advocacy
-                            </li>
-                            <li class="dropdown-checkbox">
-                                <input type="checkbox" value="communication" name="communication" id=""
-                                       class="ms-3 checkbox ">communication
-                            </li>
+                        <ul class="dropdown-menu dropdown-menu-start dropdownlist" aria-labelledby="navbarDropdownMenuLink" style="max-height: 300px; overflow-y: scroll; ">
+                            @if (ViewBag.skills != null)
+                            {
+                                @foreach (var theme in ViewBag.skills)
+                                {
+                                    <li>
+                                        <a class="dropdown-item dd-color" href="#">
+                                            <div class="form-check">
+                                                <input class="form-check-input" name="skills" type="checkbox" value=@theme.SkillName id=@theme.SkillId onchange="updateUrlForSkills()" />
+                                                <label class="form-check-label" for=@theme.SkillId>@theme.SkillName</label>
+                                            </div>
+                                        </a>
+                                    </li>
+                                }
+                            }
                         </ul>
                     </div>
                 </div>
@@ -455,6 +452,19 @@
             /*    const queryString = new URLSearchParams({ countries: checkedIds });*/
 
             url += separator + 'FThemes=' + checkedIds;
+            window.location.href = url;
+            /*    window.history.replaceState(null, null, '?' + queryString.toString());*/
+        }
+
+        function updateUrlForSkills() {
+            let url = window.location.href;
+
+            let separator = url.indexOf('?') !== -1 ? '&' : '?';
+
+            const checkedIds = Array.from(document.querySelectorAll('input[name="skills"]:checked')).map(el => el.id);
+            /*    const queryString = new URLSearchParams({ countries: checkedIds });*/
+
+            url += separator + 'FSkills=' + checkedIds;
             window.location.href = url;
             /*    window.history.replaceState(null, null, '?' + queryString.toString());*/
         }
@@ -563,6 +573,35 @@
                     countries.forEach(country => params.append('FThemes', country));
                 } else {
                     params.delete('FThemes');
+                }
+
+                const updatedParams = params.toString();
+                if (updatedParams) {
+                    url = `${baseUrl}?${updatedParams}`;
+                } else {
+                    url = baseUrl;
+                }
+
+                window.location.href = url;
+            }
+        }
+
+        function removeSkillFilter(id) {
+            let url = window.location.href;
+            const urlParts = url.split('?');
+
+            if (urlParts.length >= 2) {
+                const baseUrl = urlParts.shift();
+                const queryString = urlParts.join('?');
+                const params = new URLSearchParams(queryString);
+
+                const countries = params.getAll('FSkills').filter(country => country !== id);
+
+                if (countries.length > 0) {
+                    params.delete('FSkills');
+                    countries.forEach(country => params.append('FSkills', country));
+                } else {
+                    params.delete('FSkills');
                 }
 
                 const updatedParams = params.toString();
