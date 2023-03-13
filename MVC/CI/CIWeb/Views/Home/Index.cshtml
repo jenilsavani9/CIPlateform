@@ -1,277 +1,359 @@
-﻿
-@model List<CI.Entities.Models.Mission>
-
+﻿@using CIWeb.Models;
+@model CI.Entities.Models.User;
 @{
     Layout = "_Navbar";
+    ViewData["Title"] = "Home Page";
 }
+
+<!DOCTYPE html>
+<html lang="en">
+
 <head>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Landing Page</title>
+    <title>Home</title>
 
-    <link rel="stylesheet" href="~/css/landingpage.css" />
+    <link rel="stylesheet" href="~/css/LandingPage.css" />
 
-    <script src="https://code.jquery.com/jquery-3.6.3.min.js" integrity="sha256-pvPw+upLPUjgMXY0G+8O0xUf+/Im1MZjXxxgOcBQBXU=" crossorigin="anonymous"></script>
-    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.1.1.min.js">
+        //<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
 
-<script>
+    <script>
         $(document).ready(function () {
             $('#list').click(function (event) { event.preventDefault(); $('#products .item').addClass('list-group-item'); });
             $('#grid').click(function (event) { event.preventDefault(); $('#products .item').removeClass('list-group-item'); $('#products .item').addClass('grid-group-item'); });
         });
 
     </script>
+
+
+
 </head>
 
-<div class="">
-        <div class="container">
-            <div class="filters-section d-flex align-items-center flex-wrap justify-content-center" id="filters" onchange="function12()">
+<body>
+    <div class="container">
+        <div class="ms-1 me-1 mb-3 d-flex flex-row justify-content-start filter-details" id="navmaindiv">
+            <div class="filters-section d-flex align-items-end flex-wrap justify-content-start">
+                @if (ViewBag.countryElements != null)
+                {
+                    @foreach (var countryElement in ViewBag.countryElements)
+                    {
+                        <span class="filter-list  ps-3 pe-1 me-2 " id=@countryElement.CountryId style="margin-top:2%;">
+                            @countryElement.Name
+                            <button class="filter-close-button" id=@countryElement.CountryId onclick="removeCountryFilter('@countryElement.CountryId')">&times;</button>
+                        </span>
+                    }
+
+                }
+
+                @if (ViewBag.cityElements != null)
+                {
+                    @foreach (var cityElement in ViewBag.cityElements)
+                    {
+                        <span class="filter-list  ps-3 pe-1 me-2 " id=@cityElement.CityId style="margin-top:2%;">
+                            @cityElement.Name
+                            <button class="filter-close-button" id=@cityElement.CityId onclick="removeCityFilter('@cityElement.CityId')">&times;</button>
+                        </span>
+                    }
+                }
+
+                @if (ViewBag.themeElements != null)
+                {
+                    @foreach (var themeElement in ViewBag.themeElements)
+                    {
+                        <span class="filter-list  ps-3 pe-1 me-2 " id=@themeElement.MissionThemeId style="margin-top:2%;">
+                            @themeElement.Title
+                            <button class="filter-close-button" id="clearbutton" onclick="removeThemeFilter('@themeElement.MissionThemeId')">&times;</button>
+                        </span>
+                    }
+                }
+                <span class="filter-list  ps-3 pe-1 me-2 " id="ClearBtn" style="margin-top:2%;display:none;">
+                    Clear All
+                    <button class="filter-close-button" id="clearbutton" onclick="removeUrlParams()">&times;</button>
+                </span>
+
             </div>
-            <div class="d-flex align-items-center justify-content-between mission-listing-title">
-                <div class="landing-page-mission-header">
-                    Explore <b>@ViewBag.TotalMission missions</b>
+
+        </div>
+        <div class="d-flex container align-items-center justify-content-between mission-listing-title">
+            <div class="landing-page-mission-header">
+                Explore <b>@ViewBag.NoOfMissions missions</b>
+            </div>
+
+
+
+
+
+
+            <div class="d-flex">
+
+
+                <div class="dropdown ms-3 mt-2 pe-3 ps-2 d-inline-block">
+                    <button class="btn text-reset me-0 sortBy-dropdown dropdown-toggle shadow-none" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        Sort By
+                        <i class="bi bi-chevron-down"></i>
+                    </button>
+                    <ul class="dropdown-menu">
+                        @if (ViewBag.currentUrl.Contains('?'))
+                        {
+                            <li><a class="dropdown-item" href="@ViewBag.currentUrl&sortOrder=newest">Newest</a></li>
+                            <li><a class="dropdown-item" href="@ViewBag.currentUrl&sortOrder=oldest">Oldest</a></li>
+                            <li><a class="dropdown-item" href="@ViewBag.currentUrl&sortOrder=lowest">Lowest available seats </a></li>
+                            <li><a class="dropdown-item" href="@ViewBag.currentUrl&sortOrder=highest">Highest available seats </a></li>
+                            <li><a class="dropdown-item" href="@ViewBag.currentUrl&sortOrder=favourites">My favourites </a></li>
+                            <li><a class="dropdown-item" href="@ViewBag.currentUrl&sortOrder=deadline">Registration deadline</a></li>
+                        }
+                        else
+                        {
+                            <li><a class="dropdown-item" href="@ViewBag.currentUrl/?sortOrder=newest">Newest</a></li>
+                            <li><a class="dropdown-item" href="@ViewBag.currentUrl/?sortOrder=oldest">Oldest</a></li>
+                            <li><a class="dropdown-item" href="@ViewBag.currentUrl/?sortOrder=lowest">Lowest available seats </a></li>
+                            <li><a class="dropdown-item" href="@ViewBag.currentUrl/?sortOrder=highest">Highest available seats </a></li>
+                            <li><a class="dropdown-item" href="@ViewBag.currentUrl/?sortOrder=favourites">My favourites </a></li>
+                            <li><a class="dropdown-item" href="@ViewBag.currentUrl/?sortOrder=deadline">Registration deadline</a></li>
+
+                        }
+
+                    </ul>
                 </div>
+                <div class="btn-group d-flex shadow-none">
 
-                <div>
+                    <button class="btn" id="grid" onclick="gridview()">
+                        <img src="~/img/grid.png" alt="">
+                    </button>
+                    <button class="btn" id="list" onclick="listview()">
+                        <img src="~/img/list.png" alt="">
+                    </button>
+                </div>
+            </div>
 
-                    <div class="row d-flex align-items-center">
 
-                        <div class="my-3">
-                            <div class="pull-right sortby d-flex align-items-center">
-                                <div class="dropdown ms-1 pe-5 ps-2">
-                                    <a class="text-reset me-4 dropdown-toggle" href="#" id="navbarDropdownMenuLink"
-                                       role="button" data-mdb-toggle="dropdown" aria-expanded="false">
-                                        Sort By
-                                    </a>
-                                    <ul class="dropdown-menu">
-                                        <li><a class="dropdown-item" asp-action="Index" asp-route-sortOrder="newest" >Newest</a></li>
-                                        <li><a class="dropdown-item" id="" asp-action="Index" asp-route-sortOrder="oldest" >Oldest</a></li>
-                                        <li><a class="dropdown-item" href="#">Lowest available seats</a></li>
-                                        <li><a class="dropdown-item" href="#">Highest available seats</a></li>
-                                        <li><a class="dropdown-item" href="#">My favourites</a></li>
-                                        <li><a class="dropdown-item" href="#">Registration deadline</a></li>
 
-                                    </ul>
+
+        </div>
+        <div id="products" class="row container view-group mt-3">
+
+
+            @foreach (var item in ViewBag.missions)
+            {
+
+                if (item.missionType == "Time")
+                {
+
+
+                    <div class="item col-12 col-md-6 col-xl-4">
+                        <div class="thumbnail card">
+                            <div class="img-event">
+                                <img class="group list-group-image img-fluid" style="width:100%;"
+                             src="~/img/Grow-Trees-On-the-path-to-environment-sustainability.png" alt="" />
+                                <div class="landing-page-top-right"><img src="~/img/pin.png" alt=""> @item.City</div>
+                                <div class="landing-page-bottom-right d-flex flex-column">
+                                    <button class="mb-2 landing-page-btn-img">
+                                        <img src="~/img/heart.png" alt="">
+                                    </button><button class="landing-page-btn-img">
+                                        <img src="~/img/user.png"
+                                     alt="">
+                                    </button>
                                 </div>
-                                <div class="btn-group d-flex shadow-none">
 
-                                    <button class="btn" id="grid" onclick="gridview()">
-                                        <img src="~/img/grid.png" alt="">
-                                    </button>
-                                    <button class="btn" id="list" onclick="listview()">
-                                        <img src="~/img/list.png" alt="">
-                                    </button>
+                                <div class="landing-page-bottom-center">@item.Theme</div>
+                            </div>
+                            <div class="caption card-body">
+                                <h4 class="group card-title inner list-group-item-heading">
+                                    @item.Title
+                                </h4>
+                                <p class="group inner landing-page-list-group-item-text">
+                                    @item.Description
+                                </p>
+                                <div class="d-flex justify-content-between landing-page-card-rating">
+                                    <div>@item.Organization</div>
+                                    <div>
+                                        <img src="~/img/selected-star.png" alt="">
+                                        <img src="~/img/selected-star.png" alt="">
+                                        <img src="~/img/selected-star.png" alt="">
+                                        <img src="~/img/star.png" alt="">
+                                        <img src="~/img/star.png" alt="">
+                                    </div>
+                                </div>
+                                <div class="rule d-flex mt-1">
+                                    <hr>
+                                    <button class="date-btn mt-1">@item.StartDateEndDate</button>
+                                    <hr>
+                                </div>
+                                <div class="row landing-page-box-border">
+                                    <div class="col-6 col-md-6 d-flex align-items-center">
+                                        <p class="lead me-2 pt-2">
+                                            <img src="~/img/Seats-left.png" alt="">
+                                            <div>
+                                                <div>10</div>
+                                                <div class="landing-page-card-vol-small">Seats Left</div>
+                                            </div>
+                                        </p>
+                                    </div>
+                                    <div class="col-6 col-md-6 d-flex align-items-center">
+                                        <p class="lead me-2 pt-2">
+                                            <img src="~/img/deadline.png" alt="">
+                                            <div>
+                                                <div>@item.EndDate.ToString().Split(" ")[0]</div>
+                                                <div class="landing-page-card-vol-small">Deadline</div>
+                                            </div>
+                                        </p>
+                                    </div>
+                                </div>
+                                <div class="d-flex justify-content-center">
+                                    <div class="">
+                                        <a class="btn mt-2 landing-page-apply-mission-btn" asp-controller="Volunteer" asp-action="Index">
+                                            Apply <img src="~/img/right-arrow.png" alt="">
+                                        </a>
+                                    </div>
                                 </div>
                             </div>
                         </div>
                     </div>
-                </div>
-            </div>
-            <div id="products" class="row view-group">
-                @foreach(var item in Model)
-                {
-                    if (item.MissionType == "Time")
-                    {
-                        <div class="item col-12 col-md-6 col-xl-4">
-                            <div class="thumbnail card">
-                                <div class="img-event">
-                                    <img class="group list-group-image img-fluid" style="width:100%;"
-                                         src="~/img/Grow-Trees-On-the-path-to-environment-sustainability.png" alt="" />
-                                    <div class="landing-page-top-right"><img src="~/img/pin.png" alt=""> @item.City.Name</div>
-                                    <div class="landing-page-bottom-right d-flex flex-column">
-                                        <button class="mb-2 landing-page-btn-img">
-                                            <img src="~/img/heart.png" alt="">
-                                        </button><button class="landing-page-btn-img">
-                                            <img src="~/img/user.png"
-                                                 alt="">
-                                        </button>
-                                    </div>
-
-                                    <div class="landing-page-bottom-center">@item.Theme.Title</div>
-                                </div>
-                                <div class="caption card-body">
-                                    <h4 class="group card-title inner list-group-item-heading">
-                                       @item.Title
-                                    </h4>
-                                    <p class="group inner landing-page-list-group-item-text">
-                                       @item.Description
-                                    </p>
-                                    <div class="d-flex justify-content-between landing-page-card-rating">
-                                        <div>Tree Canada</div>
-                                        <div>
-                                            <img src="~/img/selected-star.png" alt="">
-                                            <img src="~/img/selected-star.png" alt="">
-                                            <img src="~/img/selected-star.png" alt="">
-                                            <img src="~/img/star.png" alt="">
-                                            <img src="~/img/star.png" alt="">
-                                        </div>
-                                    </div>
-                                    <div class="rule d-flex mt-1">
-                                            <hr>
-                                            
-                                            <button class="date-btn mt-1">From @item.StartDate.ToString().Split(" ")[0] until @item.EndDate.ToString().Split(" ")[0]</button>
-                                            <hr>
-                                    </div>
-                                    <div class="row landing-page-box-border">
-                                        <div class="col-6 col-md-6 d-flex align-items-center">
-                                            <p class="lead me-2 pt-2">
-                                                <img src="~/img/Seats-left.png" alt="">
-                                                <div>
-                                                    <div>10</div>
-                                                    <div class="landing-page-card-vol-small">Seats Left</div>
-                                                </div>
-                                            </p>
-                                        </div>
-                                        <div class="col-6 col-md-6 d-flex align-items-center">
-                                            <p class="lead me-2 pt-2">
-                                                <img src="~/img/deadline.png" alt="">
-                                                <div>
-                                                    <div>@item.EndDate.ToString().Split(" ")[0]</div>
-                                                    <div class="landing-page-card-vol-small">Deadline</div>
-                                                </div>
-                                            </p>
-                                        </div>
-                                    </div>
-                                    <div class="d-flex justify-content-center">
-                                        <div class="">
-                                            <a class="btn mt-2 landing-page-apply-mission-btn" asp-controller="Volunteer" asp-action="Index">
-                                                Apply <img src="~/img/right-arrow.png" alt="">
-                                            </a>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    }
-                    else if (item.MissionType == "Goal")
-                    {
-                        <div class="item col-12 col-md-6 col-xl-4">
-                            <div class="thumbnail card">
-                                <div class="img-event">
-                                    <img class="group list-group-image img-fluid" style="width:100%;"
-                                         src="~/img/Grow-Trees-On-the-path-to-environment-sustainability.png" alt="" />
-                                    <div class="landing-page-top-right"><img src="~/img/pin.png" alt=""> @item.City.Name</div>
-                                    <div class="landing-page-bottom-right d-flex flex-column">
-                                        <button class="mb-2 landing-page-btn-img">
-                                            <img src="~/img/heart.png" alt="">
-                                        </button><button class="landing-page-btn-img">
-                                            <img src="~/img/user.png"
-                                                 alt="">
-                                        </button>
-                                    </div>
-
-                                    <div class="landing-page-bottom-center">@item.Theme.Title</div>
-                                </div>
-                                <div class="caption card-body">
-                                    <h4 class="group card-title inner list-group-item-heading">
-                                        @item.Title
-                                    </h4>
-                                    <p class="group inner landing-page-list-group-item-text">
-                                        @item.Description
-                                    </p>
-                                    <div class="d-flex justify-content-between mb-2 landing-page-card-rating">
-                                        <div>Tree Canada</div>
-                                        <div>
-                                            <img src="~/img/selected-star.png" alt="">
-                                            <img src="~/img/selected-star.png" alt="">
-                                            <img src="~/img/selected-star.png" alt="">
-                                            <img src="~/img/star.png" alt="">
-                                            <img src="~/img/star.png" alt="">
-                                        </div>
-                                    </div>
-                                    <div class="rule d-flex mt-1">
-                                            <hr>
-                                            <button class="date-btn mt-1">From @item.StartDate.ToString().Split(" ")[0] until @item.EndDate.ToString().Split(" ")[0]</button>
-                                            <hr>
-                                    </div>
-                                    <div class="row landing-page-box-border">
-                                
-                                        <!-- <div class="col-6 col-md-6 d-flex align-items-center">
-                                          <p class="lead me-2 pt-2">
-                                            <img src="~/img/Seats-left.png" alt="">
-                                          <div>
-                                            <div>10</div>
-                                            <div class="landing-page-card-vol-small">Seats Left</div>
-                                          </div>
-                                          </p>
-                                        </div> -->
-                                        <div class="col-12 d-flex align-items-center">
-                                            <p class="lead me-2 pt-2">
-                                                <img src="~/img/achieved.png" alt="">
-                                                <div style="width: 100%;">
-                                                    <div>
-
-                                                        <div class="progress" role="progressbar" aria-label="Success example" aria-valuenow="25"
-                                                             aria-valuemin="0" aria-valuemax="100" style="height: 10px;">
-                                                            <div class="progress-bar" style="width: 45%; background-color: #F88735;"></div>
-                                                        </div>
-
-                                                    </div>
-                                                    <div class="landing-page-card-vol-small">8000 achived</div>
-                                                </div>
-                                        </div>
-                                    </div>
-                                    <div class="d-flex justify-content-center">
-                                        <div class="">
-                                            <a class="btn mt-2 landing-page-apply-mission-btn" asp-controller="Volunteer" asp-action="Index">
-                                                Apply <img src="~/img/right-arrow.png" alt="">
-                                            </a>
-
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    }
                 }
-            </div>
+                else if (item.missionType == "Goal")
+                {
+                    <div class="item col-12 col-md-6 col-xl-4">
+                        <div class="thumbnail card">
+                            <div class="img-event">
+                                <img class="group list-group-image img-fluid" style="width:100%;"
+                             src="~/img/Grow-Trees-On-the-path-to-environment-sustainability.png" alt="" />
+                                <div class="landing-page-top-right"><img src="~/img/pin.png" alt=""> @item.City</div>
+                                <div class="landing-page-bottom-right d-flex flex-column">
+                                    <button class="mb-2 landing-page-btn-img">
+                                        <img src="~/img/heart.png" alt="">
+                                    </button><button class="landing-page-btn-img">
+                                        <img src="~/img/user.png"
+                                     alt="">
+                                    </button>
+                                </div>
+
+                                <div class="landing-page-bottom-center">@item.Theme</div>
+                            </div>
+                            <div class="caption card-body">
+                                <h4 class="group card-title inner list-group-item-heading">
+                                    @item.Title
+                                </h4>
+                                <p class="group inner landing-page-list-group-item-text">
+                                    @item.Description
+                                </p>
+                                <div class="d-flex justify-content-between mb-2 landing-page-card-rating">
+                                    <div>Tree Canada</div>
+                                    <div>
+                                        <img src="~/img/selected-star.png" alt="">
+                                        <img src="~/img/selected-star.png" alt="">
+                                        <img src="~/img/selected-star.png" alt="">
+                                        <img src="~/img/star.png" alt="">
+                                        <img src="~/img/star.png" alt="">
+                                    </div>
+                                </div>
+                                <div class="rule d-flex mt-1">
+                                    <hr>
+                                    <button class="date-btn mt-1">@item.StartDateEndDate</button>
+                                    <hr>
+                                </div>
+                                <div class="row landing-page-box-border">
+
+                                    <!-- <div class="col-6 col-md-6 d-flex align-items-center">
+                                      <p class="lead me-2 pt-2">
+                                        <img src="~/img/Seats-left.png" alt="">
+                                      <div>
+                                        <div>10</div>
+                                        <div class="landing-page-card-vol-small">Seats Left</div>
+                                      </div>
+                                      </p>
+                                    </div> -->
+                                    <div class="col-12 d-flex align-items-center">
+                                        <p class="lead me-2 pt-2">
+                                            <img src="~/img/achieved.png" alt="">
+                                            <div style="width: 100%;">
+                                                <div>
+
+                                                    <div class="progress" role="progressbar" aria-label="Success example" aria-valuenow="25"
+                                                 aria-valuemin="0" aria-valuemax="100" style="height: 10px;">
+                                                        <div class="progress-bar" style="width: 45%; background-color: #F88735;"></div>
+                                                    </div>
+
+                                                </div>
+                                                <div class="landing-page-card-vol-small">8000 achived</div>
+                                            </div>
+                                    </div>
+                                </div>
+                                <div class="d-flex justify-content-center">
+                                    <div class="">
+                                        <a class="btn mt-2 landing-page-apply-mission-btn" asp-controller="Volunteer" asp-action="Index">
+                                            Apply <img src="~/img/right-arrow.png" alt="">
+                                        </a>
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                }
+
+
+
+            }
+
+            @if (ViewBag.currentUrl.Contains('?'))
+            {
+                <nav aria-label="Page navigation example" class="d-flex justify-content-center">
+                    <ul class="pagination">
+                        <li class="page-item @(ViewBag.CurrentPage == 0 ? "disabled" : "")">
+                            <a class="page-link" href="@ViewBag.currentUrl&pageIndex=@(ViewBag.CurrentPage - 1)" aria-label="Previous">
+                                <span aria-hidden="true">&laquo;</span>
+                            </a>
+                        </li>
+                        @for (int i = 0; i < ViewBag.TotalPages; i++)
+                        {
+                            <li class="page-item @(i == ViewBag.CurrentPage ? "active" : "")">
+                                <a class="page-link" href="@ViewBag.currentUrl&pageIndex=@i">@((i + 1).ToString())</a>
+                            </li>
+                        }
+                        <li class="page-item @(ViewBag.CurrentPage == ViewBag.TotalPages - 1 ? "disabled" : "")">
+                            <a class="page-link" href="@ViewBag.currentUrl&pageIndex=@(ViewBag.CurrentPage + 1)" aria-label="Next">
+                                <span aria-hidden="true">&raquo;</span>
+                            </a>
+                        </li>
+                    </ul>
+                </nav>
+            }
+            else
+            {
+                <nav aria-label="Page navigation example" class="d-flex justify-content-center mt-4">
+                    <ul class="pagination">
+                        <li class="page-item @(ViewBag.CurrentPage == 0 ? "disabled" : "")">
+                            <a class="page-link" href="@ViewBag.currentUrl?pageIndex=@(ViewBag.CurrentPage - 1)" aria-label="Previous">
+                                <span aria-hidden="true">&laquo;</span>
+                            </a>
+                        </li>
+                        @for (int i = 0; i < ViewBag.TotalPages; i++)
+                        {
+                            <li class="page-item @(i == ViewBag.CurrentPage ? "active" : "")">
+                                <a class="page-link" href="@ViewBag.currentUrl?pageIndex=@i">@((i + 1).ToString())</a>
+                            </li>
+                        }
+                        <li class="page-item @(ViewBag.CurrentPage == ViewBag.TotalPages - 1 ? "disabled" : "")">
+                            <a class="page-link" href="@ViewBag.currentUrl?pageIndex=@(ViewBag.CurrentPage + 1)" aria-label="Next">
+                                <span aria-hidden="true">&raquo;</span>
+                            </a>
+                        </li>
+                    </ul>
+                </nav>
+            }
+
+
+
+
         </div>
     </div>
-   
-<nav aria-label="Page navigation example mt-5" class="d-flex justify-content-center">
-    <ul class="pagination">
-        @if(@ViewBag.currentUrl.Contains('?')){
-            <li class="page-item @(ViewBag.CurrentPage == 0 ? "disabled" : "")">
-                <a class="page-link" href="@ViewBag.currentUrl&pageIndex=@(ViewBag.CurrentPage - 1)" aria-label="Previous">
-                    <span aria-hidden="true">&laquo;</span>
-                </a>
-            </li>
-            @for (int i = 0; i < ViewBag.TotalPages; i++)
-            {
-                <li class="page-item @(i == ViewBag.CurrentPage ? "active" : "")">
-                    <a class="page-link" href="@ViewBag.currentUrl&pageIndex=@i">@((i + 1).ToString())</a>
-                </li>
-            }
-            <li class="page-item @(ViewBag.CurrentPage == ViewBag.TotalPages - 1 ? "disabled" : "")">
-                <a class="page-link" href="@ViewBag.currentUrl&pageIndex=@(ViewBag.CurrentPage + 1)" aria-label="Next">
-                    <span aria-hidden="true">&raquo;</span>
-                </a>
-            </li>
-        }
-        else{
-            <li class="page-item @(ViewBag.CurrentPage == 0 ? "disabled" : "")">
-                <a class="page-link" href="@ViewBag.currentUrl?pageIndex=@(ViewBag.CurrentPage - 1)" aria-label="Previous">
-                    <span aria-hidden="true">&laquo;</span>
-                </a>
-            </li>
-            @for (int i = 0; i < ViewBag.TotalPages; i++)
-            {
-                <li class="page-item @(i == ViewBag.CurrentPage ? "active" : "")">
-                    <a class="page-link" href="@ViewBag.currentUrl?pageIndex=@i">@((i + 1).ToString())</a>
-                </li>
-            }
-            <li class="page-item @(ViewBag.CurrentPage == ViewBag.TotalPages - 1 ? "disabled" : "")">
-                <a class="page-link" href="@ViewBag.currentUrl?pageIndex=@(ViewBag.CurrentPage + 1)" aria-label="Next">
-                    <span aria-hidden="true">&raquo;</span>
-                </a>
-            </li>
-        }
-        
-    </ul>
-</nav>
+    <script src="~/js/site.js">
+    </script>
 
 
+</body>
 
-
-
+</html>

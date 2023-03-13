@@ -1,6 +1,4 @@
-﻿
-
-@{
+﻿@{
     Layout = "";
 }
 <!DOCTYPE html>
@@ -10,7 +8,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    
+
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet"
           integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous" />
     <link href="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/6.1.0/mdb.min.css" rel="stylesheet" />
@@ -57,12 +55,12 @@
                 <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasNavbar"
                      aria-labelledby="offcanvasNavbarLabel">
                     <div class="offcanvas-header">
-                       <form role="search" class="d-flex">
-                            <!-- <img src="../HTML/images/search.png" height="22px" width="21px"class="mt-2">? -->
-                            <i class="bi bi-search mt-2 "></i>
-                            <input class="form-control rounded ms-2 searchbox" type="search" placeholder="Search mission....." aria-label="Search "
-                                   value="@ViewBag.Searchinput" name="searchinput" id="search-bar">
-                        </form>
+                        @*<form role="search" class="d-flex">
+                        <!-- <img src="../HTML/images/search.png" height="22px" width="21px"class="mt-2">? -->
+                        <i class="bi bi-search mt-2 "></i>
+                        <input class="form-control rounded ms-2 searchbox" type="search" placeholder="Search mission....." aria-label="Search "
+                        value="@ViewBag.Searchinput" name="searchinput" id="search-bar">
+                        </form>*@
                         <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
                     </div>
                     <div class="offcanvas-body justify-content-end">
@@ -176,32 +174,33 @@
                         <ul class="navbar-nav col-md-6 justify-content-end">
                             <li class="nav-item d-flex align-items-center">
 
-                                @if(@ViewBag.data != null)
-                                        {
-                                            <div class="dropdown">
-                                                <a class="text-reset dropdown-toggle d-flex align-items-center" href="#"
-                                                   id="navbarDropdownMenuLink" role="button" data-mdb-toggle="dropdown"
-                                                   aria-expanded="false">
-                                                    <img src="~/img/user-img.png" class="rounded-circle me-3" height="22" alt=""
-                                                         loading="lazy" style="
+                                @if (@ViewBag.data != null)
+                                {
+                                    <div class="dropdown">
+                                        <a class="text-reset dropdown-toggle d-flex align-items-center" href="#"
+                                       id="navbarDropdownMenuLink" role="button" data-mdb-toggle="dropdown"
+                                       aria-expanded="false">
+                                            <img src="~/img/user-img.png" class="rounded-circle me-3" height="22" alt=""
+                                             loading="lazy" style="
                                                             width: 30px;
                                                             height: 30px;
                                                         " />
-                                                        @ViewBag.data
-                                                        </a>
-                                                <ul class="dropdown-menu dropdown-menu-start"
-                                                    aria-labelledby="navbarDropdownMenuLink">
-                                                    <li><a class="dropdown-item" href="#">My profile</a></li>
-                                                    <li><a class="dropdown-item" href="#">Settings</a></li>
-                                                    <li><a class="dropdown-item" asp-action="login" asp-controller="User">Logout</a></li>
-                                                </ul>
-                                            </div>
-                                        } else
-                                        {
-                                            <a class="btn me-2" role="button" aria-disabled="true" asp-action="Login" asp-controller="User" style="background-color:#f88735;color:#fff;box-shadow: none;">Login</a>
-                                            <a class="btn" role="button" aria-disabled="true"  asp-action="Register" asp-controller="User"  style="background-color:#f88735;color:#fff;box-shadow: none;">Register</a>
-                                   
-                                        }
+                                            @ViewBag.data
+                                        </a>
+                                        <ul class="dropdown-menu dropdown-menu-start"
+                                        aria-labelledby="navbarDropdownMenuLink">
+                                            <li><a class="dropdown-item" href="#">My profile</a></li>
+                                            <li><a class="dropdown-item" href="#">Settings</a></li>
+                                            <li><a class="dropdown-item" asp-action="login" asp-controller="User">Logout</a></li>
+                                        </ul>
+                                    </div>
+                                }
+                                else
+                                {
+                                    <a class="btn me-2" role="button" aria-disabled="true" asp-action="Login" asp-controller="User" style="background-color:#f88735;color:#fff;box-shadow: none;">Login</a>
+                                    <a class="btn" role="button" aria-disabled="true" asp-action="Register" asp-controller="User" style="background-color:#f88735;color:#fff;box-shadow: none;">Register</a>
+
+                                }
 
 
                             </li>
@@ -216,11 +215,25 @@
              style="padding-top: 51px; padding-bottom: 0px" id="menu">
             <div class="container">
                 <div class="col-md-4">
-                   
+                    @* <form asp-action="Test" class="input-group rounded">
+                    <i class="fas fa-search mt-2"></i>
+
+                    <input type="search" asp-for="searchTerm" class="form-control rounded ms-2" placeholder="Search Mission . . ."
+                    aria-label="Search" aria-describedby="search-addon" style="border: 0px" />
+                    </form>*@
                     <form role="search" class="d-flex mt-2">
-                         <i class="fas fa-search mt-2"></i>
-                        <input class="form-control rounded ms-2 searchbox" type="search" placeholder="Search mission....." aria-label="Search "
-                               value="@ViewBag.Searchinput" name="searchinput" id="search-bar" style="border: 0px">
+                        <!-- <img src="../HTML/images/search.png" height="22px" width="21px"class="mt-2">? -->
+                        <i class="fas fa-search mt-2"></i>
+                        @*<input class="form-control rounded ms-2 searchbox" type="search" placeholder="Search mission....." aria-label="Search "
+                        value="@ViewBag.Searchinput" name="searchinput" id="search-bar" style="border: 0px">*@
+                        <input type="search"
+                               class="form-control rounded ms-2 searchbox border-0"
+                               id="search-bar"
+                               value=@ViewBag.searchQuery
+                               name="searchQuery"
+                               placeholder="Search Mission..."
+                               aria-label="Search"
+                               style="width: 80vw" />
                     </form>
                 </div>
                 <div class="dropdown-section col-md-8 d-flex justify-content-end" style="height: 50px">
@@ -230,61 +243,75 @@
                             Country
                         </a>
 
-                        <ul class="dropdown-menu dropdown-menu-start dropdownlist" aria-labelledby="navbarDropdownMenuLink">
-                             
-                            @*@foreach (var items in @ViewBag.Country)
+                        <ul class="dropdown-menu dropdown-menu-start dropdownlist" aria-labelledby="navbarDropdownMenuLink" style="max-height: 300px; overflow-y: scroll; ">
+
+                            @* @foreach (var items in ViewBag.Country)
                             {
-                                <li class="dropdown-checkbox">
-                                    <input type="checkbox" value="@items.Name" name="country" id="city-filter"
-                                       class="ms-3 checkbox ">@items.Name
-                                </li>
+
+                            <li class="dropdown-checkbox">
+                            <form method="get">
+
+                            <input asp-route-kvl="hello" type="checkbox" value="@items.Name" name="country" id="country-filter"
+                            class="ms-3 checkbox">@items.Name
+                            </form>
+
+                            </li>
+
 
                             }*@
 
-                            @if (@ViewBag.Country != null)
+                            @foreach (var country in ViewBag.countries)
                             {
-                                @foreach (var items in ViewBag.Country)
-                                {
-                                    <li>
-                                        <input class="ms-3 checkbox" name="country" type="checkbox" value="@items.Name" id="@items.CountryId" onchange="FilterforCountry()" aria-label="Checkbox for following text input" />
-                                        @items.Name
-                                    </li>
-
-                                }
+                                <li>
+                                    <a class="dropdown-item dd-color" href="#">
+                                        <div class="form-check">
+                                            <input class="form-check-input" name="countries" type="checkbox" value=@country.Name
+                                               id="@country.CountryId" onchange="updateUrlForCountries()" />
+                                            <label class="form-check-label" for=@country.Name>@country.Name</label>
+                                        </div>
+                                    </a>
+                                </li>
                             }
 
-                            
 
                         </ul>
                     </div>
+
+
+
                     <div class="dropdown ms-1 pe-5 ps-2 dropdownborderright">
                         <a class="text-reset me-5 singledropdown dropdown-toggle" href="#" id="navbarDropdownMenuLink"
                            role="button" data-mdb-toggle="dropdown" aria-expanded="false">
                             City
                         </a>
-                        <ul class="dropdown-menu dropdown-menu-start dropdownlist" aria-labelledby="navbarDropdownMenuLink">
-                           @* @foreach (var items in @ViewBag.Cities)
+                        <ul class="dropdown-menu dropdown-menu-start dropdownlist" aria-labelledby="navbarDropdownMenuLink" style="max-height: 300px; overflow-y: scroll; ">
+                            @*@foreach (var items in ViewBag.Cities)
                             {
-                                <li class="dropdown-checkbox">
-                                    <input type="checkbox" value="@items.Name" name="city" id="city-filter"
-                                       class="ms-3 checkbox ">@items.Name
-                                </li>
+                            <li class="dropdown-checkbox">
+                            <input type="checkbox" value="@items.Name" name="city" id="city-filter"
+                            class="ms-3 checkbox ">@items.Name
+                            </li>
 
                             }*@
-                             @if (@ViewBag.Cities != null)
+                            @if (ViewBag.cities == null)
+                            {
+                                <p>Please select a Country</p>
+                            }
+                            @if (ViewBag.cities != null)
+                            {
+                                @foreach (var city in ViewBag.cities)
                                 {
-
-
-                                    @foreach (var items in ViewBag.Cities)
-                                    {
-                                        <li>
-                                            <input class="ms-3 checkbox" name="city" type="checkbox" value="@items.Name" id="@items.CityId" onchange="FilterforCity()" aria-label="Checkbox for following text input" />
-                                            @items.Name
-                                        </li>
-
-                                    }
-
+                                    <li>
+                                        <a class="dropdown-item dd-color" href="#">
+                                            <div class="form-check">
+                                                <input class="form-check-input" name="cities" type="checkbox" value=@city.Name id=@city.CityId onchange="updateUrlForCities()" />
+                                                <label class="form-check-label" for=@city.CityId>@city.Name</label>
+                                            </div>
+                                        </a>
+                                    </li>
                                 }
+
+                            }
                         </ul>
                     </div>
                     <div class="dropdown ms-1 pe-5 ps-2 dropdownborderright">
@@ -292,29 +319,26 @@
                            role="button" data-mdb-toggle="dropdown" aria-expanded="false">
                             Theme
                         </a>
-                        <ul class="dropdown-menu dropdown-menu-start dropdownlist" aria-labelledby="navbarDropdownMenuLink">
-                             @*@foreach (var items in @ViewBag.Themes)
+                        <ul class="dropdown-menu dropdown-menu-start dropdownlist" aria-labelledby="navbarDropdownMenuLink" style="max-height: 300px; overflow-y: scroll; ">
+                            @* @foreach (var items in ViewBag.Themes)
                             {
-                                <li class="dropdown-checkbox">
-                                    <input type="checkbox" value="@items.Title" name="@items.Title" id="theme-filter"
-                                       class="ms-3 checkbox ">@items.Title
-                                </li>
+                            <li class="dropdown-checkbox">
+                            <input type="checkbox" value="@items.Title" name="@items.Title" id="theme-filter"
+                            class="ms-3 checkbox ">@items.Title
+                            </li>
 
                             }*@
-                             @if (@ViewBag.Themes != null)
-                                {
-
-
-                                    @foreach (var items in ViewBag.Themes)
-                                    {
-                                        <li>
-                                            <input class="ms-3 checkbox" name="theme" type="checkbox" value="@items.Title" id="@items.MissionThemeId" onchange="FilterForTheme()" aria-label="Checkbox for following text input" />
-                                            @items.Title
-                                        </li>
-
-                                    }
-
-                                }
+                            @foreach (var theme in ViewBag.Themes)
+                            {
+                                <li>
+                                    <a class="dropdown-item dd-color" href="#">
+                                        <div class="form-check">
+                                            <input class="form-check-input" name="themes" type="checkbox" value=@theme.Title id=@theme.MissionThemeId onchange="updateUrlForThemes()" />
+                                            <label class="form-check-label" for=@theme.MissionThemeId>@theme.Title</label>
+                                        </div>
+                                    </a>
+                                </li>
+                            }
                         </ul>
                     </div>
                     <div class="dropdown ms-1 pe-5 ps-2 dropdownborderright">
@@ -322,12 +346,19 @@
                            role="button" data-mdb-toggle="dropdown" aria-expanded="false">
                             skills
                         </a>
-                        <ul class="dropdown-menu dropdown-menu-start" aria-labelledby="navbarDropdownMenuLink">
+                        <ul class="dropdown-menu dropdown-menu-start" aria-labelledby="navbarDropdownMenuLink" style="max-height: 300px; overflow-y: scroll; ">
                             <li class="dropdown-checkbox">
                                 <input type="checkbox" value="Nutrition" name="Nutrition" id=""
                                        class="ms-3 checkbox ">Nutrition
                             </li>
-                            
+                            <li class="dropdown-checkbox">
+                                <input type="checkbox" value="Advocacy" name="Advocacy" id=""
+                                       class="ms-3 checkbox ">Advocacy
+                            </li>
+                            <li class="dropdown-checkbox">
+                                <input type="checkbox" value="communication" name="communication" id=""
+                                       class="ms-3 checkbox ">communication
+                            </li>
                         </ul>
                     </div>
                 </div>
@@ -335,55 +366,23 @@
 
         </div>
 
-        <div class="valuelist d-flex align-items-center flex-wrap justify-content-center mt-1 mb-1">
-            <script>
-                console.log(@ViewBag.currentUrl)
-            </script>
-            @if (@ViewBag.SearchCountry != null)
-            {
-                <div class="filter-list px-2 ms-2" id="closeCountryfilter">
-                    @ViewBag.SearchCountry
-                    <button class="btn-close" type="button" aria-label="close" onclick="closeCountryfilter()"></button>
-                </div>
-            }
-            @if (@ViewBag.SearchCity != null)
-            {
-                <div class="filter-list px-2 ms-2 " id="closeCityfilter">
-                    @ViewBag.SearchCity
-                    <button class="btn-close" type="button" aria-label="close" onclick="closeCityfilter()"></button>
-                </div>
-            }
-            @if (@ViewBag.SearchTheme != null)
-            {
-                //@foreach (var items in @ViewBag.theme)
-                //{
-                    <div class="filter-list px-2 ms-2" id="closethemefilter">
-                   @* @items.Title*@
-                    @ViewBag.SearchTheme
-                    <button class="btn-close" type="button" aria-label="close" onclick="closethemefilter()"></button>
-                    </div>
-                //}
-                
-            }
-            @if (@ViewBag.SearchCountry != null || @ViewBag.SearchCity != null || @ViewBag.SearchTheme != null)
-            {
-                <button type="button" class="filter-list border-0 px-2 ms-2" onclick="clearall()">Clear All</button>  
-            }
-         
-        </div>
-
         @RenderBody();
 
     </div>
 
 
-         <script>
+    <script>
+
+        //Search bar
+
         var debounceTimer;
 
         function debounce(func, delay) {
             clearTimeout(debounceTimer);
             debounceTimer = setTimeout(func, delay);
         }
+
+
         document.getElementById("search-bar").addEventListener("input", function () {
             debounce(function () {
                 search(document.getElementById("search-bar").value);
@@ -411,86 +410,176 @@
 
         }
 
-
-        ////FilterFor Country
-        function FilterforCountry() {
-            const country = Array.from(document.querySelectorAll('input[name="country"]:checked')).map(el => el.id);
+        function updateUrlForCountries() {
             let url = window.location.href;
+
             let separator = url.indexOf('?') !== -1 ? '&' : '?';
-            //if (url.includes('fCountries=')) {
-            //    url = url.replace(/fCountries=([^&]*)/, 'fCountries=' + country);
-            //}
-            //else {
-                url += separator + 'fCountries=' + country;
-            //}
+
+            const checkedIds = Array.from(document.querySelectorAll('input[name="countries"]:checked')).map(el => el.id);
+            /*    const queryString = new URLSearchParams({ countries: checkedIds });*/
+
+            url += separator + 'FCountries=' + checkedIds;
             window.location.href = url;
-
-
+            /*    window.history.replaceState(null, null, '?' + queryString.toString());*/
         }
-        function FilterforCity() {
-            const city = Array.from(document.querySelectorAll('input[name="city"]:checked')).map(el => el.id);
+
+        function updateUrlForSortby() {
+            var c = document.getElementById("ci");
+            c.style.display = "none";
             let url = window.location.href;
+            c = "";
+            url = url.replace(/ACities=([^&]*)/, 'ACities=' + c);
+            window.location.href = url;
+        }
+
+
+        function updateUrlForCities() {
+            let url = window.location.href;
+
             let separator = url.indexOf('?') !== -1 ? '&' : '?';
-            //if (url.includes('fCitys=')) {
-             //   url = url.replace(/fCitys=([^&]*)/, 'fCitys=' + city);
-           // }
-            //else {
-                url += separator + 'fCitys=' + city;
-           // }
+
+            const checkedIds = Array.from(document.querySelectorAll('input[name="cities"]:checked')).map(el => el.id);
+            /*    const queryString = new URLSearchParams({ countries: checkedIds });*/
+
+            url += separator + 'FCities=' + checkedIds;
             window.location.href = url;
-
-
+            /*    window.history.replaceState(null, null, '?' + queryString.toString());*/
         }
-        function FilterForTheme() {
-            const theme = Array.from(document.querySelectorAll('input[name="theme"]:checked')).map(el => el.id);
-            
+
+        function updateUrlForThemes() {
             let url = window.location.href;
+
             let separator = url.indexOf('?') !== -1 ? '&' : '?';
-            //if (url.includes('fThemes=')) {
-           //     url = url.replace(/fThemes=([^&]*)/, 'fThemes=' + theme);
-            //}
-            //else {
-                url += separator + 'fThemes=' + theme;
-            //}
+
+            const checkedIds = Array.from(document.querySelectorAll('input[name="themes"]:checked')).map(el => el.id);
+            /*    const queryString = new URLSearchParams({ countries: checkedIds });*/
+
+            url += separator + 'FThemes=' + checkedIds;
             window.location.href = url;
+            /*    window.history.replaceState(null, null, '?' + queryString.toString());*/
+        }
 
+
+        // Get the filters section element
+        const filtersSection = document.querySelector('.filters-section');
+
+        // Get the clear button element
+        const clearButton = document.getElementById('ClearBtn');
+
+        // Check if there are any child elements in the filters section except for the clear button
+        const hasChildElements = Array.from(filtersSection.children).some(element => element !== clearButton);
+
+        // If there are no child elements except for the clear button, hide the clear button
+        if (!hasChildElements) {
+            clearButton.style.display = 'none';
+        } else {
+            clearButton.style.display = 'inline-block'; // Or whatever your initial display value was
+        }
+
+        function removeUrlParams() {
+            filtersSection.classList.add('d-none');
+            window.history.replaceState({}, '', window.location.pathname);
+            location.reload();
 
         }
-        function closeCountryfilter(){
-            var A = document.getElementById("closeCountryfilter");
-                A.style.display="none";
+
+
+        function removeCountryFilter(id) {
+
             let url = window.location.href;
-           country ="";
-            url = url.replace(/fCountries=([^&]*)/, 'fCountries=' + country);
-            window.location.href= url
+            const urlParts = url.split('?');
+
+            if (urlParts.length >= 2) {
+                const baseUrl = urlParts.shift();
+                const queryString = urlParts.join('?');
+                const params = new URLSearchParams(queryString);
+
+                const countries = params.getAll('FCountries').filter(country => country !== id);
+
+                if (countries.length > 0) {
+                    params.delete('FCountries');
+                    countries.forEach(country => params.append('FCountries', country));
+                } else {
+                    params.delete('FCountries');
+                }
+
+                const updatedParams = params.toString();
+                if (updatedParams) {
+
+                    url = `${baseUrl}?${updatedParams}`;
+                } else {
+                    url = baseUrl;
+                }
+
+                window.location.href = url;
+            }
+
         }
 
-        function closeCityfilter() {
-            var A = document.getElementById("closeCityfilter");
-                A.style.display="none";
-            let url = window.location.href;
-            city = "";
-            url = url.replace(/fCitys=([^&]*)/, 'fCitys=' + city);
-            window.location.href= url
-        }
-        function closethemefilter() {
-            var A = document.getElementById("closethemefilter");
-            A.style.display = "none";
-            let url = window.location.href;
-            theme = "";
-            url = url.replace(/fThemes=([^&]*)/, 'fThemes=' + theme);
-            window.location.href = url
-        }
-        function clearall(){
-            let url = window.location.href;
-            var newurl=url.split("?")[0];
-            window.location.href = newurl
 
 
+        function removeCityFilter(id) {
+            let url = window.location.href;
+            const urlParts = url.split('?');
+
+            if (urlParts.length >= 2) {
+                const baseUrl = urlParts.shift();
+                const queryString = urlParts.join('?');
+                const params = new URLSearchParams(queryString);
+
+                const countries = params.getAll('FCities').filter(country => country !== id);
+
+                if (countries.length > 0) {
+                    params.delete('FCities');
+                    countries.forEach(country => params.append('FCities', country));
+                } else {
+                    params.delete('FCities');
+                }
+
+                const updatedParams = params.toString();
+                if (updatedParams) {
+                    url = `${baseUrl}?${updatedParams}`;
+                } else {
+                    url = baseUrl;
+                }
+
+                window.location.href = url;
+            }
         }
-        </script>
-    
-  
+
+        function removeThemeFilter(id) {
+            let url = window.location.href;
+            const urlParts = url.split('?');
+
+            if (urlParts.length >= 2) {
+                const baseUrl = urlParts.shift();
+                const queryString = urlParts.join('?');
+                const params = new URLSearchParams(queryString);
+
+                const countries = params.getAll('FThemes').filter(country => country !== id);
+
+                if (countries.length > 0) {
+                    params.delete('FThemes');
+                    countries.forEach(country => params.append('FThemes', country));
+                } else {
+                    params.delete('FThemes');
+                }
+
+                const updatedParams = params.toString();
+                if (updatedParams) {
+                    url = `${baseUrl}?${updatedParams}`;
+                } else {
+                    url = baseUrl;
+                }
+
+                window.location.href = url;
+            }
+        }
+
+
+    </script>
+
+
     <script src="https://code.jquery.com/jquery-3.6.3.min.js" integrity="sha256-pvPw+upLPUjgMXY0G+8O0xUf+/Im1MZjXxxgOcBQBXU=" crossorigin="anonymous"></script>
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
             integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
@@ -502,7 +591,6 @@
             integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
             crossorigin="anonymous"></script>
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/6.1.0/mdb.min.js"></script>
-    @*<script src="~/js/filter.js"></script>*@
 
 </body>
 
