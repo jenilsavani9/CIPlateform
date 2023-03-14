@@ -350,3 +350,9 @@ ul {
 .filters-section {
     margin-top: 2%;
 }
+
+/* 2nd nav offcanvas*/
+
+.offcanvas-body .dropdown-section .dropdown {
+    margin: 10px 0;
+}

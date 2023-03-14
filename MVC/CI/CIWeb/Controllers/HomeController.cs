@@ -35,6 +35,8 @@ namespace CIWeb.Controllers
 
         private List<MissionTheme> themeElements = new List<MissionTheme>();
 
+        private List<Skill> skillElements = new List<Skill>();
+
         private readonly ILogger<HomeController> _logger;
         private readonly CiContext _db;
 
@@ -154,13 +156,13 @@ namespace CIWeb.Controllers
                         Missions = _db.Missions.ToList();
                     }
                     Missions = Missions.Where(m => m.ThemeId == skill).ToList();
-                    var themeElement = _db.MissionThemes.Where(m => m.MissionThemeId == skill).ToList();
-                    themeElements.AddRange(themeElement);
+                    var skillElement = _db.Skills.Where(m => m.SkillId == skill).ToList();
+                    skillElements.AddRange(skillElement);
                     tempFinalList.AddRange(Missions);
                 }
                 FinalMissionsList = tempFinalList;
                 ViewBag.FSkills = Request.Query["FSkill"];
-                ViewBag.skillElements = themeElements;
+                ViewBag.skillElements = skillElements;
             }
 
 
@@ -518,6 +520,11 @@ namespace CIWeb.Controllers
 
         public IActionResult NoMission()
         {
+            String? userId = HttpContext.Session.GetString("userEmail");
+
+            var user = _db.Users.Where(e => e.Email == userId).SingleOrDefault();
+            ViewBag.user = user;
+
             List<City> Cities = _db.Cities.ToList();
             ViewBag.cities = Cities;
             List<Country> Country = _db.Countries.ToList();

@@ -1,6 +1,7 @@
 ﻿using CI.Entities.Data;
 using CI.Entities.Models;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.Data.SqlClient;
 
 namespace CIWeb.Controllers
 {
@@ -12,6 +13,7 @@ namespace CIWeb.Controllers
         private List<City> Citie = new List<City>();
         private List<MissionTheme> Themes = new List<MissionTheme>();
         private List<Country> Country = new List<Country>();
+
 
         public VolunteerController(CiContext db)
         {
@@ -49,6 +51,52 @@ namespace CIWeb.Controllers
             }
             ViewBag.relatedMission = relatedMission;
             return View();
+        }
+
+        [HttpGet("/missions/{id:int}/addFavorite")]
+        public IActionResult AddToFavorite(int id)
+        {
+            String? userId = HttpContext.Session.GetString("userEmail");
+            var user = _db.Users.Where(e => e.Email == userId).SingleOrDefault();
+            var status = _db.Users.ToList();
+            int missionId = id;
+
+            
+
+            var tuser = _db.FavoriteMissions.Where(m => m.UserId == user.UserId && m.MissionId == missionId).ToList();
+            if (tuser.Any())
+            {
+                var temp = _db.FavoriteMissions.Where(m => m.UserId == user.UserId && m.MissionId == missionId).First();
+                _db.FavoriteMissions.Remove(temp);
+                _db.SaveChanges();
+                return Json("Remove");
+            }
+            else
+            {
+                _db.FavoriteMissions.Add(new FavoriteMission { UserId = user.UserId, MissionId = missionId });
+                _db.SaveChanges();
+                return Json("Add");
+            }
+
+        }
+
+        [HttpGet("/missions/{id:int}/checkFavorite")]
+        public IActionResult CheckAddToFavorite(int id)
+        {
+            String? userId = HttpContext.Session.GetString("userEmail");
+            var user = _db.Users.Where(e => e.Email == userId).SingleOrDefault();
+            var status = _db.Users.ToList();
+            int missionId = id;
+
+            var tuser = _db.FavoriteMissions.Where(m => m.UserId == user.UserId && m.MissionId == missionId).ToList();
+       
+            if (tuser.Any())
+            {
+                return Json("IN");
+            } else
+            {
+                return Json("Out");
+            }
         }
     }
 }

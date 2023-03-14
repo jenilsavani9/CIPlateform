@@ -11,10 +11,10 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Volunteer</title>
-    <link href="./css/bootstrap.min.css" rel="stylesheet" text="text/css" />
+    <link href="~/css/bootstrap.min.css" rel="stylesheet" text="text/css" />
     <link rel="stylesheet" href="~/css/volunteering.css">
-
-    <script src="./js/custom.js"></script>
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+    <script src="~/js/custom.js"></script>
 
     <script>
         function onImageChange(imgCount) {
@@ -137,12 +137,11 @@
 
                             <hr>
                             <div class="d-flex justify-content-around vol-page-group-btn">
-                                <div>
-                                    <button class="btn vol-page-group-btn-btn shadow-none"><img src="~/img/heart1.png" alt=""> Add
+                                <div id="vol-page-group-btn-heart">
+                                    <button class="btn vol-page-group-btn-btn shadow-none"><img src="~/img/heart-1.png" alt=""> Add
                                         to Favourite</button>
                                 </div>
-                                <div><button class="btn vol-page-group-btn-btn shadow-none"><img src="~/img/heart1.png" alt=""> Add
-                                        to Favourite</button>
+                                <div><button class="btn vol-page-group-btn-btn shadow-none"><img src="~/img/add1.png" alt=""> Recommend to a Co-Worker</button>
                                 </div>
                             </div>
 
@@ -649,8 +648,59 @@
             
     </div>
 
+    <script>
 
-    <script src="./js/bootstrap.bundle.min.js"></script>
+            function changeAddtoFav() {
+                var url = window.location.href;
+                var tempUrl = url.split("/")[4];
+                $.ajax({
+                    type: "GET",
+                    url: `https://localhost:44398/missions/${tempUrl}/addFavorite`,
+                    success: function (response) {
+                        
+                        var element = document.getElementById("vol-page-group-btn-heart");
+                        if(response=="Add"){
+                            element.innerHTML = `<button class="btn vol-page-group-btn-btn shadow-none" onclick="changeAddtoFav()"><img src="/img/heart-2.png" alt=""> Favourite</button>`
+                        } else {
+                            element.innerHTML = `<button class="btn vol-page-group-btn-btn shadow-none" onclick="changeAddtoFav()"><img src="/img/heart1.png" alt=""> Add to Favourite</button>`
+                        }
+                    },
+                    failure: function (response) {
+                        alert(response.responseText);
+                    },
+                    error: function (response) {
+                        alert(response.responseText);
+                    }
+                });
+            }
+        
+            $(window).on('load', function(){
+                var url = window.location.href;
+                var tempUrl = url.split("/")[4];
+                $.ajax({
+                    type: "GET",
+                    url: `https://localhost:44398/missions/${tempUrl}/checkFavorite`,
+                    success: function (response) {
+                        
+                        var element = document.getElementById("vol-page-group-btn-heart");
+                        if(response=="IN"){
+                            element.innerHTML = `<button class="btn vol-page-group-btn-btn shadow-none" onclick="changeAddtoFav()"><img src="/img/heart-2.png" alt=""> Favourite</button>`
+                        } else {
+                            element.innerHTML = `<button class="btn vol-page-group-btn-btn shadow-none" onclick="changeAddtoFav()"><img src="/img/heart1.png" alt=""> Add to Favourite</button>`
+                        }
+                    },
+                    failure: function (response) {
+                        alert(response.responseText);
+                    },
+                    error: function (response) {
+                        alert(response.responseText);
+                    }
+                });
+            });
+
+    </script>
+    
+    <script src="~/js/bootstrap.bundle.min.js"></script>
 </body>
 
 </html>

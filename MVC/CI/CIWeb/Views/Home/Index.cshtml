@@ -26,6 +26,30 @@
             $('#grid').click(function (event) { event.preventDefault(); $('#products .item').removeClass('list-group-item'); $('#products .item').addClass('grid-group-item'); });
         });
 
+        function LoadAddtoFav(id) {
+                
+                
+                $.ajax({
+                    type: "GET",
+                    url: `https://localhost:44398/missions/${id}/checkFavorite`,
+                    success: function (response) {
+                        
+                        var element = document.getElementById(`landing-page-add-to-fav-btn-card-${id}`);
+                        if(response=="IN"){
+                            element.innerHTML = `<img src="/img/heart-2.png" alt="">`                        
+                        } else {
+                            element.innerHTML = `<img src="/img/heart.png" alt="">`
+                        }
+                    },
+                    failure: function (response) {
+                        alert(response.responseText);
+                    },
+                    error: function (response) {
+                        alert(response.responseText);
+                    }
+                });
+            }
+
     </script>
 
 
@@ -33,9 +57,143 @@
 </head>
 
 <body>
-    <div class="container">
-        <div class="ms-1 me-1 mb-3 d-flex flex-row justify-content-start filter-details" id="navmaindiv">
-            <div class="filters-section d-flex align-items-end flex-wrap justify-content-start">
+    
+    <div class="container" >
+        <div !importantmportantlass="ms-1 me-1 mb-3 d-flex flex-column justify-content-start filter-details" id="navmaindiv">
+
+            <div class="d-flex d-lg-none row" style="margin-top: 63px !important;">
+                    
+                    <form role="search" class="d-flex col-10">
+                        
+                        <i class="fas fa-search mt-2"></i>
+                        
+                        <input type="search"
+                               class="form-control rounded ms-2 searchbox border-0"
+                               id="search-bar"
+                               value=@ViewBag.searchQuery
+                               name="searchQuery"
+                               placeholder="Search Mission..."
+                               aria-label="Search"
+                               style="width: 80vw" />
+                    </form>
+                    <div class="col-2">
+                   <button class="btn shadow-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight" aria-controls="offcanvasRight"><img src="~/img/filter.png"></button>
+
+                        <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasRight" aria-labelledby="offcanvasRightLabel">
+                          <div class="offcanvas-header">
+                            <h5 class="offcanvas-title" id="offcanvasRightLabel">Filters</h5>
+                            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+                          </div>
+                          <div class="offcanvas-body">
+                                
+                                <div class="dropdown-section d-flex justify-content-end flex-column">
+                                    <div class="dropdown ms-1 mt-4 pe-5 ps-2 dropdownborder">
+                                        <a class="text-reset me-5 singledropdown dropdown-toggle" href="#" id="navbarDropdownMenuLink"
+                                           role="button" data-mdb-toggle="dropdown" aria-expanded="false">
+                                            Country
+                                        </a>
+
+                                        <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink" style="max-height: 300px; overflow-y: scroll; ">
+
+                           
+
+                                            @foreach (var country in ViewBag.countries)
+                                            {
+                                                <li>
+                                                    <a class="dropdown-item dd-color" href="#">
+                                                        <div class="form-check">
+                                                            <input class="form-check-input" name="countries" type="checkbox" value=@country.Name
+                                                               id="@country.CountryId" onchange="updateUrlForCountries()" />
+                                                            <label class="form-check-label" for=@country.Name>@country.Name</label>
+                                                        </div>
+                                                    </a>
+                                                </li>
+                                            }
+
+
+                                        </ul>
+                                    </div>
+                                    <div class="dropdown ms-1 mt-4 pe-5 ps-2 dropdownborderright">
+                                        <a class="text-reset me-5 singledropdown dropdown-toggle" href="#" id="navbarDropdownMenuLink"
+                                           role="button" data-mdb-toggle="dropdown" aria-expanded="false">
+                                            City
+                                        </a>
+                                        <ul class="dropdown-menu dropdown-menu-start dropdownlist" aria-labelledby="navbarDropdownMenuLink" style="max-height: 300px; overflow-y: scroll; ">
+                           
+                                            @if (ViewBag.cities == null)
+                                            {
+                                                <p>Please select a Country</p>
+                                            }
+                                            @if (ViewBag.cities != null)
+                                            {
+                                                @foreach (var city in ViewBag.cities)
+                                                {
+                                                    <li>
+                                                        <a class="dropdown-item dd-color" href="#">
+                                                            <div class="form-check">
+                                                                <input class="form-check-input" name="cities" type="checkbox" value=@city.Name id=@city.CityId onchange="updateUrlForCities()" />
+                                                                <label class="form-check-label" for=@city.CityId>@city.Name</label>
+                                                            </div>
+                                                        </a>
+                                                    </li>
+                                                }
+
+                                            }
+                                        </ul>
+                                    </div>
+                                    <div class="dropdown ms-1 mt-4 pe-5 ps-2 dropdownborderright">
+                                        <a class="text-reset singledropdown me-4 dropdown-toggle" href="#" id="navbarDropdownMenuLink"
+                                           role="button" data-mdb-toggle="dropdown" aria-expanded="false">
+                                            Theme
+                                        </a>
+                                        <ul class="dropdown-menu dropdown-menu-start dropdownlist" aria-labelledby="navbarDropdownMenuLink" style="max-height: 300px; overflow-y: scroll; ">
+                                            @if (ViewBag.Themes != null)
+                                            {
+                                                @foreach (var theme in ViewBag.Themes)
+                                                {
+                                                    <li>
+                                                        <a class="dropdown-item dd-color" href="#">
+                                                            <div class="form-check">
+                                                                <input class="form-check-input" name="themes" type="checkbox" value=@theme.Title id=@theme.MissionThemeId onchange="updateUrlForThemes()" />
+                                                                <label class="form-check-label" for=@theme.MissionThemeId>@theme.Title</label>
+                                                            </div>
+                                                        </a>
+                                                    </li>
+                                                }
+                                            }
+                                        </ul>
+                                    </div>
+                                    <div class="dropdown ms-1 mt-4 pe-5 ps-2 dropdownborderright">
+                                        <a class="text-reset singledropdown me-4 dropdown-toggle" href="#" id="navbarDropdownMenuLink"
+                                           role="button" data-mdb-toggle="dropdown" aria-expanded="false">
+                                            skills
+                                        </a>
+                                        <ul class="dropdown-menu dropdown-menu-start dropdownlist" aria-labelledby="navbarDropdownMenuLink" style="max-height: 300px; overflow-y: scroll; ">
+                                            @if (ViewBag.skills != null)
+                                            {
+                                                @foreach (var theme in ViewBag.skills)
+                                                {
+                                                    <li>
+                                                        <a class="dropdown-item dd-color" href="#">
+                                                            <div class="form-check">
+                                                                <input class="form-check-input" name="skills" type="checkbox" value=@theme.SkillName id=@theme.SkillId onchange="updateUrlForSkills()" />
+                                                                <label class="form-check-label" for=@theme.SkillId>@theme.SkillName</label>
+                                                            </div>
+                                                        </a>
+                                                    </li>
+                                                }
+                                            }
+                                        </ul>
+                                    </div>
+                                </div>  
+
+                          </div>
+                         </div>
+                         </div>
+            </div>
+
+
+            <div class="filters-section d-flex align-items-end flex-wrap justify-content-start" style="margin-top:0 !important">
                 @if (ViewBag.countryElements != null)
                 {
                     @foreach (var countryElement in ViewBag.countryElements)
@@ -69,6 +227,17 @@
                         </span>
                     }
                 }
+
+                @if (ViewBag.skillElements != null)
+                {
+                    @foreach (var skillElement in ViewBag.skillElements)
+                    {
+                        <span class="filter-list  ps-3 pe-1 me-2 " id=@skillElement.SkillId style="margin-top:2%;">
+                            @skillElement.SkillName
+                            <button class="filter-close-button" id="clearbutton" onclick="removeThemeFilter('@skillElement.SkillId')">&times;</button>
+                        </span>
+                    }
+                }
                 <span class="filter-list  ps-3 pe-1 me-2 " id="ClearBtn" style="margin-top:2%;display:none;">
                     Clear All
                     <button class="filter-close-button" id="clearbutton" onclick="removeUrlParams()">&times;</button>
@@ -77,6 +246,7 @@
             </div>
 
         </div>
+
         <div class="d-flex container align-items-center justify-content-between mission-listing-title">
             <div class="landing-page-mission-header">
                 Explore <b>@ViewBag.NoOfMissions missions</b>
@@ -90,7 +260,7 @@
             <div class="d-flex">
 
 
-                <div class="dropdown ms-3 mt-2 pe-3 ps-2 d-inline-block">
+                <div class="dropdown ms-3 mt-2 pe-3 ps-2 d-none d-lg-inline-block">
                     <button class="btn text-reset me-0 sortBy-dropdown dropdown-toggle shadow-none" type="button" data-bs-toggle="dropdown" aria-expanded="false">
                         Sort By
                         <i class="bi bi-chevron-down"></i>
@@ -118,7 +288,7 @@
 
                     </ul>
                 </div>
-                <div class="btn-group d-flex shadow-none">
+                <div class="btn-group d-none d-lg-flex shadow-none">
 
                     <button class="btn" id="grid" onclick="gridview()">
                         <img src="~/img/grid.png" alt="">
@@ -133,7 +303,7 @@
 
 
         </div>
-        <div id="products" class="row container view-group mt-3">
+        <div id="products" class="row container view-group mt-3" >
 
 
             @foreach (var item in ViewBag.missions)
@@ -143,19 +313,25 @@
                 {
 
 
-                    <div class="item col-12 col-md-6 col-xl-4">
+                    <div class="item col-12 col-md-6 col-xl-4" onload="LoadAddtoFav()">
                         <div class="thumbnail card">
                             <div class="img-event">
                                 <img class="group list-group-image img-fluid" style="width:100%;"
                              src="~/img/Grow-Trees-On-the-path-to-environment-sustainability.png" alt="" />
                                 <div class="landing-page-top-right"><img src="~/img/pin.png" alt=""> @item.City</div>
                                 <div class="landing-page-bottom-right d-flex flex-column">
-                                    <button class="mb-2 landing-page-btn-img">
-                                        <img src="~/img/heart.png" alt="">
-                                    </button><button class="landing-page-btn-img">
-                                        <img src="~/img/user.png"
-                                     alt="">
-                                    </button>
+                                    @if(ViewBag.user != null)
+                                    {
+                                        <button class="mb-2 landing-page-btn-img" id="landing-page-add-to-fav-btn-card-@item.MissionId" onclick="changeAddtoFav(@item.MissionId)" >
+                                            <img src="~/img/heart.png" alt="" onload="LoadAddtoFav(@item.MissionId)">
+                                        </button>
+                                            
+                                        <button class="landing-page-btn-img">
+                                            <img src="~/img/user.png"
+                                         alt="">
+                                        </button>
+                                    } 
+                                    
                                 </div>
 
                                 <div class="landing-page-bottom-center">@item.Theme</div>
@@ -235,12 +411,17 @@
                              src="~/img/Grow-Trees-On-the-path-to-environment-sustainability.png" alt="" />
                                 <div class="landing-page-top-right"><img src="~/img/pin.png" alt=""> @item.City</div>
                                 <div class="landing-page-bottom-right d-flex flex-column">
-                                    <button class="mb-2 landing-page-btn-img">
-                                        <img src="~/img/heart.png" alt="">
-                                    </button><button class="landing-page-btn-img">
-                                        <img src="~/img/user.png"
-                                     alt="">
-                                    </button>
+                                    @if(ViewBag.user != null)
+                                    {
+                                        <button class="mb-2 landing-page-btn-img" id="landing-page-add-to-fav-btn-card-@item.MissionId" onclick="changeAddtoFav(@item.MissionId)" >
+                                            <img src="~/img/heart.png" alt="" onload="LoadAddtoFav(@item.MissionId)">
+                                        </button>
+                                            
+                                        <button class="landing-page-btn-img">
+                                            <img src="~/img/user.png"
+                                         alt="">
+                                        </button>
+                                    } 
                                 </div>
 
                                 <div class="landing-page-bottom-center">@item.Theme</div>
@@ -372,6 +553,62 @@
 
         </div>
     </div>
+
+    <script>
+
+        function changeAddtoFav(id) {
+                
+                $.ajax({
+                    type: "GET",
+                    url: `https://localhost:44398/missions/${id}/addFavorite`,
+                    success: function (response) {
+                        
+                        var element = document.getElementById(`landing-page-add-to-fav-btn-card-${id}`);
+                        if(response=="Add"){
+                            element.innerHTML = `<img src="/img/heart-2.png" alt="">`
+                        } else {
+                            element.innerHTML = `<img src="/img/heart.png" alt="">`
+                        }
+                    },
+                    failure: function (response) {
+                        alert(response.responseText);
+                    },
+                    error: function (response) {
+                        alert(response.responseText);
+                    }
+                });
+            }
+
+            //$(window).on('load', function(){
+                
+            //    $.ajax({
+            //        type: "GET",
+            //        url: `https://localhost:44398/missions/5/checkFavorite`,
+            //        success: function (response) {
+            //            console.log(response)
+            //            var element = document.getElementById(`landing-page-add-to-fav-btn-card-5`);
+            //            if(response=="IN"){
+            //                element.innerHTML = `<img src="/img/heart-2.png" alt="">`                        
+            //            } else {
+            //                element.innerHTML = `<img src="/img/heart.png" alt="">`
+            //            }
+            //        },
+            //        failure: function (response) {
+            //            alert(response.responseText);
+            //        },
+            //        error: function (response) {
+            //            alert(response.responseText);
+            //        }
+            //    });
+            //});
+
+            
+
+         
+        
+            
+
+    </script>
     <script src="~/js/site.js">
     </script>
 
