@@ -345,10 +345,10 @@
                                 </p>
                                 <div class="d-flex justify-content-between landing-page-card-rating">
                                     <div>@item.Organization</div>
-                                    <div>
-                                        <img src="~/img/selected-star.png" alt="">
-                                        <img src="~/img/selected-star.png" alt="">
-                                        <img src="~/img/selected-star.png" alt="">
+                                    <div id="landing-page-rating-card-@item.MissionId">
+                                        <img src="~/img/star.png" alt="" onload="loadRating(@item.MissionId)">
+                                        <img src="~/img/star.png" alt="">
+                                        <img src="~/img/star.png" alt="">
                                         <img src="~/img/star.png" alt="">
                                         <img src="~/img/star.png" alt="">
                                     </div>
@@ -435,10 +435,10 @@
                                 </p>
                                 <div class="d-flex justify-content-between mb-2 landing-page-card-rating">
                                     <div>Tree Canada</div>
-                                    <div>
-                                        <img src="~/img/selected-star.png" alt="">
-                                        <img src="~/img/selected-star.png" alt="">
-                                        <img src="~/img/selected-star.png" alt="">
+                                    <div id="landing-page-rating-card-@item.MissionId">
+                                        <img src="~/img/star.png" alt="" onload="loadRating(@item.MissionId)">
+                                        <img src="~/img/star.png" alt="">
+                                        <img src="~/img/star.png" alt="">
                                         <img src="~/img/star.png" alt="">
                                         <img src="~/img/star.png" alt="">
                                     </div>
@@ -577,6 +577,49 @@
                         alert(response.responseText);
                     }
                 });
+            }
+
+            function showRating(response) {
+                var html = ""
+                var i=1
+                while(i<=parseInt(response.avg)) {
+                    html += `<img class="vol-page-main-card-star" src="/img/selected-star.png" alt="" onload="loadRating(${i})">`
+                    i++;
+                }
+                while(i<=5){
+                    html += `<img class="vol-page-main-card-star" src="/img/star.png" alt="" >`
+                    i++;
+                }
+                
+                return html
+            }
+
+            function loadRating(id){
+                $.ajax({
+                    type: "GET",
+                    url: `https://localhost:44398/missions/${id}/ratingGroup`,
+                    success: function (response) {
+
+                        var element = document.getElementById(`landing-page-rating-card-${id}`);
+                        if(response=="0"){
+                            element.innerHTML = `
+                                    <img src="~/img/star.png" alt="" onload="loadRating(${id})">
+                                        <img src="~/img/star.png" alt="">
+                                        <img src="~/img/star.png" alt="">
+                                        <img src="~/img/star.png" alt="">
+                                        <img src="~/img/star.png" alt="">`
+                        } else {
+                            element.innerHTML = showRating(response);
+                        }
+                    },
+                    failure: function (response) {
+                        alert(response.responseText);
+                    },
+                    error: function (response) {
+                        alert(response.responseText);
+                    }
+                });
+
             }
 
             //$(window).on('load', function(){

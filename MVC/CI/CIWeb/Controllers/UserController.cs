@@ -245,5 +245,15 @@ namespace CIWeb.Controllers
             await HttpContext.SignOutAsync(CookieAuthenticationDefaults.AuthenticationScheme);
             return RedirectToAction(nameof(HomeController.Index), "Home");
         }
+
+        // get all user for recommand to co-worker
+        [HttpGet("/users")]
+        public IActionResult Recommend(int id)
+        {
+            String? userMail = HttpContext.Session.GetString("userEmail");
+
+            var user = _db.Users.Where(u => u.Email != userMail);
+            return Json(new {user});
+        }
     }
 }
