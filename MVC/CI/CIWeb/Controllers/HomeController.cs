@@ -161,7 +161,7 @@ namespace CIWeb.Controllers
                     tempFinalList.AddRange(Missions);
                 }
                 FinalMissionsList = tempFinalList;
-                ViewBag.FSkills = Request.Query["FSkill"];
+                ViewBag.FSkills = Request.Query["FSkills"];
                 ViewBag.skillElements = skillElements;
             }
 

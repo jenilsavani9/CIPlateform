@@ -236,7 +236,7 @@
                     <li class="nav-item" role="presentation">
                         <button class="nav-link" id="profile-tab" data-bs-toggle="tab"
                             data-bs-target="#profile-tab-pane" type="button" role="tab" aria-controls="profile-tab-pane"
-                            aria-selected="false">Organization</button>
+                            aria-selected="false" onclick="loadOrganizationDetails()">Organization</button>
                     </li>
                     <li class="nav-item" role="presentation">
                         <button class="nav-link" id="contact-tab" data-bs-toggle="tab"
@@ -302,7 +302,7 @@
                     </div>
                     <div class="tab-pane fade" id="profile-tab-pane" role="tabpanel" aria-labelledby="profile-tab"
                         tabindex="0">
-                        <div class="mt-2">
+                        <div class="mt-2" id="vol-page-organization-load-data">
                             Lorem ipsum dolor, sit amet consectetur adipisicing elit. Aut neque voluptatum sed
                             possimus necessitatibus unde? Voluptate cum culpa illum sequi maiores numquam eveniet amet.
                             Commodi unde aspernatur molestiae voluptatum labore.
@@ -840,13 +840,25 @@
             function sendMailForRecommend(userId, missionId) {
                 var url = window.location.href;
                 var tempUrl = url.split("/")[4];
+
+                // display spinner for waiting 
+                var element = document.getElementById(`change-btn-when-clicked-${userId}`);
+                
+                element.innerHTML = `<button class="btn btn-dark" type="button" disabled>
+                                      <span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
+                                      Sending...
+                                    </button>`
+                  
+
                 $.ajax({
                     type: "POST",
                     url: `https://localhost:44398/recommand/${userId}/${missionId}`,
                     success: function (response) {
-
-                        var element = document.getElementById(`change-btn-when-clicked-${item.userId}`);
-                        element.innerHTML = `<button class="btn btn-success" onclick="sendMailForRecommend(${userId}, ${tempUrl})" disabled>Sent</button>`
+                        var element = document.getElementById(`change-btn-when-clicked-${userId}`);
+                        if(response.message == "sent") {
+                            element.innerHTML = `<button class="btn btn-success" onclick="sendMailForRecommend(${userId}, ${tempUrl})" disabled>Sent</button>`
+                        }
+                        
                     },
                     failure: function (response) {
                         alert(response.responseText);
@@ -895,7 +907,40 @@
             }
 
 
-            // recommend to user 
+            // load Organization Details
+            function loadOrganizationDetails() {
+                var url = window.location.href;
+                var tempUrl = url.split("/")[4];
+                $.ajax({
+                    type: "GET",
+                    url: `https://localhost:44398/mission/${tempUrl}/organization`,
+                    success: function (response) {
+
+                        var element = document.getElementById("vol-page-organization-load-data");
+                        element.innerHTML = `
+                                             <div>
+                                                <div class="vol-page-tab-content-heading">Name</div>
+                                                <div class="vol-page-tab-content-info">
+                                                    ${response.mission.organizationName}
+                                                </div>
+                                            </div>
+                                            <div>
+                                                <div class="vol-page-tab-content-heading">Details</div>
+                                                <div class="vol-page-tab-content-info">
+                                                    ${response.mission.organizationDetail}
+                                                </div>
+                                            </div>
+                                            `
+                    },
+                    failure: function (response) {
+                        alert(response.responseText);
+                    },
+                    error: function (response) {
+                        alert(response.responseText);
+                    }
+                });
+            }
+
             
 
     </script>

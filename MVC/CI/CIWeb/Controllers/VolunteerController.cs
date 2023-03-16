@@ -53,6 +53,9 @@ namespace CIWeb.Controllers
         [HttpGet("/missions/{id:int}")]
         public IActionResult Index1(int? id)
         {
+            String? userId = HttpContext.Session.GetString("userEmail");
+            var user = _db.Users.Where(e => e.Email == userId).SingleOrDefault();
+            ViewBag.user = user;
             return View();
         }
 
@@ -214,28 +217,54 @@ namespace CIWeb.Controllers
         public IActionResult Recommand(int id, int missionId)
         {
             var user = _db.Users.Where(u => u.UserId == id).FirstOrDefault();
-            // Send an email with the password reset link to the user's email address
-            var resetLink = "https://localhost:44398/missions/" + missionId.ToString();
-            // Send email to user with reset password link
-            // ...
-            var fromAddress = new MailAddress("jenilsavani8@gmail.com", "CI Platform");
-            var toAddress = new MailAddress(user.Email);
-            var subject = "Recommendation for Joining In Mission";
-            var body = $"Hi,<br /><br />Please click on the following link to Joining In Mission:<br /><br /><a href='{resetLink}'>{resetLink}</a>";
-            var message = new MailMessage(fromAddress, toAddress)
+            var checkRecommend = _db.MissionInvites.Where(u => u.FromUserId == user.UserId && u.MissionId == missionId && u.ToUserId == id).FirstOrDefault();
+            if(checkRecommend == null)
             {
-                Subject = subject,
-                Body = body,
-                IsBodyHtml = true
-            };
-            var smtpClient = new SmtpClient("smtp.gmail.com", 587)
+                _db.MissionInvites.Add(new MissionInvite { ToUserId = user.UserId, MissionId = missionId, FromUserId = user.UserId });
+                _db.SaveChanges();
+                // Send an email with the password reset link to the user's email address
+                var resetLink = "https://localhost:44398/missions/" + missionId.ToString();
+                // Send email to user with reset password link
+                // ...
+                var fromAddress = new MailAddress("jenilsavani8@gmail.com", "CI Platform");
+                var toAddress = new MailAddress(user.Email);
+                var subject = "Recommendation for Joining In Mission";
+                var body = $"Hi,<br /><br />Please click on the following link to Joining In Mission:<br /><br /><a href='{resetLink}'>{resetLink}</a>";
+                var message = new MailMessage(fromAddress, toAddress)
+                {
+                    Subject = subject,
+                    Body = body,
+                    IsBodyHtml = true
+                };
+                var smtpClient = new SmtpClient("smtp.gmail.com", 587)
+                {
+                    UseDefaultCredentials = false,
+                    Credentials = new NetworkCredential("jenilsavani8@gmail.com", "bwgnmdxyggqrylsu"),
+                    EnableSsl = true
+                };
+                smtpClient.Send(message);
+                return Json(new { message = "sent"});
+            } else
             {
-                UseDefaultCredentials = false,
-                Credentials = new NetworkCredential("jenilsavani8@gmail.com", "bwgnmdxyggqrylsu"),
-                EnableSsl = true
-            };
-            smtpClient.Send(message);
-            return Ok();
+                return Json(new { message = "sent" });
+            }
+
+        }
+
+        [HttpGet("/mission/{missionId:int}/organization")]
+        public IActionResult Organization(int missionId)
+        {
+            var mission = _db.Missions.Where(m => m.MissionId == missionId).FirstOrDefault();
+            if (mission == null)
+            {
+                return Json(new { message = "No Mission Found" });
+            }
+            else
+            {
+                return Json(new { mission });
+            }
+            
+
         }
 
     }

@@ -200,7 +200,7 @@
                     {
                         <span class="filter-list  ps-3 pe-1 me-2 " id=@countryElement.CountryId style="margin-top:2%;">
                             @countryElement.Name
-                            <button class="filter-close-button" id=@countryElement.CountryId onclick="removeCountryFilter('@countryElement.CountryId')">&times;</button>
+                            <button class="filter-close-button" id=@countryElement.CountryId onclick="removeFilter('@countryElement.CountryId', 'FCountries')">&times;</button>
                         </span>
                     }
 
@@ -212,7 +212,7 @@
                     {
                         <span class="filter-list  ps-3 pe-1 me-2 " id=@cityElement.CityId style="margin-top:2%;">
                             @cityElement.Name
-                            <button class="filter-close-button" id=@cityElement.CityId onclick="removeCityFilter('@cityElement.CityId')">&times;</button>
+                            <button class="filter-close-button" id=@cityElement.CityId onclick="removeFilter('@cityElement.CityId', 'FCities')">&times;</button>
                         </span>
                     }
                 }
@@ -223,7 +223,7 @@
                     {
                         <span class="filter-list  ps-3 pe-1 me-2 " id=@themeElement.MissionThemeId style="margin-top:2%;">
                             @themeElement.Title
-                            <button class="filter-close-button" id="clearbutton" onclick="removeThemeFilter('@themeElement.MissionThemeId')">&times;</button>
+                            <button class="filter-close-button" id="clearbutton" onclick="removeFilter('@themeElement.MissionThemeId', 'FThemes')">&times;</button>
                         </span>
                     }
                 }
@@ -234,7 +234,7 @@
                     {
                         <span class="filter-list  ps-3 pe-1 me-2 " id=@skillElement.SkillId style="margin-top:2%;">
                             @skillElement.SkillName
-                            <button class="filter-close-button" id="clearbutton" onclick="removeThemeFilter('@skillElement.SkillId')">&times;</button>
+                            <button class="filter-close-button" id="clearbutton" onclick="removeFilter('@skillElement.SkillId', 'FSkills')">&times;</button>
                         </span>
                     }
                 }
@@ -609,6 +609,9 @@
                                         <img src="~/img/star.png" alt="">
                                         <img src="~/img/star.png" alt="">`
                         } else {
+                            if(!element){
+                                var element = document.createElement("div");
+                            }
                             element.innerHTML = showRating(response);
                         }
                     },

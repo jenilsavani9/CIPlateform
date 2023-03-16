@@ -132,15 +132,32 @@
 
                             @foreach (var country in ViewBag.countries)
                             {
-                                <li>
-                                    <a class="dropdown-item dd-color" href="#">
-                                        <div class="form-check">
-                                            <input class="form-check-input" name="countries" type="checkbox" value=@country.Name
-                                               id="@country.CountryId" onchange="updateUrlForCountries()" />
-                                            <label class="form-check-label" for=@country.Name>@country.Name</label>
-                                        </div>
-                                    </a>
-                                </li>
+                                @if(ViewBag.FCountries is not null && Array.IndexOf(ViewBag.FCountries, (country.CountryId).ToString()) != -1)
+                                {
+                                    <li>
+                                        <a class="dropdown-item dd-color" href="#">
+                                            <div class="form-check">
+                                                <input class="form-check-input" name="countries" type="checkbox" value=@country.Name
+                                                   id="@country.CountryId" onclick="removeFilter('@country.CountryId', 'FCountries')" checked/>
+                                                <label class="form-check-label" for=@country.Name>@country.Name</label>
+                                            </div>
+                                        </a>
+                                    </li>
+                                } else
+                                {
+                                    <li>
+                                        <a class="dropdown-item dd-color" href="#">
+                                            <div class="form-check">
+                                                <input class="form-check-input" name="countries" type="checkbox" value=@country.Name
+                                                   id="@country.CountryId" onclick="updateUrl(@country.CountryId, 'FCountries')" />
+                                                <label class="form-check-label" for=@country.Name>@country.Name</label>
+                                            </div>
+                                        </a>
+                                    </li>
+                                }
+
+                                
+
                             }
 
 
@@ -162,19 +179,35 @@
                             }
                             @if (ViewBag.cities != null)
                             {
+                                
+
                                 @foreach (var city in ViewBag.cities)
                                 {
-                                    <li>
-                                        <a class="dropdown-item dd-color" href="#">
-                                            <div class="form-check">
-                                                <input class="form-check-input" name="cities" type="checkbox" value=@city.Name id=@city.CityId onchange="updateUrlForCities()" />
-                                                <label class="form-check-label" for=@city.CityId>@city.Name</label>
-                                            </div>
-                                        </a>
-                                    </li>
+                                    @if(ViewBag.FCities is not null && Array.IndexOf(ViewBag.FCities, (city.CityId).ToString()) != -1)
+                                    {
+                                        <li>
+                                            <a class="dropdown-item dd-color" href="#">
+                                                <div class="form-check">
+                                                    <input class="form-check-input" name="cities" type="checkbox" value=@city.Name id=@city.CityId onclick="removeFilter('@city.CityId', 'FCities')" checked/>
+                                                    <label class="form-check-label" for=@city.Name>@city.Name</label>
+                                                </div>
+                                            </a>
+                                        </li>
+                                    } else
+                                    {
+                                        <li>
+                                            <a class="dropdown-item dd-color" href="#">
+                                                <div class="form-check">
+                                                    <input class="form-check-input" name="cities" type="checkbox" value=@city.Name id=@city.CityId onclick="updateUrl(@city.CityId, 'FCities')"/>
+                                                    <label class="form-check-label" for=@city.Name>@city.Name</label>
+                                                </div>
+                                            </a>
+                                        </li>
+                                    }
                                 }
 
                             }
+
                         </ul>
                     </div>
                     <div class="dropdown ms-1 pe-5 ps-2 dropdownborderright">
@@ -185,16 +218,31 @@
                         <ul class="dropdown-menu dropdown-menu-start dropdownlist" aria-labelledby="navbarDropdownMenuLink" style="max-height: 300px; overflow-y: scroll; ">
                             @if (ViewBag.Themes != null)
                             {
+                                
+
                                 @foreach (var theme in ViewBag.Themes)
                                 {
-                                    <li>
-                                        <a class="dropdown-item dd-color" href="#">
-                                            <div class="form-check">
-                                                <input class="form-check-input" name="themes" type="checkbox" value=@theme.Title id=@theme.MissionThemeId onchange="updateUrlForThemes()" />
-                                                <label class="form-check-label" for=@theme.MissionThemeId>@theme.Title</label>
-                                            </div>
-                                        </a>
-                                    </li>
+                                    @if(ViewBag.FThemes is not null && Array.IndexOf(ViewBag.FThemes, (@theme.MissionThemeId).ToString()) != -1)
+                                    {
+                                        <li>
+                                            <a class="dropdown-item dd-color" href="#">
+                                                <div class="form-check">
+                                                    <input class="form-check-input" name="themes" type="checkbox" value=@theme.Title id=@theme.MissionThemeId onchange="removeFilter('@theme.MissionThemeId', 'FThemes')" checked/>
+                                                    <label class="form-check-label" for=@theme.MissionThemeId>@theme.Title</label>
+                                                </div>
+                                            </a>
+                                        </li>
+                                    } else
+                                    {
+                                        <li>
+                                            <a class="dropdown-item dd-color" href="#">
+                                                <div class="form-check">
+                                                    <input class="form-check-input" name="themes" type="checkbox" value=@theme.Title id=@theme.MissionThemeId onchange="updateUrl(@theme.MissionThemeId, 'FThemes')"/>
+                                                    <label class="form-check-label" for=@theme.MissionThemeId>@theme.Title</label>
+                                                </div>
+                                            </a>
+                                        </li>
+                                    }
                                 }
                             }
                         </ul>
@@ -207,16 +255,30 @@
                         <ul class="dropdown-menu dropdown-menu-start dropdownlist" aria-labelledby="navbarDropdownMenuLink" style="max-height: 300px; overflow-y: scroll; ">
                             @if (ViewBag.skills != null)
                             {
-                                @foreach (var theme in ViewBag.skills)
+
+                                @foreach (var skill in ViewBag.skills)
                                 {
-                                    <li>
-                                        <a class="dropdown-item dd-color" href="#">
-                                            <div class="form-check">
-                                                <input class="form-check-input" name="skills" type="checkbox" value=@theme.SkillName id=@theme.SkillId onchange="updateUrlForSkills()" />
-                                                <label class="form-check-label" for=@theme.SkillId>@theme.SkillName</label>
-                                            </div>
-                                        </a>
-                                    </li>
+                                    @if(ViewBag.FSkills is not null && Array.IndexOf(ViewBag.FSkills, (@skill.SkillId).ToString()) != -1)
+                                    {
+                                        <li>
+                                            <a class="dropdown-item dd-color" href="#">
+                                                <div class="form-check">
+                                                    <input class="form-check-input" name="skills" type="checkbox" value=@skill.SkillName id=@skill.SkillId onchange="removeFilter('@skill.SkillId', 'FSkills')" checked />
+                                                    <label class="form-check-label" for=@skill.SkillId>@skill.SkillName</label>
+                                                </div>
+                                            </a>
+                                        </li>
+                                    } else
+                                    {
+                                       <li>
+                                            <a class="dropdown-item dd-color" href="#">
+                                                <div class="form-check">
+                                                    <input class="form-check-input" name="skills" type="checkbox" value=@skill.SkillName id=@skill.SkillId onchange="updateUrl(@skill.SkillId, 'FSkills')" />
+                                                    <label class="form-check-label" for=@skill.SkillId>@skill.SkillName</label>
+                                                </div>
+                                            </a>
+                                        </li>
+                                    }
                                 }
                             }
                         </ul>
@@ -248,7 +310,7 @@
         document.getElementById("search-bar").addEventListener("input", function () {
             debounce(function () {
                 search(document.getElementById("search-bar").value);
-            }, 1500); // adjust the delay time as needed
+            }, 500); // adjust the delay time as needed
         });
 
         function search(query) {
@@ -268,21 +330,13 @@
 
             // Navigate to the updated URL
             window.location.href = url;
-
-
         }
 
-        function updateUrlForCountries() {
+        function updateUrl(id, target) {
             let url = window.location.href;
-
             let separator = url.indexOf('?') !== -1 ? '&' : '?';
-
-            const checkedIds = Array.from(document.querySelectorAll('input[name="countries"]:checked')).map(el => el.id);
-            /*    const queryString = new URLSearchParams({ countries: checkedIds });*/
-
-            url += separator + 'FCountries=' + checkedIds;
+            url += separator + target + "=" + id;
             window.location.href = url;
-            /*    window.history.replaceState(null, null, '?' + queryString.toString());*/
         }
 
         function updateUrlForSortby() {
@@ -293,47 +347,6 @@
             url = url.replace(/ACities=([^&]*)/, 'ACities=' + c);
             window.location.href = url;
         }
-
-
-        function updateUrlForCities() {
-            let url = window.location.href;
-
-            let separator = url.indexOf('?') !== -1 ? '&' : '?';
-
-            const checkedIds = Array.from(document.querySelectorAll('input[name="cities"]:checked')).map(el => el.id);
-            /*    const queryString = new URLSearchParams({ countries: checkedIds });*/
-
-            url += separator + 'FCities=' + checkedIds;
-            window.location.href = url;
-            /*    window.history.replaceState(null, null, '?' + queryString.toString());*/
-        }
-
-        function updateUrlForThemes() {
-            let url = window.location.href;
-
-            let separator = url.indexOf('?') !== -1 ? '&' : '?';
-
-            const checkedIds = Array.from(document.querySelectorAll('input[name="themes"]:checked')).map(el => el.id);
-            /*    const queryString = new URLSearchParams({ countries: checkedIds });*/
-
-            url += separator + 'FThemes=' + checkedIds;
-            window.location.href = url;
-            /*    window.history.replaceState(null, null, '?' + queryString.toString());*/
-        }
-
-        function updateUrlForSkills() {
-            let url = window.location.href;
-
-            let separator = url.indexOf('?') !== -1 ? '&' : '?';
-
-            const checkedIds = Array.from(document.querySelectorAll('input[name="skills"]:checked')).map(el => el.id);
-            /*    const queryString = new URLSearchParams({ countries: checkedIds });*/
-
-            url += separator + 'FSkills=' + checkedIds;
-            window.location.href = url;
-            /*    window.history.replaceState(null, null, '?' + queryString.toString());*/
-        }
-
 
         // Get the filters section element
         const filtersSection = document.querySelector('.filters-section');
@@ -358,8 +371,7 @@
 
         }
 
-
-        function removeCountryFilter(id) {
+        function removeFilter(id, target) {
 
             let url = window.location.href;
             const urlParts = url.split('?');
@@ -368,14 +380,14 @@
                 const baseUrl = urlParts.shift();
                 const queryString = urlParts.join('?');
                 const params = new URLSearchParams(queryString);
-
-                const countries = params.getAll('FCountries').filter(country => country !== id);
+                
+                const countries = params.getAll(target).filter(item => item !== id);
 
                 if (countries.length > 0) {
-                    params.delete('FCountries');
-                    countries.forEach(country => params.append('FCountries', country));
+                    params.delete(target);
+                    countries.forEach(item => params.append(target, item));
                 } else {
-                    params.delete('FCountries');
+                    params.delete(target);
                 }
 
                 const updatedParams = params.toString();
@@ -391,94 +403,7 @@
 
         }
 
-
-
-        function removeCityFilter(id) {
-            let url = window.location.href;
-            const urlParts = url.split('?');
-
-            if (urlParts.length >= 2) {
-                const baseUrl = urlParts.shift();
-                const queryString = urlParts.join('?');
-                const params = new URLSearchParams(queryString);
-
-                const countries = params.getAll('FCities').filter(country => country !== id);
-
-                if (countries.length > 0) {
-                    params.delete('FCities');
-                    countries.forEach(country => params.append('FCities', country));
-                } else {
-                    params.delete('FCities');
-                }
-
-                const updatedParams = params.toString();
-                if (updatedParams) {
-                    url = `${baseUrl}?${updatedParams}`;
-                } else {
-                    url = baseUrl;
-                }
-
-                window.location.href = url;
-            }
-        }
-
-        function removeThemeFilter(id) {
-            let url = window.location.href;
-            const urlParts = url.split('?');
-
-            if (urlParts.length >= 2) {
-                const baseUrl = urlParts.shift();
-                const queryString = urlParts.join('?');
-                const params = new URLSearchParams(queryString);
-
-                const countries = params.getAll('FThemes').filter(country => country !== id);
-
-                if (countries.length > 0) {
-                    params.delete('FThemes');
-                    countries.forEach(country => params.append('FThemes', country));
-                } else {
-                    params.delete('FThemes');
-                }
-
-                const updatedParams = params.toString();
-                if (updatedParams) {
-                    url = `${baseUrl}?${updatedParams}`;
-                } else {
-                    url = baseUrl;
-                }
-
-                window.location.href = url;
-            }
-        }
-
-        function removeSkillFilter(id) {
-            let url = window.location.href;
-            const urlParts = url.split('?');
-
-            if (urlParts.length >= 2) {
-                const baseUrl = urlParts.shift();
-                const queryString = urlParts.join('?');
-                const params = new URLSearchParams(queryString);
-
-                const countries = params.getAll('FSkills').filter(country => country !== id);
-
-                if (countries.length > 0) {
-                    params.delete('FSkills');
-                    countries.forEach(country => params.append('FSkills', country));
-                } else {
-                    params.delete('FSkills');
-                }
-
-                const updatedParams = params.toString();
-                if (updatedParams) {
-                    url = `${baseUrl}?${updatedParams}`;
-                } else {
-                    url = baseUrl;
-                }
-
-                window.location.href = url;
-            }
-        }
+        
 
 
     </script>
