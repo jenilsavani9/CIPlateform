@@ -7,15 +7,6 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Compile Remove="Interface\**" />
-    <Compile Remove="Repository\**" />
-    <EmbeddedResource Remove="Interface\**" />
-    <EmbeddedResource Remove="Repository\**" />
-    <None Remove="Interface\**" />
-    <None Remove="Repository\**" />
-  </ItemGroup>
-
-  <ItemGroup>
     <PackageReference Include="cloudscribe.Pagination.Models" Version="1.1.0" />
     <PackageReference Include="cloudscribe.Web.Pagination" Version="6.0.0" />
     <PackageReference Include="Microsoft.AspNetCore.Session" Version="2.2.0" />

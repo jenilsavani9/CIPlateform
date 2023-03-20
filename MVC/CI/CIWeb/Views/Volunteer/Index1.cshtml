@@ -22,6 +22,48 @@
             var subImage = document.getElementsByClassName(`vol-img-change-${imgCount}`);
             img.src = subImage[0].src
         }
+
+        function textareaValue() {
+             let getTextarea = document.getElementById("exampleFormControlTextarea1").value
+             var url = window.location.href;
+             var tempUrl = url.split("/")[4];
+             $.ajax({
+                type: "POST",
+                url: `https://localhost:44398/mission/${tempUrl}/comments`,
+                data: { "getTextarea": getTextarea },
+                success: function (response) {
+                    document.getElementById("exampleFormControlTextarea1").value = ""                                            
+                },
+                failure: function (response) {
+                    alert(response.responseText);
+                },
+                error: function (response) {
+                    alert(response.responseText);
+                }
+             });
+        }
+
+        function LoadAddtoFav(id) {
+                $.ajax({
+                    type: "GET",
+                    url: `https://localhost:44398/missions/${id}/checkFavorite`,
+                    success: function (response) {
+                        
+                        var element = document.getElementById(`vol-page-add-to-fav-btn-card-${id}`);
+                        if(response=="IN"){
+                            element.innerHTML = `<img src="/img/heart-2.png" alt="">`                        
+                        } else {
+                            element.innerHTML = `<img src="/img/heart.png" alt="">`
+                        }
+                    },
+                    failure: function (response) {
+                        alert(response.responseText);
+                    },
+                    error: function (response) {
+                        alert(response.responseText);
+                    }
+                });
+            }
     </script>
 
 </head>
@@ -142,7 +184,7 @@
                                 </div>
                                 <div><button class="btn vol-page-group-btn-btn shadow-none" data-bs-toggle="modal" data-bs-target="#exampleModal" onclick="loadUserInRecomand()"><img src="~/img/add1.png" alt=""> Recommend to a Co-Worker</button>
                                 
-                                    @*Modal*@
+                         
                                     <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                                       <div class="modal-dialog modal-dialog-centered">
                                         <div class="modal-content">
@@ -211,7 +253,7 @@
                             </div>
 
 
-                            <div class="mt-3 d-flex justify-content-center">
+                            <div class="mt-3 d-flex justify-content-center" id="vol-page-apply-mission-btn">
                                 <button class="btn vol-page-apply-btn shadow-none">Apply Now <img src="~/img/right-arrow.png"
                                         alt=""></button>
                             </div>
@@ -286,16 +328,9 @@
                         </div>
                         <div class="mb-2">
                             <div class="vol-page-tab-content-heading">Documents</div>
-                            <div class="d-flex">
-                                <div class="vol-page-tab-content-doc"><img src="~/img/pdf.png" alt=""
-                                        class="vol-page-tab-content-doc-info">lorem_ipsum.pdf
-                                </div>
-                                <div class="vol-page-tab-content-doc"><img src="~/img/pdf.png" alt=""
-                                        class="vol-page-tab-content-doc-info">lorem_ipsum.pdf
-                                </div>
-                                <div class="vol-page-tab-content-doc"><img src="~/img/pdf.png" alt=""
-                                        class="vol-page-tab-content-doc-info">lorem_ipsum.pdf
-                                </div>
+                            <div class="d-flex" id="vol-page-mission-document">
+                                
+                                
                             </div>
                         </div>
 
@@ -312,79 +347,17 @@
                         tabindex="0">
 
                         <div class="mt-3">
-                            <form>
+                            @*<form>*@
                                 <div class="mb-3">
-                                    <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"
+                                    <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" name="comment"
                                         placeholder="Enter Your Comments..."></textarea>
                                 </div>
-                                <button type="submit" class="btn vol-page-tab-comments-btn">Post Comment</button>
-                            </form>
+                                <button type="submit" class="btn vol-page-tab-comments-btn" onclick="textareaValue()" id="post-comment-btn">Post Comment</button>
+                            @*</form>*@
                         </div>
 
-                        <div>
-                            <div class="card my-2">
-                                <div class="card-body d-flex">
-                                    <div>
-                                        <img class="vol-page-tab-comments-img" src="~/img/volunteer1.png" alt="">
-                                    </div>
-                                    <div class="d-flex flex-column justify-content-around ms-3">
-                                        <div>
-                                            <div>Margret Walsh</div>
-                                            <div class="vol-page-tab-comment-time">Monday, October 21, 2019, 4:37PM
-                                            </div>
-                                        </div>
-                                        <div class="mt-2">Nice Mission Great opportunity for peoples.</div>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="card my-2">
-                                <div class="card-body d-flex">
-                                    <div>
-                                        <img class="vol-page-tab-comments-img" src="~/img/volunteer1.png" alt="">
-                                    </div>
-                                    <div class="d-flex flex-column justify-content-around ms-3">
-                                        <div>
-                                            <div>Margret Walsh</div>
-                                            <div class="vol-page-tab-comment-time">Monday, October 21, 2019, 4:37PM
-                                            </div>
-                                        </div>
-                                        <div class="mt-2">Nice Mission Great opportunity for peoples.</div>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="card my-2">
-                                <div class="card-body d-flex">
-                                    <div>
-                                        <img class="vol-page-tab-comments-img" src="~/img/volunteer1.png" alt="">
-                                    </div>
-                                    <div class="d-flex flex-column justify-content-around ms-3">
-                                        <div>
-                                            <div>Margret Walsh</div>
-                                            <div class="vol-page-tab-comment-time">Monday, October 21, 2019, 4:37PM
-                                            </div>
-                                        </div>
-                                        <div class="mt-2">Nice Mission Great opportunity for peoples.</div>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="card my-2">
-                                <div class="card-body d-flex">
-                                    <div>
-                                        <img class="vol-page-tab-comments-img" src="~/img/volunteer1.png" alt="">
-                                    </div>
-                                    <div class="d-flex flex-column justify-content-around ms-3">
-                                        <div>
-                                            <div>Margret Walsh</div>
-                                            <div class="vol-page-tab-comment-time">Monday, October 21, 2019, 4:37PM
-                                            </div>
-                                        </div>
-                                        <div class="mt-2">Nice Mission Great opportunity for peoples.</div>
-                                    </div>
-                                </div>
-                            </div>
+                        <div id="vol-page-comments-by-ajax" class="mb-5" style="overflow:auto; height:450px" >
+                            
                         </div>
 
                     </div>
@@ -399,11 +372,11 @@
                         Information
                     </div>
                     <hr>
-                    <div class="vol-sec-2-right-1st-sub"><span> Skills</span> <span class="vol-sec-2-right-1st-sub-sec">
+                    <div class="vol-sec-2-right-1st-sub row"><span class="col"> Skills</span> <span class="vol-sec-2-right-1st-sub-sec col-9" id="vol-page-mission-skills">
                             Cool, Easy
                             Going, Math, Computer</span></div>
                     <hr>
-                    <div class="vol-sec-2-right-1st-sub"><span>Days</span> <span class="vol-sec-2-right-1st-sub-sec">
+                    <div class="vol-sec-2-right-1st-sub row"><span class="col">Days</span> <span class="vol-sec-2-right-1st-sub-sec col-9" id="vol-page-mission-days">
                             Cool, Easy
                             Going, Math, Computer</span></div>
                     <hr>
@@ -420,53 +393,19 @@
                     <div class="vol-sec-2-right-2nd-header">Recent Volunteers</div>
                     <hr>
                     <div>
-                        <div class="row">
-                            <div class="col mt-1 text-center">
+                        <div class="row" id="vol-page-recent-volunteers">
+                            <div class="col-4 mt-1 text-center">
                                 <img class="vol-page-right-recent-vol-img" src="~/img/volunteer1.png" alt="">
                                 <div class="vol-page-right-2nd-vol-name">Andrew Johnson</div>
                             </div>
-                            <div class="col mt-1 text-center">
-                                <img class="vol-page-right-recent-vol-img" src="~/img/volunteer1.png" alt="">
-                                <div class="vol-page-right-2nd-vol-name">Andrew Johnson</div>
-                            </div>
-                            <div class="col mt-1 text-center">
-                                <img class="vol-page-right-recent-vol-img" src="~/img/volunteer1.png" alt="">
-                                <div class="vol-page-right-2nd-vol-name">Andrew Johnson</div>
-                            </div>
+                            
                         </div>
-                        <div class="row">
-                            <div class="col mt-1 text-center">
-                                <img class="vol-page-right-recent-vol-img" src="~/img/volunteer1.png" alt="">
-                                <div class="vol-page-right-2nd-vol-name">Andrew Johnson</div>
-                            </div>
-                            <div class="col mt-1 text-center">
-                                <img class="vol-page-right-recent-vol-img" src="~/img/volunteer1.png" alt="">
-                                <div class="vol-page-right-2nd-vol-name">Andrew Johnson</div>
-                            </div>
-                            <div class="col mt-1 text-center">
-                                <img class="vol-page-right-recent-vol-img" src="~/img/volunteer1.png" alt="">
-                                <div class="vol-page-right-2nd-vol-name">Andrew Johnson</div>
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col mt-1 text-center">
-                                <img class="vol-page-right-recent-vol-img" src="~/img/volunteer1.png" alt="">
-                                <div class="vol-page-right-2nd-vol-name">Andrew Johnson</div>
-                            </div>
-                            <div class="col mt-1 text-center">
-                                <img class="vol-page-right-recent-vol-img" src="~/img/volunteer1.png" alt="">
-                                <div class="vol-page-right-2nd-vol-name">Andrew Johnson</div>
-                            </div>
-                            <div class="col mt-1 text-center">
-                                <img class="vol-page-right-recent-vol-img" src="~/img/volunteer1.png" alt="">
-                                <div class="vol-page-right-2nd-vol-name">Andrew Johnson</div>
-                            </div>
-                        </div>
+                        
                         <hr>
                         <div class="row text-center">
-                            <div class="col-2"><button class="btn shadow-none"><img src="~/img/left.png" alt=""></button></div>
+                            <div class="col-2"><button class="btn shadow-none" onclick="paginationForRecentVolunteers(@ViewBag.RecentVolunttersPage-1)"><img src="~/img/left.png" alt=""></button></div>
                             <div class="col-8">Recent Volunteers</div>
-                            <div class="col-2"><button class="btn shadow-none"><img src="~/img/right-arrow1.png" alt=""></button>
+                            <div class="col-2"><button class="btn shadow-none" onclick="paginationForRecentVolunteers(@ViewBag.RecentVolunttersPage+1)"><img src="~/img/right-arrow1.png" alt=""></button>
                             </div>
                         </div>
                     </div>
@@ -495,7 +434,8 @@
            return res.volunteerMissionModel.relatedMission.map(item => {
                 
 
-                if(item.missionType == "Time" ){ 
+                if(item.missionType == "Time" )
+                { 
                     
                     return `<div class="item col-12 col-md-6 col-xl-4 mb-3">
                             <div class="thumbnail card">
@@ -504,8 +444,8 @@
                                          src="/img/Grow-Trees-On-the-path-to-environment-sustainability.png" alt="" />
                                     <div class="landing-page-top-right"><img src="/img/pin.png" alt=""> ${item.city.name}</div>
                                     <div class="landing-page-bottom-right d-flex flex-column"  style="bottom: 10px !important;">
-                                        <button class="mb-2 landing-page-btn-img">
-                                            <img src="/img/heart.png" alt="">
+                                        <button class="mb-2 landing-page-btn-img" id="vol-page-add-to-fav-btn-card-${item.missionId}" onclick="changeAddtoFavRelatedMission(${item.missionId})">
+                                            <img src="/img/heart.png" alt="" onload="LoadAddtoFav(${item.missionId})">
                                         </button><button class="landing-page-btn-img">
                                             <img src="/img/user.png"
                                                  alt="">
@@ -557,7 +497,7 @@
                                     </div>
                                     <div class="d-flex justify-content-center">
                                         <div class="">
-                                            <a class="btn mt-2 landing-page-apply-mission-btn" asp-controller="Volunteer" asp-action="Index">
+                                            <a class="btn mt-2 landing-page-apply-mission-btn" href="/missions/${item.missionId}">
                                                 Apply <img src="/img/right-arrow.png" alt="">
                                             </a>
                                         </div>
@@ -575,8 +515,8 @@
                                          src="/img/Grow-Trees-On-the-path-to-environment-sustainability.png" alt="" />
                                     <div class="landing-page-top-right"><img src="/img/pin.png" alt=""> ${item.city.name}</div>
                                     <div class="landing-page-bottom-right d-flex flex-column" style="bottom: 10px !important;">
-                                        <button class="mb-2 landing-page-btn-img">
-                                            <img src="/img/heart.png" alt="">
+                                        <button class="mb-2 landing-page-btn-img" id="vol-page-add-to-fav-btn-card-${item.missionId}" onclick="changeAddtoFavRelatedMission(${item.missionId})">
+                                            <img src="/img/heart.png" alt="" onload="LoadAddtoFav(${item.missionId})">
                                         </button><button class="landing-page-btn-img">
                                             <img src="/img/user.png"
                                                  alt="">
@@ -627,7 +567,7 @@
                                     </div>
                                     <div class="d-flex justify-content-center">
                                         <div class="">
-                                            <a class="btn mt-2 landing-page-apply-mission-btn" asp-controller="Volunteer" asp-action="Index">
+                                            <a class="btn mt-2 landing-page-apply-mission-btn" href="/missions/${item.missionId}">
                                                 Apply <img src="/img/right-arrow.png" alt="">
                                             </a>
                                         </div>
@@ -697,6 +637,29 @@
                 });
             }
 
+            function changeAddtoFavRelatedMission(id) {
+                
+                $.ajax({
+                    type: "GET",
+                    url: `https://localhost:44398/missions/${id}/addFavorite`,
+                    success: function (response) {
+                        
+                        var element = document.getElementById(`vol-page-add-to-fav-btn-card-${id}`);
+                        if(response=="Add"){
+                            element.innerHTML = `<img src="/img/heart-2.png" alt="">`
+                        } else {
+                            element.innerHTML = `<img src="/img/heart.png" alt="">`
+                        }
+                    },
+                    failure: function (response) {
+                        alert(response.responseText);
+                    },
+                    error: function (response) {
+                        alert(response.responseText);
+                    }
+                });
+            }
+
             function showRating(response) {
                 var html = ""
                 var i=1
@@ -724,6 +687,105 @@
                 }
                 html += ` By ${response.tUser} People`
                 return html
+            }
+
+            function loadComments(response) {
+
+                return response.comments.map(item => {
+
+                    return `
+                                <div class="card my-2">
+                                    <div class="card-body d-flex">
+                                        <div>
+                                            <img class="vol-page-tab-comments-img" src="/img/volunteer1.png" alt="">
+                                        </div>
+                                        <div class="d-flex flex-column justify-content-around ms-3">
+                                            <div>
+                                                <div>${item.user.firstName} ${item.user.lastName}</div>
+                                                <div class="vol-page-tab-comment-time">${item.createdAt.split("T")[0]} ${item.createdAt.split("T")[1]}
+                                                </div>
+                                            </div>
+                                            <div class="mt-2">${item.commentText}</div>
+                                        </div>
+                                    </div>
+                                </div>
+                            `
+                }).join("")
+            }
+
+            function applyMission(missionId) {
+                $.ajax({
+                    type: "POST",
+                    url: `https://localhost:44398/missions/${missionId}/apply`,
+                    success: function (response) {
+                        
+                        var element = document.getElementById("vol-page-apply-mission-btn");
+                        if(response.message=="Apply"){
+                            element.innerHTML = `<button class="btn vol-page-apply-btn shadow-none" style="color: green" disabled> Applied Successfully</button>`
+                        } else {
+                            element.innerHTML = `<button class="btn vol-page-apply-btn shadow-none" onclick="applyMission(${tempUrl})">Apply Now <img src="/img/right-arrow.png"
+                                        alt=""></button>`
+                        }
+                    },
+                    failure: function (response) {
+                        alert(response.responseText);
+                    },
+                    error: function (response) {
+                        alert(response.responseText);
+                    }
+                });
+            }
+
+            function getRecentVolunteers(response) {
+                return response.recentVolunteerModel.map(item => {
+                    return `
+                            <div class="col-4 mt-1 text-center">
+                                <img class="vol-page-right-recent-vol-img" src="/img/volunteer1.png" alt="">
+                                <div class="vol-page-right-2nd-vol-name">${item.user[0].firstName} ${item.user[0].lastName}</div>
+                            </div>`
+                }).join("")
+            }
+
+            function paginationForRecentVolunteers(page) {
+                var url = window.location.href;
+                var tempUrl = url.split("/")[4];
+                $.ajax({
+                    type: "GET",
+                    url: `https://localhost:44398/missions/${tempUrl}/getVolunteers?page=${page}`,
+                    success: function (response) {
+
+                        var element = document.getElementById("vol-page-recent-volunteers");
+                        if(response.recentVolunteerModel.length > 0) {
+                            element.innerHTML = getRecentVolunteers(response);
+                        } else {
+                            element.innerHTML = `<div class="text-center">No Recent Volunteers</div>`;
+                        }
+                        
+                    },
+                    failure: function (response) {
+                        alert(response.responseText);
+                    },
+                    error: function (response) {
+                        alert(response.responseText);
+                    }
+                });
+            }
+
+            function loadMissionSkills(response) {
+                
+                return response.missionSkills.map(item => item.skills.skillName).join(",")
+            }
+
+            function loadMissionDocument(response) {
+                return response.document.map(item => `
+                            
+                        <div class="vol-page-tab-content-doc">
+                            <a href="/document/${item.documentPath}" style="text-decoration: none; color: #000;">
+                                <img src="/img/pdf.png" alt="" class="vol-page-tab-content-doc-info me-2">${item.documentName}
+                            </a>
+                        </div>
+
+                `).join("")
             }
         
             $(window).on('load', function(){
@@ -834,6 +896,126 @@
                     }
                 });
 
+                $.ajax({
+                    type: "GET",
+                    url: `https://localhost:44398/mission/${tempUrl}/comments`,
+                    success: function (response) {
+
+                       var element = document.getElementById("vol-page-comments-by-ajax");
+                       if(response.comments.length > 0) {
+                           
+                           element.innerHTML = loadComments(response);
+                       } else {
+                           element.innerHTML = ""
+                       }
+                       
+                    },
+                    failure: function (response) {
+                        alert(response.responseText);
+                    },
+                    error: function (response) {
+                        alert(response.responseText);
+                    }
+                });
+
+                $.ajax({
+                    type: "GET",
+                    url: `https://localhost:44398/missions/${tempUrl}/getapply`,
+                    success: function (response) {
+
+                        var element = document.getElementById("vol-page-apply-mission-btn");
+                        if(response.message=="Apply"){
+                            element.innerHTML = `<button class="btn vol-page-apply-btn shadow-none" style="color: green" disabled> Applied Successfully</button>`
+                        } else {
+                            element.innerHTML = `<button class="btn vol-page-apply-btn shadow-none" onclick="applyMission(${tempUrl})">Apply Now <img src="/img/right-arrow.png"
+                                        alt=""></button>`
+                        }
+                    },
+                    failure: function (response) {
+                        alert(response.responseText);
+                    },
+                    error: function (response) {
+                        alert(response.responseText);
+                    }
+                });
+
+                $.ajax({
+                    type: "GET",
+                    url: `https://localhost:44398/missions/${tempUrl}/getVolunteers?page=0`,
+                    success: function (response) {
+
+                        var element = document.getElementById("vol-page-recent-volunteers");
+                        if(response.recentVolunteerModel.length > 0) {
+                            element.innerHTML = getRecentVolunteers(response);
+                        } else {
+                            element.innerHTML = `<div class="text-center">No Recent Volunteers</div>`;
+                        }
+                        
+                    },
+                    failure: function (response) {
+                        alert(response.responseText);
+                    },
+                    error: function (response) {
+                        alert(response.responseText);
+                    }
+                });
+
+                $.ajax({
+                    type: "GET",
+                    url: `https://localhost:44398/missions/${tempUrl}/getMissionSkill`,
+                    success: function (response) {
+
+
+                        var element = document.getElementById("vol-page-mission-skills");
+                        console.log(response.missionSkills.length)
+                        if(response.missionSkills.length > 0) 
+                        {
+                            element.innerHTML = loadMissionSkills(response);
+                        } else {
+                            element.innerHTML = "No Skill Required.";
+                        }
+                        
+                        var daysElement = document.getElementById("vol-page-mission-days");
+                        if(response.missionDays.length > 0) {
+                            daysElement.innerHTML = response.missionDays[0].days
+                        } else {
+                            daysElement.innerHTML = "No Skill Required.";
+                        }
+
+                    },
+                    failure: function (response) {
+                        alert(response.responseText);
+                    },
+                    error: function (response) {
+                        alert(response.responseText);
+                    }
+                });
+
+                $.ajax({
+                    type: "GET",
+                    url: `https://localhost:44398/missions/${tempUrl}/getMissionDocument`,
+                    success: function (response) {
+
+
+                        console.log(response)
+                        var element = document.getElementById("vol-page-mission-document");
+                        if(response.document.length > 0) {
+                            element.innerHTML = loadMissionDocument(response);
+                        } else {
+                            element.innerHTML = "No Document."
+                        }
+                        
+
+                    },
+                    failure: function (response) {
+                        alert(response.responseText);
+                    },
+                    error: function (response) {
+                        alert(response.responseText);
+                    }
+                });
+
+
 
             });
 
@@ -876,6 +1058,7 @@
                     return `
                         <div class="form-check d-flex justify-content-between">
                           <div>
+                              <img class="vol-page-right-recent-vol-img" src="/img/volunteer1.png" alt="" style="width: 40px; height:40px">
                               ${item.firstName} ${item.lastName}
                           </div>
                           <div id="change-btn-when-clicked-${item.userId}">
@@ -940,8 +1123,10 @@
                     }
                 });
             }
-
             
+
+        
+        
 
     </script>
     

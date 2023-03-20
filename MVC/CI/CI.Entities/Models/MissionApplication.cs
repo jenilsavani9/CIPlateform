@@ -11,7 +11,7 @@ public partial class MissionApplication
 
     public long UserId { get; set; }
 
-    public DateTime AppliedAt { get; set; }
+    public DateTime? AppliedAt { get; set; }
 
     public string ApprovalStatus { get; set; } = null!;
 

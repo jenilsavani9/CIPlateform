@@ -1,13 +1,12 @@
 ﻿using CI.Entities.Data;
 using CI.Entities.Models;
-using Microsoft.AspNetCore.Mvc;
-using System.Net.Mail;
-using System.Net;
-using Microsoft.AspNetCore.Authorization;
 using CIWeb.Models;
 using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Authentication.Cookies;
-using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
+using System.Net;
+using System.Net.Mail;
 
 namespace CIWeb.Controllers
 {
@@ -37,51 +36,51 @@ namespace CIWeb.Controllers
         [ValidateAntiForgeryToken]
         public IActionResult ForgotPassword(ForgotPassModel obj)
         {
-        
-                var user = _db.Users.FirstOrDefault(u => u.Email == obj.Email);
-                if (user == null)
-                {
-                    ViewBag.emailnotexist = "Email not exist please register first";
-                    return View();
-                }
 
-                // Generate a password reset token for the user
-                var token = Guid.NewGuid().ToString();
+            var user = _db.Users.FirstOrDefault(u => u.Email == obj.Email);
+            if (user == null)
+            {
+                ViewBag.emailnotexist = "Email not exist please register first";
+                return View();
+            }
 
-                // Store the token in the password resets table with the user's email
-                var passwordReset = new PasswordReset
-                {
-                    Email = obj.Email,
-                    Token = token
-                };
+            // Generate a password reset token for the user
+            var token = Guid.NewGuid().ToString();
 
-                _db.PasswordResets.Add(passwordReset);
-                _db.SaveChanges();
+            // Store the token in the password resets table with the user's email
+            var passwordReset = new PasswordReset
+            {
+                Email = obj.Email,
+                Token = token
+            };
 
-                // Send an email with the password reset link to the user's email address
-                var resetLink = Url.Action("ResetPassword", "User", new { email = obj.Email, token }, Request.Scheme);
-                // Send email to user with reset password link
-                // ...
-                var fromAddress = new MailAddress("jenilsavani8@gmail.com", "CI Platform");
-                var toAddress = new MailAddress(obj.Email);
-                var subject = "Password reset request";
-                var body = $"Hi,<br /><br />Please click on the following link to reset your password:<br /><br /><a href='{resetLink}'>{resetLink}</a>";
-                var message = new MailMessage(fromAddress, toAddress)
-                {
-                    Subject = subject,
-                    Body = body,
-                    IsBodyHtml = true
-                };
-                var smtpClient = new SmtpClient("smtp.gmail.com", 587)
-                {
-                    UseDefaultCredentials = false,
-                    Credentials = new NetworkCredential("jenilsavani8@gmail.com", "bwgnmdxyggqrylsu"),
-                    EnableSsl = true
-                };
-                smtpClient.Send(message);
+            _db.PasswordResets.Add(passwordReset);
+            _db.SaveChanges();
 
-                return RedirectToAction("ForgotPassword", "User");
-            
+            // Send an email with the password reset link to the user's email address
+            var resetLink = Url.Action("ResetPassword", "User", new { email = obj.Email, token }, Request.Scheme);
+            // Send email to user with reset password link
+            // ...
+            var fromAddress = new MailAddress("jenilsavani8@gmail.com", "CI Platform");
+            var toAddress = new MailAddress(obj.Email);
+            var subject = "Password reset request";
+            var body = $"Hi,<br /><br />Please click on the following link to reset your password:<br /><br /><a href='{resetLink}'>{resetLink}</a>";
+            var message = new MailMessage(fromAddress, toAddress)
+            {
+                Subject = subject,
+                Body = body,
+                IsBodyHtml = true
+            };
+            var smtpClient = new SmtpClient("smtp.gmail.com", 587)
+            {
+                UseDefaultCredentials = false,
+                Credentials = new NetworkCredential("jenilsavani8@gmail.com", "bwgnmdxyggqrylsu"),
+                EnableSsl = true
+            };
+            smtpClient.Send(message);
+
+            return RedirectToAction("ForgotPassword", "User");
+
         }
 
         [HttpGet]
@@ -107,26 +106,26 @@ namespace CIWeb.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult ResetPassword(ResetpassModel obj)
         {
-            
-                // Find the user by email
-                var user = _db.Users.FirstOrDefault(u => u.Email == obj.Email);
-                if (user == null)
-                {
-                    return RedirectToAction("ForgotPassword", "User");
-                }
 
-                // Find the password reset record by email and token
-                var passwordReset = _db.PasswordResets.FirstOrDefault(pr => pr.Email == obj.Email && pr.Token == obj.Token);
-                if (passwordReset == null)
-                {
-                    return RedirectToAction("Index", "Home");
-                }
+            // Find the user by email
+            var user = _db.Users.FirstOrDefault(u => u.Email == obj.Email);
+            if (user == null)
+            {
+                return RedirectToAction("ForgotPassword", "User");
+            }
 
-                // Update the user's password
-                user.Password = obj.Password;
-                _db.SaveChanges();
+            // Find the password reset record by email and token
+            var passwordReset = _db.PasswordResets.FirstOrDefault(pr => pr.Email == obj.Email && pr.Token == obj.Token);
+            if (passwordReset == null)
+            {
+                return RedirectToAction("Index", "Home");
+            }
 
-                return RedirectToAction("Login", "User");
+            // Update the user's password
+            user.Password = obj.Password;
+            _db.SaveChanges();
+
+            return RedirectToAction("Login", "User");
         }
 
 
@@ -253,7 +252,7 @@ namespace CIWeb.Controllers
             String? userMail = HttpContext.Session.GetString("userEmail");
 
             var user = _db.Users.Where(u => u.Email != userMail);
-            return Json(new {user});
+            return Json(new { user });
         }
     }
 }

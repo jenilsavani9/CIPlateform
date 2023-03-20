@@ -11,13 +11,15 @@ public partial class Comment
 
     public long MissionId { get; set; }
 
-    public string ApprovalStatus { get; set; } = null!;
+    public string? ApprovalStatus { get; set; }
 
     public DateTime CreatedAt { get; set; }
 
     public DateTime? UpdatedAt { get; set; }
 
     public DateTime? DeletedAt { get; set; }
+
+    public string? CommentText { get; set; }
 
     public virtual Mission Mission { get; set; } = null!;
 

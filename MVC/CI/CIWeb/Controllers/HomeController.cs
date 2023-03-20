@@ -2,11 +2,7 @@
 using CI.Entities.Models;
 using CIWeb.Models;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.Data.SqlClient;
-using Microsoft.EntityFrameworkCore;
 using System.Diagnostics;
-using System.Text.Json;
-using System.Text.Json.Serialization;
 using System.Web;
 
 namespace CIWeb.Controllers
@@ -41,7 +37,7 @@ namespace CIWeb.Controllers
         private readonly CiContext _db;
 
 
-        public HomeController(ILogger<HomeController> logger, CiContext db) 
+        public HomeController(ILogger<HomeController> logger, CiContext db)
         {
             _logger = logger;
             _db = db;
@@ -52,7 +48,7 @@ namespace CIWeb.Controllers
 
             // Check if user is logged in
             String? userId = HttpContext.Session.GetString("userEmail");
-            
+
             var user = _db.Users.Where(e => e.Email == userId).SingleOrDefault();
             ViewBag.user = user;
             ViewBag.Request = Request;
@@ -347,7 +343,7 @@ namespace CIWeb.Controllers
             return View();
         }
 
-        
+
 
         // TESTING ENDPOINTS
         public IActionResult Test(string? searchTerm)
@@ -461,7 +457,7 @@ namespace CIWeb.Controllers
             {
                 mission = from m in _db.Missions.OrderByDescending(o => o.StartDate)
                           select new
-                            {
+                          {
                               title = m.Title,
                               desc = m.Description,
                               startdate = m.StartDate,
