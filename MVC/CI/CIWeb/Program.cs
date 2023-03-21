@@ -1,4 +1,6 @@
 using CI.Entities.Data;
+using CI.Repository.Interface;
+using CI.Repository.Repository;
 using Microsoft.EntityFrameworkCore;
 using System.Text.Json.Serialization;
 
@@ -9,6 +11,8 @@ builder.Services.AddControllersWithViews();
 builder.Services.AddDbContext<CiContext>(options => options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
 builder.Services.AddSession();
 builder.Services.AddCloudscribePagination();
+
+//builder.Services.AddScoped<IStoryRepository, StoryRepository>();
 
 builder.Services.AddControllers().AddJsonOptions(options =>
 {

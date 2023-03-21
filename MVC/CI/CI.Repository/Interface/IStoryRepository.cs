@@ -1,4 +1,7 @@
-﻿using System;
+﻿using CI.Entities.Models;
+using CI.Entities.ViewModels;
+using Microsoft.AspNetCore.Mvc;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -6,7 +9,8 @@ using System.Threading.Tasks;
 
 namespace CI.Repository.Interface
 {
-    internal interface IStoryRepository
+    public interface IStoryRepository
     {
+        public JsonResult GetStory(string page);
     }
 }

@@ -16,39 +16,6 @@ namespace CIWeb.Controllers
             _db = db;
         }
 
-
-        //[HttpGet("/missions/{id:int}")]
-        //public IActionResult Index(int? id)
-        //{
-        //    String? userId = HttpContext.Session.GetString("userEmail");
-
-        //    var user = _db.Users.Where(e => e.Email == userId).SingleOrDefault();
-        //    ViewBag.user = user;
-
-        //    int? missionId = id;
-        //    Mission = _db.Missions.Where(m => m.MissionId == missionId).ToList();
-        //    var city = _db.Cities.Where(c => c.CityId == Mission[0].CityId).ToList();
-        //    var country = _db.Countries.Where(c => c.CountryId == city[0].CountryId).ToList();
-        //    var theme = _db.MissionThemes.Where(c => c.MissionThemeId == Mission[0].ThemeId).ToList();
-        //    ViewBag.mission = Mission;
-        //    ViewBag.city = city;
-        //    ViewBag.country = country;
-        //    ViewBag.theme = theme;
-
-        //    // related missions
-        //    var relatedMission = _db.Missions.Where(m => m.CityId == Mission[0].CityId).Take(3).ToList();
-        //    if(relatedMission.Count < 3)
-        //    {
-        //        relatedMission = _db.Missions.Where(m => m.CountryId == Mission[0].CountryId).Take(3).ToList();
-        //    }
-        //    if (relatedMission.Count < 3)
-        //    {
-        //        relatedMission = _db.Missions.Where(m => m.ThemeId == Mission[0].ThemeId).Take(3).ToList();
-        //    }
-        //    ViewBag.relatedMission = relatedMission;
-        //    return View();
-        //}
-
         [HttpGet("/missions/{id:int}")]
         public IActionResult Index1(int? id)
         {
@@ -121,8 +88,6 @@ namespace CIWeb.Controllers
             {
                 return BadRequest();
             }
-            
-
         }
 
         [HttpGet("/missions/{id:int}/checkFavorite")]
@@ -181,8 +146,6 @@ namespace CIWeb.Controllers
             {
                 return BadRequest();
             }
-            
-
         }
 
         [HttpGet("/missions/{id:int}/checkrating")]
@@ -300,8 +263,6 @@ namespace CIWeb.Controllers
             {
                 return Json(new { mission });
             }
-
-
         }
 
         [HttpGet("/mission/{missionId:int}/comments")]
@@ -312,15 +273,13 @@ namespace CIWeb.Controllers
 
             if (user != null)
             {
-                var comments = _db.Comments.Where(c => c.MissionId == missionId).ToList();
+                var comments = _db.Comments.Where(c => c.MissionId == missionId && c.ApprovalStatus != "pending").ToList();
                 return Json(new { comments });
             }
             else
             {
                 return BadRequest();
             }
-
-
         }
 
         [HttpPost("/mission/{missionId:int}/comments")]

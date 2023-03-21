@@ -4,6 +4,103 @@
     "C:\\Users\\pci114\\Desktop\\CIPlateform\\MVC\\CI\\CI.Repository\\CI.Repository.csproj": {}
   },
   "projects": {
+    "C:\\Users\\pci114\\Desktop\\CIPlateform\\MVC\\CI\\CI.Entities\\CI.Entities.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Users\\pci114\\Desktop\\CIPlateform\\MVC\\CI\\CI.Entities\\CI.Entities.csproj",
+        "projectName": "CI.Entities",
+        "projectPath": "C:\\Users\\pci114\\Desktop\\CIPlateform\\MVC\\CI\\CI.Entities\\CI.Entities.csproj",
+        "packagesPath": "C:\\Users\\pci114\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\pci114\\Desktop\\CIPlateform\\MVC\\CI\\CI.Entities\\obj\\",
+        "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages",
+          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+        ],
+        "configFilePaths": [
+          "C:\\Users\\pci114\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net6.0"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net6.0": {
+            "targetAlias": "net6.0",
+            "projectReferences": {}
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net6.0": {
+          "targetAlias": "net6.0",
+          "dependencies": {
+            "Microsoft.AspNetCore.Session": {
+              "target": "Package",
+              "version": "[2.2.0, )"
+            },
+            "Microsoft.EntityFrameworkCore": {
+              "target": "Package",
+              "version": "[7.0.3, )"
+            },
+            "Microsoft.EntityFrameworkCore.Design": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[7.0.3, )"
+            },
+            "Microsoft.EntityFrameworkCore.SqlServer": {
+              "target": "Package",
+              "version": "[7.0.3, )"
+            },
+            "Microsoft.EntityFrameworkCore.Tools": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[7.0.3, )"
+            },
+            "Newtonsoft.Json": {
+              "target": "Package",
+              "version": "[13.0.3, )"
+            },
+            "cloudscribe.Pagination.Models": {
+              "target": "Package",
+              "version": "[1.1.0, )"
+            },
+            "cloudscribe.Web.Pagination": {
+              "target": "Package",
+              "version": "[6.0.0, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.100\\RuntimeIdentifierGraph.json"
+        }
+      }
+    },
     "C:\\Users\\pci114\\Desktop\\CIPlateform\\MVC\\CI\\CI.Repository\\CI.Repository.csproj": {
       "version": "1.0.0",
       "restore": {
@@ -32,7 +129,11 @@
         "frameworks": {
           "net6.0": {
             "targetAlias": "net6.0",
-            "projectReferences": {}
+            "projectReferences": {
+              "C:\\Users\\pci114\\Desktop\\CIPlateform\\MVC\\CI\\CI.Entities\\CI.Entities.csproj": {
+                "projectPath": "C:\\Users\\pci114\\Desktop\\CIPlateform\\MVC\\CI\\CI.Entities\\CI.Entities.csproj"
+              }
+            }
           }
         },
         "warningProperties": {

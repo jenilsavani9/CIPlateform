@@ -8,6 +8,7 @@
     ".NETCoreApp,Version=v6.0": {
       "CI.Repository/1.0.0": {
         "dependencies": {
+          "CI.Entities": "1.0.0",
           "Microsoft.AspNetCore.Session": "2.2.0",
           "Microsoft.EntityFrameworkCore": "7.0.3",
           "Microsoft.EntityFrameworkCore.Design": "7.0.3",
@@ -922,6 +923,19 @@
             "fileVersion": "5.0.20.51904"
           }
         }
+      },
+      "CI.Entities/1.0.0": {
+        "dependencies": {
+          "Microsoft.AspNetCore.Session": "2.2.0",
+          "Microsoft.EntityFrameworkCore": "7.0.3",
+          "Microsoft.EntityFrameworkCore.SqlServer": "7.0.3",
+          "Newtonsoft.Json": "13.0.3",
+          "cloudscribe.Pagination.Models": "1.1.0",
+          "cloudscribe.Web.Pagination": "6.0.0"
+        },
+        "runtime": {
+          "CI.Entities.dll": {}
+        }
       }
     }
   },
@@ -1602,6 +1616,11 @@
       "sha512": "sha512-c1ho9WU9ZxMZawML+ssPKZfdnrg/OjR3pe0m9v8230z3acqphwvPJqzAkH54xRYm5ntZHGG1EPP3sux9H3qSPg==",
       "path": "system.windows.extensions/5.0.0",
       "hashPath": "system.windows.extensions.5.0.0.nupkg.sha512"
+    },
+    "CI.Entities/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
     }
   }
 }

@@ -1343,6 +1343,24 @@
             "rid": "win"
           }
         }
+      },
+      "CI.Entities/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v6.0",
+        "dependencies": {
+          "Microsoft.AspNetCore.Session": "2.2.0",
+          "Microsoft.EntityFrameworkCore": "7.0.3",
+          "Microsoft.EntityFrameworkCore.SqlServer": "7.0.3",
+          "Newtonsoft.Json": "13.0.3",
+          "cloudscribe.Pagination.Models": "1.1.0",
+          "cloudscribe.Web.Pagination": "6.0.0"
+        },
+        "compile": {
+          "bin/placeholder/CI.Entities.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/CI.Entities.dll": {}
+        }
       }
     }
   },
@@ -4714,10 +4732,16 @@
         "useSharedDesignerContext.txt",
         "version.txt"
       ]
+    },
+    "CI.Entities/1.0.0": {
+      "type": "project",
+      "path": "../CI.Entities/CI.Entities.csproj",
+      "msbuildProject": "../CI.Entities/CI.Entities.csproj"
     }
   },
   "projectFileDependencyGroups": {
     "net6.0": [
+      "CI.Entities >= 1.0.0",
       "Microsoft.AspNetCore.Session >= 2.2.0",
       "Microsoft.EntityFrameworkCore >= 7.0.3",
       "Microsoft.EntityFrameworkCore.Design >= 7.0.3",
@@ -4761,7 +4785,11 @@
       "frameworks": {
         "net6.0": {
           "targetAlias": "net6.0",
-          "projectReferences": {}
+          "projectReferences": {
+            "C:\\Users\\pci114\\Desktop\\CIPlateform\\MVC\\CI\\CI.Entities\\CI.Entities.csproj": {
+              "projectPath": "C:\\Users\\pci114\\Desktop\\CIPlateform\\MVC\\CI\\CI.Entities\\CI.Entities.csproj"
+            }
+          }
         }
       },
       "warningProperties": {

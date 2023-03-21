@@ -237,13 +237,7 @@ namespace CIWeb.Controllers
             return View();
         }
 
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Logout()
-        {
-            await HttpContext.SignOutAsync(CookieAuthenticationDefaults.AuthenticationScheme);
-            return RedirectToAction(nameof(HomeController.Index), "Home");
-        }
+        
 
         // get all user for recommand to co-worker
         [HttpGet("/users")]

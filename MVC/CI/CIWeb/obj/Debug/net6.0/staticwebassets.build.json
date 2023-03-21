@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "NinkchLRwp8a3OQbEku9GH+eIne11y05+pi6yjMd+yg=",
+  "Hash": "SslIzaG3XlqXZ8BBZeTPOcI20zzy/Gv+Pu7rXIu8EOw=",
   "Source": "CIWeb",
   "BasePath": "_content/CIWeb",
   "Mode": "Default",
@@ -2191,6 +2191,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\js\\site.js"
+    },
+    {
+      "Identity": "C:\\Users\\pci114\\Desktop\\CIPlateform\\MVC\\CI\\CIWeb\\wwwroot\\js\\Story.js",
+      "SourceId": "CIWeb",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\pci114\\Desktop\\CIPlateform\\MVC\\CI\\CIWeb\\wwwroot\\",
+      "BasePath": "_content/CIWeb",
+      "RelativePath": "js/Story.js",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\js\\Story.js"
     },
     {
       "Identity": "C:\\Users\\pci114\\Desktop\\CIPlateform\\MVC\\CI\\CIWeb\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.css",
