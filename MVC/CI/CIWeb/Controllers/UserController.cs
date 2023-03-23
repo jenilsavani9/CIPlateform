@@ -1,6 +1,7 @@
 ﻿using CI.Entities.Data;
 using CI.Entities.Models;
-using CIWeb.Models;
+using CI.Entities.ViewModels;
+using CI.Repository.Interface;
 using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Authorization;
@@ -13,13 +14,12 @@ namespace CIWeb.Controllers
     public class UserController : Controller
     {
         private readonly ILogger<HomeController> _logger;
-        private readonly CiContext _db;
+        private readonly IUserRepository _repository;
 
-
-        public UserController(ILogger<HomeController> logger, CiContext db)
+        public UserController(ILogger<HomeController> logger, IUserRepository repository)
         {
             _logger = logger;
-            _db = db;
+            _repository = repository;
         }
         public IActionResult Index()
         {
@@ -37,47 +37,14 @@ namespace CIWeb.Controllers
         public IActionResult ForgotPassword(ForgotPassModel obj)
         {
 
-            var user = _db.Users.FirstOrDefault(u => u.Email == obj.Email);
+            var user = _repository.GetUser(obj.Email);
             if (user == null)
             {
                 ViewBag.emailnotexist = "Email not exist please register first";
                 return View();
             }
 
-            // Generate a password reset token for the user
-            var token = Guid.NewGuid().ToString();
-
-            // Store the token in the password resets table with the user's email
-            var passwordReset = new PasswordReset
-            {
-                Email = obj.Email,
-                Token = token
-            };
-
-            _db.PasswordResets.Add(passwordReset);
-            _db.SaveChanges();
-
-            // Send an email with the password reset link to the user's email address
-            var resetLink = Url.Action("ResetPassword", "User", new { email = obj.Email, token }, Request.Scheme);
-            // Send email to user with reset password link
-            // ...
-            var fromAddress = new MailAddress("jenilsavani8@gmail.com", "CI Platform");
-            var toAddress = new MailAddress(obj.Email);
-            var subject = "Password reset request";
-            var body = $"Hi,<br /><br />Please click on the following link to reset your password:<br /><br /><a href='{resetLink}'>{resetLink}</a>";
-            var message = new MailMessage(fromAddress, toAddress)
-            {
-                Subject = subject,
-                Body = body,
-                IsBodyHtml = true
-            };
-            var smtpClient = new SmtpClient("smtp.gmail.com", 587)
-            {
-                UseDefaultCredentials = false,
-                Credentials = new NetworkCredential("jenilsavani8@gmail.com", "bwgnmdxyggqrylsu"),
-                EnableSsl = true
-            };
-            smtpClient.Send(message);
+            _repository.SendMail(user);
 
             return RedirectToAction("ForgotPassword", "User");
 
@@ -87,7 +54,7 @@ namespace CIWeb.Controllers
         [AllowAnonymous]
         public IActionResult ResetPassword(string email, string token)
         {
-            var passwordReset = _db.PasswordResets.FirstOrDefault(pr => pr.Email == email && pr.Token == token);
+            var passwordReset = _repository.GetResetPassword(email, token);
             if (passwordReset == null)
             {
                 return RedirectToAction("Index", "Home");
@@ -104,26 +71,21 @@ namespace CIWeb.Controllers
         [HttpPost]
         [AllowAnonymous]
         [ValidateAntiForgeryToken]
-        public ActionResult ResetPassword(ResetpassModel obj)
+        public ActionResult ResetPassword(ResetPassModel obj)
         {
 
             // Find the user by email
-            var user = _db.Users.FirstOrDefault(u => u.Email == obj.Email);
+            var user = _repository.GetUser(obj.Email);
             if (user == null)
             {
                 return RedirectToAction("ForgotPassword", "User");
             }
 
-            // Find the password reset record by email and token
-            var passwordReset = _db.PasswordResets.FirstOrDefault(pr => pr.Email == obj.Email && pr.Token == obj.Token);
-            if (passwordReset == null)
+            bool IsPasswordReset = _repository.PostResetPassword(obj);
+            if (!IsPasswordReset)
             {
                 return RedirectToAction("Index", "Home");
             }
-
-            // Update the user's password
-            user.Password = obj.Password;
-            _db.SaveChanges();
 
             return RedirectToAction("Login", "User");
         }
@@ -160,7 +122,7 @@ namespace CIWeb.Controllers
                 ModelState.AddModelError("LastName", "LastName Is required!");
                 return View();
             }
-            if (obj.PhoneNumber == null)
+            if (obj?.PhoneNumber == null)
             {
                 ModelState.AddModelError("PhoneNumber", "PhoneNumber Is required!");
                 return View();
@@ -175,20 +137,17 @@ namespace CIWeb.Controllers
                 ModelState.AddModelError("Password", "Password Is required!");
                 return View();
             }
-            //if (obj.Password != obj.Password1)
-            //{
-            //    ModelState.AddModelError("Password", "Password does Not Match!");
-            //    return View();
-            //}
 
-            User user = _db.Users.FirstOrDefault(u => u.Email == obj.Email);
+
+            User? user = _repository.GetUser(obj.Email);
             if (user != null)
             {
                 ModelState.AddModelError("Email", "Email Already Registerd!");
                 return View();
             }
-            _db.Users.Add(obj);
-            _db.SaveChanges();
+
+            _repository.SaveUser(obj);
+
             return RedirectToAction("Index", "Home");
         }
 
@@ -213,9 +172,10 @@ namespace CIWeb.Controllers
                 ModelState.AddModelError("Password", "Password Is required!");
                 return View();
             }
-            User user = _db.Users.FirstOrDefault(u => u.Email == obj.Email);
-            var username = obj.Email.Split("@")[0];
-            if (user != null)
+
+            User? user = _repository.GetUser(obj.Email);
+
+            if (user != null && user.FirstName!=null)
             {
                 if (user.Password == obj.Password)
                 {
@@ -234,7 +194,6 @@ namespace CIWeb.Controllers
                 ModelState.AddModelError("Email", "User Not found!");
                 return View();
             }
-            return View();
         }
 
         
@@ -245,7 +204,7 @@ namespace CIWeb.Controllers
         {
             String? userMail = HttpContext.Session.GetString("userEmail");
 
-            var user = _db.Users.Where(u => u.Email != userMail);
+            var user = _repository.Recommend(userMail);
             return Json(new { user });
         }
     }

@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "SslIzaG3XlqXZ8BBZeTPOcI20zzy/Gv+Pu7rXIu8EOw=",
+  "Hash": "ym0sT/OOme7J0KQuBksbynkuFqQ+pQOvgXAGrq2evbM=",
   "Source": "CIWeb",
   "BasePath": "_content/CIWeb",
   "Mode": "Default",
@@ -151,6 +151,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\css\\PageNotFound.css"
+    },
+    {
+      "Identity": "C:\\Users\\pci114\\Desktop\\CIPlateform\\MVC\\CI\\CIWeb\\wwwroot\\css\\ShareStory.css",
+      "SourceId": "CIWeb",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\pci114\\Desktop\\CIPlateform\\MVC\\CI\\CIWeb\\wwwroot\\",
+      "BasePath": "_content/CIWeb",
+      "RelativePath": "css/ShareStory.css",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\css\\ShareStory.css"
     },
     {
       "Identity": "C:\\Users\\pci114\\Desktop\\CIPlateform\\MVC\\CI\\CIWeb\\wwwroot\\css\\site.css",

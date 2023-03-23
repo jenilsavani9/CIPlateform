@@ -23,10 +23,6 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/pci114/Desktop/CIPlateform/MVC/CI/CIWeb/Views/Home/Index1.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxJbmRleDEuY3NodG1s
-build_metadata.AdditionalFiles.CssScope = 
-
 [C:/Users/pci114/Desktop/CIPlateform/MVC/CI/CIWeb/Views/Home/NoMission.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxOb01pc3Npb24uY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
@@ -43,10 +39,6 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9OYXZiYXIuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/pci114/Desktop/CIPlateform/MVC/CI/CIWeb/Views/Shared/_Navbar1.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9OYXZiYXIxLmNzaHRtbA==
-build_metadata.AdditionalFiles.CssScope = 
-
 [C:/Users/pci114/Desktop/CIPlateform/MVC/CI/CIWeb/Views/Shared/_TopNavBar.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9Ub3BOYXZCYXIuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
@@ -57,6 +49,10 @@ build_metadata.AdditionalFiles.CssScope =
 
 [C:/Users/pci114/Desktop/CIPlateform/MVC/CI/CIWeb/Views/Story/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU3RvcnlcSW5kZXguY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/pci114/Desktop/CIPlateform/MVC/CI/CIWeb/Views/Story/ShareStory.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU3RvcnlcU2hhcmVTdG9yeS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/pci114/Desktop/CIPlateform/MVC/CI/CIWeb/Views/User/ForgotPassword.cshtml]
@@ -81,10 +77,6 @@ build_metadata.AdditionalFiles.CssScope =
 
 [C:/Users/pci114/Desktop/CIPlateform/MVC/CI/CIWeb/Views/Volunteer/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVm9sdW50ZWVyXEluZGV4LmNzaHRtbA==
-build_metadata.AdditionalFiles.CssScope = 
-
-[C:/Users/pci114/Desktop/CIPlateform/MVC/CI/CIWeb/Views/Volunteer/Index1.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVm9sdW50ZWVyXEluZGV4MS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/pci114/Desktop/CIPlateform/MVC/CI/CIWeb/Views/_ViewImports.cshtml]

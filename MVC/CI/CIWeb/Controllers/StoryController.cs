@@ -36,7 +36,7 @@ namespace CIWeb.Controllers
             ViewBag.countryElements = Country;
 
             return View();
-          
+
         }
 
         [HttpGet("/api/story")]
@@ -61,5 +61,9 @@ namespace CIWeb.Controllers
 
         }
 
+        public IActionResult ShareStory(string page)
+        {
+            return View();
+        }
     }
 }

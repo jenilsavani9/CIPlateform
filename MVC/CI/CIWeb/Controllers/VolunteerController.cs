@@ -21,7 +21,7 @@ namespace CIWeb.Controllers
         }
 
         [HttpGet("/missions/{id:int}")]
-        public IActionResult Index1(int? id)
+        public IActionResult Index(int? id)
         {
             String? userId = HttpContext.Session.GetString("userEmail");
             var user = _db.Users.Where(e => e.Email == userId).SingleOrDefault();

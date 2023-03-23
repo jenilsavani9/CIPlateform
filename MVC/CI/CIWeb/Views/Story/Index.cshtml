@@ -1,5 +1,5 @@
 ﻿@{
-    Layout = "_Navbar";
+    Layout = "_TopNavBar";
     ViewData["Title"] = "Stories";
 }
 
@@ -21,7 +21,7 @@
 <body>
 
     <div>
-        <div class="story-page-top">
+        <div class="story-page-top" style="margin-top: 50px">
             <img class=" story-page-top-img" src="./img/Grow-Trees-On-the-path-to-environment-sustainability-login.png"
                 alt="">
             <div class="story-page-top-header-down d-flex flex-column justify-content-center text-center">
@@ -35,8 +35,8 @@
                         placeat minus minima molestiae veritatis. Corrupti, ipsum sed.</p class="">
                 </div>
                 <div class="story-page-top-share-story">
-                    <button class="story-page-top-share-story-btn">Share your Story <img src="./img/right-arrow2.png"
-                            alt=""></button>
+                    <button class="story-page-top-share-story-btn" ><a asp-action="ShareStory" asp-controller="Story" style="text-decoration: none; color: #fff;">Share your Story <img src="./img/right-arrow2.png"
+                            alt=""></a></button>
                 </div>
             </div>
         </div>

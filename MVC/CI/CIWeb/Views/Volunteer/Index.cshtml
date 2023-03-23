@@ -20,9 +20,50 @@
         function onImageChange(imgCount) {
             var img = document.getElementById("vol-page-crousel");
             var subImage = document.getElementsByClassName(`vol-img-change-${imgCount}`);
-            console.log(subImage[0].src)
             img.src = subImage[0].src
         }
+
+        function textareaValue() {
+             let getTextarea = document.getElementById("exampleFormControlTextarea1").value
+             var url = window.location.href;
+             var tempUrl = url.split("/")[4];
+             $.ajax({
+                type: "POST",
+                url: `https://localhost:44398/mission/${tempUrl}/comments`,
+                data: { "getTextarea": getTextarea },
+                success: function (response) {
+                    document.getElementById("exampleFormControlTextarea1").value = ""                                            
+                },
+                failure: function (response) {
+                    alert(response.responseText);
+                },
+                error: function (response) {
+                    alert(response.responseText);
+                }
+             });
+        }
+
+        function LoadAddtoFav(id) {
+                $.ajax({
+                    type: "GET",
+                    url: `https://localhost:44398/missions/${id}/checkFavorite`,
+                    success: function (response) {
+                        
+                        var element = document.getElementById(`vol-page-add-to-fav-btn-card-${id}`);
+                        if(response=="IN"){
+                            element.innerHTML = `<img src="/img/heart-2.png" alt="">`                        
+                        } else {
+                            element.innerHTML = `<img src="/img/heart.png" alt="">`
+                        }
+                    },
+                    failure: function (response) {
+                        alert(response.responseText);
+                    },
+                    error: function (response) {
+                        alert(response.responseText);
+                    }
+                });
+            }
     </script>
 
 </head>
@@ -94,8 +135,8 @@
             <div class="">
                 <div class="card vol-page-card ms-xl-4 shadow-none">
                     <div class="card-body">
-                        <h5 class="card-title" style="font-size: 38px">@ViewBag.mission[0].Title</h5>
-                        <p class="card-text">@ViewBag.mission[0].Description</p>
+                        <h5 class="card-title" style="font-size: 38px" id="vol-page-mission-title"></h5>
+                        <p class="card-text" id="vol-page-mission-desc"></p>
 
                         <div>
                             <div class="d-flex align-items-center">
@@ -141,13 +182,33 @@
                                     <button class="btn vol-page-group-btn-btn shadow-none"><img src="~/img/heart-1.png" alt=""> Add
                                         to Favourite</button>
                                 </div>
-                                <div><button class="btn vol-page-group-btn-btn shadow-none"><img src="~/img/add1.png" alt=""> Recommend to a Co-Worker</button>
+                                <div><button class="btn vol-page-group-btn-btn shadow-none" data-bs-toggle="modal" data-bs-target="#exampleModal" onclick="loadUserInRecomand()"><img src="~/img/add1.png" alt=""> Recommend to a Co-Worker</button>
+                                
+                         
+                                    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                      <div class="modal-dialog modal-dialog-centered">
+                                        <div class="modal-content">
+                                          <div class="modal-header">
+                                            <h1 class="modal-title fs-5" id="exampleModalLabel">Recommend to a Co-Worker</h1>
+                                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                          </div>
+                                          <div class="modal-body" id="vol-page-recommend-load-user" style="height: 400px; overflow-y: scroll;">
+                                            ...
+                                          </div>
+                                          <div class="modal-footer">
+                                            
+                                            
+                                          </div>
+                                        </div>
+                                      </div>
+                                    </div>
+                                
                                 </div>
                             </div>
 
                             <div class="d-flex align-items-center mt-2">
                                 <hr>
-                                <div class="vol-page-hr-goal-star">
+                                <div class="vol-page-hr-goal-star" id="vol-page-rating-by-ajax">
                                     <img class="vol-page-main-card-star" src="~/img/star-empty.png" alt="">
                                     <img class="vol-page-main-card-star" src="~/img/star-empty.png" alt="">
                                     <img class="vol-page-main-card-star" src="~/img/star-empty.png" alt="">
@@ -162,7 +223,7 @@
                                     <img src="~/img/pin1.png" alt="" class="vol-page-main-card-sub-logo">
                                     <div>
                                         <div style="font-size:12px">City</div>
-                                        <div style="font-size:14px">@ViewBag.city[0].Name</div>
+                                        <div style="font-size:14px" id="vol-page-sub-card-info-city"></div>
                                     </div>
                                 </div>
 
@@ -170,7 +231,7 @@
                                     <img src="~/img/web.png" alt="" class="vol-page-main-card-sub-logo">
                                     <div>
                                         <div style="font-size:12px">Theme</div>
-                                        <div style="font-size:14px">@ViewBag.theme[0].Title</div>
+                                        <div style="font-size:14px" id="vol-page-sub-card-info-theme"></div>
                                     </div>
                                 </div>
 
@@ -178,7 +239,7 @@
                                     <img src="~/img/calender.png" alt="" class="vol-page-main-card-sub-logo">
                                     <div>
                                         <div style="font-size:12px">Date</div>
-                                        <div style="font-size:14px">London</div>
+                                        <div style="font-size:14px" id="vol-page-sub-card-info-date"></div>
                                     </div>
                                 </div>
 
@@ -186,13 +247,13 @@
                                     <img src="~/img/organization.png" alt="" class="vol-page-main-card-sub-logo">
                                     <div>
                                         <div style="font-size:12px">Organization</div>
-                                        <div style="font-size:14px">@ViewBag.mission[0].OrganizationName</div>
+                                        <div style="font-size:14px" id="vol-page-sub-card-info-organization"></div>
                                     </div>
                                 </div>
                             </div>
 
 
-                            <div class="mt-3 d-flex justify-content-center">
+                            <div class="mt-3 d-flex justify-content-center" id="vol-page-apply-mission-btn">
                                 <button class="btn vol-page-apply-btn shadow-none">Apply Now <img src="~/img/right-arrow.png"
                                         alt=""></button>
                             </div>
@@ -217,7 +278,7 @@
                     <li class="nav-item" role="presentation">
                         <button class="nav-link" id="profile-tab" data-bs-toggle="tab"
                             data-bs-target="#profile-tab-pane" type="button" role="tab" aria-controls="profile-tab-pane"
-                            aria-selected="false">Organization</button>
+                            aria-selected="false" onclick="loadOrganizationDetails()">Organization</button>
                     </li>
                     <li class="nav-item" role="presentation">
                         <button class="nav-link" id="contact-tab" data-bs-toggle="tab"
@@ -267,23 +328,16 @@
                         </div>
                         <div class="mb-2">
                             <div class="vol-page-tab-content-heading">Documents</div>
-                            <div class="d-flex">
-                                <div class="vol-page-tab-content-doc"><img src="~/img/pdf.png" alt=""
-                                        class="vol-page-tab-content-doc-info">lorem_ipsum.pdf
-                                </div>
-                                <div class="vol-page-tab-content-doc"><img src="~/img/pdf.png" alt=""
-                                        class="vol-page-tab-content-doc-info">lorem_ipsum.pdf
-                                </div>
-                                <div class="vol-page-tab-content-doc"><img src="~/img/pdf.png" alt=""
-                                        class="vol-page-tab-content-doc-info">lorem_ipsum.pdf
-                                </div>
+                            <div class="d-flex" id="vol-page-mission-document">
+                                
+                                
                             </div>
                         </div>
 
                     </div>
                     <div class="tab-pane fade" id="profile-tab-pane" role="tabpanel" aria-labelledby="profile-tab"
                         tabindex="0">
-                        <div class="mt-2">
+                        <div class="mt-2" id="vol-page-organization-load-data">
                             Lorem ipsum dolor, sit amet consectetur adipisicing elit. Aut neque voluptatum sed
                             possimus necessitatibus unde? Voluptate cum culpa illum sequi maiores numquam eveniet amet.
                             Commodi unde aspernatur molestiae voluptatum labore.
@@ -293,79 +347,17 @@
                         tabindex="0">
 
                         <div class="mt-3">
-                            <form>
+                            @*<form>*@
                                 <div class="mb-3">
-                                    <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"
+                                    <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" name="comment"
                                         placeholder="Enter Your Comments..."></textarea>
                                 </div>
-                                <button type="submit" class="btn vol-page-tab-comments-btn">Post Comment</button>
-                            </form>
+                                <button type="submit" class="btn vol-page-tab-comments-btn" onclick="textareaValue()" id="post-comment-btn">Post Comment</button>
+                            @*</form>*@
                         </div>
 
-                        <div>
-                            <div class="card my-2">
-                                <div class="card-body d-flex">
-                                    <div>
-                                        <img class="vol-page-tab-comments-img" src="~/img/volunteer1.png" alt="">
-                                    </div>
-                                    <div class="d-flex flex-column justify-content-around ms-3">
-                                        <div>
-                                            <div>Margret Walsh</div>
-                                            <div class="vol-page-tab-comment-time">Monday, October 21, 2019, 4:37PM
-                                            </div>
-                                        </div>
-                                        <div class="mt-2">Nice Mission Great opportunity for peoples.</div>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="card my-2">
-                                <div class="card-body d-flex">
-                                    <div>
-                                        <img class="vol-page-tab-comments-img" src="~/img/volunteer1.png" alt="">
-                                    </div>
-                                    <div class="d-flex flex-column justify-content-around ms-3">
-                                        <div>
-                                            <div>Margret Walsh</div>
-                                            <div class="vol-page-tab-comment-time">Monday, October 21, 2019, 4:37PM
-                                            </div>
-                                        </div>
-                                        <div class="mt-2">Nice Mission Great opportunity for peoples.</div>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="card my-2">
-                                <div class="card-body d-flex">
-                                    <div>
-                                        <img class="vol-page-tab-comments-img" src="~/img/volunteer1.png" alt="">
-                                    </div>
-                                    <div class="d-flex flex-column justify-content-around ms-3">
-                                        <div>
-                                            <div>Margret Walsh</div>
-                                            <div class="vol-page-tab-comment-time">Monday, October 21, 2019, 4:37PM
-                                            </div>
-                                        </div>
-                                        <div class="mt-2">Nice Mission Great opportunity for peoples.</div>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="card my-2">
-                                <div class="card-body d-flex">
-                                    <div>
-                                        <img class="vol-page-tab-comments-img" src="~/img/volunteer1.png" alt="">
-                                    </div>
-                                    <div class="d-flex flex-column justify-content-around ms-3">
-                                        <div>
-                                            <div>Margret Walsh</div>
-                                            <div class="vol-page-tab-comment-time">Monday, October 21, 2019, 4:37PM
-                                            </div>
-                                        </div>
-                                        <div class="mt-2">Nice Mission Great opportunity for peoples.</div>
-                                    </div>
-                                </div>
-                            </div>
+                        <div id="vol-page-comments-by-ajax" class="mb-5" style="overflow:auto; height:450px" >
+                            
                         </div>
 
                     </div>
@@ -380,15 +372,15 @@
                         Information
                     </div>
                     <hr>
-                    <div class="vol-sec-2-right-1st-sub"><span> Skills</span> <span class="vol-sec-2-right-1st-sub-sec">
+                    <div class="vol-sec-2-right-1st-sub row"><span class="col"> Skills</span> <span class="vol-sec-2-right-1st-sub-sec col-9" id="vol-page-mission-skills">
                             Cool, Easy
                             Going, Math, Computer</span></div>
                     <hr>
-                    <div class="vol-sec-2-right-1st-sub"><span>Days</span> <span class="vol-sec-2-right-1st-sub-sec">
+                    <div class="vol-sec-2-right-1st-sub row"><span class="col">Days</span> <span class="vol-sec-2-right-1st-sub-sec col-9" id="vol-page-mission-days">
                             Cool, Easy
                             Going, Math, Computer</span></div>
                     <hr>
-                    <div class="vol-sec-2-right-1st-sub"><span>Ratings</span> <span class="vol-sec-2-right-1st-sub-sec">
+                    <div class="vol-sec-2-right-1st-sub"><span>Ratings</span> <span class="vol-sec-2-right-1st-sub-sec" id="vol-page-rating-card-avg">
                             <img src="~/img/star-empty.png" alt="">
                             <img src="~/img/star-empty.png" alt="">
                             <img src="~/img/star-empty.png" alt="">
@@ -401,53 +393,19 @@
                     <div class="vol-sec-2-right-2nd-header">Recent Volunteers</div>
                     <hr>
                     <div>
-                        <div class="row">
-                            <div class="col mt-1 text-center">
+                        <div class="row" id="vol-page-recent-volunteers">
+                            <div class="col-4 mt-1 text-center">
                                 <img class="vol-page-right-recent-vol-img" src="~/img/volunteer1.png" alt="">
                                 <div class="vol-page-right-2nd-vol-name">Andrew Johnson</div>
                             </div>
-                            <div class="col mt-1 text-center">
-                                <img class="vol-page-right-recent-vol-img" src="~/img/volunteer1.png" alt="">
-                                <div class="vol-page-right-2nd-vol-name">Andrew Johnson</div>
-                            </div>
-                            <div class="col mt-1 text-center">
-                                <img class="vol-page-right-recent-vol-img" src="~/img/volunteer1.png" alt="">
-                                <div class="vol-page-right-2nd-vol-name">Andrew Johnson</div>
-                            </div>
+                            
                         </div>
-                        <div class="row">
-                            <div class="col mt-1 text-center">
-                                <img class="vol-page-right-recent-vol-img" src="~/img/volunteer1.png" alt="">
-                                <div class="vol-page-right-2nd-vol-name">Andrew Johnson</div>
-                            </div>
-                            <div class="col mt-1 text-center">
-                                <img class="vol-page-right-recent-vol-img" src="~/img/volunteer1.png" alt="">
-                                <div class="vol-page-right-2nd-vol-name">Andrew Johnson</div>
-                            </div>
-                            <div class="col mt-1 text-center">
-                                <img class="vol-page-right-recent-vol-img" src="~/img/volunteer1.png" alt="">
-                                <div class="vol-page-right-2nd-vol-name">Andrew Johnson</div>
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col mt-1 text-center">
-                                <img class="vol-page-right-recent-vol-img" src="~/img/volunteer1.png" alt="">
-                                <div class="vol-page-right-2nd-vol-name">Andrew Johnson</div>
-                            </div>
-                            <div class="col mt-1 text-center">
-                                <img class="vol-page-right-recent-vol-img" src="~/img/volunteer1.png" alt="">
-                                <div class="vol-page-right-2nd-vol-name">Andrew Johnson</div>
-                            </div>
-                            <div class="col mt-1 text-center">
-                                <img class="vol-page-right-recent-vol-img" src="~/img/volunteer1.png" alt="">
-                                <div class="vol-page-right-2nd-vol-name">Andrew Johnson</div>
-                            </div>
-                        </div>
+                        
                         <hr>
                         <div class="row text-center">
-                            <div class="col-2"><button class="btn shadow-none"><img src="~/img/left.png" alt=""></button></div>
+                            <div class="col-2"><button class="btn shadow-none" onclick="paginationForRecentVolunteers(@ViewBag.RecentVolunttersPage-1)"><img src="~/img/left.png" alt=""></button></div>
                             <div class="col-8">Recent Volunteers</div>
-                            <div class="col-2"><button class="btn shadow-none"><img src="~/img/right-arrow1.png" alt=""></button>
+                            <div class="col-2"><button class="btn shadow-none" onclick="paginationForRecentVolunteers(@ViewBag.RecentVolunttersPage+1)"><img src="~/img/right-arrow1.png" alt=""></button>
                             </div>
                         </div>
                     </div>
@@ -461,194 +419,169 @@
         
             <div class="vol-page-related-mis-headline" style="text-align: center;">Related Missions</div>
             
+            <div id="vol-page-related-missions" class="row">
 
-        @foreach (var item in ViewBag.relatedMission)
-            {
+        
 
-                if (item.MissionType == "Time")
-                {
-
-
-                    <div class="item col-12 col-md-6 col-xl-4">
-                        <div class="thumbnail card">
-                            <div class="img-event">
-                                <img class="group list-group-image img-fluid" style="width:100%;"
-                             src="~/img/Grow-Trees-On-the-path-to-environment-sustainability.png" alt="" />
-                                <div class="landing-page-top-right"><img src="~/img/pin.png" alt=""> @item.City.Name</div>
-                                <div class="landing-page-bottom-right d-flex flex-column">
-                                    <button class="mb-2 landing-page-btn-img">
-                                        <img src="~/img/heart.png" alt="">
-                                    </button><button class="landing-page-btn-img">
-                                        <img src="~/img/user.png"
-                                     alt="">
-                                    </button>
-                                </div>
-
-                                <div class="landing-page-bottom-center">@item.Theme.Title</div>
-                            </div>
-                            <div class="caption card-body">
-                                <h4 class="group card-title inner list-group-item-heading">
-                                    @item.Title
-                                </h4>
-                                <p class="group inner landing-page-list-group-item-text">
-                                    @item.Description
-                                </p>
-                                <div class="d-flex justify-content-between landing-page-card-rating">
-                                    <div>@item.OrganizationName</div>
-                                    <div>
-                                        <img src="~/img/selected-star.png" alt="">
-                                        <img src="~/img/selected-star.png" alt="">
-                                        <img src="~/img/selected-star.png" alt="">
-                                        <img src="~/img/star.png" alt="">
-                                        <img src="~/img/star.png" alt="">
-                                    </div>
-                                </div>
-                                <div class="rule d-flex mt-1">
-                                    <hr>
-                                    <button class="date-btn mt-1">From @item.StartDate.ToString().Split(" ")[0] until @item.EndDate.ToString().Split(" ")[0]</button>
-                                    <hr>
-                                </div>
-                                <div class="row landing-page-box-border">
-                                    <div class="col-6 col-md-6 d-flex align-items-center">
-                                        <p class="lead me-2 pt-2">
-                                            <img src="~/img/Seats-left.png" alt="">
-                                            <div>
-                                                <div>10</div>
-                                                <div class="landing-page-card-vol-small">Seats Left</div>
-                                            </div>
-                                        </p>
-                                    </div>
-                                    <div class="col-6 col-md-6 d-flex align-items-center">
-                                        <p class="lead me-2 pt-2">
-                                            <img src="~/img/deadline.png" alt="">
-                                            <div>
-                                                <div>@item.EndDate.ToString().Split(" ")[0]</div>
-                                                <div class="landing-page-card-vol-small">Deadline</div>
-                                            </div>
-                                        </p>
-                                    </div>
-                                </div>
-                                <div class="d-flex justify-content-center">
-                                    <div class="">
-
-                                        @if (@ViewBag.user != null)
-                                        {
-                                            <a class="btn mt-2 landing-page-apply-mission-btn" href="/missions/@item.MissionId">
-                                                    Apply <img src="~/img/right-arrow.png" alt="">
-                                                </a>
-                                        }
-                                        else
-                                        {
-                                            <a class="btn mt-2 landing-page-apply-mission-btn" asp-action="Login" asp-controller="User">
-                                                    Login <img src="~/img/right-arrow.png" alt="">
-                                                </a>
-                                        }
-
-
-                                        
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                }
-                else if (item.MissionType == "Goal")
-                {
-                    <div class="item col-12 col-md-6 col-xl-4">
-                        <div class="thumbnail card">
-                            <div class="img-event">
-                                <img class="group list-group-image img-fluid" style="width:100%;"
-                             src="~/img/Grow-Trees-On-the-path-to-environment-sustainability.png" alt="" />
-                                <div class="landing-page-top-right"><img src="~/img/pin.png" alt="">@item.City.Name</div>
-                                <div class="landing-page-bottom-right d-flex flex-column">
-                                    <button class="mb-2 landing-page-btn-img">
-                                        <img src="~/img/heart.png" alt="">
-                                    </button><button class="landing-page-btn-img">
-                                        <img src="~/img/user.png"
-                                     alt="">
-                                    </button>
-                                </div>
-
-                                <div class="landing-page-bottom-center">@item.Theme.Title</div>
-                            </div>
-                            <div class="caption card-body">
-                                <h4 class="group card-title inner list-group-item-heading">
-                                    @item.Title
-                                </h4>
-                                <p class="group inner landing-page-list-group-item-text">
-                                    @item.Description
-                                </p>
-                                <div class="d-flex justify-content-between mb-2 landing-page-card-rating">
-                                    <div>@item.OrganizationName</div>
-                                    <div>
-                                        <img src="~/img/selected-star.png" alt="">
-                                        <img src="~/img/selected-star.png" alt="">
-                                        <img src="~/img/selected-star.png" alt="">
-                                        <img src="~/img/star.png" alt="">
-                                        <img src="~/img/star.png" alt="">
-                                    </div>
-                                </div>
-                                <div class="rule d-flex mt-1">
-                                    <hr>
-                                    <button class="date-btn mt-1">From @item.StartDate.ToString().Split(" ")[0] until @item.EndDate.ToString().Split(" ")[0]</button>
-                                    <hr>
-                                </div>
-                                <div class="row landing-page-box-border">
-
-                                    <!-- <div class="col-6 col-md-6 d-flex align-items-center">
-                                      <p class="lead me-2 pt-2">
-                                        <img src="~/img/Seats-left.png" alt="">
-                                      <div>
-                                        <div>10</div>
-                                        <div class="landing-page-card-vol-small">Seats Left</div>
-                                      </div>
-                                      </p>
-                                    </div> -->
-                                    <div class="col-12 d-flex align-items-center">
-                                        <p class="lead me-2 pt-2">
-                                            <img src="~/img/achieved.png" alt="">
-                                            <div style="width: 100%;">
-                                                <div>
-
-                                                    <div class="progress" role="progressbar" aria-label="Success example" aria-valuenow="25"
-                                                 aria-valuemin="0" aria-valuemax="100" style="height: 10px;">
-                                                        <div class="progress-bar" style="width: 45%; background-color: #F88735;"></div>
-                                                    </div>
-
-                                                </div>
-                                                <div class="landing-page-card-vol-small">8000 achived</div>
-                                            </div>
-                                    </div>
-                                </div>
-                                <div class="d-flex justify-content-center">
-                                    <div class="">
-                                        @if (@ViewBag.user != null)
-                                        {
-                                            <a class="btn mt-2 landing-page-apply-mission-btn" href="/missions/@item.MissionId">
-                                                    Apply <img src="~/img/right-arrow.png" alt="">
-                                                </a>
-                                        }
-                                        else
-                                        {
-                                            <a class="btn mt-2 landing-page-apply-mission-btn" asp-action="Login" asp-controller="User">
-                                                    Login <img src="~/img/right-arrow.png" alt="">
-                                                </a>
-                                        }
-
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                }
-
-
-
-            }
+            </div>
             
     </div>
 
+
     <script>
+
+        function getRelatedMissions(res) {
+           return res.volunteerMissionModel.relatedMission.map(item => {
+                
+
+                if(item.missionType == "Time" )
+                { 
+                    
+                    return `<div class="item col-12 col-md-6 col-xl-4 mb-3">
+                            <div class="thumbnail card">
+                                <div class="img-event">
+                                    <img class="group list-group-image img-fluid" style="width:100%;"
+                                         src="/img/Grow-Trees-On-the-path-to-environment-sustainability.png" alt="" />
+                                    @*<div class="landing-page-top-right"><img src="/img/pin.png" alt=""> ${item.city.name}</div>*@
+                                    <div class="landing-page-bottom-right d-flex flex-column"  style="bottom: 10px !important;">
+                                        <button class="mb-2 landing-page-btn-img" id="vol-page-add-to-fav-btn-card-${item.missionId}" onclick="changeAddtoFavRelatedMission(${item.missionId})">
+                                            <img src="/img/heart.png" alt="" onload="LoadAddtoFav(${item.missionId})">
+                                        </button><button class="landing-page-btn-img">
+                                            <img src="/img/user.png"
+                                                 alt="">
+                                        </button>
+                                    </div>
+                                    @*<div class="landing-page-bottom-center">${item.theme.title}</div>*@
+                                </div>
+                                <div class="caption card-body">
+                                    <h4 class="group card-title inner list-group-item-heading">
+                                       ${item.title}
+                                    </h4>
+                                    <p class="group inner landing-page-list-group-item-text">
+                                       ${item.shortDescription}
+                                    </p>
+                                    <div class="d-flex justify-content-between landing-page-card-rating">
+                                        <div>${item.organizationName}</div>
+                                        <div>
+                                            <img src="/img/selected-star.png" alt="">
+                                            <img src="/img/selected-star.png" alt="">
+                                            <img src="/img/selected-star.png" alt="">
+                                            <img src="/img/star.png" alt="">
+                                            <img src="/img/star.png" alt="">
+                                        </div>
+                                    </div>
+                                    <div class="rule d-flex mt-1">
+                                            <hr>
+                                            <button class="date-btn mt-1">From ${item.startDate.toString().substring(0,10)} until ${item.endDate.toString().substring(0,10)}</button>
+                                            <hr>
+                                    </div>
+                                    <div class="row landing-page-box-border">
+                                        <div class="col-6 col-md-6 d-flex align-items-center">
+                                            <p class="lead me-2 pt-2">
+                                                <img src="/img/Seats-left.png" alt="">
+                                                <div>
+                                                    <div>10</div>
+                                                    <div class="landing-page-card-vol-small">Seats Left</div>
+                                                </div>
+                                            </p>
+                                        </div>
+                                        <div class="col-6 col-md-6 d-flex align-items-center">
+                                            <p class="lead me-2 pt-2">
+                                                <img src="/img/deadline.png" alt="">
+                                                <div>
+                                                    <div>09/01/2023</div>
+                                                    <div class="landing-page-card-vol-small">Deadline</div>
+                                                </div>
+                                            </p>
+                                        </div>
+                                    </div>
+                                    <div class="d-flex justify-content-center">
+                                        <div class="">
+                                            <a class="btn mt-2 landing-page-apply-mission-btn" href="/missions/${item.missionId}">
+                                                Apply <img src="/img/right-arrow.png" alt="">
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                ` 
+                    
+                } else {
+                    return `<div class="item col-12 col-md-6 col-xl-4 mb-3">
+                            <div class="thumbnail card">
+                                <div class="img-event">
+                                    <img class="group list-group-image img-fluid" style="width:100%;"
+                                         src="/img/Grow-Trees-On-the-path-to-environment-sustainability.png" alt="" />
+                                    @*<div class="landing-page-top-right"><img src="/img/pin.png" alt=""> ${item.city.name}</div>*@
+                                    <div class="landing-page-bottom-right d-flex flex-column" style="bottom: 10px !important;">
+                                        <button class="mb-2 landing-page-btn-img" id="vol-page-add-to-fav-btn-card-${item.missionId}" onclick="changeAddtoFavRelatedMission(${item.missionId})">
+                                            <img src="/img/heart.png" alt="" onload="LoadAddtoFav(${item.missionId})">
+                                        </button><button class="landing-page-btn-img">
+                                            <img src="/img/user.png"
+                                                 alt="">
+                                        </button>
+                                    </div>
+                                    @*<div class="landing-page-bottom-center">${item.theme.title}</div>*@
+                                </div>
+                                <div class="caption card-body">
+                                    <h4 class="group card-title inner list-group-item-heading">
+                                       ${item.title}
+                                    </h4>
+                                    <p class="group inner landing-page-list-group-item-text">
+                                       ${item.shortDescription}
+                                    </p>
+                                    <div class="d-flex justify-content-between landing-page-card-rating">
+                                        <div>${item.organizationName}</div>
+                                        <div>
+                                            <img src="/img/selected-star.png" alt="">
+                                            <img src="/img/selected-star.png" alt="">
+                                            <img src="/img/selected-star.png" alt="">
+                                            <img src="/img/star.png" alt="">
+                                            <img src="/img/star.png" alt="">
+                                        </div>
+                                    </div>
+                                    <div class="rule d-flex mt-1">
+                                            <hr>
+                                            <button class="date-btn mt-1">From ${item.startDate.toString().substring(0,10)} until ${item.endDate.toString().substring(0,10)}</button>
+                                            <hr>
+                                    </div>
+                                    <div class="row landing-page-box-border">
+
+                                    
+                                        <div class="col-12 d-flex align-items-center">
+                                            <p class="lead me-2 pt-2">
+                                                <img src="~/img/achieved.png" alt="">
+                                                <div style="width: 100%;">
+                                                    <div>
+
+                                                        <div class="progress" role="progressbar" aria-label="Success example" aria-valuenow="25"
+                                                     aria-valuemin="0" aria-valuemax="100" style="height: 10px;">
+                                                            <div class="progress-bar" style="width: 45%; background-color: #F88735;"></div>
+                                                        </div>
+
+                                                    </div>
+                                                    <div class="landing-page-card-vol-small">8000 achived</div>
+                                                </div>
+                                        </div>
+                                    </div>
+                                    <div class="d-flex justify-content-center">
+                                        <div class="">
+                                            <a class="btn mt-2 landing-page-apply-mission-btn" href="/missions/${item.missionId}">
+                                                Apply <img src="/img/right-arrow.png" alt="">
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                ` 
+                } 
+                    
+            }
+                
+            ).join('')
+        }
 
             function changeAddtoFav() {
                 var url = window.location.href;
@@ -673,10 +606,225 @@
                     }
                 });
             }
+
+            function changeRating(id){
+                var url = window.location.href;
+                var tempUrl = url.split("/")[4];
+                $.ajax({
+                    type: "GET",
+                    url: `https://localhost:44398/missions/${tempUrl}/rating/${id}`,
+                    success: function (response) {
+                        
+                        var element = document.getElementById("vol-page-rating-by-ajax");
+                        if(response=="Not Found"){
+                            element.innerHTML = `
+                                    <img class="vol-page-main-card-star" src="/img/star-empty.png" alt="" onclick="changeRating(1)">
+                                    <img class="vol-page-main-card-star" src="/img/star-empty.png" alt="" onclick="changeRating(2)">
+                                    <img class="vol-page-main-card-star" src="/img/star-empty.png" alt="" onclick="changeRating(3)">
+                                    <img class="vol-page-main-card-star" src="/img/star-empty.png" alt="" onclick="changeRating(4)">
+                                    <img class="vol-page-main-card-star" src="/img/star-empty.png" alt="" onclick="changeRating(5)">`
+                        } else {
+                            element.innerHTML = showRating(response);
+                        }
+                        location.reload();
+                    },
+                    failure: function (response) {
+                        alert(response.responseText);
+                    },
+                    error: function (response) {
+                        alert(response.responseText);
+                    }
+                });
+            }
+
+            function changeAddtoFavRelatedMission(id) {
+                
+                $.ajax({
+                    type: "GET",
+                    url: `https://localhost:44398/missions/${id}/addFavorite`,
+                    success: function (response) {
+                        
+                        var element = document.getElementById(`vol-page-add-to-fav-btn-card-${id}`);
+                        if(response=="Add"){
+                            element.innerHTML = `<img src="/img/heart-2.png" alt="">`
+                        } else {
+                            element.innerHTML = `<img src="/img/heart.png" alt="">`
+                        }
+                    },
+                    failure: function (response) {
+                        alert(response.responseText);
+                    },
+                    error: function (response) {
+                        alert(response.responseText);
+                    }
+                });
+            }
+
+            function showRating(response) {
+                var html = ""
+                var i=1
+                while(i<=parseInt(response[0].rating)) {
+                    html += `<img class="vol-page-main-card-star" src="/img/selected-star.png" alt="" onclick="changeRating(${i})">`
+                    i++;
+                }
+                while(i<=5){
+                    html += `<img class="vol-page-main-card-star" src="/img/star-empty.png" alt="" onclick="changeRating(${i})">`
+                    i++;
+                }
+                return html
+            }
+
+            function showAvgRating(response) {
+                var html = ""
+                var i=1
+                while(i<=parseInt(response.avg)) {
+                    html += `<img src="/img/selected-star.png" alt="">`
+                    i++;
+                }
+                while(i<=5){
+                    html += `<img src="/img/star.png" alt="">`
+                    i++;
+                }
+                html += ` By ${response.tUser} People`
+                return html
+            }
+
+            function loadComments(response) {
+
+                return response.commentsModel.map(item => {
+
+                    return `
+                                <div class="card my-2">
+                                    <div class="card-body d-flex">
+                                        <div>
+                                            <img class="vol-page-tab-comments-img" src="/img/volunteer1.png" alt="">
+                                        </div>
+                                        <div class="d-flex flex-column justify-content-around ms-3">
+                                            <div>
+                                                <div>${item.firstName} ${item.lastName}</div>
+                                                <div class="vol-page-tab-comment-time">${item.createdAt.split("T")[0]} ${item.createdAt.split("T")[1]}
+                                                </div>
+                                            </div>
+                                            <div class="mt-2">${item.commentText}</div>
+                                        </div>
+                                    </div>
+                                </div>
+                            `
+                }).join("")
+            }
+
+            function applyMission(missionId) {
+                $.ajax({
+                    type: "POST",
+                    url: `https://localhost:44398/missions/${missionId}/apply`,
+                    success: function (response) {
+                        
+                        var element = document.getElementById("vol-page-apply-mission-btn");
+                        if(response.message=="Apply"){
+                            element.innerHTML = `<button class="btn vol-page-apply-btn shadow-none" style="color: green" disabled> Applied Successfully</button>`
+                        } else {
+                            element.innerHTML = `<button class="btn vol-page-apply-btn shadow-none" onclick="applyMission(${tempUrl})">Apply Now <img src="/img/right-arrow.png"
+                                        alt=""></button>`
+                        }
+                    },
+                    failure: function (response) {
+                        alert(response.responseText);
+                    },
+                    error: function (response) {
+                        alert(response.responseText);
+                    }
+                });
+            }
+
+            function getRecentVolunteers(response) {
+                return response.recentVolunteerModel.map(item => {
+                    return `
+                            <div class="col-4 mt-1 text-center">
+                                <img class="vol-page-right-recent-vol-img" src="/img/volunteer1.png" alt="">
+                                <div class="vol-page-right-2nd-vol-name">${item.user[0].firstName} ${item.user[0].lastName}</div>
+                            </div>`
+                }).join("")
+            }
+
+            function paginationForRecentVolunteers(page) {
+                var url = window.location.href;
+                var tempUrl = url.split("/")[4];
+                $.ajax({
+                    type: "GET",
+                    url: `https://localhost:44398/missions/${tempUrl}/getVolunteers?page=${page}`,
+                    success: function (response) {
+
+                        var element = document.getElementById("vol-page-recent-volunteers");
+                        if(response.recentVolunteerModel.length > 0) {
+                            element.innerHTML = getRecentVolunteers(response);
+                        } else {
+                            element.innerHTML = `<div class="text-center">No Recent Volunteers</div>`;
+                        }
+                        
+                    },
+                    failure: function (response) {
+                        alert(response.responseText);
+                    },
+                    error: function (response) {
+                        alert(response.responseText);
+                    }
+                });
+            }
+
+            function loadMissionSkills(response) {
+                
+                return response.missionSkills.map(item => item.skills.skillName).join(",")
+            }
+
+            function loadMissionDocument(response) {
+                return response.document.map(item => `
+                            
+                        <div class="vol-page-tab-content-doc">
+                            <a href="/document/${item.documentPath}" style="text-decoration: none; color: #000;">
+                                <img src="/img/pdf.png" alt="" class="vol-page-tab-content-doc-info me-2">${item.documentName}
+                            </a>
+                        </div>
+
+                `).join("")
+            }
         
             $(window).on('load', function(){
                 var url = window.location.href;
                 var tempUrl = url.split("/")[4];
+                
+                $.ajax({
+                    type: "GET",
+                    url: `https://localhost:44398/api/missions/${tempUrl}`,
+                    success: function (response) {
+
+                        var element = document.getElementById('vol-page-related-missions');
+                        element.innerHTML = getRelatedMissions(response);
+
+                        var titleOfPage = document.getElementById('vol-page-mission-title');
+                        var descOfPage = document.getElementById('vol-page-mission-desc');
+                        titleOfPage.innerHTML = `${response.volunteerMissionModel.mission[0].title}`
+                        descOfPage.innerHTML = `${response.volunteerMissionModel.mission[0].description}`
+
+                        var theme = document.getElementById("vol-page-sub-card-info-theme");
+                        var city = document.getElementById("vol-page-sub-card-info-city");
+                        var date = document.getElementById("vol-page-sub-card-info-date");
+                        var organization = document.getElementById("vol-page-sub-card-info-organization");
+
+                        theme.innerHTML = `${response.volunteerMissionModel.mission[0].city.name}`
+                        city.innerHTML = `${response.volunteerMissionModel.mission[0].theme.title}`
+                        date.innerHTML = `${response.volunteerMissionModel.mission[0].startDate.toString().substring(0, 10)}`
+                        organization.innerHTML = `${response.volunteerMissionModel.mission[0].organizationName}`
+
+                    },
+                    failure: function (response) {
+                        alert(response.responseText);
+                    },
+                    error: function (response) {
+                        alert(response.responseText);
+                    }
+                });
+
+
                 $.ajax({
                     type: "GET",
                     url: `https://localhost:44398/missions/${tempUrl}/checkFavorite`,
@@ -696,7 +844,288 @@
                         alert(response.responseText);
                     }
                 });
+
+
+                $.ajax({
+                    type: "GET",
+                    url: `https://localhost:44398/missions/${tempUrl}/checkrating`,
+                    success: function (response) {
+
+                        var element = document.getElementById("vol-page-rating-by-ajax");
+                        if(response=="Not Found"){
+                            element.innerHTML = `
+                                    <img class="vol-page-main-card-star" src="/img/star-empty.png" alt="" onclick="changeRating(1)">
+                                    <img class="vol-page-main-card-star" src="/img/star-empty.png" alt="" onclick="changeRating(2)">
+                                    <img class="vol-page-main-card-star" src="/img/star-empty.png" alt="" onclick="changeRating(3)">
+                                    <img class="vol-page-main-card-star" src="/img/star-empty.png" alt="" onclick="changeRating(4)">
+                                    <img class="vol-page-main-card-star" src="/img/star-empty.png" alt="" onclick="changeRating(5)">`
+                        } else {
+                            element.innerHTML = showRating(response);
+                        }
+                    },
+                    failure: function (response) {
+                        alert(response.responseText);
+                    },
+                    error: function (response) {
+                        alert(response.responseText);
+                    }
+                });
+
+                $.ajax({
+                    type: "GET",
+                    url: `https://localhost:44398/missions/${tempUrl}/ratingGroup`,
+                    success: function (response) {
+
+                        var element = document.getElementById(`vol-page-rating-card-avg`);
+                        if(response.avg =="0"){
+                            element.innerHTML = `
+                                    <img src="/img/star-empty.png" alt="">
+                                    <img src="/img/star-empty.png" alt="">
+                                    <img src="/img/star-empty.png" alt="">
+                                    <img src="/img/star-empty.png" alt="">
+                                    <img src="/img/star-empty.png" alt=""> By ${response.tUser} People`
+                        } else {
+                            element.innerHTML = showAvgRating(response);
+                        }
+                    },
+                    failure: function (response) {
+                        alert(response.responseText);
+                    },
+                    error: function (response) {
+                        alert(response.responseText);
+                    }
+                });
+
+                $.ajax({
+                    type: "GET",
+                    url: `https://localhost:44398/mission/${tempUrl}/comments`,
+                    success: function (response) {
+
+                       var element = document.getElementById("vol-page-comments-by-ajax");
+                       if(response.commentsModel.length > 0) {
+                           
+                           element.innerHTML = loadComments(response);
+                       } else {
+                           element.innerHTML = ""
+                       }
+                       
+                    },
+                    failure: function (response) {
+                        alert(response.responseText);
+                    },
+                    error: function (response) {
+                        alert(response.responseText);
+                    }
+                });
+
+                $.ajax({
+                    type: "GET",
+                    url: `https://localhost:44398/missions/${tempUrl}/getapply`,
+                    success: function (response) {
+
+                        var element = document.getElementById("vol-page-apply-mission-btn");
+                        if(response.message=="Apply"){
+                            element.innerHTML = `<button class="btn vol-page-apply-btn shadow-none" style="color: green" disabled> Applied Successfully</button>`
+                        } else {
+                            element.innerHTML = `<button class="btn vol-page-apply-btn shadow-none" onclick="applyMission(${tempUrl})">Apply Now <img src="/img/right-arrow.png"
+                                        alt=""></button>`
+                        }
+                    },
+                    failure: function (response) {
+                        alert(response.responseText);
+                    },
+                    error: function (response) {
+                        alert(response.responseText);
+                    }
+                });
+
+                $.ajax({
+                    type: "GET",
+                    url: `https://localhost:44398/missions/${tempUrl}/getVolunteers?page=0`,
+                    success: function (response) {
+
+                        var element = document.getElementById("vol-page-recent-volunteers");
+                        if(response.recentVolunteerModel.length > 0) {
+                            element.innerHTML = getRecentVolunteers(response);
+                        } else {
+                            element.innerHTML = `<div class="text-center">No Recent Volunteers</div>`;
+                        }
+                        
+                    },
+                    failure: function (response) {
+                        alert(response.responseText);
+                    },
+                    error: function (response) {
+                        alert(response.responseText);
+                    }
+                });
+
+                $.ajax({
+                    type: "GET",
+                    url: `https://localhost:44398/missions/${tempUrl}/getMissionSkill`,
+                    success: function (response) {
+
+
+                        var element = document.getElementById("vol-page-mission-skills");
+
+                        if(response.missionSkills.length > 0) 
+                        {
+                            element.innerHTML = loadMissionSkills(response);
+                        } else {
+                            element.innerHTML = "No Skill Required.";
+                        }
+                        
+                        var daysElement = document.getElementById("vol-page-mission-days");
+                        if(response.missionDays.length > 0) {
+                            daysElement.innerHTML = response.missionDays[0].days
+                        } else {
+                            daysElement.innerHTML = "No Skill Required.";
+                        }
+
+                    },
+                    failure: function (response) {
+                        alert(response.responseText);
+                    },
+                    error: function (response) {
+                        alert(response.responseText);
+                    }
+                });
+
+                $.ajax({
+                    type: "GET",
+                    url: `https://localhost:44398/missions/${tempUrl}/getMissionDocument`,
+                    success: function (response) {
+
+
+                        var element = document.getElementById("vol-page-mission-document");
+                        if(response.document.length > 0) {
+                            element.innerHTML = loadMissionDocument(response);
+                        } else {
+                            element.innerHTML = "No Document."
+                        }
+                        
+
+                    },
+                    failure: function (response) {
+                        alert(response.responseText);
+                    },
+                    error: function (response) {
+                        alert(response.responseText);
+                    }
+                });
+
+
+
             });
+
+            function sendMailForRecommend(userId, missionId) {
+                var url = window.location.href;
+                var tempUrl = url.split("/")[4];
+
+                // display spinner for waiting 
+                var element = document.getElementById(`change-btn-when-clicked-${userId}`);
+                
+                element.innerHTML = `<button class="btn btn-dark" type="button" disabled>
+                                      <span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
+                                      Sending...
+                                    </button>`
+                  
+
+                $.ajax({
+                    type: "POST",
+                    url: `https://localhost:44398/recommand/${userId}/${missionId}`,
+                    success: function (response) {
+                        var element = document.getElementById(`change-btn-when-clicked-${userId}`);
+                        if(response.message == "sent") {
+                            element.innerHTML = `<button class="btn btn-success" onclick="sendMailForRecommend(${userId}, ${tempUrl})" disabled>Sent</button>`
+                        }
+                        
+                    },
+                    failure: function (response) {
+                        alert(response.responseText);
+                    },
+                    error: function (response) {
+                        alert(response.responseText);
+                    }
+                });
+            }
+
+            function loadUser(response) {
+                var url = window.location.href;
+                var tempUrl = url.split("/")[4];
+                return response.user.map(item => {
+                    return `
+                        <div class="form-check d-flex justify-content-between">
+                          <div>
+                              <img class="vol-page-right-recent-vol-img" src="/img/volunteer1.png" alt="" style="width: 40px; height:40px">
+                              ${item.firstName} ${item.lastName}
+                          </div>
+                          <div id="change-btn-when-clicked-${item.userId}">
+                            <button class="btn btn-dark" onclick="sendMailForRecommend(${item.userId}, ${tempUrl})">Recommend</button>
+                          </div>
+                        </div>
+                        <hr/>`
+                }).join('')
+            }
+
+            function loadUserInRecomand(){
+                var element = document.getElementById("vol-page-recommend-load-user");
+
+                $.ajax({
+                    type: "GET",
+                    url: `https://localhost:44398/users`,
+                    success: function (response) {
+
+                        element.innerHTML = loadUser(response);
+                    },
+                    failure: function (response) {
+                        alert(response.responseText);
+                    },
+                    error: function (response) {
+                        alert(response.responseText);
+                    }
+                });
+
+            }
+
+
+            // load Organization Details
+            function loadOrganizationDetails() {
+                var url = window.location.href;
+                var tempUrl = url.split("/")[4];
+                $.ajax({
+                    type: "GET",
+                    url: `https://localhost:44398/mission/${tempUrl}/organization`,
+                    success: function (response) {
+
+                        var element = document.getElementById("vol-page-organization-load-data");
+                        element.innerHTML = `
+                                             <div>
+                                                <div class="vol-page-tab-content-heading">Name</div>
+                                                <div class="vol-page-tab-content-info">
+                                                    ${response.mission.organizationName}
+                                                </div>
+                                            </div>
+                                            <div>
+                                                <div class="vol-page-tab-content-heading">Details</div>
+                                                <div class="vol-page-tab-content-info">
+                                                    ${response.mission.organizationDetail}
+                                                </div>
+                                            </div>
+                                            `
+                    },
+                    failure: function (response) {
+                        alert(response.responseText);
+                    },
+                    error: function (response) {
+                        alert(response.responseText);
+                    }
+                });
+            }
+            
+
+        
+        
 
     </script>
     
