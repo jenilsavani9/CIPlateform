@@ -43,246 +43,185 @@ namespace CIWeb.Controllers
             _db = db;
         }
 
-        public IActionResult Index(long id, int? pageIndex, string searchQuery, long[] FCountries, long[] FCities, long[] FThemes, long[] FSkills, string sortOrder)
+        public IActionResult Index()
         {
-
-            // Check if user is logged in
             String? userId = HttpContext.Session.GetString("userEmail");
-
             var user = _db.Users.Where(e => e.Email == userId).SingleOrDefault();
             ViewBag.user = user;
-            ViewBag.Request = Request;
+
             Missions = _db.Missions.ToList();
             Countries = _db.Countries.ToList();
             Themes = _db.MissionThemes.ToList();
             Skills = _db.Skills.ToList();
+
             ViewBag.countries = Countries;
             ViewBag.themes = Themes;
             ViewBag.skills = Skills;
+            return View();
+        }
 
+        [HttpGet("/api/missions")]
+        public IActionResult GetMission(string? searchQuery, long[] FCountries, long[] FCities, long[] FThemes, long[] FSkills, int? pageIndex, string sortOrder)
+        {
+            String? userId = HttpContext.Session.GetString("userEmail");
+            var user = _db.Users.Where(e => e.Email == userId).SingleOrDefault();
+
+            MissionModel model = new MissionModel();
+            Missions = _db.Missions.ToList();
             if (!string.IsNullOrEmpty(searchQuery))
             {
-                Missions = _db.Missions.ToList();
+
                 Missions = Missions.Where(m => m.Title.ToLower().Contains(searchQuery.ToLower())).ToList();
-                FinalMissionsList.AddRange(Missions);
-                ViewBag.searchQuery = Request.Query["searchQuery"];
+                model.searchQuery = Request.Query["searchQuery"];
             }
+            FinalMissionsList = Missions;
 
             if (FCountries != null && FCountries.Length > 0)
             {
+                var element = new List<Mission>();
+                var tempFinalList = new List<Mission>();
+                var tempCountryElements = new List<CountryElementModel>();
+                var filterCityElements = new List<CityElementsModel>();
                 foreach (var country in FCountries)
                 {
-                    Missions = _db.Missions.ToList();
+                    element = Missions.Where(m => m.CountryId == country).ToList();
+                    tempFinalList.AddRange(element);
+                    var countryElement = _db.Countries.Where(m => m.CountryId == country).FirstOrDefault();
+                    tempCountryElements.Add(new CountryElementModel
+                    {
+                        countryId = countryElement?.CountryId,
+                        name = countryElement?.Name,
+                    });
 
-                    Missions = Missions.Where(m => m.CountryId == country).ToList();
-                    FinalMissionsList.AddRange(Missions);
-                    var countryElement = _db.Countries.Where(m => m.CountryId == country).ToList();
-                    countryElements.AddRange(countryElement);
+
                     var cities = _db.Cities.Where(m => m.CountryId == country).ToList();
-                    Cities.AddRange(cities);
+                    foreach (var city in cities)
+                    {
+                        filterCityElements.Add(new CityElementsModel
+                        {
+                            cityId = city?.CityId,
+                            name = city?.Name,
+                        });
+                    }
+
                 }
-                ViewBag.countryElements = countryElements;
-                ViewBag.cities = Cities;
-                ViewBag.FCountries = Request.Query["FCountries"];
+                Missions = element;
+                FinalMissionsList = tempFinalList;
+                model.countryElements = tempCountryElements;
+                model.cities = filterCityElements;
+                model.FCountries = Request.Query["FCountries"];
             }
 
             if (FCities != null && FCities.Length > 0)
             {
-
+                var element = new List<Mission>();
                 var tempFinalList = new List<Mission>();
+                var tempCityElements = new List<CityElementsModel>();
                 foreach (var city in FCities)
                 {
-                    if (FinalMissionsList.Count > 0)
-                    {
-                        Missions = FinalMissionsList;
-                    }
-                    else
-                    {
-                        Missions = _db.Missions.ToList();
-                    }
 
-                    Missions = Missions.Where(m => m.CityId == city).ToList();
-                    var cityElement = _db.Cities.Where(m => m.CityId == city).ToList();
-                    cityElements.AddRange(cityElement);
-                    tempFinalList.AddRange(Missions);
+                    element = Missions.Where(m => m.CityId == city).ToList();
+                    var cityElement = _db.Cities.Where(m => m.CityId == city).FirstOrDefault();
+                    tempCityElements.Add(new CityElementsModel
+                    {
+                        cityId = cityElement?.CityId,
+                        name = cityElement?.Name,
+                    });
+
+                    tempFinalList.AddRange(element);
 
                 }
+                Missions = element;
                 FinalMissionsList = tempFinalList;
-                ViewBag.cityElements = cityElements;
-                ViewBag.FCities = Request.Query["FCities"];
+                model.cityElements = tempCityElements;
+                model.FCities = Request.Query["FCities"];
             }
 
             if (FThemes != null && FThemes.Length > 0)
             {
+                var element = new List<Mission>();
                 var tempFinalList = new List<Mission>();
+                var tempThemeElements = new List<ThemeElementModel>();
                 foreach (var theme in FThemes)
                 {
-                    if (FinalMissionsList.Count > 0)
+
+                    element = Missions.Where(m => m.ThemeId == theme).ToList();
+                    var themeElement = _db.MissionThemes.Where(m => m.MissionThemeId == theme).FirstOrDefault();
+                    tempThemeElements.Add(new ThemeElementModel
                     {
-                        Missions = FinalMissionsList;
-                    }
-                    else
-                    {
-                        Missions = _db.Missions.ToList();
-                    }
-                    Missions = Missions.Where(m => m.ThemeId == theme).ToList();
-                    var themeElement = _db.MissionThemes.Where(m => m.MissionThemeId == theme).ToList();
-                    themeElements.AddRange(themeElement);
-                    tempFinalList.AddRange(Missions);
+                        themeId = themeElement?.MissionThemeId,
+                        title = themeElement?.Title
+                    });
+                    tempFinalList.AddRange(element);
                 }
+                Missions = element;
                 FinalMissionsList = tempFinalList;
-                ViewBag.FThemes = Request.Query["FThemes"];
-                ViewBag.themeElements = themeElements;
+                model.FThemes = Request.Query["FThemes"];
+                model.themeElements = tempThemeElements;
             }
 
             if (FSkills != null && FSkills.Length > 0)
             {
-                var element = new List<MissionSkill>();
+                var element = new List<Mission>();
                 var tempFinalList = new List<Mission>();
                 foreach (var skill in FSkills)
                 {
                     var tempList = _db.MissionSkills.Where(m => m.SkillId == skill).ToList();
-                    element.AddRange(tempList);
-                    if (FinalMissionsList.Count > 0)
+                    foreach (var skillMission in tempList)
                     {
-                        Missions = FinalMissionsList;
+                        element.AddRange(Missions.Where(m => m.MissionId == skillMission.MissionId).ToList());
                     }
-                    else
-                    {
-                        Missions = _db.Missions.ToList();
-                    }
-                    Missions = Missions.Where(m => m.ThemeId == skill).ToList();
+                    Missions = element;
                     var skillElement = _db.Skills.Where(m => m.SkillId == skill).ToList();
                     skillElements.AddRange(skillElement);
                     tempFinalList.AddRange(Missions);
                 }
                 FinalMissionsList = tempFinalList;
-                ViewBag.FSkills = Request.Query["FSkills"];
-                ViewBag.skillElements = skillElements;
+                model.FSkills = Request.Query["FSkills"];
+                model.skillElements = skillElements;
             }
 
-
-
-            //Pagination
+            // pagination
             int pageSize = 9; // change this to your desired page size
             int skip = (pageIndex ?? 0) * pageSize;
-            if (FinalMissionsList.Count() != 0)
+
+
+            var missions = FinalMissionsList.ToList();
+            foreach (var mission in missions)
             {
-                var missions = FinalMissionsList.ToList();
-                foreach (var mission in missions)
+                City city = _db.Cities.Where(e => e.CityId == mission.CityId).FirstOrDefault();
+                MissionTheme theme = _db.MissionThemes.Where(e => e.MissionThemeId == mission.ThemeId).FirstOrDefault();
+                string[] startDateNtime = mission.StartDate.ToString().Split(' ');
+                string[] endDateNtime = mission.EndDate.ToString().Split(' ');
+                var ratings = _db.MissionRatings.Where(e => e.MissionId == mission.MissionId).ToList();
+                var rating = 0;
+                var sum = 0;
+                foreach (var entry in ratings)
                 {
-                    City city = _db.Cities.Where(e => e.CityId == mission.CityId).FirstOrDefault();
-                    MissionTheme theme = _db.MissionThemes.Where(e => e.MissionThemeId == mission.ThemeId).FirstOrDefault();
-                    string[] startDateNtime = mission.StartDate.ToString().Split(' ');
-                    string[] endDateNtime = mission.EndDate.ToString().Split(' ');
-                    var ratings = _db.MissionRatings.Where(e => e.MissionId == mission.MissionId).ToList();
-                    var rating = 0;
-                    var sum = 0;
-                    foreach (var entry in ratings)
-                    {
-                        sum = sum + int.Parse(entry.Rating);
-
-                    }
-                    //rating = sum / ratings.Count;
-                    missionsVMList.Add(new MissionViewModel
-                    {
-                        MissionId = mission.MissionId,
-                        Title = mission.Title,
-                        Description = mission.Description,
-                        City = city.Name,
-                        Organization = mission.OrganizationName,
-                        Theme = theme.Title,
-                        //Rating = rating,
-                        StartDate = (DateTime)mission.StartDate,
-                        EndDate = (DateTime)mission.EndDate,
-                        missionType = mission.MissionType,
-                        isFavrouite = (user != null) ? _db.FavoriteMissions.Any(e => e.MissionId == mission.MissionId && e.UserId == id) : false,
-                        //userApplied = (user != null) ? _db.MissionApplications.Any(e => e.MissionId == mission.MissionId && e.UserId == id && int.Parse(e.ApprovalStatus) == 1) : false,
-                        ImgUrl = "~/images/Grow-Trees-On-the-path-to-environment-sustainability-3.png",
-                        StartDateEndDate = "From " + startDateNtime[0] + " until " + endDateNtime[0],
-                        NoOfSeatsLeft = 10,
-                        Deadline = endDateNtime[0],
-                        createdAt = (DateTime)mission.CreatedAt
-                    });
-                    switch (sortOrder)
-                    {
-                        case "newest":
-                            missionsVMList = missionsVMList.OrderByDescending(e => e.StartDate).ToList();
-                            break;
-                        case "oldest":
-                            missionsVMList = missionsVMList.OrderBy(e => e.StartDate).ToList();
-                            break;
-                        case "lowest":
-                            missionsVMList = missionsVMList.OrderBy(e => e.NoOfSeatsLeft).ToList();
-                            break;
-                        case "highest":
-                            missionsVMList = missionsVMList.OrderByDescending(e => e.NoOfSeatsLeft).ToList();
-                            break;
-                        case "favourites":
-                            missionsVMList = missionsVMList.Where(e => e.isFavrouite != false).ToList();
-                            break;
-                        case "deadline":
-                            missionsVMList = missionsVMList.OrderBy(e => e.Deadline).ToList();
-                            break;
-                        default:
-                            missionsVMList = missionsVMList;
-                            break;
-                    }
-                }
-
-                if (missions.Count() == 0)
-                {
-                    return RedirectToAction("Nomission", "Home");
-                }
-
-                int totalMissions = FinalMissionsList.Count();
-                ViewBag.TotalPages = (int)Math.Ceiling(totalMissions / (double)pageSize);
-                ViewBag.CurrentPage = pageIndex ?? 0;
-
-                ViewBag.NoOfMissions = FinalMissionsList.Count();
-                ViewBag.missions = missionsVMList.Skip(skip).Take(pageSize).ToList();
-            }
-            else
-            {
-                var missions = Missions.ToList();
-                foreach (var mission in missions)
-                {
-                    City city = _db.Cities.Where(e => e.CityId == mission.CityId).FirstOrDefault();
-                    MissionTheme theme = _db.MissionThemes.Where(e => e.MissionThemeId == mission.ThemeId).FirstOrDefault();
-                    string[] startDateNtime = mission.StartDate.ToString().Split(' ');
-                    string[] endDateNtime = mission.EndDate.ToString().Split(' ');
-                    var ratings = _db.MissionRatings.Where(e => e.MissionId == mission.MissionId).ToList();
-                    var rating = 0;
-                    var sum = 0;
-                    foreach (var entry in ratings)
-                    {
-                        sum = sum + int.Parse(entry.Rating);
-
-                    }
-                    //rating = sum / ratings.Count;
-
-                    missionsVMList.Add(new MissionViewModel
-                    {
-                        MissionId = mission.MissionId,
-                        Title = mission.Title,
-                        Description = mission.Description,
-                        City = city.Name,
-                        Organization = mission.OrganizationName,
-                        Theme = theme.Title,
-                        //Rating = rating,
-                        StartDate = (DateTime)mission.StartDate,
-                        EndDate = (DateTime)mission.EndDate,
-                        missionType = mission.MissionType,
-                        isFavrouite = (user != null) ? _db.FavoriteMissions.Any(e => e.MissionId == mission.MissionId && e.UserId == id) : false,
-                        //userApplied = (user != null) ? _db.MissionApplications.Any(e => e.MissionId == mission.MissionId && e.UserId == id && e.ApprovalStatus == '1') : false,
-                        ImgUrl = "~/images/Grow-Trees-On-the-path-to-environment-sustainability-3.png",
-                        StartDateEndDate = "From " + startDateNtime[0] + " until " + endDateNtime[0],
-                        NoOfSeatsLeft = 10,
-                        Deadline = endDateNtime[0],
-                        createdAt = (DateTime)mission.CreatedAt
-                    });
+                    sum = sum + int.Parse(entry.Rating);
 
                 }
+                //rating = sum / ratings.Count;
+                missionsVMList.Add(new MissionViewModel
+                {
+                    MissionId = mission.MissionId,
+                    Title = mission.Title,
+                    Description = mission.Description,
+                    City = city?.Name,
+                    Organization = mission.OrganizationName,
+                    Theme = theme?.Title,
+                    //Rating = rating,
+                    StartDate = (DateTime)mission.StartDate,
+                    EndDate = (DateTime)mission.EndDate,
+                    missionType = mission.MissionType,
+                    isFavrouite = (user != null) ? _db.FavoriteMissions.Any(e => e.MissionId == mission.MissionId && e.UserId == user.UserId) : false,
+                    //userApplied = (user != null) ? _db.MissionApplications.Any(e => e.MissionId == mission.MissionId && e.UserId == id && int.Parse(e.ApprovalStatus) == 1) : false,
+                    ImgUrl = "~/images/Grow-Trees-On-the-path-to-environment-sustainability-3.png",
+                    StartDateEndDate = "From " + startDateNtime[0] + " until " + endDateNtime[0],
+                    NoOfSeatsLeft = 10,
+                    Deadline = endDateNtime[0],
+                    createdAt = (DateTime)mission.CreatedAt
+                });
                 switch (sortOrder)
                 {
                     case "newest":
@@ -303,211 +242,19 @@ namespace CIWeb.Controllers
                     case "deadline":
                         missionsVMList = missionsVMList.OrderBy(e => e.Deadline).ToList();
                         break;
-                    default:
-                        missionsVMList = missionsVMList;
-                        break;
+
                 }
-
-                if (missions.Count() == 0)
-                {
-                    return RedirectToAction("Nomission", "Home");
-                }
-
-                int totalMissions = Missions.Count();
-                ViewBag.TotalPages = (int)Math.Ceiling(totalMissions / (double)pageSize);
-                ViewBag.CurrentPage = pageIndex ?? 0;
-
-                ViewBag.NoOfMissions = Missions.Count();
-                ViewBag.missions = missionsVMList.Skip(skip).Take(pageSize).ToList();
             }
 
-            var MissionApp = _db.MissionApplications.ToList();
+            int totalMissions = FinalMissionsList.Count();
+            model.TotalPages = (int)Math.Ceiling(totalMissions / (double)pageSize);
+            model.CurrentPage = pageIndex ?? 0;
 
-            // Get the current URL
-            UriBuilder uriBuilder = new UriBuilder(Request.Scheme, Request.Host.Host);
-            if (Request.Host.Port.HasValue)
-            {
-                uriBuilder.Port = Request.Host.Port.Value;
-            }
-            uriBuilder.Path = Request.Path;
+            model.NoOfMissions = FinalMissionsList.Count();
+            model.missionsVMList = missionsVMList.Skip(skip).Take(pageSize).ToList();
 
-            // Remove the query parameter you want to exclude
-            var query = HttpUtility.ParseQueryString(Request.QueryString.ToString());
-            query.Remove("pageIndex");
-            uriBuilder.Query = query.ToString();
-
-
-
-            ViewBag.currentUrl = uriBuilder.ToString();
-
-            return View();
+            return Ok(model);
         }
-
-
-
-        // TESTING ENDPOINTS
-        public IActionResult Test(string? searchTerm)
-        {
-            List<City> Cities = _db.Cities.ToList();
-            ViewBag.Cities = Cities;
-            List<Country> Country = _db.Countries.ToList();
-            ViewBag.Country = Country;
-            List<MissionTheme> Themes = _db.MissionThemes.ToList();
-            ViewBag.Themes = Themes;
-            ViewBag.searchTerm = searchTerm;
-            return View();
-        }
-
-
-        [Route("home/api/city")]
-        [HttpGet]
-        public IActionResult TestCity()
-        {
-            var mission = _db.Cities.ToList();
-            return Ok(mission);
-        }
-
-        [Route("home/api/country")]
-        [HttpGet]
-        public IActionResult TestCountry()
-        {
-            var mission = _db.Countries.ToList();
-            return Ok(mission);
-        }
-
-        [Route("home/api/theme")]
-        [HttpGet]
-        public IActionResult TestTheme()
-        {
-            var mission = _db.MissionThemes.ToList();
-            return Ok(mission);
-        }
-
-        [Route("home/api/test")]
-        [HttpGet]
-        public IActionResult Test2(int? pageIndex)
-        {
-            var mission = from m in _db.Missions
-                          select new
-                          {
-                              title = m.Title,
-                              desc = m.Description,
-                              startdate = m.StartDate,
-                              enddate = m.EndDate,
-                              missionType = m.MissionType,
-                              city = m.City,
-                              theme = m.Theme
-                          };
-
-            int pageSize = 9;
-            int skip = (pageIndex ?? 0) * pageSize;
-            var Missions = mission.Skip(skip).Take(pageSize).ToList();
-            int totalMissions = mission.Count();
-            int TotalPages = (int)Math.Ceiling(totalMissions / (double)pageSize);
-            int CurrentPage = pageIndex ?? 0;
-
-            return Json(new { Missions, totalMissions, TotalPages, CurrentPage });
-        }
-
-        [Route("home/api/search")]
-        [HttpGet]
-        public IActionResult TestSearch(string? searchTerm, int? pageIndex)
-        {
-
-            var mission = from m in _db.Missions.Where(x => x.Title.Contains(searchTerm))
-                          select new
-                          {
-                              title = m.Title,
-                              desc = m.Description,
-                              startdate = m.StartDate,
-                              enddate = m.EndDate,
-                              missionType = m.MissionType,
-                              city = m.City,
-                              theme = m.Theme
-                          };
-
-            int pageSize = 9;
-            int skip = (pageIndex ?? 0) * pageSize;
-            var Missions = mission.Skip(skip).Take(pageSize).ToList();
-            int totalMissions = mission.Count();
-            int TotalPages = (int)Math.Ceiling(totalMissions / (double)pageSize);
-            int CurrentPage = pageIndex ?? 0;
-
-            return Json(new { Missions, totalMissions, TotalPages, CurrentPage });
-        }
-
-        [Route("home/api/sort")]
-        [HttpGet]
-        public IActionResult TestSort(string? sortBy, int? pageIndex)
-        {
-
-            var mission = from m in _db.Missions
-                          select new
-                          {
-                              title = m.Title,
-                              desc = m.Description,
-                              startdate = m.StartDate,
-                              enddate = m.EndDate,
-                              missionType = m.MissionType,
-                              city = m.City,
-                              theme = m.Theme
-                          };
-
-            if (sortBy == "Newest")
-            {
-                mission = from m in _db.Missions.OrderByDescending(o => o.StartDate)
-                          select new
-                          {
-                              title = m.Title,
-                              desc = m.Description,
-                              startdate = m.StartDate,
-                              enddate = m.EndDate,
-                              missionType = m.MissionType,
-                              city = m.City,
-                              theme = m.Theme
-                          };
-            }
-            if (sortBy == "Oldest")
-            {
-                mission = from m in _db.Missions.OrderBy(o => o.StartDate)
-                          select new
-                          {
-                              title = m.Title,
-                              desc = m.Description,
-                              startdate = m.StartDate,
-                              enddate = m.EndDate,
-                              missionType = m.MissionType,
-                              city = m.City,
-                              theme = m.Theme
-                          };
-            }
-            if (sortBy == "Deadline")
-            {
-                mission = from m in _db.Missions.OrderBy(o => o.EndDate)
-                          select new
-                          {
-                              title = m.Title,
-                              desc = m.Description,
-                              startdate = m.StartDate,
-                              enddate = m.EndDate,
-                              missionType = m.MissionType,
-                              city = m.City,
-                              theme = m.Theme
-                          };
-            }
-
-
-
-            int pageSize = 9;
-            int skip = (pageIndex ?? 0) * pageSize;
-            var Missions = mission.Skip(skip).Take(pageSize).ToList();
-            int totalMissions = mission.Count();
-            int TotalPages = (int)Math.Ceiling(totalMissions / (double)pageSize);
-            int CurrentPage = pageIndex ?? 0;
-
-            return Json(new { Missions, totalMissions, TotalPages, CurrentPage, sortBy });
-        }
-
 
         public IActionResult Privacy()
         {

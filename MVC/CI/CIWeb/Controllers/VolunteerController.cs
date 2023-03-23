@@ -11,6 +11,10 @@ namespace CIWeb.Controllers
     {
         private readonly CiContext _db;
 
+        private List<CommentsModel> CommentsModel = new List<CommentsModel>();
+
+        private List<MissionViewModel> relatedMissions = new List<MissionViewModel>();
+
         public VolunteerController(CiContext db)
         {
             _db = db;
@@ -44,7 +48,7 @@ namespace CIWeb.Controllers
             VolunteerMissionModel.Country = country;
             VolunteerMissionModel.Themes = theme;
 
-            // related missions
+            //related missions
             var relatedMission = _db.Missions.Where(m => m.CityId == mission[0].CityId).Take(3).ToList();
             if (relatedMission.Count < 3)
             {
@@ -270,11 +274,22 @@ namespace CIWeb.Controllers
         {
             String? userId = HttpContext.Session.GetString("userEmail");
             var user = _db.Users.Where(e => e.Email == userId).SingleOrDefault();
-
+           
             if (user != null)
             {
                 var comments = _db.Comments.Where(c => c.MissionId == missionId && c.ApprovalStatus != "pending").ToList();
-                return Json(new { comments });
+                foreach(var comment in comments)
+                {
+                    var u = _db.Users.Where(u => u.UserId == comment.UserId).SingleOrDefault();
+                    CommentsModel.Add(new CommentsModel
+                    {
+                        firstName = u?.FirstName, 
+                        lastName = u?.LastName,
+                        commentText = comment.CommentText,
+                        createdAt = comment.CreatedAt
+                    });
+                }
+                return Json(new { CommentsModel });
             }
             else
             {
