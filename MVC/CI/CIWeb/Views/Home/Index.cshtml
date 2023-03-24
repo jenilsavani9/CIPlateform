@@ -26,16 +26,16 @@
         });
 
         function LoadAddtoFav(id) {
-                
-                
+
+
                 $.ajax({
                     type: "GET",
                     url: `https://localhost:44398/missions/${id}/checkFavorite`,
                     success: function (response) {
-                        
+
                         var element = document.getElementById(`landing-page-add-to-fav-btn-card-${id}`);
                         if(response=="IN"){
-                            element.innerHTML = `<img src="/img/heart-2.png" alt="">`                        
+                            element.innerHTML = `<img src="/img/heart-2.png" alt="">`
                         } else {
                             element.innerHTML = `<img src="/img/heart.png" alt="">`
                         }
@@ -88,141 +88,140 @@
 </head>
 
 <body>
-    
-    <div class="container" >
+
+    <div class="container">
         <div !importantmportantlass="ms-1 me-1 mb-3 d-flex flex-column justify-content-start filter-details" id="navmaindiv">
 
             <div class="d-flex d-lg-none row" style="margin-top: 63px !important;">
-                    
-                    <form role="search" class="d-flex col-10">
-                        
-                        <i class="fas fa-search mt-2"></i>
-                        
-                        <input type="search"
-                               class="form-control rounded ms-2 searchbox border-0"
-                               id="search-bar"
-                               value=@ViewBag.searchQuery
-                               name="searchQuery"
-                               placeholder="Search Mission..."
-                               aria-label="Search"
-                               style="width: 80vw" />
-                    </form>
-                    <div class="col-2">
-                   <button class="btn shadow-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight" aria-controls="offcanvasRight"><img src="~/img/filter.png"></button>
 
-                        <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasRight" aria-labelledby="offcanvasRightLabel">
-                          <div class="offcanvas-header">
+                <form role="search" class="d-flex col-10">
+
+                    <i class="fas fa-search mt-2"></i>
+
+                    <input type="search"
+                           class="form-control rounded ms-2 searchbox border-0"
+                           id="search-bar"
+                           value=@ViewBag.searchQuery
+                           name="searchQuery"
+                           placeholder="Search Mission..."
+                           aria-label="Search"
+                           style="width: 80vw" />
+                </form>
+                <div class="col-2">
+                    <button class="btn shadow-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight" aria-controls="offcanvasRight"><img src="~/img/filter.png"></button>
+
+                    <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasRight" aria-labelledby="offcanvasRightLabel">
+                        <div class="offcanvas-header">
                             <h5 class="offcanvas-title" id="offcanvasRightLabel">Filters</h5>
                             <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
-                          </div>
-                          <div class="offcanvas-body">
-                                
-                                <div class="dropdown-section d-flex justify-content-end flex-column">
-                                    <div class="dropdown ms-1 mt-4 pe-5 ps-2 dropdownborder">
-                                        <a class="text-reset me-5 singledropdown dropdown-toggle" href="#" id="navbarDropdownMenuLink"
-                                           role="button" data-mdb-toggle="dropdown" aria-expanded="false">
-                                            Country
-                                        </a>
+                        </div>
+                        <div class="offcanvas-body">
 
-                                        <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink" style="max-height: 300px; overflow-y: scroll; ">
+                            <div class="dropdown-section d-flex justify-content-end flex-column">
+                                <div class="dropdown ms-1 mt-4 pe-5 ps-2 dropdownborder">
+                                    <a class="text-reset me-5 singledropdown dropdown-toggle" href="#" id="navbarDropdownMenuLink"
+                                       role="button" data-mdb-toggle="dropdown" aria-expanded="false">
+                                        Country
+                                    </a>
 
-                           
-
-                                             @foreach (var country in ViewBag.countries)
-                                                {
-                                
-                                                        <li>
-                                                            <a class="dropdown-item dd-color">
-                                                                <div class="form-check">
-                                                                    <input class="form-check-input" name="countries" type="checkbox" value=@country.Name
-                                                                       id="@country.CountryId" onclick="updateUrl(@country.CountryId, 'FCountries')" />
-                                                                    <label class="form-check-label" for=@country.Name>@country.Name</label>
-                                                                </div>
-                                                            </a>
-                                                        </li>
-                                
-
-                                
-
-                                                }
+                                    <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink" style="max-height: 300px; overflow-y: scroll; ">
 
 
-                                        </ul>
-                                    </div>
-                                    <div class="dropdown ms-1 mt-4 pe-5 ps-2 dropdownborderright">
-                                        <a class="text-reset me-5 singledropdown dropdown-toggle" href="#" id="navbarDropdownMenuLink"
-                                           role="button" data-mdb-toggle="dropdown" aria-expanded="false">
-                                            City
-                                        </a>
-                                        <ul class="dropdown-menu dropdown-menu-start dropdownlist" id="load-country-city" aria-labelledby="navbarDropdownMenuLink" style="max-height: 300px; overflow-y: scroll; " >
-                           
-                                            
-                                                <li>Please select a Country</li>
-                                           
-                                        </ul>
-                                    </div>
-                                    <div class="dropdown ms-1 mt-4 pe-5 ps-2 dropdownborderright">
-                                        <a class="text-reset singledropdown me-4 dropdown-toggle" href="#" id="navbarDropdownMenuLink"
-                                           role="button" data-mdb-toggle="dropdown" aria-expanded="false">
-                                            Theme
-                                        </a>
-                                        <ul class="dropdown-menu dropdown-menu-start dropdownlist" aria-labelledby="navbarDropdownMenuLink" style="max-height: 300px; overflow-y: scroll; ">
-                                            @if (ViewBag.Themes != null)
-                                            {
-                                
 
-                                                @foreach (var theme in ViewBag.Themes)
-                                                {
-                                   
-                                                        <li>
-                                                            <a class="dropdown-item dd-color">
-                                                                <div class="form-check">
-                                                                    <input class="form-check-input" name="themes" type="checkbox" value=@theme.Title id=@theme.MissionThemeId onchange="updateUrl(@theme.MissionThemeId, 'FThemes')"/>
-                                                                    <label class="form-check-label" for=@theme.MissionThemeId>@theme.Title</label>
-                                                                </div>
-                                                            </a>
-                                                        </li>
-                                    
-                                                }
-                                            }
-                                        </ul>
-                                    </div>
-                                    <div class="dropdown ms-1 mt-4 pe-5 ps-2 dropdownborderright">
-                                        <a class="text-reset singledropdown me-4 dropdown-toggle" href="#" id="navbarDropdownMenuLink"
-                                           role="button" data-mdb-toggle="dropdown" aria-expanded="false">
-                                            skills
-                                        </a>
-                                        <ul class="dropdown-menu dropdown-menu-start dropdownlist" aria-labelledby="navbarDropdownMenuLink" style="max-height: 300px; overflow-y: scroll; ">
-                                            @if (ViewBag.skills != null)
+                                        @foreach (var country in ViewBag.countries)
+                                        {
+
+                                            <li>
+                                                <a class="dropdown-item dd-color">
+                                                    <div class="form-check">
+                                                        <input class="form-check-input" name="countries" type="checkbox" value=@country.Name
+                                                           id="@country.CountryId" onclick="updateUrl(@country.CountryId, 'FCountries')" />
+                                                        <label class="form-check-label" for=@country.Name>@country.Name</label>
+                                                    </div>
+                                                </a>
+                                            </li>
+
+
+
+
+                                        }
+
+
+                                    </ul>
+                                </div>
+                                <div class="dropdown ms-1 mt-4 pe-5 ps-2 dropdownborderright">
+                                    <a class="text-reset me-5 singledropdown dropdown-toggle" href="#" id="navbarDropdownMenuLink"
+                                       role="button" data-mdb-toggle="dropdown" aria-expanded="false">
+                                        City
+                                    </a>
+                                    <ul class="dropdown-menu dropdown-menu-start dropdownlist" id="load-country-city" aria-labelledby="navbarDropdownMenuLink" style="max-height: 300px; overflow-y: scroll; ">
+
+
+                                        <li>Please select a Country</li>
+
+                                    </ul>
+                                </div>
+                                <div class="dropdown ms-1 mt-4 pe-5 ps-2 dropdownborderright">
+                                    <a class="text-reset singledropdown me-4 dropdown-toggle" href="#" id="navbarDropdownMenuLink"
+                                       role="button" data-mdb-toggle="dropdown" aria-expanded="false">
+                                        Theme
+                                    </a>
+                                    <ul class="dropdown-menu dropdown-menu-start dropdownlist" aria-labelledby="navbarDropdownMenuLink" style="max-height: 300px; overflow-y: scroll; ">
+                                        @if (ViewBag.Themes != null)
+                                        {
+
+
+                                            @foreach (var theme in ViewBag.Themes)
                                             {
 
-                                                @foreach (var skill in ViewBag.skills)
-                                                {
-                                    
-                                                       <li>
-                                                            <a class="dropdown-item dd-color">
-                                                                <div class="form-check">
-                                                                    <input class="form-check-input" name="skills" type="checkbox" value=@skill.SkillName id=@skill.SkillId onchange="updateUrl(@skill.SkillId, 'FSkills')" />
-                                                                    <label class="form-check-label" for=@skill.SkillId>@skill.SkillName</label>
-                                                                </div>
-                                                            </a>
-                                                        </li>
-                                    
-                                                }
-                                            }
-                                        </ul>
-                                    </div>
-                                </div>  
+                                                <li>
+                                                    <a class="dropdown-item dd-color">
+                                                        <div class="form-check">
+                                                            <input class="form-check-input" name="themes" type="checkbox" value=@theme.Title id=@theme.MissionThemeId onchange="updateUrl(@theme.MissionThemeId, 'FThemes')" />
+                                                            <label class="form-check-label" for=@theme.MissionThemeId>@theme.Title</label>
+                                                        </div>
+                                                    </a>
+                                                </li>
 
-                          </div>
-                         </div>
-                         </div>
+                                            }
+                                        }
+                                    </ul>
+                                </div>
+                                <div class="dropdown ms-1 mt-4 pe-5 ps-2 dropdownborderright">
+                                    <a class="text-reset singledropdown me-4 dropdown-toggle" href="#" id="navbarDropdownMenuLink"
+                                       role="button" data-mdb-toggle="dropdown" aria-expanded="false">
+                                        skills
+                                    </a>
+                                    <ul class="dropdown-menu dropdown-menu-start dropdownlist" aria-labelledby="navbarDropdownMenuLink" style="max-height: 300px; overflow-y: scroll; ">
+                                        @if (ViewBag.skills != null)
+                                        {
+
+                                            @foreach (var skill in ViewBag.skills)
+                                            {
+
+                                                <li>
+                                                    <a class="dropdown-item dd-color">
+                                                        <div class="form-check">
+                                                            <input class="form-check-input" name="skills" type="checkbox" value=@skill.SkillName id=@skill.SkillId onchange="updateUrl(@skill.SkillId, 'FSkills')" />
+                                                            <label class="form-check-label" for=@skill.SkillId>@skill.SkillName</label>
+                                                        </div>
+                                                    </a>
+                                                </li>
+
+                                            }
+                                        }
+                                    </ul>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
             </div>
 
             <div class="filters-section d-flex align-items-end flex-wrap justify-content-start" style="margin-top:0 !important" id="filter-element-for-landing-page">
-
             </div>
-            
+
 
         </div>
 
@@ -235,35 +234,23 @@
 
 
 
-            @*<div class="d-flex">
-
-
+            <div class="d-flex">
                 <div class="dropdown ms-3 mt-2 pe-3 ps-2 d-none d-lg-inline-block">
                     <button class="btn text-reset me-0 sortBy-dropdown dropdown-toggle shadow-none" type="button" data-bs-toggle="dropdown" aria-expanded="false">
                         Sort By
                         <i class="bi bi-chevron-down"></i>
                     </button>
                     <ul class="dropdown-menu">
-                        @if (ViewBag.currentUrl.Contains('?'))
+                        <li><a class="dropdown-item" onclick="changeURL(searchQuery = '', FCountries = '', FCities = '', FThemes = '', FSkills = '', pageIndex = '', sortOrder = 'newest')" style="cursor:pointer;">Newest</a></li>
+                        <li><a class="dropdown-item" onclick="changeURL(searchQuery = '', FCountries = '', FCities = '', FThemes = '', FSkills = '', pageIndex = '', sortOrder = 'oldest')" style="cursor:pointer;">Oldest</a></li>
+                        <li><a class="dropdown-item" onclick="changeURL(searchQuery = '', FCountries = '', FCities = '', FThemes = '', FSkills = '', pageIndex = '', sortOrder = 'lowest')" style="cursor:pointer;">Lowest available seats </a></li>
+                        <li><a class="dropdown-item" onclick="changeURL(searchQuery = '', FCountries = '', FCities = '', FThemes = '', FSkills = '', pageIndex = '', sortOrder = 'highest')" style="cursor:pointer;">Highest available seats </a></li>
+                        @if (ViewBag.user != null)
                         {
-                            <li><a class="dropdown-item" href="@ViewBag.currentUrl&sortOrder=newest">Newest</a></li>
-                            <li><a class="dropdown-item" href="@ViewBag.currentUrl&sortOrder=oldest">Oldest</a></li>
-                            <li><a class="dropdown-item" href="@ViewBag.currentUrl&sortOrder=lowest">Lowest available seats </a></li>
-                            <li><a class="dropdown-item" href="@ViewBag.currentUrl&sortOrder=highest">Highest available seats </a></li>
-                            <li><a class="dropdown-item" href="@ViewBag.currentUrl&sortOrder=favourites">My favourites </a></li>
-                            <li><a class="dropdown-item" href="@ViewBag.currentUrl&sortOrder=deadline">Registration deadline</a></li>
-                        }
-                        else
-                        {
-                            <li><a class="dropdown-item" href="@ViewBag.currentUrl?sortOrder=newest">Newest</a></li>
-                            <li><a class="dropdown-item" href="@ViewBag.currentUrl?sortOrder=oldest">Oldest</a></li>
-                            <li><a class="dropdown-item" href="@ViewBag.currentUrl?sortOrder=lowest">Lowest available seats </a></li>
-                            <li><a class="dropdown-item" href="@ViewBag.currentUrl?sortOrder=highest">Highest available seats </a></li>
-                            <li><a class="dropdown-item" href="@ViewBag.currentUrl?sortOrder=favourites">My favourites </a></li>
-                            <li><a class="dropdown-item" href="@ViewBag.currentUrl?sortOrder=deadline">Registration deadline</a></li>
-
+                            <li><a class="dropdown-item" onclick="changeURL(searchQuery = '', FCountries = '', FCities = '', FThemes = '', FSkills = '', pageIndex = '', sortOrder = 'favourites')" style="cursor:pointer;">My favourites </a></li>
                         }
 
+                        <li><a class="dropdown-item" onclick="changeURL(searchQuery = '', FCountries = '', FCities = '', FThemes = '', FSkills = '', pageIndex = '', sortOrder = 'deadline')" style="cursor:pointer;">Registration deadline</a></li>
                     </ul>
                 </div>
                 <div class="btn-group d-none d-lg-flex shadow-none">
@@ -275,24 +262,21 @@
                         <img src="~/img/list.png" alt="">
                     </button>
                 </div>
-            </div>*@
+            </div>
 
 
 
 
         </div>
 
-        <div id="products" class="row container view-group mt-3" >
-
-            
+        <div id="products" class="row container view-group mt-3">
         </div>
 
         <nav aria-label="Page navigation example" class="d-flex justify-content-center mt-4">
-            <ul class="pagination"  id="landing-page-pagination">
-            
+            <ul class="pagination" id="landing-page-pagination">
             </ul>
         </nav>
-       
+
     </div>
 
     <script>
@@ -304,21 +288,21 @@
                         <div class="thumbnail card">
                             <div class="img-event">
                                 <img class="group list-group-image img-fluid" style="width:100%;"
-                             src="/img/Grow-Trees-On-the-path-to-environment-sustainability.png" alt="" />
+                             src="/img/${item.imgUrl}" alt="" />
                                 <div class="landing-page-top-right"><img src="/img/pin.png" alt=""> ${item.city}</div>
                                 <div class="landing-page-bottom-right d-flex flex-column">
-                                    @if(ViewBag.user != null)
-                                    {
-                                        <button class="mb-2 landing-page-btn-img" id="landing-page-add-to-fav-btn-card-${item.missionId}" onclick="changeAddtoFav(${item.missionId})" >
-                                            <img src="~/img/heart.png" alt="" onload="LoadAddtoFav(${item.missionId})">
-                                        </button>
-                                            
-                                        <button class="landing-page-btn-img">
-                                            <img src="~/img/user.png"
+        @if (ViewBag.user != null)
+        {
+                                                <button class="mb-2 landing-page-btn-img" id="landing-page-add-to-fav-btn-card-${item.missionId}" onclick="changeAddtoFav(${item.missionId})" >
+                                                    <img src="~/img/heart.png" alt="" onload="LoadAddtoFav(${item.missionId})">
+                                                </button>
+
+                                                <button class="landing-page-btn-img">
+                                                    <img src="~/img/user.png"
                                          alt="">
-                                        </button>
-                                    } 
-                                    
+                                                </button>
+        }
+
                                 </div>
 
                                 <div class="landing-page-bottom-center">${item.theme}</div>
@@ -350,7 +334,7 @@
                                         <p class="lead me-2 pt-2">
                                             <img src="/img/Seats-left.png" alt="">
                                             <div>
-                                                <div>10</div>
+                                                <div>${item.noOfSeatsLeft}</div>
                                                 <div class="landing-page-card-vol-small">Seats Left</div>
                                             </div>
                                         </p>
@@ -368,18 +352,19 @@
                                 <div class="d-flex justify-content-center">
                                     <div class="">
 
-                                        @if (@ViewBag.user != null)
-                                        {
-                                            <a class="btn mt-2 landing-page-apply-mission-btn" href="/missions/${item.missionId}">
-                                                    Apply <img src="~/img/right-arrow.png" alt="">
-                                                </a>
-                                        }
-                                        else
-                                        {
-                                            <a class="btn mt-2 landing-page-apply-mission-btn" asp-action="Login" asp-controller="User">
-                                                    Login <img src="~/img/right-arrow.png" alt="">
-                                                </a>
-                                        }
+        @if (@ViewBag.user != null)
+        {
+
+                                                    <a class="btn mt-2 landing-page-apply-mission-btn" href="/missions/${item.missionId}">
+                                                            ${item.userApplied==true?"Applied Successfully":`Apply <img src="~/img/right-arrow.png" alt="">`}
+                                                        </a>
+        }
+        else
+        {
+                                                    <a class="btn mt-2 landing-page-apply-mission-btn" asp-action="Login" asp-controller="User">
+                                                            Login <img src="~/img/right-arrow.png" alt="">
+                                                        </a>
+        }
                                     </div>
                                 </div>
                             </div>
@@ -393,18 +378,18 @@
                              src="/img/Grow-Trees-On-the-path-to-environment-sustainability.png" alt="" />
                                 <div class="landing-page-top-right"><img src="/img/pin.png" alt=""> ${item.city}</div>
                                 <div class="landing-page-bottom-right d-flex flex-column">
-                                    @if(ViewBag.user != null)
-                                    {
-                                        <button class="mb-2 landing-page-btn-img" id="landing-page-add-to-fav-btn-card-${item.missionId}" onclick="changeAddtoFav(${item.missionId})" >
-                                            <img src="~/img/heart.png" alt="" onload="LoadAddtoFav(${item.missionId})">
-                                        </button>
-                                            
-                                        <button class="landing-page-btn-img">
-                                            <img src="~/img/user.png"
+        @if (ViewBag.user != null)
+        {
+                                                <button class="mb-2 landing-page-btn-img" id="landing-page-add-to-fav-btn-card-${item.missionId}" onclick="changeAddtoFav(${item.missionId})" >
+                                                    <img src="~/img/heart.png" alt="" onload="LoadAddtoFav(${item.missionId})">
+                                                </button>
+
+                                                <button class="landing-page-btn-img">
+                                                    <img src="~/img/user.png"
                                          alt="">
-                                        </button>
-                                    } 
-                                    
+                                                </button>
+        }
+
                                 </div>
 
                                 <div class="landing-page-bottom-center">${item.theme}</div>
@@ -428,21 +413,21 @@
                                 </div>
                                 <div class="rule d-flex mt-1">
                                     <hr>
-                                    <button class="date-btn mt-1">${item.title}</button>
+                                    <button class="date-btn mt-1">${item.startDateEndDate}</button>
                                     <hr>
                                 </div>
                                 <div class="row landing-page-box-border">
 
-                                    <!-- <div class="col-6 col-md-6 d-flex align-items-center">
-                                      <p class="lead me-2 pt-2">
-                                        <img src="/img/Seats-left.png" alt="">
-                                      <div>
-                                        <div>10</div>
-                                        <div class="landing-page-card-vol-small">Seats Left</div>
-                                      </div>
-                                      </p>
-                                    </div> -->
-                                    <div class="col-12 d-flex align-items-center">
+                                    <div class="col-6 col-md-6 d-flex align-items-center">
+                                        <p class="lead me-2 pt-2">
+                                            <img src="/img/Seats-left.png" alt="">
+                                            <div>
+                                                <div>${item.noOfSeatsLeft}</div>
+                                                <div class="landing-page-card-vol-small">Seats Left</div>
+                                            </div>
+                                        </p>
+                                    </div>
+                                    <div class="col-6 col-md-6 d-flex align-items-center">
                                         <p class="lead me-2 pt-2">
                                             <img src="/img/achieved.png" alt="">
                                             <div style="width: 100%;">
@@ -461,18 +446,18 @@
                                 <div class="d-flex justify-content-center">
                                     <div class="">
 
-                                        @if (@ViewBag.user != null)
-                                        {
-                                            <a class="btn mt-2 landing-page-apply-mission-btn" href="/missions/${item.missionId}">
-                                                    Apply <img src="~/img/right-arrow.png" alt="">
-                                                </a>
-                                        }
-                                        else
-                                        {
-                                            <a class="btn mt-2 landing-page-apply-mission-btn" asp-action="Login" asp-controller="User">
-                                                    Login <img src="~/img/right-arrow.png" alt="">
-                                                </a>
-                                        }
+        @if (@ViewBag.user != null)
+        {
+                                                    <a class="btn mt-2 landing-page-apply-mission-btn" href="/missions/${item.missionId}">
+                                                            ${item.userApplied==true?"Applied Successfully":`Apply <img src="~/img/right-arrow.png" alt="">`}
+                                                        </a>
+        }
+        else
+        {
+                                                    <a class="btn mt-2 landing-page-apply-mission-btn" asp-action="Login" asp-controller="User">
+                                                            Login <img src="~/img/right-arrow.png" alt="">
+                                                        </a>
+        }
                                     </div>
                                 </div>
                             </div>
@@ -487,8 +472,8 @@
                     type: "GET",
                     url: `https://localhost:44398/api/missions`,
                     success: function (response) {
-                        
-                        
+
+
                         var cards = document.getElementById("products");
                         products.innerHTML = loadMissionCards(response);
 
@@ -508,8 +493,8 @@
 
                 var url = "";
 
-        function changeURL(searchQuery = "", FCountries = "", FCities = "", FThemes = "", FSkills = "", pageIndex = "", sortOrder = "") {
-            
+        function changeURL(searchQuery = "", FCountries = "", FCities = "", FThemes = "", FSkills = "", pageIndex = "0", sortOrder = "") {
+
             if(searchQuery!=""){
                 if (url.includes('searchQuery=')) {
                     url = url.replace(/searchQuery=([^&]*)/, 'searchQuery=' + searchQuery );
@@ -564,31 +549,31 @@
                     url += 'pageIndex=' + pageIndex + "&";
                 }
             }
-            onClickMissionPagination(url);   
+            onClickMissionPagination(url);
             console.log(url)
         }
 
         function loadMissionForPagination(response) {
 
-            var previous = `<li class="page-item story-paginaition-item" onclick="changeURL(searchQuery = '', FCountries = '', FCities = '', FThemes = '', FSkills = '', ${response.currentPage <= 0 ? response.currentPage : response.currentPage - 1}, sortOrder = '')" style="cursor:pointer;">
+            var previous = `<li class="page-item story-paginaition-item" onclick="changeURL(searchQuery = '', FCountries = '', FCities = '', FThemes = '', FSkills = '', '${response.currentPage <= 0 ? response.currentPage : response.currentPage - 1}', sortOrder = '')" style="cursor:pointer;">
                             <a class="page-link" aria-label="Previous">
                                 <span aria-hidden="true">&laquo;</span>
                             </a>
                         </li>`
 
-            var forword = `<li class="page-item story-paginaition-item" onclick="changeURL(searchQuery = '', FCountries = '', FCities = '', FThemes = '', FSkills = '', ${response.currentPage >= response.totalPages ? response.currentPage : response.currentPage + 1}, sortOrder = '')" style="cursor:pointer;">
+            var forword = `<li class="page-item story-paginaition-item" onclick="changeURL(searchQuery = '', FCountries = '', FCities = '', FThemes = '', FSkills = '', '${response.currentPage >= response.totalPages ? response.currentPage : response.currentPage + 1}', sortOrder = '')" style="cursor:pointer;">
                                 <a class="page-link" aria-label="Next">
                                     <span aria-hidden="true" >&raquo;</span>
                                 </a>
                             </li>`
-    
+
             var pages = ""
             for (var i = 0; i < response.totalPages; i++) {
-                pages += `<li class="page-item story-paginaition-item ${response.currentPage == i ? "active" : ""}" onclick="changeURL(searchQuery = '', FCountries = '', FCities = '', FThemes = '', FSkills = '', ${i}, sortOrder = '')"><a class="page-link" style="cursor:pointer;">${i + 1}</a></li> `
+                pages += `<li class="page-item story-paginaition-item ${response.currentPage == i ? "active" : ""}" onclick="changeURL(searchQuery = '', FCountries = '', FCities = '', FThemes = '', FSkills = '', '${i}', sortOrder = '')"><a class="page-link" style="cursor:pointer;">${i + 1}</a></li> `
             }
 
             return previous + pages + forword;
-    
+
         }
 
         function loadCountryElements(response) {
@@ -628,7 +613,7 @@
         }
 
         function removeUrlParams() {
-            
+
             url = ""
             onClickMissionPagination(url);
         }
@@ -652,7 +637,7 @@
                 success: function (response) {
                     console.log(response)
 
-                    
+
 
                     var element = document.getElementById("products");
                     element.innerHTML = loadMissionCards(response)
@@ -686,7 +671,7 @@
                     if(response.skillElements !=null) {
                         filterHTML += loadSkillElements(response);
                     }
-                    
+
                     if(filterHTML != ""){
                         filterHTML += `<span class="filter-list  ps-3 pe-1 me-2 " id="ClearBtn" style="margin-top:2%;">
                                             Clear All
@@ -712,29 +697,29 @@
         }
 
         function changeAddtoFav(id) {
-                
-                $.ajax({
-                    type: "GET",
-                    url: `https://localhost:44398/missions/${id}/addFavorite`,
-                    success: function (response) {
-                        
-                        var element = document.getElementById(`landing-page-add-to-fav-btn-card-${id}`);
-                        if(response=="Add"){
-                            element.innerHTML = `<img src="/img/heart-2.png" alt="">`
-                        } else {
-                            element.innerHTML = `<img src="/img/heart.png" alt="">`
-                        }
-                    },
-                    failure: function (response) {
-                        alert(response.responseText);
-                    },
-                    error: function (response) {
-                        alert(response.responseText);
-                    }
-                });
-            }
 
-            
+                    $.ajax({
+                        type: "GET",
+                        url: `https://localhost:44398/missions/${id}/addFavorite`,
+                        success: function (response) {
+
+                            var element = document.getElementById(`landing-page-add-to-fav-btn-card-${id}`);
+                            if(response=="Add"){
+                                element.innerHTML = `<img src="/img/heart-2.png" alt="">`
+                            } else {
+                                element.innerHTML = `<img src="/img/heart.png" alt="">`
+                            }
+                        },
+                        failure: function (response) {
+                            alert(response.responseText);
+                        },
+                        error: function (response) {
+                            alert(response.responseText);
+                        }
+                    });
+                }
+
+
 
             function showRating(response) {
                 var html = ""
@@ -747,15 +732,16 @@
                     html += `<img class="vol-page-main-card-star" src="/img/star.png" alt="" >`
                     i++;
                 }
-                
+
                 return html
             }
 
-            
 
-          
-        
-            
+
+
+
+
+
 
     </script>
     <script src="~/js/site.js">

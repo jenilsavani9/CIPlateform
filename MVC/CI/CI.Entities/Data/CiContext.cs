@@ -361,6 +361,7 @@ public partial class CiContext : DbContext
                 .HasMaxLength(255)
                 .IsUnicode(false)
                 .HasColumnName("organization_name");
+            entity.Property(e => e.SeatLeft).HasColumnName("seat_left");
             entity.Property(e => e.ShortDescription)
                 .IsUnicode(false)
                 .HasColumnName("short_description");

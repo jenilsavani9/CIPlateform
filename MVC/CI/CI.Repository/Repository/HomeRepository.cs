@@ -216,6 +216,7 @@ namespace CI.Repository.Repository
                 string[] startDateNtime = mission.StartDate.ToString().Split(' ');
                 string[] endDateNtime = mission.EndDate.ToString().Split(' ');
                 var ratings = _db.MissionRatings.Where(e => e.MissionId == mission.MissionId).ToList();
+                var missionURL = _db.MissionMedia.Where(e => e.MissionId == mission.MissionId).FirstOrDefault();
                 var rating = 0;
                 var sum = 0;
                 foreach (var entry in ratings)
@@ -237,10 +238,10 @@ namespace CI.Repository.Repository
                     EndDate = (DateTime)mission.EndDate,
                     missionType = mission.MissionType,
                     isFavrouite = (user != null) ? _db.FavoriteMissions.Any(e => e.MissionId == mission.MissionId && e.UserId == user.UserId) : false,
-                    //userApplied = (user != null) ? _db.MissionApplications.Any(e => e.MissionId == mission.MissionId && e.UserId == id && int.Parse(e.ApprovalStatus) == 1) : false,
-                    ImgUrl = "~/images/Grow-Trees-On-the-path-to-environment-sustainability-3.png",
+                    userApplied = (user != null) ? _db.MissionApplications.Any(e => e.MissionId == mission.MissionId && e.UserId == user.UserId && e.ApprovalStatus != "pending") : false,
+                    ImgUrl = (missionURL!=null) ? missionURL.MediaPath : "Grow-Trees-On-the-path-to-environment-sustainability.png",
                     StartDateEndDate = "From " + startDateNtime[0] + " until " + endDateNtime[0],
-                    NoOfSeatsLeft = 10,
+                    NoOfSeatsLeft = (int)mission?.SeatLeft,
                     Deadline = endDateNtime[0],
                     createdAt = (DateTime)mission.CreatedAt
                 });
@@ -267,11 +268,11 @@ namespace CI.Repository.Repository
                 }
             }
 
-            int totalMissions = FinalMissionsList.Count();
+            int totalMissions = missionsVMList.Count();
             model.TotalPages = (int)Math.Ceiling(totalMissions / (double)pageSize);
             model.CurrentPage = pageIndex ?? 0;
 
-            model.NoOfMissions = FinalMissionsList.Count();
+            model.NoOfMissions = missionsVMList.Count();
             model.missionsVMList = missionsVMList.Skip(skip).Take(pageSize).ToList();
 
             return model;

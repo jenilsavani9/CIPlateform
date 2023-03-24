@@ -324,10 +324,18 @@ namespace CIWeb.Controllers
 
             if (user != null)
             {
-                var mission = _db.MissionApplications.Where(m => m.UserId == user.UserId && m.MissionId == missionId);
-                if(mission.Any())
+                var mission = _db.MissionApplications.Where(m => m.UserId == user.UserId && m.MissionId == missionId).FirstOrDefault();
+                if(mission != null)
                 {
-                    return Json(new { message = "Apply" });
+                    if (mission.ApprovalStatus == "pending")
+                    {
+
+                        return Json(new { message = "Pending" });
+                    }
+                    else
+                    {
+                        return Json(new { message = "Apply" });
+                    }
                 }
                 else
                 {

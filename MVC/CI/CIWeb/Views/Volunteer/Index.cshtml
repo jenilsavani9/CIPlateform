@@ -721,7 +721,7 @@
                         
                         var element = document.getElementById("vol-page-apply-mission-btn");
                         if(response.message=="Apply"){
-                            element.innerHTML = `<button class="btn vol-page-apply-btn shadow-none" style="color: green" disabled> Applied Successfully</button>`
+                            element.innerHTML = `<button class="btn vol-page-apply-btn shadow-none" style="color: green" disabled> Application Pending</button>`
                         } else {
                             element.innerHTML = `<button class="btn vol-page-apply-btn shadow-none" onclick="applyMission(${tempUrl})">Apply Now <img src="/img/right-arrow.png"
                                         alt=""></button>`
@@ -737,10 +737,11 @@
             }
 
             function getRecentVolunteers(response) {
+
                 return response.recentVolunteerModel.map(item => {
                     return `
                             <div class="col-4 mt-1 text-center">
-                                <img class="vol-page-right-recent-vol-img" src="/img/volunteer1.png" alt="">
+                                <img class="vol-page-right-recent-vol-img" src="/img/${item.user[0].avatar}" alt="">
                                 <div class="vol-page-right-2nd-vol-name">${item.user[0].firstName} ${item.user[0].lastName}</div>
                             </div>`
                 }).join("")
@@ -926,7 +927,10 @@
                         var element = document.getElementById("vol-page-apply-mission-btn");
                         if(response.message=="Apply"){
                             element.innerHTML = `<button class="btn vol-page-apply-btn shadow-none" style="color: green" disabled> Applied Successfully</button>`
-                        } else {
+                        } else if(response.message=="Pending") {
+                            element.innerHTML = `<button class="btn vol-page-apply-btn shadow-none" style="color: green" disabled> Application Pending</button>`
+                        }
+                        else {
                             element.innerHTML = `<button class="btn vol-page-apply-btn shadow-none" onclick="applyMission(${tempUrl})">Apply Now <img src="/img/right-arrow.png"
                                         alt=""></button>`
                         }

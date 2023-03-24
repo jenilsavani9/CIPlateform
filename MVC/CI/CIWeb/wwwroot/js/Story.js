@@ -1,5 +1,6 @@
 ﻿// story listing function
 function loadStory(response) {
+
     return response.story.map(item => {
         return `<div class="item col-12 col-md-6 col-xl-4 mt-4">
                     <div class="thumbnail card">
@@ -39,14 +40,14 @@ function loadStoryForPagination(response) {
                     </a>
                 </li>`
 
-    var forword = `<li class="page-item story-paginaition-item" onclick="onClickStoryPagination(${response.currentStoryPage >= response.totalStoryPage ? response.currentStoryPage : response.currentStoryPage + 1})" style="cursor:pointer;">
+    var forword = `<li class="page-item story-paginaition-item" onclick="onClickStoryPagination(${(response.currentStoryPage + 1) >= response.totalStoryPage ? response.currentStoryPage : response.currentStoryPage + 1})" style="cursor:pointer;" >
                         <a class="page-link" aria-label="Next">
                             <span aria-hidden="true" >&raquo;</span>
                         </a>
                     </li>`
     
     var pages = ""
-    for (var i = 0; i <= response.totalStoryPage; i++) {
+    for (var i = 0; i < response.totalStoryPage ; i++) {
         pages += `<li class="page-item story-paginaition-item ${response.currentStoryPage == i ? "active" : ""}" onclick="onClickStoryPagination(${i})"><a class="page-link" style="cursor:pointer;">${i + 1}</a></li> `
     }
 
@@ -83,6 +84,8 @@ $.ajax({
     type: "GET",
     url: `https://localhost:44398/api/story?page=0`,
     success: function (response) {
+
+        
         
         var element = document.getElementById("story-page-story-cards");
         element.innerHTML = loadStory(response)

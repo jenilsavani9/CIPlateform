@@ -32,10 +32,10 @@ For more information on enabling MVC for empty projects, visit https://go.micros
 
     <div>
         <nav class="navbar headernav navbar-expand-lg fixed-top" style="background-color: #ffffff;">
-            <div class="container" style="position: fixed;top: 0;right: 0;left: 0;z-index: 1030;":>
-                <div class="d-flex col-md-6 d-flex justify-content-center justify-content-md-start pt-3 mb-3 mb-md-0">
+            <div class="container">
+                <div class="d-flex col-md-6 d-flex justify-content-center justify-content-md-start">
 
-                    <p>Stories</p>
+                    <a asp-action="Index" asp-controller="Story" style="text-decoration: none;">Stories</a>
                     <div class="dropdown ms-5">
                         <a class="text-reset me-3 dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button"
                            data-mdb-toggle="dropdown" aria-expanded="false">
@@ -54,37 +54,31 @@ For more information on enabling MVC for empty projects, visit https://go.micros
                 </div>
                 <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas"
                         data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar">
-                    <span class="navbar-toggler-icon"></span>
+                    <span><img src="~/img/menu-bar.svg" alt="logo"></span>
                 </button>
 
                 <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasNavbar"
                      aria-labelledby="offcanvasNavbarLabel">
                     <div class="offcanvas-header">
-                        <div class="searchspace d-flex">
-                            <i class="fas fa-search ms-1 mt-2"></i>
-                            <input type="search" class="form-control rounded searchbar ms-2" placeholder="Search"
-                                   aria-label="Search" aria-describedby="search-addon" />
-                        </div>
                         <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
                     </div>
                     <div class="offcanvas-body justify-content-end">
 
-                       
-
                         <ul class="navbar-nav col-md-6 justify-content-end">
                             <li class="nav-item d-flex align-items-center">
+
                                 @if (@ViewBag.user != null)
                                 {
                                     <div class="dropdown">
                                         <a class="text-reset dropdown-toggle d-flex align-items-center" href="#"
                                        id="navbarDropdownMenuLink" role="button" data-mdb-toggle="dropdown"
                                        aria-expanded="false">
-                                            <img src="~/img/user-img.png" class="rounded-circle me-3" height="22" alt=""
+                                            <img src="~/img/@ViewBag.user.Avatar" class="rounded-circle me-3" height="22" alt=""
                                              loading="lazy" style="
                                                             width: 30px;
                                                             height: 30px;
                                                         " />
-                                            @ViewBag.user.FirstName
+                                            @ViewBag.user.FirstName @ViewBag.user.LastName 
                                         </a>
                                         <ul class="dropdown-menu dropdown-menu-start"
                                         aria-labelledby="navbarDropdownMenuLink">

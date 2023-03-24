@@ -68,12 +68,12 @@
                                         <a class="text-reset dropdown-toggle d-flex align-items-center" href="#"
                                        id="navbarDropdownMenuLink" role="button" data-mdb-toggle="dropdown"
                                        aria-expanded="false">
-                                            <img src="~/img/user-img.png" class="rounded-circle me-3" height="22" alt=""
+                                            <img src="~/img/@ViewBag.user.Avatar" class="rounded-circle me-3" height="22" alt=""
                                              loading="lazy" style="
                                                             width: 30px;
                                                             height: 30px;
                                                         " />
-                                            @ViewBag.user.FirstName
+                                            @ViewBag.user.FirstName @ViewBag.user.LastName 
                                         </a>
                                         <ul class="dropdown-menu dropdown-menu-start"
                                         aria-labelledby="navbarDropdownMenuLink">
