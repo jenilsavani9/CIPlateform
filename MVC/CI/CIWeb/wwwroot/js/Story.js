@@ -1,7 +1,7 @@
 ﻿// story listing function
 function loadStory(response) {
-
-    return response.story.map(item => {
+    
+    return response.storys.map(item => {
         return `<div class="item col-12 col-md-6 col-xl-4 mt-4">
                     <div class="thumbnail card">
                         <div class="img-event story-page-card-top">
@@ -85,7 +85,7 @@ $.ajax({
     url: `https://localhost:44398/api/story?page=0`,
     success: function (response) {
 
-        
+        console.log(response)
         
         var element = document.getElementById("story-page-story-cards");
         element.innerHTML = loadStory(response)

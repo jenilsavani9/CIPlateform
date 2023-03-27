@@ -11,6 +11,14 @@ namespace CI.Repository.Interface
 {
     public interface IStoryRepository
     {
-        public JsonResult GetStory(string page);
+        public List<StoryModel> GetStory(string page);
+
+        public User GetUser(string userEmail);
+
+        public int StoryCount();
+
+        public List<ShareMissionApplyMissionModel> GetAppliedMission(string userEmail);
+
+        public void SaveStory(string? userEmail, long mission, string? title, string? date, string? details, string? url, string? status);
     }
 }

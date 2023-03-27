@@ -1,0 +1,236 @@
+﻿@using CI.Entities.Models;
+<div class="row  p-0 mt-4">
+    <div class="col-12 col-lg-6 imageContainer" id="imageContainer">
+        <div class="one" style="margin-bottom: 1px;">
+            <div class="main_volunteering_image">
+                @*<img src="@Model.StoryMedia.FirstOrDefault( p => p.StoryId == Model.story.StoryId)?.Path" style="height: 350px;" alt=""
+                     id="img0">*@
+            </div>
+        </div>
+        <div class="two" style="margin: 10px; margin-top: 1px;">
+            <div class="text-center" style="margin-left: 0px; margin-right: 0px;padding: 0px; width: 100%;">
+                <div class="row justify-content-center">
+                    <div id="recipeCarousel" class="carousel slide p-0" data-bs-ride="carousel">
+                        <div class="carousel-inner" role="listbox">
+                            @*@{
+                                var count = 1;
+                                var id = "img" + count;
+                                string storyName1 = "Story" + @Model.story.StoryId + "-Photo1";
+                                //string storyName = "Story" + @Model.story.StoryId + "-Photo"+@count;
+                            }
+                            @foreach (var img in Model.StoryMedia)
+                            {
+                                if (img.Type == "png")
+                                {
+                                    if (img.MediaName == storyName1)
+                                    {
+                                        continue;
+                                    }
+                                    <div class="carousel-item">
+                                        <div class="col-md-3">
+                                            <div class="card">
+                                                <div class="card-img">
+                                                    <img src="@img.Path" class="img-fluid smallSliderImageHeight" style="height: 12.5vh" onclick="changeImage(@count)" id="@id">
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    count = count + 1;
+                                    id = "img" + count;
+                                }
+                            }*@
+                        </div>
+                        <a class="carousel-control-prev m-0 control_custom_changes_carousel bg-transparent w-aut"
+                           href="#recipeCarousel" role="button" data-bs-slide="prev">
+                            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                        </a>
+                        <a class="carousel-control-next m-0 control_custom_changes_carousel bg-transparent w-aut"
+                           href="#recipeCarousel" role="button" data-bs-slide="next">
+                            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-12 col-lg-6 mt-4">
+        <div class="storyRightContent">
+            <div class="storyUser">
+                @*@foreach (var user in Model.GetUserData)
+                {
+                    if (Model.story.UserId == user.UserId)
+                    {
+                        <img src="@user.Avatar" class="commentImage" alt="">
+                        <p class="text-muted">@user.FirstName @user.LastName</p>
+                    }
+                }*@
+            </div>
+            <div>
+                <div class="viewsContainer">
+                    <img src="~/images/eye.png" alt="">
+                    <p class="p-0 text-muted" style="margin-left: 10px;margin-bottom: 0px;"><span id="countUser">0</span> Views</p>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <p class="storyDescription">
+                @*@foreach (var user in Model.GetUserData)
+                {
+                    if (Model.story.UserId == user.UserId)
+                    {
+                        <p>@user.WhyIVolunteer</p>
+                    }
+                }*@
+            </p>
+        </div>
+        <div class="row buttonROW mt-4">
+            <div class="col-8">
+                <center>
+                    <!-- Share Model -->
+                    <!-- Button trigger modal -->
+                    <button type="button" class="recommend" data-bs-toggle="modal" data-bs-target="#exampleModal"><img src="~/images/add1.png" style="width: 15px;height: 15px;padding-bottom: 3px;" alt="">&nbsp;&nbsp;<span class="recommText">Recommend to a Co-Worker</span></button>
+
+
+                    <!-- Vertically centered scrollable modal -->
+                    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                        <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable modal-xl">
+                            <div class="modal-content">
+                                <div class="modal-header d-flex justify-content-around" style="border: none">
+                                    <h1 class="modal-title fs-5" id="exampleModalLabel">Recommend to a Co-Worker</h1>
+                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                </div>
+                                <div class="modal-body">
+                                    <form class="form-inline">
+                                        <div class="row mb-3">
+                                            <div class="col-5">
+                                                <input class="form-control mr-sm-2" id="userSearch" type="search" placeholder="Search User" aria-label="Search" onkeyup="searchUserByName()" autocomplete="off">
+                                            </div>
+                                            <div class="col-1 p-0 d-flex justify-content-start align-items-center">
+                                                <img src="~/images/search.png" id="searchSearchbar" style="height: 20px;" alt="">
+                                            </div>
+                                            <div class="col-6"></div>
+                                        </div>
+                                    </form>
+                                    <div class="row m-5" id="noUser">
+                                        <div class="col">
+                                            <h3 class="text-danger">User not found.</h3>
+                                        </div>
+                                    </div>
+                                    @*@foreach (var user in Model.GetUserData)
+                                    {
+                                        <hr class="m-0" />
+                                        <div class="row m-2 userListRow">
+                                            <div class="col-1 d-flex align-items-center justify-content-center">
+                                                <img src="~/images/volunteer3.png" class="commentImage m-0" alt="">
+                                            </div>
+                                            <div class="col-8 userFlex">
+                                                <h5 class="m-0 userName">@user.FirstName @user.LastName</h5>
+                                                <p class="m-0 text-muted">@user.Department</p>
+                                            </div>
+                                            <div class="col-3 d-flex align-items-center justify-content-center">
+                                                <center id="inviteButtonModel">
+                                                    <a role="button" style="text-decoration:none" id="@user.Email" data-email="@user.Email" class="applyButton">Invite</a>
+                                                </center>
+                                            </div>
+                                        </div>
+                                    }*@
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Share Model -->
+                </center>
+            </div>
+            <div class="col-4">
+                <center>
+                    @*<a asp-action="Index" asp-controller="VolunteeringMission" asp-route-id="@Model.story.MissionId" type="button" class="OpenMission" style="color: #F88634;"><span class="addText">Open Mission&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><img src="~/images/right-arrow.png" alt=""></a>*@
+                </center>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="row mt-4">
+    <div class="col">
+        <p class="storyTitle pb-3">
+            @*@Model.story.Title*@
+        </p>
+        @*<p class="storyDescription">@Model.story.Description</p>*@
+
+    </div>
+
+</div>
+<script src="~/lib/jquery/dist/jquery.js"></script>
+<script>
+    function changeImage(imgNumber) {
+        var img = document.getElementById("img" + imgNumber);
+        var img0 = document.getElementById("img0");
+        img0.src = img.src;
+    }
+
+    let items = document.querySelectorAll('.carousel .carousel-item')
+
+    items.forEach((el) => {
+        const minPerSlide = 4
+        let next = el.nextElementSibling
+        for (var i = 1; i < minPerSlide; i++) {
+            if (!next) {
+                // wrap carousel by using first child
+                next = items[0]
+            }
+            let cloneChild = next.cloneNode(true)
+            el.appendChild(cloneChild.children[0])
+            next = next.nextElementSibling
+        }
+    })
+
+    // Attached class active to image slider for working slider properly
+    var image = document.getElementsByClassName("carousel-item");
+    image[0].classList.add('active');
+
+    // searchUserByName()
+    var noUser = document.getElementById("noUser");
+    noUser.style.display = "none";
+
+    function searchUserByName() {
+        let input = document.getElementById("userSearch").value
+        input = input.toLowerCase();
+        let name = document.getElementsByClassName("userName");
+        let x = document.getElementsByClassName("userListRow");
+        noUser.style.display = "none";
+        var found = false;
+
+        for (i = 0; i < name.length; i++) {
+            if ((name[i].innerHTML.toLowerCase().includes(input))) {
+                x[i].style.display = "";
+                found = true;
+            }
+            else {
+                x[i].style.display = "none";
+            }
+        }
+
+        if (found == true) {
+            noUser.style.display = "none";
+        } else {
+            noUser.style.display = "";
+        }
+    }
+
+    // Invite User In Bootstrap Model
+    //$("#inviteButtonModel a").click( function (){
+    //    var userEmail = $(this).data('email');
+    //    var userId = document.getElementById(userEmail);
+    //    var userStoryId = @Model.story.StoryId;
+    //    $.ajax({
+    //        url: "/StoryDetail/InviteUser",
+    //        data: { email: userEmail, storyId: userStoryId },
+    //        success: function (result) {
+    //            if( result == "Sent"){
+    //                $(userId).html("Invitation Sent");
+    //            }else if( result = "NotSent"){
+    //                $(userId).html("Not Sent!");
+    //            }
+    //        }
+    //    })
+    //});
+</script>

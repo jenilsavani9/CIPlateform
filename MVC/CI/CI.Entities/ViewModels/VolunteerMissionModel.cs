@@ -1,6 +1,6 @@
 ﻿using CI.Entities.Models;
 
-namespace CIWeb.Models
+namespace CI.Entities.ViewModels
 {
     public class VolunteerMissionModel
     {

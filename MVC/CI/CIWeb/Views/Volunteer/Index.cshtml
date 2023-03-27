@@ -773,8 +773,8 @@
             }
 
             function loadMissionSkills(response) {
-                
-                return response.missionSkills.map(item => item.skills.skillName).join(",")
+
+                return response.missionSkills.map(item => item.skillName).join(",")
             }
 
             function loadMissionDocument(response) {
@@ -981,7 +981,7 @@
                         
                         var daysElement = document.getElementById("vol-page-mission-days");
                         if(response.missionDays.length > 0) {
-                            daysElement.innerHTML = response.missionDays[0].days
+                            daysElement.innerHTML = response.missionDays[0].missionDays
                         } else {
                             daysElement.innerHTML = "No Skill Required.";
                         }
@@ -1101,7 +1101,7 @@
                     type: "GET",
                     url: `https://localhost:44398/mission/${tempUrl}/organization`,
                     success: function (response) {
-
+                        console.log(response)
                         var element = document.getElementById("vol-page-organization-load-data");
                         element.innerHTML = `
                                              <div>

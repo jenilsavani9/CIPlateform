@@ -630,7 +630,12 @@
         }
 
         function onClickMissionPagination(url) {
-
+            var loader = document.getElementById("products");
+            loader.innerHTML = `<div class="d-flex justify-content-center">
+                                  <div class="spinner-border" role="status">
+                                    <span class="visually-hidden">Loading...</span>
+                                  </div>
+                                </div>`
             $.ajax({
                 type: "GET",
                 url: `https://localhost:44398/api/missions?${url}`,
@@ -737,8 +742,24 @@
             }
 
 
+        // search bar
+        var debounceTimer;
 
+        function debounce(func, delay) {
+            clearTimeout(debounceTimer);
+            debounceTimer = setTimeout(func, delay);
+        }
 
+        document.getElementById("search-bar").addEventListener("onkeyup", function () {
+            debounce(function () {
+                search(document.getElementById("search-bar").value);
+            }, 500); // adjust the delay time as needed
+        });
+
+        function search(query) {
+            
+            changeURL(searchQuery = query, FCountries = "", FCities = "", FThemes = "", FSkills = "", pageIndex = "", sortOrder = "")
+        }
 
 
 

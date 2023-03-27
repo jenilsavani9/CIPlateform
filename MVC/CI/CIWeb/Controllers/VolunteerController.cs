@@ -1,9 +1,8 @@
 ﻿using CI.Entities.Data;
-using CI.Entities.Models;
+using CI.Entities.ViewModels;
+using CI.Repository.Interface;
 using CIWeb.Models;
 using Microsoft.AspNetCore.Mvc;
-using System.Net;
-using System.Net.Mail;
 
 namespace CIWeb.Controllers
 {
@@ -11,20 +10,19 @@ namespace CIWeb.Controllers
     {
         private readonly CiContext _db;
 
-        private List<CommentsModel> CommentsModel = new List<CommentsModel>();
+        private readonly IVolunteerRepository _repository;
 
-        private List<MissionViewModel> relatedMissions = new List<MissionViewModel>();
-
-        public VolunteerController(CiContext db)
+        public VolunteerController(CiContext db, IVolunteerRepository repository)
         {
             _db = db;
+            _repository = repository;
         }
 
         [HttpGet("/missions/{id:int}")]
         public IActionResult Index(int? id)
         {
             String? userId = HttpContext.Session.GetString("userEmail");
-            var user = _db.Users.Where(e => e.Email == userId).SingleOrDefault();
+            var user = _repository.GetUser(userId);
             ViewBag.user = user;
             return View();
         }
@@ -39,56 +37,46 @@ namespace CIWeb.Controllers
             VolunteerMissionModel.user = _db.Users.Where(e => e.Email == userId);
 
             int? missionId = id;
-            var mission = _db.Missions.Where(m => m.MissionId == missionId).ToList();
-            var city = _db.Cities.Where(c => c.CityId == mission[0].CityId).ToList();
-            var country = _db.Countries.Where(c => c.CountryId == city[0].CountryId).ToList();
-            var theme = _db.MissionThemes.Where(c => c.MissionThemeId == mission[0].ThemeId).ToList();
+            //var mission = _db.Missions.Where(m => m.MissionId == missionId).ToList();
+            var mission = _repository.GetMissions(missionId);
+            var city = _repository.GetCitys(mission[0].CityId);
+            var country = _repository.GetCountrys(city[0].CountryId);
+            var theme = _repository.GetThemes(mission[0].ThemeId);
             VolunteerMissionModel.Mission = mission;
             VolunteerMissionModel.City = city;
             VolunteerMissionModel.Country = country;
             VolunteerMissionModel.Themes = theme;
 
             //related missions
-            var relatedMission = _db.Missions.Where(m => m.CityId == mission[0].CityId).Take(3).ToList();
-            if (relatedMission.Count < 3)
-            {
-                relatedMission = _db.Missions.Where(m => m.CountryId == mission[0].CountryId).Take(3).ToList();
-            }
-            if (relatedMission.Count < 3)
-            {
-                relatedMission = _db.Missions.Where(m => m.ThemeId == mission[0].ThemeId).Take(3).ToList();
-            }
+            var relatedMission = _repository.RelatedMissions(mission[0].CityId, city[0].CountryId, mission[0].ThemeId);
             VolunteerMissionModel.relatedMission = relatedMission;
             return Json(new { VolunteerMissionModel });
         }
-
-
 
         [HttpGet("/missions/{id:int}/addFavorite")]
         public IActionResult AddToFavorite(int id)
         {
             String? userId = HttpContext.Session.GetString("userEmail");
-            var user = _db.Users.Where(e => e.Email == userId).SingleOrDefault();
+            var user = _repository.GetUser(userId);
 
             int missionId = id;
 
-            if(user != null)
+            if (user != null)
             {
-                var tuser = _db.FavoriteMissions.Where(m => m.UserId == user.UserId && m.MissionId == missionId).ToList();
-                if (tuser.Any())
+
+                var tuser = _repository.AddToFavorite(user.UserId, missionId);
+                if (tuser == false)
                 {
-                    var temp = _db.FavoriteMissions.Where(m => m.UserId == user.UserId && m.MissionId == missionId).First();
-                    _db.FavoriteMissions.Remove(temp);
-                    _db.SaveChanges();
+
                     return Json("Remove");
                 }
                 else
                 {
-                    _db.FavoriteMissions.Add(new FavoriteMission { UserId = user.UserId, MissionId = missionId });
-                    _db.SaveChanges();
+
                     return Json("Add");
                 }
-            } else
+            }
+            else
             {
                 return BadRequest();
             }
@@ -98,15 +86,15 @@ namespace CIWeb.Controllers
         public IActionResult CheckAddToFavorite(int id)
         {
             String? userId = HttpContext.Session.GetString("userEmail");
-            var user = _db.Users.Where(e => e.Email == userId).SingleOrDefault();
+            var user = _repository.GetUser(userId);
 
             int missionId = id;
 
             if (user != null)
             {
-                var tuser = _db.FavoriteMissions.Where(m => m.UserId == user.UserId && m.MissionId == missionId).ToList();
+                var tuser = _repository.CheckAddToFavorite(user.UserId, missionId);
 
-                if (tuser.Any())
+                if (tuser != null && tuser.Any())
                 {
                     return Json("IN");
                 }
@@ -114,39 +102,26 @@ namespace CIWeb.Controllers
                 {
                     return Json("Out");
                 }
-            } else
+            }
+            else
             {
                 return BadRequest();
             }
-
-            
         }
 
         [HttpGet("/missions/{id:int}/rating/{rate:int}")]
         public IActionResult Rating(int id, int rate)
         {
             String? userId = HttpContext.Session.GetString("userEmail");
-            var user = _db.Users.Where(e => e.Email == userId).SingleOrDefault();
+            var user = _repository.GetUser(userId);
             int missionId = id;
 
-            if(user != null)
+            if (user != null)
             {
-                var tuser = _db.MissionRatings.Where(m => m.UserId == user.UserId && m.MissionId == missionId).ToList();
-                if (tuser.Any())
-                {
-                    var temp = _db.MissionRatings.Where(m => m.UserId == user.UserId && m.MissionId == missionId).First();
-                    _db.MissionRatings.Remove(temp);
-                    _db.MissionRatings.Add(new MissionRating { UserId = user.UserId, MissionId = missionId, Rating = rate.ToString() });
-                    _db.SaveChanges();
-                    return Json(rate.ToString());
-                }
-                else
-                {
-                    _db.MissionRatings.Add(new MissionRating { UserId = user.UserId, MissionId = missionId, Rating = rate.ToString() });
-                    _db.SaveChanges();
-                    return Ok(rate.ToString());
-                }
-            } else
+                var tuser = _repository.Rating(user.UserId, rate, missionId);
+                return Json(tuser);
+            }
+            else
             {
                 return BadRequest();
             }
@@ -156,12 +131,12 @@ namespace CIWeb.Controllers
         public IActionResult CheckRating(int id)
         {
             String? userId = HttpContext.Session.GetString("userEmail");
-            var user = _db.Users.Where(e => e.Email == userId).SingleOrDefault();
+            var user = _repository.GetUser(userId);
             int missionId = id;
 
-            if(user != null)
+            if (user != null)
             {
-                var tmission = _db.MissionRatings.Where(m => m.UserId == user.UserId && m.MissionId == missionId).ToList();
+                var tmission = _repository.CheckRating(user.UserId, missionId);
 
                 if (tmission.Any())
                 {
@@ -182,7 +157,7 @@ namespace CIWeb.Controllers
             var avg = 0;
             int missionId = id;
 
-            var tmission = _db.MissionRatings.Where(m => m.MissionId == missionId).ToList();
+            var tmission = _repository.RatingGroup(missionId);
 
             for (var i = 0; i < tmission.Count; i++)
             {
@@ -211,84 +186,34 @@ namespace CIWeb.Controllers
         [HttpPost("/recommand/{id:int}/{missionId:int}")]
         public IActionResult Recommand(int id, int missionId)
         {
-            var user = _db.Users.Where(u => u.UserId == id).FirstOrDefault();
+            var mail = _repository.Recommand(id, missionId);
 
-            if (user != null)
+            if (mail == true)
             {
-                var checkRecommend = _db.MissionInvites.Where(u => u.FromUserId == user.UserId && u.MissionId == missionId && u.ToUserId == id).FirstOrDefault();
-                if (checkRecommend == null)
-                {
-                    _db.MissionInvites.Add(new MissionInvite { ToUserId = user.UserId, MissionId = missionId, FromUserId = user.UserId });
-                    _db.SaveChanges();
-                    // Send an email with the password reset link to the user's email address
-                    var resetLink = "https://localhost:44398/missions/" + missionId.ToString();
-                    // Send email to user with reset password link
-                    // ...
-                    var fromAddress = new MailAddress("jenilsavani8@gmail.com", "CI Platform");
-                    var toAddress = new MailAddress(user.Email);
-                    var subject = "Recommendation for Joining In Mission";
-                    var body = $"Hi,<br /><br />Please click on the following link to Joining In Mission:<br /><br /><a href='{resetLink}'>{resetLink}</a>";
-                    var message = new MailMessage(fromAddress, toAddress)
-                    {
-                        Subject = subject,
-                        Body = body,
-                        IsBodyHtml = true
-                    };
-                    var smtpClient = new SmtpClient("smtp.gmail.com", 587)
-                    {
-                        UseDefaultCredentials = false,
-                        Credentials = new NetworkCredential("jenilsavani8@gmail.com", "bwgnmdxyggqrylsu"),
-                        EnableSsl = true
-                    };
-                    smtpClient.Send(message);
-                    return Json(new { message = "sent" });
-                }
-                else
-                {
-                    return Json(new { message = "sent" });
-                }
-            } else
+                return Json(new { message = "sent" });
+            }
+            else
             {
                 return BadRequest();
             }
-            
-
         }
 
         [HttpGet("/mission/{missionId:int}/organization")]
         public IActionResult Organization(int missionId)
         {
-            var mission = _db.Missions.Where(m => m.MissionId == missionId).FirstOrDefault();
-            if (mission == null)
-            {
-                return Json(new { message = "No Mission Found" });
-            }
-            else
-            {
-                return Json(new { mission });
-            }
+            var mission = _repository.Organization(missionId);
+            return Json(new { mission });
         }
 
         [HttpGet("/mission/{missionId:int}/comments")]
         public IActionResult GetComments(int missionId)
         {
             String? userId = HttpContext.Session.GetString("userEmail");
-            var user = _db.Users.Where(e => e.Email == userId).SingleOrDefault();
-           
+            var user = _repository.GetUser(userId);
+
             if (user != null)
             {
-                var comments = _db.Comments.Where(c => c.MissionId == missionId && c.ApprovalStatus != "pending").ToList();
-                foreach(var comment in comments)
-                {
-                    var u = _db.Users.Where(u => u.UserId == comment.UserId).SingleOrDefault();
-                    CommentsModel.Add(new CommentsModel
-                    {
-                        firstName = u?.FirstName, 
-                        lastName = u?.LastName,
-                        commentText = comment.CommentText,
-                        createdAt = comment.CreatedAt
-                    });
-                }
+                var CommentsModel = _repository.GetComments(missionId);
                 return Json(new { CommentsModel });
             }
             else
@@ -302,14 +227,21 @@ namespace CIWeb.Controllers
         {
 
             String? userId = HttpContext.Session.GetString("userEmail");
-            var user = _db.Users.Where(e => e.Email == userId).SingleOrDefault();
+            var user = _repository.GetUser(userId);
 
-            if(user != null)
+            if (user != null)
             {
-                _db.Comments.Add(new Comment { UserId = user.UserId, MissionId = missionId, CommentText = getTextarea });
-                _db.SaveChanges();
-                return Ok();
-            } 
+                var comment = _repository.AddComments(user.UserId, missionId, getTextarea);
+                if (comment == true)
+                {
+                    return Ok();
+                }
+                else
+                {
+                    return BadRequest();
+                }
+            }
+
             else
             {
                 return BadRequest();
@@ -320,16 +252,15 @@ namespace CIWeb.Controllers
         public IActionResult GetApplyMission(int missionId)
         {
             String? userId = HttpContext.Session.GetString("userEmail");
-            var user = _db.Users.Where(e => e.Email == userId).SingleOrDefault();
+            var user = _repository.GetUser(userId);
 
             if (user != null)
             {
-                var mission = _db.MissionApplications.Where(m => m.UserId == user.UserId && m.MissionId == missionId).FirstOrDefault();
-                if(mission != null)
+                var mission = _repository.GetApplyMission(user.UserId, missionId);
+                if (mission != null)
                 {
                     if (mission.ApprovalStatus == "pending")
                     {
-
                         return Json(new { message = "Pending" });
                     }
                     else
@@ -341,14 +272,11 @@ namespace CIWeb.Controllers
                 {
                     return Json(new { message = "NotApply" });
                 }
-                
             }
             else
             {
                 return BadRequest();
             }
-
-
         }
 
         [HttpPost("/missions/{missionId:int}/apply")]
@@ -356,18 +284,16 @@ namespace CIWeb.Controllers
         {
 
             String? userId = HttpContext.Session.GetString("userEmail");
-            var user = _db.Users.Where(e => e.Email == userId).SingleOrDefault();
-            
+            var user = _repository.GetUser(userId);
+
             if (user != null)
             {
-                var mission = _db.MissionApplications.Where(m => m.UserId == user.UserId && m.MissionId == missionId);
-                if (!mission.Any())
+                var mission = _repository.ApplyMission(user.UserId, missionId);
+                if (mission == true)
                 {
-                    _db.MissionApplications.Add(new MissionApplication { UserId = user.UserId, MissionId = missionId, AppliedAt = DateTime.Now });
-                    _db.SaveChanges();
+                    return Json(new { message = "Apply" });
                 }
-                
-                return Json(new { message = "Apply" });
+                return Json(new { message = "NotApply" });
             }
             else
             {
@@ -383,56 +309,28 @@ namespace CIWeb.Controllers
             {
                 page = "0";
             }
-            int pageSize = 9;
-            var recentVoluntters = _db.MissionApplications.Where(m => m.MissionId == missionId && m.ApprovalStatus != "pending").Skip(int.Parse(page) * pageSize).Take(pageSize);
-
             // pagination for recent volunteers
             ViewBag.RecentVolunttersPage = page;
+            var RecentVolunteerModel = _repository.GetVolunteers(missionId, page);
 
-            List<RecentVolunteerModel> RecentVolunteerModel = new List<RecentVolunteerModel>();
-
-            foreach (var item in recentVoluntters)
-            {
-                RecentVolunteerModel user = new RecentVolunteerModel();
-                user.user = _db.Users.Where(u => u.UserId == item.UserId);
-                RecentVolunteerModel.Add(user);
-            }
-            
             return Json(new { RecentVolunteerModel });
-           
+
         }
 
         [HttpGet("/missions/{missionId:int}/getMissionSkill")]
         public IActionResult GetSkillsAndDays(int missionId)
         {
-
-            var missionSkills = from m in _db.MissionSkills
-                                where m.MissionId == missionId
-                                select new
-                                {
-                                    skills = m.Skill
-                                };
-
-            var missionDays = from m in _db.Missions
-                              where m.MissionId == missionId
-                              select new
-                              {
-                                  days = m.Availability
-                              };
+            var missionSkills = _repository.GetMissionSkills(missionId);
+            var missionDays = _repository.GetMissionDays(missionId);
 
             return Json(new { missionSkills, missionDays });
-
         }
 
         [HttpGet("/missions/{missionId:int}/getMissionDocument")]
         public IActionResult GetMissionDocument(int missionId)
         {
-
-            var document = _db.MissionDocuments.Where(m => m.MissionId == missionId);
-            
+            var document = _repository.GetMissionDocument(missionId);
             return Json(new { document });
-
         }
-
     }
 }

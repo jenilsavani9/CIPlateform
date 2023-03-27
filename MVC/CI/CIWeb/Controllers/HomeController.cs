@@ -4,7 +4,6 @@ using CI.Repository.Interface;
 using CIWeb.Models;
 using Microsoft.AspNetCore.Mvc;
 using System.Diagnostics;
-using System.Web;
 
 namespace CIWeb.Controllers
 {

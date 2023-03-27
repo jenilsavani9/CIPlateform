@@ -1,6 +1,7 @@
 ﻿using CI.Entities.Data;
 using CI.Entities.Models;
 using CI.Entities.ViewModels;
+using CI.Repository.Interface;
 using Microsoft.AspNetCore.Mvc;
 
 namespace CIWeb.Controllers
@@ -9,38 +10,24 @@ namespace CIWeb.Controllers
     {
         private readonly ILogger<HomeController> _logger;
         private readonly CiContext _db;
+        private readonly IStoryRepository _repository;
 
-        public StoryController(ILogger<HomeController> logger, CiContext db)
+        public StoryController(ILogger<HomeController> logger, CiContext db, IStoryRepository repository)
         {
             _logger = logger;
             _db = db;
+            _repository = repository;
         }
 
         public IActionResult Index()
         {
             String? userId = HttpContext.Session.GetString("userEmail");
-
-            
             if (userId == null) 
             {
                 return RedirectToAction("Login", "User");
             }
             var user = _db.Users.Where(e => e.Email == userId).SingleOrDefault();
             ViewBag.user = user;
-
-            List<City> Cities = _db.Cities.ToList();
-            ViewBag.cities = Cities;
-            List<Country> Country = _db.Countries.ToList();
-            ViewBag.countries = Country;
-            List<MissionTheme> Themes = _db.MissionThemes.ToList();
-            ViewBag.Themes = Themes;
-            List<Skill> Skills = _db.Skills.ToList();
-            ViewBag.skills = Skills;
-            ViewBag.skillElements = Skills;
-            ViewBag.cityElements = Cities;
-            ViewBag.themeElements = Themes;
-            ViewBag.countryElements = Country;
-
             return View();
 
         }
@@ -48,23 +35,15 @@ namespace CIWeb.Controllers
         [HttpGet("/api/story")]
         public IActionResult GetStory(string page)
         {
+            var storys = _repository.GetStory(page);
 
-            var story = from s in _db.Stories
-                        select new
-                        {
-                            story = s,
-                            user = s.User,
-                            mission = s.Mission,
-                            theme = s.Mission.Theme
-                        };
-
-            int pageSize = 3;
-            var totalStoryPage = (int)Math.Ceiling(story.Count() / (double)pageSize); 
-
+            var pageSize = 3;
+            var StoryCount = _repository.StoryCount();
+            var totalStoryPage = (int)Math.Ceiling(StoryCount / (double)pageSize);
             var currentStoryPage = int.Parse(page);
-            story = story.Skip(int.Parse(page) * pageSize).Take(pageSize);
+            
 
-            return Json(new { story, totalStoryPage, currentStoryPage });
+            return Json(new { storys, totalStoryPage, currentStoryPage });
 
         }
 
@@ -72,23 +51,12 @@ namespace CIWeb.Controllers
         public IActionResult GetAppliedMission()
         {
             String? userId = HttpContext.Session.GetString("userEmail");
-            var user = _db.Users.Where(e => e.Email == userId).SingleOrDefault();
 
-            if(user != null)
+            if(userId != null)
             {
-                var missionApplication = _db.MissionApplications.Where(a => a.UserId == user.UserId).ToList();
-                var mission = new List<ShareMissionApplyMissionModel>();
-                foreach(var item in missionApplication)
-                {
-                    var tempMission = _db.Missions.Where(m => m.MissionId == item.MissionId).SingleOrDefault();
-                    mission.Add(new ShareMissionApplyMissionModel
-                    {
-                        id = item.MissionId,
-                        title = tempMission?.Title
-                    });
-                }
+                var mission = _repository.GetAppliedMission(userId);
 
-                return Json(new { mission });
+                return Json(new { mission });   
             } 
             else
             {
@@ -97,35 +65,15 @@ namespace CIWeb.Controllers
         }
 
         [HttpPost("/story/sharestory/saveStory")]
-        public IActionResult SaveStory( long mission, string? title, string? date, string? details, string? url, string? status)
+        public IActionResult SaveStory(long mission, string? title, string? date, string? details, string? url, string? status)
         {
             String? userId = HttpContext.Session.GetString("userEmail");
-            var user = _db.Users.Where(e => e.Email == userId).SingleOrDefault();
-            if(user != null)
+
+
+            
+            if(userId != null)
             {
-                
-
-                if(status == "save")
-                {
-                    var story = new Story();
-                    story.MissionId = mission;
-                    story.Title = title;
-                    story.UserId = user.UserId;
-                    story.PublishedAt = DateTime.Now;
-                    _db.Stories.Add(story);
-                } 
-                else
-                {
-                    var story = _db.Stories.Where(s => s.MissionId == mission && s.Title == title && s.Status == "draft").FirstOrDefault();
-                    if(story != null)
-                    {
-                        story.Status = "pending";
-                    }
-                    
-                }
-
-                _db.SaveChanges();
-
+                _repository.SaveStory(userId, mission, title, date, details, url, status);
                 return Ok();
             }
 
@@ -141,7 +89,7 @@ namespace CIWeb.Controllers
             {
                 return RedirectToAction("Login", "User");
             }
-            var user = _db.Users.Where(e => e.Email == userId).SingleOrDefault();
+            var user = _repository.GetUser(userId);
             ViewBag.user = user;
             return View();
         }
