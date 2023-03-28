@@ -2,6 +2,8 @@
 using CI.Entities.Models;
 using CI.Entities.ViewModels;
 using CI.Repository.Interface;
+using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
@@ -15,9 +17,12 @@ namespace CI.Repository.Repository
     {
         private readonly CiContext _db;
 
-        public StoryRepository(CiContext db)
+        private readonly IWebHostEnvironment _webHostEnvironment;
+
+        public StoryRepository(CiContext db, IWebHostEnvironment webHostEnvironment)
         {
             _db = db;
+            _webHostEnvironment = webHostEnvironment;
         }
 
         public List<StoryModel> GetStory(string page)
@@ -81,7 +86,7 @@ namespace CI.Repository.Repository
             return user;
         }
 
-        public void SaveStory(string? userEmail, long mission, string? title, string? date, string? details, string? url, string? status)
+        public void SaveStory(string? userEmail, long mission, string? title, string? date, string? details, string? url, string? status, string? desc)
         {
             var user = _db.Users.Where(e => e.Email == userEmail).SingleOrDefault();
             if (user != null)
@@ -95,6 +100,7 @@ namespace CI.Repository.Repository
                     story.Title = title;
                     story.UserId = user.UserId;
                     story.PublishedAt = DateTime.Now;
+                    story.Description = desc;
                     _db.Stories.Add(story);
                 }
                 else
@@ -108,6 +114,22 @@ namespace CI.Repository.Repository
                 }
                 _db.SaveChanges();
             }
+        }
+
+        //save images
+        public bool OnPostMyUploader(IFormFile MyUploader)
+        {
+            if (MyUploader != null)
+            {
+                string uploadsFolder = Path.Combine(_webHostEnvironment.WebRootPath, "mediaUpload");
+                string filePath = Path.Combine(uploadsFolder, MyUploader.FileName);
+                using (var fileStream = new FileStream(filePath, FileMode.Create))
+                {
+                    MyUploader.CopyTo(fileStream);
+                }
+                return true;
+            }
+            return false;
         }
     }
 }

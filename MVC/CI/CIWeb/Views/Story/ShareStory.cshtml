@@ -1,193 +1,228 @@
-﻿
-@{
-Layout = "_TopNavBar";
+﻿@{
+    Layout = "_TopNavBar";
 }
 <!DOCTYPE html>
 <html lang="en">
-   <head>
-      <meta charset="UTF-8">
-      <meta http-equiv="X-UA-Compatible" content="IE=edge">
-      <meta name="viewport" content="width=device-width, initial-scale=1.0">
-      <title>Share Story</title>
-      <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
-      <script src="https://cdn.ckeditor.com/4.20.2/standard/ckeditor.js"></script>
-      <link rel="stylesheet" href="~/css/ShareStory.css" asp-append-version="true" />
-      <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.3/font/bootstrap-icons.css">
-   </head>
-   <body>
-      <div class=" sharestory container">
-         <div class="row">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Share Story</title>
+    <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+    <script src="//cdn.ckeditor.com/4.21.0/full/ckeditor.js"></script>
+    <link rel="stylesheet" href="~/css/ShareStory.css" asp-append-version="true" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.3/font/bootstrap-icons.css">
+</head>
+<body>
+    <div class=" sharestory container">
+        <div class="row">
             <div class="col-12 col-md-6 col-sm-12">
-               <lable class="fs-2"> Share Your Story</lable>
+                <lable class="fs-2"> Share Your Story</lable>
             </div>
-         </div>
-         <form>
+        </div>
+        <form>
             <div class="row ">
-               <div class="col-11 col-lg-4 col-md-6 col-sm-11 mt-2">
-                  <lable class="fs-6">Select Mission</lable>
-                  <select class="form-select" aria-label="Default select example" id="share-story-mission-list">
-                     <option >Select Mission</option>
-                     <option value="1">One</option>
-                     <option value="2">Two</option>
-                     <option value="3">Three</option>
-                  </select>
-               </div>
-               <div class="col-11 col-lg-4 col-md-6 col-sm-11 mt-2 ">
-                  <lable class="fs-6">My Story Title </lable>
-                  <input type="text" class="w-100 py-1 border-1 rounded-1 mt-1" style="border-color:lightgray" id="share-story-title"/>
-               </div>
-               <div class="col-11 col-lg-4 col-md-6 col-sm-11 mt-2">
-                  <lable class="fs-6">Date </lable>
-                  <input type="date" class="w-100 py-1 border-1 rounded-1 mt-1" style="border-color:lightgray" id="share-story-date"/>
-                  
-               </div>
+                <div class="col-11 col-lg-4 col-md-6 col-sm-11 mt-2">
+                    <lable class="fs-6">Select Mission</lable>
+                    <select class="form-select" aria-label="Default select example" id="share-story-mission-list">
+                        <option>Select Mission</option>
+                        <option value="1">One</option>
+                        <option value="2">Two</option>
+                        <option value="3">Three</option>
+                    </select>
+                </div>
+                <div class="col-11 col-lg-4 col-md-6 col-sm-11 mt-2 ">
+                    <lable class="fs-6">My Story Title </lable>
+                    <input type="text" class="w-100 py-1 border-1 rounded-1 mt-1" style="border-color:lightgray" id="share-story-title" />
+                </div>
+                <div class="col-11 col-lg-4 col-md-6 col-sm-11 mt-2">
+                    <lable class="fs-6">Date </lable>
+                    <input type="date" class="w-100 py-1 border-1 rounded-1 mt-1" style="border-color:lightgray" id="share-story-date" />
+
+                </div>
             </div>
             <div class="row mt-4">
-               <label class="fs-5 ">My Story</label>
-               <div class="col-12 mt-2">
-                  <textarea class="" name="editor1" id="share-story-details"></textarea>
-               </div>
+                <label class="fs-5 ">My Story</label>
+                <div class="col-12 mt-2">
+                    <textarea class="" id="editor1"></textarea>
+                </div>
             </div>
             <div class="row mt-4">
-               <label class="fs-5">Enter Video URL</label>
-               <input type="text" placeholder="Enter your URL" id="share-story-video-url" class="col-12 border-1 border-black mt-1 mb-2" style="height:40px; border-radius:5px" />
+                <label class="fs-5">Enter Video URL</label>
+                <input type="text" placeholder="Enter your URL" id="share-story-video-url" class="col-12 border-1 border-black mt-1 mb-2" style="height:40px; border-radius:5px" />
             </div>
             <div class="row mt-4">
-               <label class=" fs-5"> Upload Your Photos</label>
-               <div class="col-12 mb-2 mt-2 justify-content-center align-items-center" style="border:1px dashed black; height:100px;">
-                  <input type="file" class="w-100 h-100 " style="opacity:0;cursor:pointer; " id="image">
-                  <img type="" src="~/img/drag-and-drop.png" class="" style="z-index:-1;position:absolute;right:40%;top:77%;cursor:pointer;"/>
-               </div>
+                <label class=" fs-5"> Upload Your Photos</label>
+                <div class="col-12 mb-2 mt-2 justify-content-center align-items-center" style="border:1px dashed black; height:100px;">
+                    <input type="file" class="w-100 h-100 " style="opacity:0;cursor:pointer; " id="image" multiple>
+                    <img type="" src="~/img/drag-and-drop.png" class="" style="z-index:-1;position:absolute;right:40%;top:77%;cursor:pointer;" />
+                </div>
             </div>
             <div class="row">
-                
-                            <div id="fileList">
-                                <p id="fileSelect">No files selected!</p>
-                                <ul id="imagelist" class="row" style="list-style-type: none">
 
-                                </ul>
-                            </div>
-                      
+                <div id="fileList">
+                    <p id="fileSelect">No files selected!</p>
+                    <ul id="imagelist" class="row" style="list-style-type: none">
+                    </ul>
+                </div>
+
             </div>
-            <div class="row flex-column flex-md-row mt-4 mb-2" >
-               <div class="col-12 col-md-2 me-auto">
-                  <button class="w-100 bg-white rounded-5 py-2 share-story-btn" asp-action="Index">cancel</button>
-               </div>
-               <div class=" col-12 col-md-2 mt-2 mt-md-0 ">
-                  <button class="w-100 bg-white rounded-5 py-2 ms-0 ms-md-1 savecancelbtn share-story-btn" id="save-btn" onclick="saveStory(event, 'save')">Save</button>
-               </div>
-               <div class=" col-12 col-md-2 mt-2 mt-md-0">
-                  <button class="w-100 bg-white rounded-5 py-2 ms-0 ms-md-1 savecancelbtn share-story-btn" id="submit-btn" onclick="saveStory(event, 'submit')" disabled>Submit</button>
-               </div>
+            <div class="row flex-column flex-md-row mt-4 mb-2">
+                <div class="col-12 col-md-2 me-auto">
+                    <button class="w-100 bg-white rounded-5 py-2 share-story-btn" asp-action="Index">cancel</button>
+                </div>
+                <div class=" col-12 col-md-2 mt-2 mt-md-0 ">
+                    <button class="w-100 bg-white rounded-5 py-2 ms-0 ms-md-1 savecancelbtn share-story-btn" id="save-btn" onclick="saveStory(event, 'save')">Save</button>
+                </div>
+                <div class=" col-12 col-md-2 mt-2 mt-md-0">
+                    <button class="w-100 bg-white rounded-5 py-2 ms-0 ms-md-1 savecancelbtn share-story-btn" id="submit-btn" onclick="saveStory(event, 'submit')" disabled>Submit</button>
+                </div>
             </div>
-         </form>
-      </div>
-      <script>
-         CKEDITOR.replace('editor1');
+        </form>
+    </div>
+    <script>
+                 CKEDITOR.replace('editor1');
 
-         listOfImage = [];
-        function handleFiles() {
-            console.log(flag);
-            if (!this.files.length) {
-                document.getElementById('fileSelect').style.display = 'block'
-            } else {
-                document.getElementById('fileSelect').style.display = 'none'
-                var list = document.getElementById("imagelist")
-                flag = false;
+                 listOfImage = [];
+                function handleFiles() {
+                    console.log(flag);
+                    if (!this.files.length) {
+                        document.getElementById('fileSelect').style.display = 'block'
+                    } else {
+                        document.getElementById('fileSelect').style.display = 'none'
+                        var list = document.getElementById("imagelist")
+                        flag = false;
 
-                for (let i = 0; i < this.files.length; i++) {
-                    const li = document.createElement("li");
-                    li.setAttribute("class", "col-3 mt-2");
-                    const icon = document.createElement("i");
-                    icon.setAttribute("class", "bi bi-x fa-2x crossicon");
-                    list.appendChild(li);
-                    const img = document.createElement("img");
-                    img.src = URL.createObjectURL(this.files[i]);
-                    img.height = 60;
-                    img.onload = () => {
-                        URL.revokeObjectURL(img.src);
-                    };
-                    listOfImage.push(this.files[i].name);
-                    li.appendChild(img);
-                    li.appendChild(icon);
-                    console.log(listOfImage)
-                }
-            }
-            $(".crossicon").click(function () {
-                console.log(this);
-                this.parentElement.remove()
-            });
-        }
-
-        
-        var flag=true;  
-        const fileSelect = document.getElementById("fileSelect");
-        fileElem = document.getElementById("image");  
-        fileElem.addEventListener("change", handleFiles, false);
-
-
-         function loadAppliedMissions(response) {
-             return response.mission.map(item => `<option value="${item.id}">${item.title}</option>`).join("")
-         }
-
-         function saveStory(event, status){
-            event.preventDefault();
-
-            var mission = document.getElementById("share-story-mission-list").value;
-            var title = document.getElementById("share-story-title").value;
-            var date = document.getElementById("share-story-date").value;
-            var url = document.getElementById("share-story-video-url").value;
-
-            $.ajax({
-                    type: "POST",
-                    url: `https://localhost:44398/story/sharestory/saveStory`,
-                    data: {
-                        "mission": mission,
-                        "title": title,
-                        "date": date,
-                        "url": url,
-                        "status": status
-                    },
-                    success: function (response) {
-                        
-                       console.log(response)
-
-                    },
-                    failure: function (response) {
-                        alert(response.responseText);
-                    },
-                    error: function (response) {
-                        alert(response.responseText);
+                        for (let i = 0; i < this.files.length; i++) {
+                            const li = document.createElement("li");
+                            li.setAttribute("class", "col-3 mt-2");
+                            const icon = document.createElement("i");
+                            icon.setAttribute("class", "bi bi-x fa-2x crossicon");
+                            list.appendChild(li);
+                            const img = document.createElement("img");
+                            img.src = URL.createObjectURL(this.files[i]);
+                            img.height = 60;
+                            img.onload = () => {
+                                URL.revokeObjectURL(img.src);
+                            };
+                            listOfImage.push(this.files[i].name);
+                            li.appendChild(img);
+                            li.appendChild(icon);
+                            console.log(listOfImage)
+                        }
                     }
-                });
-
-                if(status=="submit") {
-                    location.href = "https://localhost:44398/story"
-                } else {
-                    var btn = document.getElementById("submit-btn");
-                    btn.disabled = false;
+                    $(".crossicon").click(function () {
+                        console.log(this);
+                        this.parentElement.remove()
+                    });
                 }
-       };
-
-         
-         // call for getting applied missions
-         $.ajax({
-                    type: "GET",
-                    url: `https://localhost:44398/story/sharestory/getmission`,
-                    success: function (response) {
-                        
-                        var element = document.getElementById("share-story-mission-list");
-                        element.innerHTML = loadAppliedMissions(response);
-                    },
-                    failure: function (response) {
-                        alert(response.responseText);
-                    },
-                    error: function (response) {
-                        alert(response.responseText);
-                    }
-                });
 
 
-      </script>
-   </body>
+                var flag=true;
+                const fileSelect = document.getElementById("fileSelect");
+                fileElem = document.getElementById("image");
+                fileElem.addEventListener("change", handleFiles, false);
+
+
+                 function loadAppliedMissions(response) {
+                     return response.mission.map(item => `<option value="${item.id}">${item.title}</option>`).join("")
+                 }
+
+                 function saveStory(event, status){
+                    event.preventDefault();
+
+                    var mission = document.getElementById("share-story-mission-list").value;
+                    var title = document.getElementById("share-story-title").value;
+                    var date = document.getElementById("share-story-date").value;
+                    var url = document.getElementById("share-story-video-url").value;
+                    var desc = CKEDITOR.instances.editor1.getData();
+
+                    var files = $('#image').prop("files");
+                    var url = "/api/static/save";
+                    var mission = document.getElementById("share-story-mission-list").value;
+                    formData = new FormData();
+                    formData.append("mission", mission);
+                    for (var i = 0; i != files.length; i++) {
+                        formData.append("MyUploader", files[i]);
+                      }
+
+                    console.log(formData);
+                    jQuery.ajax({
+                        type: 'POST',
+                        url: url,
+                        data: formData,
+                        cache: false,
+                        contentType: false,
+                        processData: false,
+                        beforeSend: function (xhr) {
+                            xhr.setRequestHeader("XSRF-TOKEN",
+                                $('input:hidden[name="__RequestVerificationToken"]').val());
+                        },
+                        success: function (response) {
+
+                        },
+                        error: function(response) {
+                            alert(response);
+                        }
+                    });
+
+                    $.ajax({
+                            type: "POST",
+                            url: `https://localhost:44398/story/sharestory/saveStory`,
+                            data: {
+                                "mission": mission,
+                                "title": title,
+                                "date": date,
+                                "url": url,
+                                "status": status,
+                                "desc" : desc
+                            },
+                            success: function (response) {
+
+                               console.log(response)
+
+                            },
+                            failure: function (response) {
+                                alert(response.responseText);
+                            },
+                            error: function (response) {
+                                alert(response.responseText);
+                            }
+                        });
+
+                        if(status=="submit") {
+                            location.href = "https://localhost:44398/story"
+                        } else {
+                            var btn = document.getElementById("submit-btn");
+                            btn.disabled = false;
+                        }
+               };
+
+
+                 // call for getting applied missions
+                 $.ajax({
+                            type: "GET",
+                            url: `https://localhost:44398/story/sharestory/getmission`,
+                            success: function (response) {
+
+                                var element = document.getElementById("share-story-mission-list");
+                                element.innerHTML = loadAppliedMissions(response);
+                            },
+                            failure: function (response) {
+                                alert(response.responseText);
+                            },
+                            error: function (response) {
+                                alert(response.responseText);
+                            }
+                        });
+
+
+
+         $("#image").on('change', function () {
+
+        });
+
+
+    </script>
+</body>
 </html>

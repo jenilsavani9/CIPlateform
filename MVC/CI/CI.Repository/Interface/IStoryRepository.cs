@@ -1,5 +1,6 @@
 ﻿using CI.Entities.Models;
 using CI.Entities.ViewModels;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
@@ -19,6 +20,8 @@ namespace CI.Repository.Interface
 
         public List<ShareMissionApplyMissionModel> GetAppliedMission(string userEmail);
 
-        public void SaveStory(string? userEmail, long mission, string? title, string? date, string? details, string? url, string? status);
+        public void SaveStory(string? userEmail, long mission, string? title, string? date, string? details, string? url, string? status, string? desc);
+
+        public bool OnPostMyUploader(IFormFile MyUploader);
     }
 }

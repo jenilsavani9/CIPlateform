@@ -175,6 +175,7 @@
 
   <ItemGroup>
     <Folder Include="wwwroot\document\" />
+    <Folder Include="wwwroot\mediaUpload\" />
   </ItemGroup>
 
 </Project>

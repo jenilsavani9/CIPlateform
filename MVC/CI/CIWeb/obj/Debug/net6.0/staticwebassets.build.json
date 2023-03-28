@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "ym0sT/OOme7J0KQuBksbynkuFqQ+pQOvgXAGrq2evbM=",
+  "Hash": "W5ZKtf8bKIwSthZrMHDKre3BBjm0pUNyk9mnrVWCV98=",
   "Source": "CIWeb",
   "BasePath": "_content/CIWeb",
   "Mode": "Default",
@@ -185,6 +185,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\css\\site.css"
+    },
+    {
+      "Identity": "C:\\Users\\pci114\\Desktop\\CIPlateform\\MVC\\CI\\CIWeb\\wwwroot\\css\\StoryDetails.css",
+      "SourceId": "CIWeb",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\pci114\\Desktop\\CIPlateform\\MVC\\CI\\CIWeb\\wwwroot\\",
+      "BasePath": "_content/CIWeb",
+      "RelativePath": "css/StoryDetails.css",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\css\\StoryDetails.css"
     },
     {
       "Identity": "C:\\Users\\pci114\\Desktop\\CIPlateform\\MVC\\CI\\CIWeb\\wwwroot\\css\\StoryListing.css",
@@ -3194,6 +3211,57 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\lib\\jquery-validation-unobtrusive\\LICENSE.txt"
+    },
+    {
+      "Identity": "C:\\Users\\pci114\\Desktop\\CIPlateform\\MVC\\CI\\CIWeb\\wwwroot\\mediaUpload\\CSR-initiative-stands-for-Coffee--and-Farmer-Equity-1.png",
+      "SourceId": "CIWeb",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\pci114\\Desktop\\CIPlateform\\MVC\\CI\\CIWeb\\wwwroot\\",
+      "BasePath": "_content/CIWeb",
+      "RelativePath": "mediaUpload/CSR-initiative-stands-for-Coffee--and-Farmer-Equity-1.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\mediaUpload\\CSR-initiative-stands-for-Coffee--and-Farmer-Equity-1.png"
+    },
+    {
+      "Identity": "C:\\Users\\pci114\\Desktop\\CIPlateform\\MVC\\CI\\CIWeb\\wwwroot\\mediaUpload\\CSR-initiative-stands-for-Coffee--and-Farmer-Equity-3.png",
+      "SourceId": "CIWeb",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\pci114\\Desktop\\CIPlateform\\MVC\\CI\\CIWeb\\wwwroot\\",
+      "BasePath": "_content/CIWeb",
+      "RelativePath": "mediaUpload/CSR-initiative-stands-for-Coffee--and-Farmer-Equity-3.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\mediaUpload\\CSR-initiative-stands-for-Coffee--and-Farmer-Equity-3.png"
+    },
+    {
+      "Identity": "C:\\Users\\pci114\\Desktop\\CIPlateform\\MVC\\CI\\CIWeb\\wwwroot\\mediaUpload\\CSR-initiative-stands-for-Coffee--and-Farmer-Equity-4.png",
+      "SourceId": "CIWeb",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\pci114\\Desktop\\CIPlateform\\MVC\\CI\\CIWeb\\wwwroot\\",
+      "BasePath": "_content/CIWeb",
+      "RelativePath": "mediaUpload/CSR-initiative-stands-for-Coffee--and-Farmer-Equity-4.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\mediaUpload\\CSR-initiative-stands-for-Coffee--and-Farmer-Equity-4.png"
     }
   ]
 }
