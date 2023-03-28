@@ -54,7 +54,7 @@
             <div class="row mt-4">
                 <label class=" fs-5"> Upload Your Photos</label>
                 <div class="col-12 mb-2 mt-2 justify-content-center align-items-center" style="border:1px dashed black; height:100px;">
-                    <input type="file" class="w-100 h-100 " style="opacity:0;cursor:pointer; " id="image" multiple>
+                    <input type="file" class="w-100 h-100 " style="opacity:0;cursor:pointer; " id="image">
                     <img type="" src="~/img/drag-and-drop.png" class="" style="z-index:-1;position:absolute;right:40%;top:77%;cursor:pointer;" />
                 </div>
             </div>
@@ -137,34 +137,7 @@
                     var url = document.getElementById("share-story-video-url").value;
                     var desc = CKEDITOR.instances.editor1.getData();
 
-                    var files = $('#image').prop("files");
-                    var url = "/api/static/save";
-                    var mission = document.getElementById("share-story-mission-list").value;
-                    formData = new FormData();
-                    formData.append("mission", mission);
-                    for (var i = 0; i != files.length; i++) {
-                        formData.append("MyUploader", files[i]);
-                      }
-
-                    console.log(formData);
-                    jQuery.ajax({
-                        type: 'POST',
-                        url: url,
-                        data: formData,
-                        cache: false,
-                        contentType: false,
-                        processData: false,
-                        beforeSend: function (xhr) {
-                            xhr.setRequestHeader("XSRF-TOKEN",
-                                $('input:hidden[name="__RequestVerificationToken"]').val());
-                        },
-                        success: function (response) {
-
-                        },
-                        error: function(response) {
-                            alert(response);
-                        }
-                    });
+                    
 
                     $.ajax({
                             type: "POST",
@@ -219,7 +192,34 @@
 
 
          $("#image").on('change', function () {
+             var files = $('#image').prop("files");
+                    var url = "/api/static/save";
+                    var mission = document.getElementById("share-story-mission-list").value;
+                    formData = new FormData();
+                    formData.append("mission", mission);
+                    for (var i = 0; i != files.length; i++) {
+                        formData.append("MyUploader", files[i]);
+                      }
 
+                    console.log(formData);
+                    jQuery.ajax({
+                        type: 'POST',
+                        url: url,
+                        data: formData,
+                        cache: false,
+                        contentType: false,
+                        processData: false,
+                        beforeSend: function (xhr) {
+                            xhr.setRequestHeader("XSRF-TOKEN",
+                                $('input:hidden[name="__RequestVerificationToken"]').val());
+                        },
+                        success: function (response) {
+
+                        },
+                        error: function(response) {
+                            alert(response);
+                        }
+                    });
         });
 
 

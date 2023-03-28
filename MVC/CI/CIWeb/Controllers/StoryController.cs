@@ -139,10 +139,14 @@ namespace CIWeb.Controllers
                 {
                     MyUploader.CopyTo(fileStream);
                 }
+                StoryMedium storyMedia = new StoryMedium();
                 var fileName = MyUploader.FileName;
                 var mission = data["mission"][0];
                 var storyType = MyUploader.ContentType;
-                StoryMedium storyMedia = new StoryMedium();
+                storyMedia.StoryType = storyType;
+                storyMedia.StoryPath = fileName;
+                storyMedia.StoryId = (long)2;
+
                 return new ObjectResult(new { status = "success" });
             }
             return new ObjectResult(new { status = "fail" });

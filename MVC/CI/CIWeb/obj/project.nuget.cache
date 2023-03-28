@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "Dq9l5TXkhQZI0JZJ3CLGHTCfX1m4a0pXCfyioPTuqZRQSZbYa/kYQqp4W3egHr62i2u8sUQOLae7CorWYs7UVg==",
+  "dgSpecHash": "WMW/5zjjwo+N0G3BViabWcnNxltx+oWm3MxJq+ztW+3JoqMP8T52dvI07BPxnGkP3CVJ0M9vrrP0YaN4JovxNw==",
   "success": true,
-  "projectFilePath": "C:\\Users\\pci114\\Documents\\CIPlateform\\MVC\\CI\\CIWeb\\CIWeb.csproj",
+  "projectFilePath": "C:\\Users\\pci114\\Downloads\\CIPlateform\\MVC\\CI\\CIWeb\\CIWeb.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\pci114\\.nuget\\packages\\azure.core\\1.24.0\\azure.core.1.24.0.nupkg.sha512",
     "C:\\Users\\pci114\\.nuget\\packages\\azure.identity\\1.6.0\\azure.identity.1.6.0.nupkg.sha512",

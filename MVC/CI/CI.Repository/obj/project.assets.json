@@ -4760,11 +4760,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\pci114\\Documents\\CIPlateform\\MVC\\CI\\CI.Repository\\CI.Repository.csproj",
+      "projectUniqueName": "C:\\Users\\pci114\\Downloads\\CIPlateform\\MVC\\CI\\CI.Repository\\CI.Repository.csproj",
       "projectName": "CI.Repository",
-      "projectPath": "C:\\Users\\pci114\\Documents\\CIPlateform\\MVC\\CI\\CI.Repository\\CI.Repository.csproj",
+      "projectPath": "C:\\Users\\pci114\\Downloads\\CIPlateform\\MVC\\CI\\CI.Repository\\CI.Repository.csproj",
       "packagesPath": "C:\\Users\\pci114\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\pci114\\Documents\\CIPlateform\\MVC\\CI\\CI.Repository\\obj\\",
+      "outputPath": "C:\\Users\\pci114\\Downloads\\CIPlateform\\MVC\\CI\\CI.Repository\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages",
@@ -4786,8 +4786,8 @@
         "net6.0": {
           "targetAlias": "net6.0",
           "projectReferences": {
-            "C:\\Users\\pci114\\Documents\\CIPlateform\\MVC\\CI\\CI.Entities\\CI.Entities.csproj": {
-              "projectPath": "C:\\Users\\pci114\\Documents\\CIPlateform\\MVC\\CI\\CI.Entities\\CI.Entities.csproj"
+            "C:\\Users\\pci114\\Downloads\\CIPlateform\\MVC\\CI\\CI.Entities\\CI.Entities.csproj": {
+              "projectPath": "C:\\Users\\pci114\\Downloads\\CIPlateform\\MVC\\CI\\CI.Entities\\CI.Entities.csproj"
             }
           }
         }
