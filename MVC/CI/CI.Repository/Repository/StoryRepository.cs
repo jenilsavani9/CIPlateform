@@ -8,6 +8,8 @@ using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net;
+using System.Net.Mail;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -161,20 +163,50 @@ namespace CI.Repository.Repository
             return model;
         }
 
-        //save images
-        //public bool OnPostMyUploader(IFormFile MyUploader)
-        //{
-        //    if (MyUploader != null)
-        //    {
-        //        string uploadsFolder = Path.Combine(_webHostEnvironment.WebRootPath, "mediaUpload");
-        //        string filePath = Path.Combine(uploadsFolder, MyUploader.FileName);
-        //        using (var fileStream = new FileStream(filePath, FileMode.Create))
-        //        {
-        //            MyUploader.CopyTo(fileStream);
-        //        }
-        //        return true;
-        //    }
-        //    return false;
-        //}
+        public bool InviteUser(long userId, long storyId, string userEmail)
+        {
+            var fromUser = _db.Users.Where(u => u.Email == userEmail).FirstOrDefault();
+            var user = _db.Users.Where(u => u.UserId == userId).FirstOrDefault();
+
+            if (user != null && fromUser != null)
+            {
+                var checkRecommend = _db.StoryInvites.Where(u => u.FromUserId == fromUser.UserId && u.StoryId == storyId && u.ToUserId == user.UserId).FirstOrDefault();
+                if (checkRecommend == null)
+                {
+                    _db.StoryInvites.Add(new StoryInvite { ToUserId = user.UserId, FromUserId = user.UserId, StoryId = storyId });
+                    _db.SaveChanges();
+                    // Send an email with the password reset link to the user's email address
+                    var resetLink = "https://localhost:44398/story/" + storyId.ToString();
+                    // Send email to user with reset password link
+                    // ...
+                    var fromAddress = new MailAddress("jenilsavani8@gmail.com", "CI Platform");
+                    var toAddress = new MailAddress(user.Email);
+                    var subject = "Recommendation for Story";
+                    var body = $"Hi,<br /><br />Please click on the following link to See Mission Story from {fromUser.FirstName} {fromUser.LastName}:<br /><br /><a href='{resetLink}'>{resetLink}</a>";
+                    var message = new MailMessage(fromAddress, toAddress)
+                    {
+                        Subject = subject,
+                        Body = body,
+                        IsBodyHtml = true
+                    };
+                    var smtpClient = new SmtpClient("smtp.gmail.com", 587)
+                    {
+                        UseDefaultCredentials = false,
+                        Credentials = new NetworkCredential("jenilsavani8@gmail.com", "bwgnmdxyggqrylsu"),
+                        EnableSsl = true
+                    };
+                    smtpClient.Send(message);
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
+            }
+            else
+            {
+                return false;
+            }
+        }
     }
 }

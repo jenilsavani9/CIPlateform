@@ -180,7 +180,7 @@
 
                             <!-- Vertically centered scrollable modal -->
                             <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                                <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable modal-xl">
+                                <div class="modal-dialog modal-dialog-centered">
                                     <div class="modal-content">
                                         <div class="modal-header d-flex justify-content-around" style="border: none">
                                             <h1 class="modal-title fs-5" id="exampleModalLabel">Recommend to a Co-Worker</h1>
@@ -205,18 +205,20 @@
                                             </div>
 
                                             <hr class="m-0" />
-                                            <div class="row m-2 userListRow">
-                                                <div class="col-1 d-flex align-items-center justify-content-center">
-                                                    <img src="~/img/volunteer3.png" class="commentImage m-0" alt="">
-                                                </div>
-                                                <div class="col-8 userFlex">
-                                                    <h5 class="m-0 userName">FirstName LastName</h5>
-                                                    <p class="m-0 text-muted">Department</p>
-                                                </div>
-                                                <div class="col-3 d-flex align-items-center justify-content-center">
-                                                    <center id="inviteButtonModel">
-                                                        <a role="button" style="text-decoration:none" id="Email" data-email="Email" class="applyButton">Invite</a>
-                                                    </center>
+                                            <div class="row m-2 userListRow" id="story-details-recommend-user">
+                                                <div class="d-flex justify-content-center">
+                                                    <div class="col-1 d-flex align-items-center justify-content-center">
+                                                        <img src="~/img/volunteer3.png" class="commentImage m-0 rounded-circle" alt="">
+                                                    </div>
+                                                    <div class="col-8 userFlex d-flex flex-column align-item-center">
+                                                        <h5 class="m-0 userName">FirstName LastName</h5>
+                                                        <p class="m-0 text-muted">Department</p>
+                                                    </div>
+                                                    <div class="col-3 d-flex align-items-center justify-content-center">
+                                                        <center id="inviteButtonModel">
+                                                            <a role="button" style="text-decoration:none" id="Email" data-email="Email" class="applyButton">Invite</a>
+                                                        </center>
+                                                    </div>
                                                 </div>
                                             </div>
 
@@ -258,12 +260,6 @@
             img0.src = img.src;
         }
 
-        
-
-        // Attached class active to image slider for working slider properly
-        //var image = document.getElementsByClassName("carousel-item");
-        //image[0].classList.add('active');
-
         // searchUserByName()
         var noUser = document.getElementById("noUser");
         noUser.style.display = "none";
@@ -294,22 +290,30 @@
         }
 
         // Invite User In Bootstrap Model
-        $("#inviteButtonModel a").click( function (){
-            //var userEmail = $(this).data('email');
-            //var userId = document.getElementById(userEmail);
+        function inviteUser(userId){
+            
+            var url = window.location.href;
+            var userStoryId = url.split("/")[4];
 
-            //$.ajax({
-            //    url: "/StoryDetail/InviteUser",
-            //    data: { email: userEmail, storyId: userStoryId },
-            //    success: function (result) {
-            //        if( result == "Sent"){
-            //            $(userId).html("Invitation Sent");
-            //        }else if( result = "NotSent"){
-            //            $(userId).html("Not Sent!");
-            //        }
-            //    }
-            //})
-        });
+            var element = document.getElementById(userId);
+            element.innerHTML = `<div class="spinner-border" role="status">
+                                  <span class="visually-hidden">Loading...</span>
+                                </div>`
+
+            $.ajax({
+                type: "GET",
+                url: "/Story/InviteUser",
+                data: { userId: userId, storyId: userStoryId },
+                success: function (response) {
+
+                    if(response.res == true) {
+                        
+                        element.innerHTML = `Email Sent`;
+                        
+                    }
+                }
+            })
+        };
 
         var url = window.location.href;
         var storyId = url.split("/")[4];
@@ -325,11 +329,7 @@
             }
 
 
-            return `
-                            <img src="${storyPath}" style="height: 350px;" alt=""
-                                 id="img0">
-                       
-                    `
+            return `<img src="${storyPath}" style="height: 350px;" alt="" id="img0">`
         }
 
         function loadCarouselImage(response) {
@@ -349,9 +349,7 @@
                                                 </div>
                                             </div>
                                         </div>
-                                    </div>
-                                    
-                                    `
+                                    </div> `
                 })
                 
             }
@@ -422,6 +420,41 @@
                     alert(response.responseText);
                 }
             });
+
+            function loadUsers(response) {
+                return response.user.map(item => `<div class="d-flex justify-content-center">
+                                                    <div class="col-1 d-flex align-items-center justify-content-center">
+                                                        <img src="/img/${item.avatar}" class="commentImage m-0 rounded-circle" alt="" style="width:50px;height:50px">
+                                                    </div>
+                                                    <div class="col-8 userFlex d-flex justify-content-center align-items-center">
+                                                        <h5 class="m-0 userName">${item.firstName} ${item.lastName}</h5>
+                                                        
+                                                    </div>
+                                                    <div class="col-3 d-flex align-items-center justify-content-center">
+                                                        <center id="inviteButtonModel">
+                                                            <a role="button" style="text-decoration:none;" id="${item.userId}" data-email="${item.userId}" class="applyButton" onclick="inviteUser(${item.userId})">Invite</a>
+                                                        </center>
+                                                    </div>
+                                                </div>
+                                                <hr class="mt-2"/>`).join("");
+            }
+
+
+            $.ajax({
+                type: "GET",
+                url: `/users`,
+                success: function (response) {
+                    var element = document.getElementById("story-details-recommend-user");
+                    element.innerHTML = loadUsers(response);
+                },
+                failure: function (response) {
+                    alert(response.responseText);
+                },
+                error: function (response) {
+                    alert(response.responseText);
+                }
+            });
+
 
     </script>
 </body>

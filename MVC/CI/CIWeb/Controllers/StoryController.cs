@@ -3,6 +3,8 @@ using CI.Entities.Models;
 using CI.Entities.ViewModels;
 using CI.Repository.Interface;
 using Microsoft.AspNetCore.Mvc;
+using System.Net;
+using System.Net.Mail;
 
 namespace CIWeb.Controllers
 {
@@ -140,6 +142,15 @@ namespace CIWeb.Controllers
                 return new ObjectResult(new { status = "success" });
             }
             return new ObjectResult(new { status = "fail" });
+        }
+
+        [HttpGet("/Story/InviteUser")]
+        public IActionResult InviteUser(long userId, long storyId)
+        {
+            String? userEmail = HttpContext.Session.GetString("userEmail");
+            var res = _repository.InviteUser(userId, storyId, userEmail);
+
+            return Json(new { res });
         }
     }
 }

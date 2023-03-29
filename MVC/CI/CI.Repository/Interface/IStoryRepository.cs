@@ -23,5 +23,7 @@ namespace CI.Repository.Interface
         public void SaveStory(string? userEmail, long mission, string? title, string? date, string? details, string? url, string? status, string? desc, string[]? listOfImage);
 
         public StoryDetailsModel GetStoryDetails(long storyId);
+
+        public bool InviteUser(long userId, long storyId, string userEmail);
     }
 }
