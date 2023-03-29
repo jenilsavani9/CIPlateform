@@ -135,6 +135,7 @@
                     var title = document.getElementById("share-story-title").value;
                     var date = document.getElementById("share-story-date").value;
                     var url = document.getElementById("share-story-video-url").value;
+                   
                     var desc = CKEDITOR.instances.editor1.getData();
 
                     
@@ -148,7 +149,8 @@
                                 "date": date,
                                 "url": url,
                                 "status": status,
-                                "desc" : desc
+                                "desc" : desc,
+                                "listOfImage": listOfImage
                             },
                             success: function (response) {
 

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using CI.Entities.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -19,5 +20,9 @@ namespace CI.Entities.ViewModels
         public string? userName { get; set; }
 
         public string? avatar { get; set; }
+
+        public long? views { get; set; }
+
+        public List<StoryMedium>? storyMedia { get; set; }
     }
 }

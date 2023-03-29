@@ -20,8 +20,8 @@ namespace CI.Repository.Interface
 
         public List<ShareMissionApplyMissionModel> GetAppliedMission(string userEmail);
 
-        public void SaveStory(string? userEmail, long mission, string? title, string? date, string? details, string? url, string? status, string? desc);
+        public void SaveStory(string? userEmail, long mission, string? title, string? date, string? details, string? url, string? status, string? desc, string[]? listOfImage);
 
-        public bool OnPostMyUploader(IFormFile MyUploader);
+        public StoryDetailsModel GetStoryDetails(long storyId);
     }
 }

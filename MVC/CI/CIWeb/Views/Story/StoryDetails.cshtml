@@ -122,57 +122,21 @@
         <div class="row  p-0 mt-4">
             <div class="col-12 col-lg-6 imageContainer" id="imageContainer">
                 <div class="one" style="margin-bottom: 1px;">
-                    <div class="main_volunteering_image">
-                        <img src="~/img/CSR-initiative-stands-for-Coffee--and-Farmer-Equity.png" style="height: 350px;" alt=""
-                             id="img0">
+                    <div class="main_volunteering_image" id="story-details-head-img">
+                        
                     </div>
                 </div>
                 <div class="two" style="margin: 10px; margin-top: 1px;">
                     <div class="text-center" style="margin-left: 0px; margin-right: 0px;padding: 0px; width: 100%;">
                         <div class="row justify-content-center">
                             <div id="recipeCarousel" class="carousel slide p-0" data-bs-ride="carousel">
-                                <div class="carousel-inner" role="listbox">
+                                <div class="carousel-inner" role="listbox" id="story-details-carousel">
 
-
-                                    <div class="carousel-item">
-                                        <div class="col-md-3">
-                                            <div class="card">
-                                                <div class="card-img">
-                                                    <img src="~/img/Education-Supplies-for-Every--Pair-of-Shoes-Sold.png" class="img-fluid smallSliderImageHeight" style="height: 12.5vh" onclick="changeImage(1)" id="img1">
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="carousel-item">
-                                        <div class="col-md-3">
-                                            <div class="card">
-                                                <div class="card-img">
-                                                    <img src="~/img/CSR-initiative-stands-for-Coffee--and-Farmer-Equity.png" class="img-fluid smallSliderImageHeight" style="height: 12.5vh" onclick="changeImage(2)" id="img2">
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="carousel-item">
-                                        <div class="col-md-3">
-                                            <div class="card">
-                                                <div class="card-img">
-                                                    <img src="~/img/CSR-initiative-stands-for-Coffee--and-Farmer-Equity.png" class="img-fluid smallSliderImageHeight" style="height: 12.5vh" onclick="changeImage(3)" id="img3">
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="carousel-item">
-                                        <div class="col-md-3">
-                                            <div class="card">
-                                                <div class="card-img">
-                                                    <img src="~/img/CSR-initiative-stands-for-Coffee--and-Farmer-Equity.png" class="img-fluid smallSliderImageHeight" style="height: 12.5vh" onclick="changeImage(4)" id="img4">
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
+                                   
 
 
                                 </div>
+
                                 <a class="carousel-control-prev m-0 control_custom_changes_carousel bg-transparent w-aut"
                                    href="#recipeCarousel" role="button" data-bs-slide="prev">
                                     <span class="carousel-control-prev-icon" aria-hidden="true"></span>
@@ -294,25 +258,11 @@
             img0.src = img.src;
         }
 
-        let items = document.querySelectorAll('.carousel .carousel-item')
-
-        items.forEach((el) => {
-            const minPerSlide = 4
-            let next = el.nextElementSibling
-            for (var i = 1; i < minPerSlide; i++) {
-                if (!next) {
-                    // wrap carousel by using first child
-                    next = items[0]
-                }
-                let cloneChild = next.cloneNode(true)
-                el.appendChild(cloneChild.children[0])
-                next = next.nextElementSibling
-            }
-        })
+        
 
         // Attached class active to image slider for working slider properly
-        var image = document.getElementsByClassName("carousel-item");
-        image[0].classList.add('active');
+        //var image = document.getElementsByClassName("carousel-item");
+        //image[0].classList.add('active');
 
         // searchUserByName()
         var noUser = document.getElementById("noUser");
@@ -364,9 +314,54 @@
         var url = window.location.href;
         var storyId = url.split("/")[4];
 
+        function loadHeadImage(response) {
+
+            var notfound = "/img/404-Page-image.png";
+            var storyPath = "";
+            if (response.model.storyMedia != null && response.model.storyMedia[0] != null &&response.model.storyMedia[0].storyPath != null) {
+                storyPath = "/mediaUpload/" + response.model.storyMedia[0].storyPath;
+            } else {
+                storyPath = notfound;
+            }
+
+
+            return `
+                            <img src="${storyPath}" style="height: 350px;" alt=""
+                                 id="img0">
+                       
+                    `
+        }
+
+        function loadCarouselImage(response) {
+
+            var html = ""
+            if(response.model.storyMedia != null && response.model.storyMedia.length <=1) {
+                html = ""
+            } else {
+                
+                response.model.storyMedia.map(item => {
+
+                    html += `<div class="carousel-item">
+                                        <div class="col-md-3">
+                                            <div class="card">
+                                                <div class="card-img">
+                                                    <img src="/mediaUpload/${item.storyPath}" class="img-fluid smallSliderImageHeight" style="height: 12.5vh" onclick="changeImage(${item.storyMediaId})" id="img${item.storyMediaId}">
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    
+                                    `
+                })
+                
+            }
+
+            return html;
+        }
+
         $.ajax({
                 type: "GET",
-                url: `https://localhost:44398/api/story/${storyId}`,
+                url: `/api/story/${storyId}`,
                 success: function (response) {
 
                     var user = document.getElementById("story-details-user-details");
@@ -383,8 +378,41 @@
                                             <p class="storyDescription">${response.model.storyDetails}</p>`;
 
                     var missionBtn = document.getElementById("story-details-mission-btn");
-                    missionBtn.innerHTML = `<a href="/missions/${response.model.missionId}" type="button" class="OpenMission" style="color: #F88634;"><span class="addText">Open Mission&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><img src="/img/right-arrow.png" alt=""></a>
-`
+                    missionBtn.innerHTML = `<a href="/missions/${response.model.missionId}" type="button" class="OpenMission" style="color: #F88634;"><span class="addText">Open Mission&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><img src="/img/right-arrow.png" alt=""></a>`
+
+                    var views = document.getElementById("countUser");
+                    countUser.innerHTML = `${response.model.views}`
+
+                    var imageContainer = document.getElementById("story-details-head-img");
+                    imageContainer.innerHTML = loadHeadImage(response);
+                    
+                    var imageCarousel = document.getElementById("story-details-carousel");
+                    imageCarousel.innerHTML = loadCarouselImage(response);
+
+                    // Attached class active to image slider for working slider properly
+                    var image = document.getElementsByClassName("carousel-item");
+                    if(image[0]!=null) {
+                        image[0].classList.add('active');
+
+                        let items = document.querySelectorAll('.carousel .carousel-item')
+
+                        items.forEach((el) => {
+                            const minPerSlide = 4
+                            let next = el.nextElementSibling
+                            for (var i = 1; i < minPerSlide; i++) {
+                                if (!next) {
+                                    // wrap carousel by using first child
+                                    next = items[0]
+                                }
+                                let cloneChild = next.cloneNode(true)
+                                el.appendChild(cloneChild.children[0])
+                                next = next.nextElementSibling
+                            }
+                        })
+                    }
+
+
+                    
 
                 },
                 failure: function (response) {

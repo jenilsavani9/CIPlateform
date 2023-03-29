@@ -23,6 +23,8 @@
 
   <ItemGroup>
     <Content Remove="Views\Shared\_TestNavbar2.cshtml" />
+    <Content Remove="wwwroot\mediaUpload\Education-Supplies-for-Every--Pair-of-Shoes-Sold.png" />
+    <Content Remove="wwwroot\mediaUpload\Plantation-and-Afforestation-programme.png" />
   </ItemGroup>
 
   <ItemGroup>
@@ -136,6 +138,8 @@
     <None Include="wwwroot\img\Voted-Missions.png" />
     <None Include="wwwroot\img\web.png" />
     <None Include="wwwroot\img\xlsx.png" />
+    <None Include="wwwroot\mediaUpload\Education-Supplies-for-Every--Pair-of-Shoes-Sold.png" />
+    <None Include="wwwroot\mediaUpload\Plantation-and-Afforestation-programme.png" />
   </ItemGroup>
 
   <ItemGroup>
@@ -175,7 +179,6 @@
 
   <ItemGroup>
     <Folder Include="wwwroot\document\" />
-    <Folder Include="wwwroot\mediaUpload\" />
   </ItemGroup>
 
 </Project>

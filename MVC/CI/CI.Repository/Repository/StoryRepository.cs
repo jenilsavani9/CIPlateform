@@ -37,12 +37,15 @@ namespace CI.Repository.Repository
                 var tempUser = _db.Users.Where(u => u.UserId == storyItem.UserId).SingleOrDefault();
                 var tempMission = _db.Missions.Where(u => u.MissionId == storyItem.MissionId).SingleOrDefault();
                 var tempTheme = _db.MissionThemes.Where(u => u.MissionThemeId == storyItem.MissionId).SingleOrDefault();
+                var storyMedia = _db.StoryMedia.Where(s => s.StoryId == tempStory.StoryId).FirstOrDefault();
+
                 storys.Add(new StoryModel
                 {
                     story = tempStory,
                     user = tempUser,
                     mission = tempMission,
                     theme = tempTheme,
+                    StoryMedia = storyMedia
                 });
             }
             return storys;
@@ -86,12 +89,11 @@ namespace CI.Repository.Repository
             return user;
         }
 
-        public void SaveStory(string? userEmail, long mission, string? title, string? date, string? details, string? url, string? status, string? desc)
+        public void SaveStory(string? userEmail, long mission, string? title, string? date, string? details, string? url, string? status, string? desc, string[]? listOfImage)
         {
             var user = _db.Users.Where(e => e.Email == userEmail).SingleOrDefault();
             if (user != null)
             {
-
 
                 if (status == "save")
                 {
@@ -102,6 +104,19 @@ namespace CI.Repository.Repository
                     story.PublishedAt = DateTime.Now;
                     story.Description = desc;
                     _db.Stories.Add(story);
+                    _db.SaveChanges();
+
+                    var id = story.StoryId;
+                    for(var i=0; i<listOfImage?.Length; i++)
+                    {
+                        StoryMedium storyMedium = new StoryMedium();
+                        storyMedium.StoryId = id;
+                        storyMedium.StoryType = "png";
+                        storyMedium.StoryPath = listOfImage[i];
+
+                        _db.StoryMedia.Add(storyMedium);
+                        _db.SaveChanges();
+                    }
                 }
                 else
                 {
@@ -109,27 +124,57 @@ namespace CI.Repository.Repository
                     if (story != null)
                     {
                         story.Status = "pending";
+                        _db.SaveChanges();
                     }
 
                 }
-                _db.SaveChanges();
+                
             }
         }
 
-        //save images
-        public bool OnPostMyUploader(IFormFile MyUploader)
+        public StoryDetailsModel GetStoryDetails(long storyId)
         {
-            if (MyUploader != null)
+            StoryDetailsModel model = new StoryDetailsModel();
+            var story = _db.Stories.Where(s => s.StoryId == storyId).FirstOrDefault();
+            var mission = _db.Missions.Where(m => m.MissionId == story.MissionId).FirstOrDefault();
+            var user = _db.Users.Where(u => u.UserId == story.UserId).FirstOrDefault();
+
+            model.storyMedia = _db.StoryMedia.Where(s => s.StoryId == story.StoryId).ToList();
+            model.whyIVolunteer = user.WhyIVolunteer;
+            model.missionTitle = mission.Title;
+            model.avatar = user.Avatar;
+            model.storyDetails = story.Description;
+            model.userName = user.FirstName + " " + user.LastName;
+            model.missionId = mission.MissionId;
+
+            if (story.Views == null)
             {
-                string uploadsFolder = Path.Combine(_webHostEnvironment.WebRootPath, "mediaUpload");
-                string filePath = Path.Combine(uploadsFolder, MyUploader.FileName);
-                using (var fileStream = new FileStream(filePath, FileMode.Create))
-                {
-                    MyUploader.CopyTo(fileStream);
-                }
-                return true;
+                story.Views = 1;
             }
-            return false;
+            else
+            {
+                story.Views += 1;
+            }
+            _db.SaveChanges();
+            model.views = story.Views;
+
+            return model;
         }
+
+        //save images
+        //public bool OnPostMyUploader(IFormFile MyUploader)
+        //{
+        //    if (MyUploader != null)
+        //    {
+        //        string uploadsFolder = Path.Combine(_webHostEnvironment.WebRootPath, "mediaUpload");
+        //        string filePath = Path.Combine(uploadsFolder, MyUploader.FileName);
+        //        using (var fileStream = new FileStream(filePath, FileMode.Create))
+        //        {
+        //            MyUploader.CopyTo(fileStream);
+        //        }
+        //        return true;
+        //    }
+        //    return false;
+        //}
     }
 }

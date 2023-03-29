@@ -1,12 +1,25 @@
 ﻿// story listing function
 function loadStory(response) {
-
+    console.log(response)
     return response.storys.map(item => {
+        var dots = "...";
+        var limit = 150;
+        var desc = "No Description."
+        if (item.story.description != null && item.story.description.length > limit) {
+            // you can also use substr instead of substring
+            desc = item.story.description.substring(0, limit) + dots;
+        }
+        var storyPath = "/img/404-Page-image.png";
+        if (item.storyMedia != null && item.storyMedia.storyPath != null) {
+            storyPath = "/mediaUpload/" + item.storyMedia.storyPath;
+        }
+        
+        console.log(storyPath)
         return `<div class="item col-12 col-md-6 col-xl-4 mt-4">
                     <div class="thumbnail card">
                         <div class="img-event story-page-card-top">
                             <img class="group list-group-image img-fluid" style="width:100%;"
-                                src="./img/Grow-Trees-On-the-path-to-environment-sustainability.png" alt="" />
+                                src="${storyPath}" alt="" />
                             <div class="story-page-card-top-btn d-none">
                                 <a class="story-page-btn-img" href="/story/${item.story.storyId}">View Details<img class="ms-2"
                                         src="./img/right-arrow2.png" alt=""></a>
@@ -16,9 +29,9 @@ function loadStory(response) {
                         </div>
                         <div class="caption card-body">
                             <h4 class="group card-title inner list-group-item-heading">
-                                ${item.mission.title}</h4>
+                                ${item.story.title}</h4>
                             <p class="group inner landing-page-list-group-item-text">
-                                ${item.mission.description}
+                                ${desc}
                             </p>
                             <div class="d-flex align-items-center">
                                 <img class="card-body-user-img" src="./img/${item.user.avatar}" alt="">
@@ -60,7 +73,7 @@ function onClickStoryPagination(page) {
 
     $.ajax({
         type: "GET",
-        url: `https://localhost:44398/api/story?page=${page}`,
+        url: `/api/story?page=${page}`,
         success: function (response) {
 
             var element = document.getElementById("story-page-story-cards");
@@ -82,7 +95,7 @@ function onClickStoryPagination(page) {
 
 $.ajax({
     type: "GET",
-    url: `https://localhost:44398/api/story?page=0`,
+    url: `/api/story?page=0`,
     success: function (response) {
         
         var element = document.getElementById("story-page-story-cards");

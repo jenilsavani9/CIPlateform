@@ -67,7 +67,7 @@ namespace CIWeb.Controllers
         }
 
         [HttpPost("/story/sharestory/saveStory")]
-        public IActionResult SaveStory(long mission, string? title, string? date, string? details, string? url, string? status, string? desc)
+        public IActionResult SaveStory(long mission, string? title, string? date, string? details, string? url, string? status, string? desc, string[]? listOfImage)
         {
             String? userId = HttpContext.Session.GetString("userEmail");
 
@@ -75,7 +75,7 @@ namespace CIWeb.Controllers
             
             if(userId != null)
             {
-                _repository.SaveStory(userId, mission, title, date, details, url, status, desc);
+                _repository.SaveStory(userId, mission, title, date, details, url, status, desc, listOfImage);
                 return Ok();
             }
 
@@ -113,17 +113,7 @@ namespace CIWeb.Controllers
         [HttpGet("api/story/{storyId:long}")]
         public IActionResult GetStoryDetails(long storyId)
         {
-            StoryDetailsModel model = new StoryDetailsModel();
-            var story = _db.Stories.Where(s => s.StoryId == storyId).FirstOrDefault();
-            var mission = _db.Missions.Where(m => m.MissionId == story.MissionId).FirstOrDefault();
-            var user = _db.Users.Where(u => u.UserId == story.UserId).FirstOrDefault();
-
-            model.whyIVolunteer = user.WhyIVolunteer;
-            model.missionTitle = mission.Title;
-            model.avatar = user.Avatar;
-            model.storyDetails = story.Description;
-            model.userName = user.FirstName + " " + user.LastName;
-            model.missionId = mission.MissionId;
+            var model = _repository.GetStoryDetails(storyId);
 
             return Json(new { model });
         }
