@@ -24,8 +24,8 @@
             <div class="row ">
                 <div class="col-11 col-lg-4 col-md-6 col-sm-11 mt-2">
                     <lable class="fs-6">Select Mission</lable>
-                    <select class="form-select" aria-label="Default select example" id="share-story-mission-list">
-                        <option>Select Mission</option>
+                    <select class="form-select" aria-label="Default select example" id="share-story-mission-list" onchange="loadDraftStory()">
+                        <option disabled>Select Mission</option>
                         <option value="1">One</option>
                         <option value="2">Two</option>
                         <option value="3">Three</option>
@@ -33,7 +33,7 @@
                 </div>
                 <div class="col-11 col-lg-4 col-md-6 col-sm-11 mt-2 ">
                     <lable class="fs-6">My Story Title </lable>
-                    <input type="text" class="w-100 py-1 border-1 rounded-1 mt-1" style="border-color:lightgray" id="share-story-title" />
+                    <input type="text" class="w-100 py-1 border-1 rounded-1 mt-1" style="border-color:lightgray" id="share-story-title" required />
                 </div>
                 <div class="col-11 col-lg-4 col-md-6 col-sm-11 mt-2">
                     <lable class="fs-6">Date </lable>
@@ -55,7 +55,7 @@
                 <label class=" fs-5"> Upload Your Photos</label>
                 <div class="col-12 mb-2 mt-2 justify-content-center align-items-center" style="border:1px dashed black; height:100px;">
                     <input type="file" class="w-100 h-100 " style="opacity:0;cursor:pointer; " id="image">
-                    <img type="" src="~/img/drag-and-drop.png" class="" style="z-index:-1;position:absolute;right:40%;top:77%;cursor:pointer;" />
+                    <img type="" src="~/img/drag-and-drop.png" class="d-none d-lg-flex" style="z-index:-1;position:absolute;right:40%;top:74%;cursor:pointer;" />
                 </div>
             </div>
             <div class="row">
@@ -81,11 +81,21 @@
         </form>
     </div>
     <script>
-                 CKEDITOR.replace('editor1');
+
+                    CKEDITOR.config.toolbar_MA=[
+                        { name: 'basicstyles', items: [ 'Bold', 'Italic', 'Strike', '-', 'Subscript', 'Superscript', 'RemoveFormat' ] }
+                    ];
+
+                     CKEDITOR.replace( 'editor1',
+                        {   toolbar:'MA'    }
+                     );
+
+
 
                  listOfImage = [];
+                 tempListOfImage = [];
+                 var imageId = 0;
                 function handleFiles() {
-                    console.log(flag);
                     if (!this.files.length) {
                         document.getElementById('fileSelect').style.display = 'block'
                     } else {
@@ -96,6 +106,7 @@
                         for (let i = 0; i < this.files.length; i++) {
                             const li = document.createElement("li");
                             li.setAttribute("class", "col-3 mt-2");
+                            li.setAttribute("id", `${this.files[i].name}`);
                             const icon = document.createElement("i");
                             icon.setAttribute("class", "bi bi-x fa-2x crossicon");
                             list.appendChild(li);
@@ -108,13 +119,24 @@
                             listOfImage.push(this.files[i].name);
                             li.appendChild(img);
                             li.appendChild(icon);
-                            console.log(listOfImage)
+
+                            imageId += 1;
                         }
                     }
                     $(".crossicon").click(function () {
-                        console.log(this);
                         this.parentElement.remove()
+
+                        listOfImage = listOfImage.filter((img)=>{return img!=this.parentElement.id})
+
                     });
+                }
+
+                function crossicon(id) {
+                    
+                    var element = document.getElementById(id);
+                    element.setAttribute("class", "col-3 mt-2 d-none");
+                    listOfImage = listOfImage.filter((img)=>{return img!=id})
+
                 }
 
 
@@ -123,9 +145,71 @@
                 fileElem = document.getElementById("image");
                 fileElem.addEventListener("change", handleFiles, false);
 
+                function loadDraftImages(response) {
+
+                    return response.media.map(item => `<li class="col-3 mt-2" id="${item.storyPath}">
+                                                        <img src="/mediaUpload/${item.storyPath}" height="60" >
+                                                        
+                                                        <i class="bi bi-x fa-2x crossicon" onclick="crossicon('${item.storyPath}')"></i>
+                                                      </li>`).join("")
+                }
+
+                function loadDraftStory() {
+
+                    var missionId = document.getElementById("share-story-mission-list").value;
+
+                    $.ajax({
+                            type: "GET",
+                            url: `/story/sharestory/draft`,
+                            data: {
+                                "missionId" : missionId
+                            },
+                            success: function (response) {
+
+                                if(response.res != null) {
+                                    if(response.res.title != null){
+                                        document.getElementById("share-story-title").value = response.res.title;
+                                    } else {
+                                        document.getElementById("share-story-title").value = "";
+                                    }
+
+                                    if(response.res.description != null){
+                                        CKEDITOR.instances.editor1.setData(response.res.description);
+                                    } else {
+                                        CKEDITOR.instances.editor1.setData();
+                                    }
+                                } else {
+                                    document.getElementById("share-story-title").value = "";
+                                    CKEDITOR.instances.editor1.setData();
+                                }
+
+                                var images = document.getElementById("imagelist");
+                                images.innerHTML = loadDraftImages(response)
+
+                                response.media.map(item => listOfImage.push(item.storyPath));
+
+
+                                //document.getElementById("share-story-date").value = response.res.createdAt;
+                                //document.getElementById("share-story-video-url").value = response.res.;
+
+
+
+                            },
+                            failure: function (response) {
+                                console.log(response)
+                            },
+                            error: function (response) {
+                                console.log(response)
+                            }
+                        });
+                }
+
 
                  function loadAppliedMissions(response) {
-                     return response.mission.map(item => `<option value="${item.id}">${item.title}</option>`).join("")
+                     var html = "<option disabled selected>Select Mission</option>";
+                     response.mission.map(item => html += `<option value="${item.id}">${item.title}</option>`).join("")
+
+                     return html;
                  }
 
                  function saveStory(event, status){
@@ -135,10 +219,10 @@
                     var title = document.getElementById("share-story-title").value;
                     var date = document.getElementById("share-story-date").value;
                     var url = document.getElementById("share-story-video-url").value;
-                   
+
                     var desc = CKEDITOR.instances.editor1.getData();
 
-                    
+
 
                     $.ajax({
                             type: "POST",
@@ -154,14 +238,13 @@
                             },
                             success: function (response) {
 
-                               console.log(response)
 
                             },
                             failure: function (response) {
-                                alert(response.responseText);
+                                console.log(response)
                             },
                             error: function (response) {
-                                alert(response.responseText);
+                                console.log(response)
                             }
                         });
 
@@ -203,7 +286,6 @@
                         formData.append("MyUploader", files[i]);
                       }
 
-                    console.log(formData);
                     jQuery.ajax({
                         type: 'POST',
                         url: url,

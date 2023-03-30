@@ -1,6 +1,6 @@
 ﻿// story listing function
 function loadStory(response) {
-    console.log(response)
+
     return response.storys.map(item => {
         var dots = "...";
         var limit = 150;
@@ -14,7 +14,6 @@ function loadStory(response) {
             storyPath = "/mediaUpload/" + item.storyMedia.storyPath;
         }
         
-        console.log(storyPath)
         return `<div class="item col-12 col-md-6 col-xl-4 mt-4">
                     <div class="thumbnail card">
                         <div class="img-event story-page-card-top">

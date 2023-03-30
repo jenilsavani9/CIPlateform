@@ -100,16 +100,47 @@ namespace CI.Repository.Repository
                 if (status == "save")
                 {
                     var story = new Story();
-                    story.MissionId = mission;
-                    story.Title = title;
-                    story.UserId = user.UserId;
-                    story.PublishedAt = DateTime.Now;
-                    story.Description = desc;
-                    _db.Stories.Add(story);
+                    var tempStory = _db.Stories.Where(s => s.MissionId == mission && s.UserId == user.UserId).FirstOrDefault();
+                    var id = (long)0;
+                    if (tempStory != null)
+                    {
+                        tempStory.MissionId = mission;
+                        tempStory.Title = title;
+                        tempStory.UserId = user.UserId;
+                        tempStory.PublishedAt = DateTime.Now;
+                        tempStory.Description = desc;
+                        id = tempStory.StoryId;
+                    } else
+                    {
+                        
+                        story.MissionId = mission;
+                        story.Title = title;
+                        story.UserId = user.UserId;
+                        story.PublishedAt = DateTime.Now;
+                        story.Description = desc;
+                        _db.Stories.Add(story);
+                        
+                    }
+
                     _db.SaveChanges();
 
-                    var id = story.StoryId;
-                    for(var i=0; i<listOfImage?.Length; i++)
+                    if(id<=0)
+                    {
+                        id = story.StoryId;
+                    }
+                    
+                    var deleteMedia = _db.StoryMedia.Where(s => s.StoryId == id).ToList();
+                    if (deleteMedia.Any())
+                    {
+                        foreach (var media in deleteMedia)
+                        {
+                            _db.StoryMedia.Remove(media);
+                            _db.SaveChanges();
+                        }
+                        
+                    }
+
+                    for (var i=0; i<listOfImage?.Length; i++)
                     {
                         StoryMedium storyMedium = new StoryMedium();
                         storyMedium.StoryId = id;
@@ -175,10 +206,8 @@ namespace CI.Repository.Repository
                 {
                     _db.StoryInvites.Add(new StoryInvite { ToUserId = user.UserId, FromUserId = user.UserId, StoryId = storyId });
                     _db.SaveChanges();
-                    // Send an email with the password reset link to the user's email address
+
                     var resetLink = "https://localhost:44398/story/" + storyId.ToString();
-                    // Send email to user with reset password link
-                    // ...
                     var fromAddress = new MailAddress("jenilsavani8@gmail.com", "CI Platform");
                     var toAddress = new MailAddress(user.Email);
                     var subject = "Recommendation for Story";
@@ -207,6 +236,24 @@ namespace CI.Repository.Repository
             {
                 return false;
             }
+        }
+
+        public Story DraftStory(long missionId, string userEmail)
+        {
+            var user = _db.Users.Where(u => u.Email == userEmail).FirstOrDefault();
+            if (user == null)
+            {
+                return null;
+            }
+            var story = _db.Stories.Where(s => s.MissionId == missionId && s.UserId == user.UserId).OrderByDescending(s => s.PublishedAt).FirstOrDefault();
+
+            return story;
+        }
+
+        public List<StoryMedium> DraftStoryMedia(long storyId)
+        {
+            var media = _db.StoryMedia.Where(s => s.StoryId == storyId).ToList();
+            return media;
         }
     }
 }

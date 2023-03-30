@@ -25,5 +25,9 @@ namespace CI.Repository.Interface
         public StoryDetailsModel GetStoryDetails(long storyId);
 
         public bool InviteUser(long userId, long storyId, string userEmail);
+
+        public Story DraftStory(long missionId, string userEmail);
+
+        public List<StoryMedium> DraftStoryMedia(long storyId);
     }
 }

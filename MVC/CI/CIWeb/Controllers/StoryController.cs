@@ -81,7 +81,7 @@ namespace CIWeb.Controllers
                 return Ok();
             }
 
-            return BadRequest();
+            return Ok();
         }
 
         public IActionResult ShareStory()
@@ -151,6 +151,21 @@ namespace CIWeb.Controllers
             var res = _repository.InviteUser(userId, storyId, userEmail);
 
             return Json(new { res });
+        }
+        
+        [HttpGet("/story/sharestory/draft")]
+        public IActionResult DraftStory(long missionId)
+        {
+            String? userEmail = HttpContext.Session.GetString("userEmail");
+            var res = _repository.DraftStory(missionId, userEmail);
+            List<StoryMedium> media = new List<StoryMedium>();
+            if (res != null)
+            {
+                media = _repository.DraftStoryMedia(res.StoryId);
+            }
+            
+
+            return Json(new { res, media });
         }
     }
 }
