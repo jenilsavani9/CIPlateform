@@ -1,6 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using CI.Entities.Models;
+﻿using CI.Entities.Models;
 using Microsoft.EntityFrameworkCore;
 
 namespace CI.Entities.Data;

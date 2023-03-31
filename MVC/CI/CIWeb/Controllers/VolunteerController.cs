@@ -1,7 +1,6 @@
 ﻿using CI.Entities.Data;
 using CI.Entities.ViewModels;
 using CI.Repository.Interface;
-using CIWeb.Models;
 using Microsoft.AspNetCore.Mvc;
 
 namespace CIWeb.Controllers

@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "ZLIySCbwA/Dlxip5gviZBh7kYukmaGbuaqlJPgdfEik=",
+  "Hash": "PEmbIf4OsZfC6JbHqB4wriYMT7MOXJrnnGc5349TyVs=",
   "Source": "CIWeb",
   "BasePath": "_content/CIWeb",
   "Mode": "Default",
@@ -3857,6 +3857,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\mediaUpload\\Nourish-the-Children-in--African-country-1.png"
+    },
+    {
+      "Identity": "C:\\Users\\pci114\\Downloads\\CIPlateform\\MVC\\CI\\CIWeb\\wwwroot\\mediaUpload\\Plantation-and-Afforestation-programme-1.png",
+      "SourceId": "CIWeb",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\pci114\\Downloads\\CIPlateform\\MVC\\CI\\CIWeb\\wwwroot\\",
+      "BasePath": "_content/CIWeb",
+      "RelativePath": "mediaUpload/Plantation-and-Afforestation-programme-1.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\mediaUpload\\Plantation-and-Afforestation-programme-1.png"
     }
   ]
 }

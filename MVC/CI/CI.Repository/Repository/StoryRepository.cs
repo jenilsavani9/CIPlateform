@@ -3,15 +3,8 @@ using CI.Entities.Models;
 using CI.Entities.ViewModels;
 using CI.Repository.Interface;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.Mvc;
-using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Net;
 using System.Net.Mail;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace CI.Repository.Repository
 {
@@ -66,7 +59,7 @@ namespace CI.Repository.Repository
             if (user != null)
             {
                 var missionApplication = _db.MissionApplications.Where(a => a.UserId == user.UserId).ToList();
-                
+
                 foreach (var item in missionApplication)
                 {
                     var tempMission = _db.Missions.Where(m => m.MissionId == item.MissionId).SingleOrDefault();
@@ -110,25 +103,26 @@ namespace CI.Repository.Repository
                         tempStory.PublishedAt = DateTime.Now;
                         tempStory.Description = desc;
                         id = tempStory.StoryId;
-                    } else
+                    }
+                    else
                     {
-                        
+
                         story.MissionId = mission;
                         story.Title = title;
                         story.UserId = user.UserId;
                         story.PublishedAt = DateTime.Now;
                         story.Description = desc;
                         _db.Stories.Add(story);
-                        
+
                     }
 
                     _db.SaveChanges();
 
-                    if(id<=0)
+                    if (id <= 0)
                     {
                         id = story.StoryId;
                     }
-                    
+
                     var deleteMedia = _db.StoryMedia.Where(s => s.StoryId == id).ToList();
                     if (deleteMedia.Any())
                     {
@@ -137,10 +131,10 @@ namespace CI.Repository.Repository
                             _db.StoryMedia.Remove(media);
                             _db.SaveChanges();
                         }
-                        
+
                     }
 
-                    for (var i=0; i<listOfImage?.Length; i++)
+                    for (var i = 0; i < listOfImage?.Length; i++)
                     {
                         StoryMedium storyMedium = new StoryMedium();
                         storyMedium.StoryId = id;
@@ -161,7 +155,7 @@ namespace CI.Repository.Repository
                     }
 
                 }
-                
+
             }
         }
 

@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-
-namespace CI.Entities.Models;
+﻿namespace CI.Entities.Models;
 
 public partial class MissionDocument
 {

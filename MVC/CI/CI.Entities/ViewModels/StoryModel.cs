@@ -11,7 +11,7 @@ namespace CI.Entities.ViewModels
         public Mission? mission { get; set; }
 
         public MissionTheme? theme { get; set; }
-        
+
         public StoryMedium? StoryMedia { get; set; }
 
     }

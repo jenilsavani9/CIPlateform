@@ -1,10 +1,7 @@
 ﻿using CI.Entities.Data;
 using CI.Entities.Models;
-using CI.Entities.ViewModels;
 using CI.Repository.Interface;
 using Microsoft.AspNetCore.Mvc;
-using System.Net;
-using System.Net.Mail;
 
 namespace CIWeb.Controllers
 {
@@ -26,7 +23,7 @@ namespace CIWeb.Controllers
         public IActionResult Index()
         {
             String? userId = HttpContext.Session.GetString("userEmail");
-            if (userId == null) 
+            if (userId == null)
             {
                 return RedirectToAction("Login", "User");
             }
@@ -45,7 +42,7 @@ namespace CIWeb.Controllers
             var StoryCount = _repository.StoryCount();
             var totalStoryPage = (int)Math.Ceiling(StoryCount / (double)pageSize);
             var currentStoryPage = int.Parse(page);
-            
+
 
             return Json(new { storys, totalStoryPage, currentStoryPage });
 
@@ -56,12 +53,12 @@ namespace CIWeb.Controllers
         {
             String? userId = HttpContext.Session.GetString("userEmail");
 
-            if(userId != null)
+            if (userId != null)
             {
                 var mission = _repository.GetAppliedMission(userId);
 
-                return Json(new { mission });   
-            } 
+                return Json(new { mission });
+            }
             else
             {
                 return BadRequest();
@@ -74,8 +71,8 @@ namespace CIWeb.Controllers
             String? userId = HttpContext.Session.GetString("userEmail");
 
 
-            
-            if(userId != null)
+
+            if (userId != null)
             {
                 _repository.SaveStory(userId, mission, title, date, details, url, status, desc, listOfImage);
                 return Ok();
@@ -152,7 +149,7 @@ namespace CIWeb.Controllers
 
             return Json(new { res });
         }
-        
+
         [HttpGet("/story/sharestory/draft")]
         public IActionResult DraftStory(long missionId)
         {
@@ -163,7 +160,7 @@ namespace CIWeb.Controllers
             {
                 media = _repository.DraftStoryMedia(res.StoryId);
             }
-            
+
 
             return Json(new { res, media });
         }

@@ -1,17 +1,9 @@
-﻿using Azure.Core;
-using CI.Entities.Data;
+﻿using CI.Entities.Data;
 using CI.Entities.Models;
 using CI.Entities.ViewModels;
 using CI.Repository.Interface;
-using Microsoft.AspNetCore.Mvc;
-using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Net;
 using System.Net.Mail;
-using System.Security.Policy;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace CI.Repository.Repository
 {
@@ -44,7 +36,7 @@ namespace CI.Repository.Repository
             {
                 //return RedirectToAction("Index", "Home");
                 return false;
-            } 
+            }
             else
             {
                 // Update the user's password
@@ -82,7 +74,7 @@ namespace CI.Repository.Repository
             _db.PasswordResets.Add(passwordReset);
             _db.SaveChanges();
 
-            var resetLink = "https://localhost:44398/user/resetpassword?email=" + user.Email + "&token="+ token ;
+            var resetLink = "https://localhost:44398/user/resetpassword?email=" + user.Email + "&token=" + token;
             // Send an email with the password reset link to the user's email address
             //var resetLink = Url.Action("ResetPassword", "User", new { email = user.Email, token }, Request.Scheme);
             // Send email to user with reset password link

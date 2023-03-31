@@ -1,13 +1,9 @@
-﻿using CI.Entities.Data;
-using CI.Entities.Models;
+﻿using CI.Entities.Models;
 using CI.Entities.ViewModels;
 using CI.Repository.Interface;
 using Microsoft.AspNetCore.Authentication;
-using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
-using System.Net;
-using System.Net.Mail;
 
 namespace CIWeb.Controllers
 {
@@ -175,7 +171,7 @@ namespace CIWeb.Controllers
 
             User? user = _repository.GetUser(obj.Email);
 
-            if (user != null && user.FirstName!=null)
+            if (user != null && user.FirstName != null)
             {
                 if (user.Password == obj.Password)
                 {
@@ -196,7 +192,7 @@ namespace CIWeb.Controllers
             }
         }
 
-        
+
 
         // get all user for recommand to co-worker
         [HttpGet("/users")]

@@ -2,11 +2,6 @@
 using CI.Entities.Models;
 using CI.Entities.ViewModels;
 using CI.Repository.Interface;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace CI.Repository.Repository
 {
@@ -57,7 +52,7 @@ namespace CI.Repository.Repository
             return user;
         }
 
-        public MissionModel GetFilterMissions(string? userId,string? searchQuery, long[] FCountries, long[] FCities, long[] FThemes, long[] FSkills, int? pageIndex, string sortOrder)
+        public MissionModel GetFilterMissions(string? userId, string? searchQuery, long[] FCountries, long[] FCities, long[] FThemes, long[] FSkills, int? pageIndex, string sortOrder)
         {
 
             var user = _db.Users.Where(e => e.Email == userId).SingleOrDefault();
@@ -104,10 +99,10 @@ namespace CI.Repository.Repository
                 FinalMissionsList = tempFinalList;
                 model.countryElements = tempCountryElements;
                 model.cities = filterCityElements;
-                
+
                 // for convert long to string FCountries
                 var FC = "";
-                foreach(var item in FCountries)
+                foreach (var item in FCountries)
                 {
                     FC += item.ToString();
                 }
@@ -239,7 +234,7 @@ namespace CI.Repository.Repository
                     missionType = mission.MissionType,
                     isFavrouite = (user != null) ? _db.FavoriteMissions.Any(e => e.MissionId == mission.MissionId && e.UserId == user.UserId) : false,
                     userApplied = (user != null) ? _db.MissionApplications.Any(e => e.MissionId == mission.MissionId && e.UserId == user.UserId && e.ApprovalStatus != "pending") : false,
-                    ImgUrl = (missionURL!=null) ? missionURL.MediaPath : "Grow-Trees-On-the-path-to-environment-sustainability.png",
+                    ImgUrl = (missionURL != null) ? missionURL.MediaPath : "Grow-Trees-On-the-path-to-environment-sustainability.png",
                     StartDateEndDate = "From " + startDateNtime[0] + " until " + endDateNtime[0],
                     NoOfSeatsLeft = (int)mission?.SeatLeft,
                     Deadline = endDateNtime[0],

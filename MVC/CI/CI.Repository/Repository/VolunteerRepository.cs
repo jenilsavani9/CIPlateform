@@ -2,13 +2,8 @@
 using CI.Entities.Models;
 using CI.Entities.ViewModels;
 using CI.Repository.Interface;
-using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Net;
 using System.Net.Mail;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace CI.Repository.Repository
 {
@@ -220,7 +215,7 @@ namespace CI.Repository.Repository
 
         public List<RecentVolunteerModel> GetVolunteers(int missionId, string page)
         {
-            
+
             int pageSize = 3;
             var recentVoluntters = _db.MissionApplications.Where(m => m.MissionId == missionId && m.ApprovalStatus != "pending").Skip(int.Parse(page) * pageSize).Take(pageSize);
 
