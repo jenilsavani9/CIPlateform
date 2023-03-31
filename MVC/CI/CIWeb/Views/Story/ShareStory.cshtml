@@ -49,7 +49,7 @@
             </div>
             <div class="row mt-4">
                 <label class="fs-5">Enter Video URL</label>
-                <input type="text" placeholder="Enter your URL" id="share-story-video-url" class="col-12 border-1 border-black mt-1 mb-2" style="height:40px; border-radius:5px" />
+                <textarea  type="text" placeholder="Enter your URL" id="share-story-video-url" class="col-12 border-1 border-black mt-1 mb-2" style="height:40px; border-radius:5px" ></textarea>
             </div>
             <div class="row mt-4">
                 <label class=" fs-5"> Upload Your Photos</label>
@@ -222,9 +222,8 @@
 
                     var desc = CKEDITOR.instances.editor1.getData();
 
-
-
-                    $.ajax({
+                    if(title != "") {
+                        $.ajax({
                             type: "POST",
                             url: `https://localhost:44398/story/sharestory/saveStory`,
                             data: {
@@ -248,12 +247,15 @@
                             }
                         });
 
-                        if(status=="submit") {
+                         if(status=="submit") {
                             location.href = "https://localhost:44398/story"
                         } else {
                             var btn = document.getElementById("submit-btn");
                             btn.disabled = false;
+                            var saveBtn = document.getElementById("save-btn");
+                            saveBtn.innerHTML = "Saved"
                         }
+                    }  
                };
 
 

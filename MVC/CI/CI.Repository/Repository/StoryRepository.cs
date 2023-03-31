@@ -32,7 +32,7 @@ namespace CI.Repository.Repository
                 var tempUser = _db.Users.Where(u => u.UserId == storyItem.UserId).SingleOrDefault();
                 var tempMission = _db.Missions.Where(u => u.MissionId == storyItem.MissionId).SingleOrDefault();
                 var tempTheme = _db.MissionThemes.Where(u => u.MissionThemeId == storyItem.MissionId).SingleOrDefault();
-                var storyMedia = _db.StoryMedia.Where(s => s.StoryId == tempStory.StoryId).FirstOrDefault();
+                var storyMedia = _db.StoryMedia.Where(s => s.StoryId == tempStory.StoryId && s.StoryType == "png").FirstOrDefault();
 
                 storys.Add(new StoryModel
                 {
@@ -118,6 +118,7 @@ namespace CI.Repository.Repository
 
                     _db.SaveChanges();
 
+
                     if (id <= 0)
                     {
                         id = story.StoryId;
@@ -130,6 +131,26 @@ namespace CI.Repository.Repository
                         {
                             _db.StoryMedia.Remove(media);
                             _db.SaveChanges();
+                        }
+
+                    }
+
+                    //for saving video urls
+                    if (url != null)
+                    {
+                        string[] videoUrl = url.Split(" ");
+                        if (videoUrl.Length > 0)
+                        {
+                            foreach (var video in videoUrl)
+                            {
+                                StoryMedium storyMedium = new StoryMedium();
+                                storyMedium.StoryId = id;
+                                storyMedium.StoryType = "video";
+                                storyMedium.StoryPath = video;
+
+                                _db.StoryMedia.Add(storyMedium);
+                                _db.SaveChanges();
+                            }
                         }
 
                     }
@@ -166,7 +187,7 @@ namespace CI.Repository.Repository
             var mission = _db.Missions.Where(m => m.MissionId == story.MissionId).FirstOrDefault();
             var user = _db.Users.Where(u => u.UserId == story.UserId).FirstOrDefault();
 
-            model.storyMedia = _db.StoryMedia.Where(s => s.StoryId == story.StoryId).ToList();
+            model.storyMedia = _db.StoryMedia.Where(s => s.StoryId == story.StoryId && s.StoryType == "png").ToList();
             model.whyIVolunteer = user.WhyIVolunteer;
             model.missionTitle = mission.Title;
             model.avatar = user.Avatar;
@@ -246,7 +267,7 @@ namespace CI.Repository.Repository
 
         public List<StoryMedium> DraftStoryMedia(long storyId)
         {
-            var media = _db.StoryMedia.Where(s => s.StoryId == storyId).ToList();
+            var media = _db.StoryMedia.Where(s => s.StoryId == storyId && s.StoryType == "png").ToList();
             return media;
         }
     }

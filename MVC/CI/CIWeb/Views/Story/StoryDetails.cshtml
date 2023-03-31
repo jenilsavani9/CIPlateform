@@ -187,7 +187,7 @@
                                             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                                         </div>
                                         <div class="modal-body">
-                                            <form class="form-inline">
+                                            @*<form class="form-inline">
                                                 <div class="row mb-3">
                                                     <div class="col-5">
                                                         <input class="form-control mr-sm-2" id="userSearch" type="search" placeholder="Search User" aria-label="Search" onkeyup="searchUserByName()" autocomplete="off">
@@ -197,7 +197,7 @@
                                                     </div>
                                                     <div class="col-6"></div>
                                                 </div>
-                                            </form>
+                                            </form>*@
                                             <div class="row m-5" id="noUser">
                                                 <div class="col">
                                                     <h3 class="text-danger">User not found.</h3>
@@ -338,9 +338,10 @@
             if(response.model.storyMedia != null && response.model.storyMedia.length <=1) {
                 html = ""
             } else {
-                
+                console.log(response);
                 response.model.storyMedia.map(item => {
 
+                    if(item.storyType == "png") {
                     html += `<div class="carousel-item">
                                         <div class="col-md-3">
                                             <div class="card">
@@ -350,6 +351,7 @@
                                             </div>
                                         </div>
                                     </div> `
+                                    }
                 })
                 
             }
