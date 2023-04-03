@@ -15,8 +15,10 @@ builder.Services.AddCloudscribePagination();
 
 builder.Services.AddScoped<IStoryRepository, StoryRepository>();
 builder.Services.AddScoped<IUserRepository, UserRepository>();
+builder.Services.AddScoped<IProfileRepository, ProfileRepository>();
 builder.Services.AddScoped<IHomeRepository, HomeRepository>();
 builder.Services.AddScoped<IVolunteerRepository, VolunteerRepository>();
+
 
 builder.Services.AddControllers().AddJsonOptions(options =>
 {

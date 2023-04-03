@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "PEmbIf4OsZfC6JbHqB4wriYMT7MOXJrnnGc5349TyVs=",
+  "Hash": "ztPtWChww7uF3x/RKe2SQc9+EqU0kNvXr+bhjgelspg=",
   "Source": "CIWeb",
   "BasePath": "_content/CIWeb",
   "Mode": "Default",
@@ -219,6 +219,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\css\\StoryListing.css"
+    },
+    {
+      "Identity": "C:\\Users\\pci114\\Downloads\\CIPlateform\\MVC\\CI\\CIWeb\\wwwroot\\css\\User.css",
+      "SourceId": "CIWeb",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\pci114\\Downloads\\CIPlateform\\MVC\\CI\\CIWeb\\wwwroot\\",
+      "BasePath": "_content/CIWeb",
+      "RelativePath": "css/User.css",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\css\\User.css"
     },
     {
       "Identity": "C:\\Users\\pci114\\Downloads\\CIPlateform\\MVC\\CI\\CIWeb\\wwwroot\\css\\volunteering.css",
