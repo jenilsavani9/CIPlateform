@@ -1,4 +1,7 @@
-﻿namespace CI.Entities.Models;
+﻿using System;
+using System.Collections.Generic;
+
+namespace CI.Entities.Models;
 
 public partial class Skill
 {
@@ -16,5 +19,5 @@ public partial class Skill
 
     public virtual ICollection<MissionSkill> MissionSkills { get; } = new List<MissionSkill>();
 
-    public virtual ICollection<UserSkill> UserSkills { get; } = new List<UserSkill>();
+    public virtual ICollection<UserSkill> UserSkills { get; set;  } = new List<UserSkill>();
 }

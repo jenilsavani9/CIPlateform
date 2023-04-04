@@ -115,3 +115,8 @@
 .user-skills-select-btns {
     margin: 0 10px;
 }
+
+.form-validation-msg {
+    font-size: 12px;
+    color: red;
+}

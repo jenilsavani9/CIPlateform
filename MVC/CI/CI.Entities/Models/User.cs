@@ -1,4 +1,7 @@
-﻿namespace CI.Entities.Models;
+﻿using System;
+using System.Collections.Generic;
+
+namespace CI.Entities.Models;
 
 public partial class User
 {
@@ -39,6 +42,10 @@ public partial class User
     public DateTime? UpdatedAt { get; set; }
 
     public DateTime? DeletedAt { get; set; }
+
+    public string? Manager { get; set; }
+
+    public string? Available { get; set; }
 
     public virtual City? City { get; set; }
 

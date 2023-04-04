@@ -21,14 +21,15 @@
 
     <div class="container" style="margin-top: 75px;">
         <div class="row">
-            <div class="col-12 col-md-3 col-lg-2 user-profile-left-div d-flex flex-column align-items-center justify-content-center">
+            <div class="col-12 col-md-3 col-lg-3 user-profile-left-div d-flex flex-column align-items-center justify-content-center">
                 <div class="d-flex flex-column align-items-center justify-content-center">
+                    <input class="d-none" type="file" id="myFileInput" />
                     <div class="user-profile-div" id="profile-user-img">
-                        <input type="file" />
-                        <img src="./img/user-img-large.png" alt=""
-                             class="rounded-circle user-profile-img">
+                        @*<input type="file" />
+                            <img src="./img/user-img-large.png" alt=""
+                            class="rounded-circle user-profile-img">*@
                     </div>
-                    <div class="user-username" id="profile-user-name">Jenil Savani</div>
+                    <div class="user-username" id="profile-user-name"></div>
                     <div class="">
                         <!-- Button trigger modal -->
                         <button class="btn shadow-none user-change-pass-link" data-bs-toggle="modal" data-bs-target="#exampleModal">
@@ -73,7 +74,7 @@
                     </div>
                 </div>
             </div>
-            <div class="col-12 col-md-9 col-lg-10">
+            <div class="col-12 col-md-9 col-lg-9">
                 <div class="mb-3">
                     <div class="user-edit-header-1">Basic Information</div>
                     <hr>
@@ -82,12 +83,14 @@
                             <label for="profile-form-name" class="form-label">Name*</label>
                             <input type="text" class="form-control" id="profile-form-name"
                                    placeholder="Enter your name">
+                            <span class="d-none form-validation-msg" id="error-firstname">&#9888; Write your name</span>
                         </div>
 
                         <div class="mb-3 col-12 col-md-6">
                             <label for="profile-form-surname" class="form-label">Surname*</label>
                             <input type="text" class="form-control" id="profile-form-surname"
                                    placeholder="Enter your surname">
+                            <span class="d-none form-validation-msg" id="error-surname">&#9888; Write your surname</span>
                         </div>
 
                         <div class="mb-3 col-12 col-md-6">
@@ -118,6 +121,7 @@
                             <label for="profile-text" class="form-label">My Profile*</label>
                             <textarea class="form-control" id="profile-text" rows="3"
                                       placeholder="Enter your comments"></textarea>
+                            <span class="d-none form-validation-msg" id="error-profileText">&#9888; Write profile</span>
                         </div>
 
                         <div class="mb-3">
@@ -132,19 +136,27 @@
                     <div class="user-edit-header-1">Adderss Information</div>
                     <hr>
                     <div class="row">
-                        <div class="mb-3 col-12 col-md-6">
-                            <label for="exampleFormControlInput7" class="form-label">City</label>
-                            <input type="email" class="form-control" id="exampleFormControlInput7"
-                                   placeholder="Enter your city">
-                        </div>
+
                         <div class="col-12 col-md-6">
                             <label for="exampleFormControlTextarea1" class="form-label">Country*</label>
-                            <select class="form-select " aria-label="Default select example" id="user-country">
+                            <select class="form-select " aria-label="Default select example" id="user-country" onchange="loadCityForCountry(this.value)">
                                 <option selected disabled>select your country</option>
-                                <option value="1">India</option>
-                                <option value="2">US</option>
-                                <option value="3">Canada</option>
+
                             </select>
+                            <span class="d-none form-validation-msg" id="error-countryId">&#9888; Select Country</span>
+                        </div>
+
+                        <div class="mb-3 col-12 col-md-6">
+                            @*<label for="exampleFormControlInput7" class="form-label">City</label>
+                                <input type="email" class="form-control" id="exampleFormControlInput7"
+                                placeholder="Enter your city">*@
+
+                            <label for="user-city" class="form-label">City</label>
+                            <select class="form-select " aria-label="Default select example" id="user-city">
+                                <option selected disabled>select your city</option>
+
+                            </select>
+                            <span class="d-none form-validation-msg" id="error-cityId">&#9888; Select Country first</span>
                         </div>
                     </div>
                 </div>
@@ -155,11 +167,12 @@
                     <div class="row">
                         <div class="col-12 col-md-6">
                             <label for="exampleFormControlTextarea1" class="form-label">Availablity</label>
-                            <select class="form-select " aria-label="Default select example" id="user-country">
+                            <select class="form-select " aria-label="Default select example" id="user-available">
                                 <option selected disabled>select your availablity</option>
-                                <option value="1">India</option>
-                                <option value="2">US</option>
-                                <option value="3">Canada</option>
+                                <option value="Daily">Daily</option>
+                                <option value="Weekend">Weekend</option>
+                                <option value="Weekly">Weekly</option>
+                                <option value="Monthly">Monthly</option>
                             </select>
                         </div>
                         <div class="mb-3 col-12 col-md-6">
@@ -260,15 +273,17 @@
     <script>
 
         var userId;
+        var userProfileName;
 
         $.ajax({
                 type: "GET",
                 url: `/getUserProfile`,
                 success: function (response) {
-                    console.log(response);
 
+                    console.log(response)
                     var avatar = document.getElementById("profile-user-img");
-                    avatar.innerHTML = `<img src="/img/${response.user.avatar}" alt="" class="rounded-circle user-profile-img">`
+                    avatar.innerHTML = `<img src="/mediaUpload/${response.user.avatar}" alt="" class="rounded-circle user-profile-img" onclick="document.getElementById('myFileInput').click()" style="cursor:pointer;">`
+                    userProfileName = response.user.avatar;
 
                     var username = document.getElementById("profile-user-name");
                     username.innerHTML = `${response.user.firstName} ${response.user.lastName}`;
@@ -279,12 +294,12 @@
                     var surname = document.getElementById("profile-form-surname");
                     surname.value = `${response.user.lastName}`
 
-                    
+
                     var empId = document.getElementById("profile-form-empId");
                     empId.value = `${response.user.employeeId==null?"":response.user.employeeId}`
 
-                    //var Manager = document.getElementById("profile-form-manager");
-                    //Manager.value = `${response.user.lastName==null?"":response.user.lastName}`
+                    var Manager = document.getElementById("profile-form-manager");
+                    Manager.value = `${response.user.manager==null?"":response.user.manager}`
 
                     var title = document.getElementById("profile-form-title");
                     title.value = `${response.user.title==null?"":response.user.title}`
@@ -297,13 +312,44 @@
 
                     var WhyIVolunteer = document.getElementById("profile-WhyIVolunteer");
                     WhyIVolunteer.value = `${response.user.whyIVolunteer==null?"":response.user.whyIVolunteer}`
-                    
+
                     var linkedIn = document.getElementById("profile-linkedIn");
                     linkedIn.value = `${response.user.linkedInUrl==null?"":response.user.linkedInUrl}`
-                     
+
                     userId = response.user.id;
 
+                    var available = document.getElementById("user-available");
+                    if(response.user.available != null) {
 
+                        var availableHtml = '<option disabled>select your availablity</option>';
+                        if(response.user.available == "Daily"){
+                            availableHtml += '<option value="Daily" selected>Daily</option>'
+                        }else {
+                            availableHtml += '<option value="Daily">Daily</option>'
+                        }
+                        if(response.user.available == "Weekend"){
+                            availableHtml += '<option value="Weekend" selected>Weekend</option>'
+                        }else {
+                            availableHtml += '<option value="Weekend">Weekend</option>'
+                        }
+                        if(response.user.available == "Weekly"){
+                            availableHtml += '<option value="Weekly" selected>Weekly</option>'
+                        }else {
+                            availableHtml += '<option value="Weekly">Weekly</option>'
+                        }
+                        if(response.user.available == "Monthly"){
+                            availableHtml += '<option value="Monthly" selected>Monthly</option>'
+                        }else {
+                            availableHtml += '<option value="Monthly">Monthly</option>'
+                        }
+
+                        available.innerHTML = availableHtml
+                    }
+
+                    if(response.user.cityId!=null && response.user.city!=null) {
+                        var userCityOnload = document.getElementById("user-city");
+                        userCityOnload.innerHTML = `<option disabled>select your city</option><option value="${response.user.cityId}" selected>${response.user.city}</option>`;
+                    }
                 },
                 failure: function (response) {
                     alert(response.responseText);
@@ -313,61 +359,210 @@
                 }
             });
 
+            //function for innerhtml loading country
+            function loadCountry(response) {
+
+                var html = "";
+                if(response.userCountry != null ) {
+                    html = "<option disabled>select your country</option>";
+                } else {
+                    html = "<option selected disabled>select your country</option>";
+                }
+
+                response.country.map(item => {
+                    if(response.userCountry != null && item.countryId == response.userCountry ) {
+                        html += `<option value="${item.countryId}" selected>${item.name}</option>`
+                    } else {
+                        html += `<option value="${item.countryId}" >${item.name}</option>`
+                    }
+
+                }).join(" ")
+                return html;
+            }
+
+            //load countrys in drop-down
+            $.ajax({
+                type: "GET",
+                url: `/api/profile/country`,
+                success: function (response) {
+
+                    var countryElements = document.getElementById("user-country");
+                    countryElements.innerHTML = loadCountry(response);
+
+                },
+                failure: function (response) {
+                    alert(response.responseText);
+                },
+                error: function (response) {
+                    alert(response.responseText);
+                }
+             });
+
+             // load country related city
+             function loadCity(response) {
+                 var html = "<option selected disabled>select your city</option>";
+                response.country.map(item => {
+                    html += `<option value="${item.cityId}" >${item.name}</option>`
+                }).join(" ")
+                return html;
+             }
+
+
+            function loadCityForCountry(countryId) {
+
+                $.ajax({
+                    type: "GET",
+                    url: `/api/profile/country/${countryId}`,
+                    success: function (response) {
+
+                        var city = document.getElementById("user-city");
+                        city.innerHTML = loadCity(response);
+
+                    },
+                    failure: function (response) {
+                        alert(response.responseText);
+                    },
+                    error: function (response) {
+                        alert(response.responseText);
+                    }
+                });
+            }
+
 
             function FormSubmit() {
 
+                var error = 0;
+
+                    
+
                     var firstName = document.getElementById("profile-form-name").value;
+                    if(firstName=="") {
+                        document.getElementById("error-firstname").classList.remove("d-none");
+                        error += 1;
+                    } else {
+                        document.getElementById("error-firstname").classList.add("d-none");
+                    }
 
                     var surname = document.getElementById("profile-form-surname").value;
+                    if(surname=="") {
+                        document.getElementById("error-surname").classList.remove("d-none");
+                        error += 1;
+                    } else {
+                        document.getElementById("error-surname").classList.add("d-none");
+                    }
 
                     var empId = document.getElementById("profile-form-empId").value;
 
-                    //var Manager = document.getElementById("profile-form-manager").value;
+                    var manager = document.getElementById("profile-form-manager").value;
 
                     var title = document.getElementById("profile-form-title").value;
 
                     var department = document.getElementById("profile-form-department").value;
 
                     var profileText = document.getElementById("profile-text").value;
+                    if(profileText=="") {
+                        document.getElementById("error-profileText").classList.remove("d-none");
+                        error += 1;
+                    } else {
+                        document.getElementById("error-profileText").classList.add("d-none");
+                    }
 
                     var WhyIVolunteer = document.getElementById("profile-WhyIVolunteer").value;
-                    
+
+                    var available = document.getElementById("user-available").value;
+
                     var linkedIn = document.getElementById("profile-linkedIn").value;
+
+                    var cityId = document.getElementById("user-city").value;
+                    //if(cityId=="select your city") {
+                    //    document.getElementById("error-cityId").classList.remove("d-none");
+                    //    error = true;
+                    //} else {
+                    //    document.getElementById("error-cityId").classList.add("d-none");
+                    //    error = false;
+                    //}
+
+                    var countryId = document.getElementById("user-country").value;
+                    if(countryId=="select your country") {
+                        document.getElementById("error-countryId").classList.remove("d-none");
+                        error += 1;
+                    } else {
+                        document.getElementById("error-countryId").classList.add("d-none");
+                    }
 
                     var spinner = document.getElementById("user-profile-save-btn");
                     spinner.innerHTML = `<div class="spinner-border spinner-border-sm" role="status">
                                           <span class="visually-hidden">Loading...</span>
                                         </div>`
 
-                $.ajax({
-                type: "POST",
-                url: `/getUserProfile`,
-                data: {
-                    "Id": userId,
-                    "firstName": firstName,
-                    "lastName": surname,
-                    "employeeId": empId,
-                    "title": title,
-                    "department": department,
-                    "profileText": profileText,
-                    "whyIVolunteer": WhyIVolunteer,
-                    "linkedInUrl": linkedIn
-                },
-                success: function (response) {
-                    
-                    console.log("form Submitted!!!");
+                if(error == 0) {
+                    $.ajax({
+                        type: "POST",
+                        url: `/getUserProfile`,
+                        data: {
+                            "Id": userId,
+                            "firstName": firstName,
+                            "lastName": surname,
+                            "employeeId": empId,
+                            "title": title,
+                            "department": department,
+                            "profileText": profileText,
+                            "whyIVolunteer": WhyIVolunteer,
+                            "linkedInUrl": linkedIn,
+                            "cityId": cityId,
+                            "countryId": countryId,
+                            "manager": manager,
+                            "avatar": userProfileName,
+                            "available": available
+                        },
+                        success: function (response) {
 
+                            location.reload();
+                        },
+                        failure: function (response) {
+                            alert(response.responseText);
+                        },
+                        error: function (response) {
+                            alert(response.responseText);
+                        }
+                    });
+                } else {
                     spinner.innerHTML = `<button class="user-profile-save-btn" onclick="FormSubmit()">Save</button>`;
-
-                },
-                failure: function (response) {
-                    alert(response.responseText);
-                },
-                error: function (response) {
-                    alert(response.responseText);
                 }
-            });
             }
+
+
+            $("#myFileInput").on('change', function () {
+                    console.log("change")
+                     var files = $('#myFileInput').prop("files");
+                    var url = "/api/static/save";
+                    formData = new FormData();
+                    formData.append("MyUploader", files[0]);
+                 
+                    jQuery.ajax({
+                        type: 'POST',
+                        url: url,
+                        data: formData,
+                        cache: false,
+                        contentType: false,
+                        processData: false,
+                        beforeSend: function (xhr) {
+                            xhr.setRequestHeader("XSRF-TOKEN",
+                                $('input:hidden[name="__RequestVerificationToken"]').val());
+                        },
+                        success: function (response) {
+                            var avatar = document.getElementById("profile-user-img");
+                            avatar.innerHTML = `<img src="/mediaUpload/${files[0].name}" alt="" class="rounded-circle user-profile-img" onclick="document.getElementById('myFileInput').click()" style="cursor:pointer;">`;
+                            // assign filename to local variable
+                            userProfileName = files[0].name;
+                        },
+                        error: function(response) {
+                            alert(response);
+                        }
+                    });
+            });
+
+
     </script>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha2/dist/js/bootstrap.bundle.min.js"

@@ -1,4 +1,6 @@
-﻿using CI.Entities.Models;
+﻿using System;
+using System.Collections.Generic;
+using CI.Entities.Models;
 using Microsoft.EntityFrameworkCore;
 
 namespace CI.Entities.Data;
@@ -840,6 +842,9 @@ public partial class CiContext : DbContext
             entity.ToTable("users");
 
             entity.Property(e => e.UserId).HasColumnName("user_id");
+            entity.Property(e => e.Available)
+                .HasMaxLength(50)
+                .HasColumnName("available");
             entity.Property(e => e.Avatar)
                 .HasMaxLength(2048)
                 .IsUnicode(false)
@@ -877,6 +882,9 @@ public partial class CiContext : DbContext
                 .HasMaxLength(255)
                 .IsUnicode(false)
                 .HasColumnName("linked_in_url");
+            entity.Property(e => e.Manager)
+                .HasMaxLength(50)
+                .HasColumnName("manager");
             entity.Property(e => e.Password)
                 .HasMaxLength(255)
                 .IsUnicode(false)

@@ -1,4 +1,7 @@
-﻿namespace CI.Entities.Models;
+﻿using System;
+using System.Collections.Generic;
+
+namespace CI.Entities.Models;
 
 public partial class Admin
 {

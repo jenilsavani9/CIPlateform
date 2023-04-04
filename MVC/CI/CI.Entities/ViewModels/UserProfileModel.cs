@@ -16,10 +16,14 @@ namespace CI.Entities.ViewModels
         public string? whyIVolunteer { get; set; }
         public string? employeeId { get; set; }
         public string? department { get; set; }
+        public string? manager { get; set; }
         public string? city { get; set; }
         public string? country { get; set; }
         public string? profileText { get; set; }
         public string? linkedInUrl { get; set; }
         public string? title { get; set; }
+        public string? available { get; set; }
+        public long? cityId { get; set; }
+        public long? countryId { get; set; }
     }
 }

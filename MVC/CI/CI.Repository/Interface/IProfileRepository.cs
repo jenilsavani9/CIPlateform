@@ -15,5 +15,13 @@ namespace CI.Repository.Interface
         public UserProfileModel GetUserProfile(string? email);
 
         public void UpdateUserData(UserProfileModel user);
+
+        public List<CountryElementModel> GetCountrys();
+
+        public List<CityElementsModel> GetCountryCity(long countryId);
+
+        public long? GetUserCountry(string? userEmail);
+
+        public void GetUserSkills(string? userEmail);
     }
 }

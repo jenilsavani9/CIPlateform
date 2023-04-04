@@ -12,12 +12,9 @@ namespace CI.Repository.Repository
     {
         private readonly CiContext _db;
 
-        private readonly IWebHostEnvironment _webHostEnvironment;
-
-        public StoryRepository(CiContext db, IWebHostEnvironment webHostEnvironment)
+        public StoryRepository(CiContext db)
         {
             _db = db;
-            _webHostEnvironment = webHostEnvironment;
         }
 
         public List<StoryModel> GetStory(string page)
