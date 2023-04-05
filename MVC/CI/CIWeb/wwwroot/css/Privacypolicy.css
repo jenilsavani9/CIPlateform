@@ -1,0 +1,26 @@
+﻿body {
+}
+
+.privacycontainer {
+    margin-top: 70px;
+}
+
+/*.policysidebar {
+    background-color: #F88634 !important;
+}*/
+
+.nav-pills .nav-link.active, .nav-pills .show > .nav-link {
+    color: black;
+    background-color: #fff;
+}
+
+.nav-link:focus, .nav-link:hover {
+    color: none;
+}
+
+.nav-pills .nav-link {
+    background: 0 0;
+    border: 0;
+    border-radius: 0.25rem;
+    color: black;
+}

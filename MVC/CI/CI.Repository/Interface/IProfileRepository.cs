@@ -22,6 +22,12 @@ namespace CI.Repository.Interface
 
         public long? GetUserCountry(string? userEmail);
 
-        public void GetUserSkills(string? userEmail);
+        public List<AddSkillModel> GetUserSkills(string? userEmail);
+
+        public List<AddSkillModel> GetNotUserSkills(string? userEmail);
+
+        public string ChangePassword(string? userEmail, string? oldPassword, string? newPassword);
+
+        public void SaveUserSkills(string? userEmail, List<string> skillsToAdd);
     }
 }

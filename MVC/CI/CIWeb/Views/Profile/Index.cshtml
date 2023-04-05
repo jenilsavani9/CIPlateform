@@ -48,22 +48,25 @@
                                     </div>
                                     <div class="modal-body">
 
-                                        <input type="password" id="inputPassword1" class="form-control mb-3"
+                                        <input type="password" id="inputPassword1" class="form-control mb-2"
                                                aria-labelledby="passwordHelpBlock" placeholder="Enter old Password">
+                                        <span class="d-none mb-3 form-validation-msg" id="error-old-password"></span>
 
-                                        <input type="password" id="inputPassword2" class="form-control mb-3"
+                                        <input type="password" id="inputPassword2" class="form-control mb-2"
                                                aria-labelledby="passwordHelpBlock" placeholder="Enter new Password">
+                                        <span class="d-none mb-3 form-validation-msg" id="error-new-password"></span>
 
                                         <input type="password" id="inputPassword3" class="form-control"
                                                aria-labelledby="passwordHelpBlock" placeholder="Enter confirm Password">
+                                        <span class="d-none form-validation-msg" id="error-confirm-password"></span>
 
                                     </div>
-                                    <div class="modal-footer">
+                                    <div class="modal-footer" id="password-change-btn">
                                         <button type="button" class="btn user-password-cancel-btn"
                                                 data-bs-dismiss="modal">
                                             Cancel
                                         </button>
-                                        <button type="button" class="btn user-password-change-btn">
+                                        <button type="button" class="btn user-password-change-btn" onclick="changePassword()">
                                             Change
                                             Password
                                         </button>
@@ -187,16 +190,10 @@
                     <div class="user-edit-header-1">My Skills</div>
                     <hr>
                     <div class="user-skill-list-div">
-                        <ul class="user-skills-list">
-                            <li>Anthropology </li>
-                            <li>Archeology </li>
-                            <li>Astronomy </li>
-                            <li>Computer Science </li>
-                            <li>Environmental Science </li>
-                            <li>History</li>
+                        <ul class="user-skills-list" id="user-skills-list">
                         </ul>
                     </div>
-                    <button class="user-add-skills-btn" data-bs-toggle="modal" data-bs-target="#addskillmodal">
+                    <button class="user-add-skills-btn" id="user-add-skills-btn" data-bs-toggle="modal" data-bs-target="#addskillmodal">
                         Add
                         Skills
                     </button>
@@ -212,44 +209,66 @@
                                             aria-label="Close"></button>
                                 </div>
                                 <div class="modal-body d-flex">
-                                    <div class="user-skill-modal-all-skill">
-                                        <ul class="remove-ul-dots">
-                                            <li>Astronomy</li>
-                                            <li>Astronomy</li>
-                                            <li>Astronomy</li>
-                                            <li>Astronomy</li>
-                                            <li>Astronomy</li>
-                                            <li>Astronomy</li>
-                                            <li>Astronomy</li>
-                                            <li>Astronomy</li>
-                                            <li>Astronomy</li>
-                                            <li>Astronomy</li>
-                                            <li>Astronomy</li>
-                                            <li>Astronomy</li>
-                                            <li>Astronomy</li>
-                                            <li>Astronomy</li>
-                                            <li>Astronomy</li>
-                                        </ul>
-                                    </div>
-                                    <div class="d-flex flex-column justify-content-center user-skills-select-btns">
-                                        <img class="mb-3" src="./img/right-arrow1.png" alt="">
-                                        <img src="./img/left.png" alt="">
-                                    </div>
-                                    <div class="user-skill-modal-added-skill">
-                                        <ul class="remove-ul-dots">
-                                            <li>Astronomy</li>
-                                            <li>Astronomy</li>
-                                            <li>Astronomy</li>
-                                            <li>Astronomy</li>
-                                        </ul>
+                                    <div class="container ">
+                                        <br />
+                                        <div class="row mb-3">
+
+                                            <div class="dual-list list-left col-md-5">
+                                                <div class="well text-right">
+                                                    <ul class="list-group" id="add-skill-left-group">
+
+                                                        <li class="list-group-item">Dapibus ac facilisis in</li>
+                                                        <li class="list-group-item">Morbi leo risus</li>
+                                                        <li class="list-group-item">Porta ac consectetur ac</li>
+                                                        <li class="list-group-item">Vestibulum at eros</li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+
+                                            <div class="list-arrows col-md-1 d-none d-md-block text-center ">
+                                                <button class="btn btn-default btn-sm move-right bg-opacity-25 bg-dark d-flex align-items-center justify-content-center ">
+                                                    <span class="glyphicon glyphicon-chevron-right"><img src="~/img/right-arrow2.png" /></span>
+                                                </button>
+
+                                                <button class="btn btn-default btn-sm move-left bg-opacity-25 bg-dark d-flex align-items-center justify-content-center">
+                                                    <span class="glyphicon glyphicon-chevron-left"><img src="./img/left1.png" /></span>
+                                                </button>
+
+                                            </div>
+
+                                            <div class=" p-3 d-block d-md-none text-center ">
+                                                <button class="btn btn-default btn-sm move-left bg-opacity-25 bg-dark ">
+                                                    <span class="glyphicon glyphicon-chevron-left"><img src="~/img/up.png" /></span>
+                                                </button>
+
+                                                <button class="btn btn-default btn-sm move-right bg-opacity-25 bg-dark">
+                                                    <span class="glyphicon glyphicon-chevron-right"><img src="~/img/down.png" /></span>
+                                                </button>
+                                            </div>
+
+                                            <div class="dual-list list-right col-md-5">
+                                                <div class="well">
+                                                    <ul class="list-group" id="temp-add-skill-right-group">
+                                                        <li class="list-group-item" id="1">Cras justo odio</li>
+                                                        <li class="list-group-item" id="2">Dapibus ac facilisis in</li>
+                                                        <li class="list-group-item" id="3">Morbi leo risus</li>
+                                                        <li class="list-group-item" id="4">Porta ac consectetur ac</li>
+                                                        <li class="list-group-item" id="5">Vestibulum at eros</li>
+                                                    </ul>
+
+                                                    
+                                                </div>
+                                            </div>
+
+                                        </div>
                                     </div>
                                 </div>
                                 <div class="modal-footer d-flex justify-content-start">
                                     <button type="button" class="user-add-skill-cancel-btn"
-                                            data-bs-dismiss="modal">
+                                            data-bs-dismiss="modal" onclick="location.reload();">
                                         Cancel
                                     </button>
-                                    <button type="button" class="user-add-skill-save-btn">Save</button>
+                                    <button type="button" class="user-add-skill-save-btn" id="user-add-skill-save-btn">Save</button>
                                 </div>
                             </div>
                         </div>
@@ -272,252 +291,191 @@
 
     <script>
 
-        var userId;
-        var userProfileName;
-
-        $.ajax({
-                type: "GET",
-                url: `/getUserProfile`,
-                success: function (response) {
-
-                    console.log(response)
-                    var avatar = document.getElementById("profile-user-img");
-                    avatar.innerHTML = `<img src="/mediaUpload/${response.user.avatar}" alt="" class="rounded-circle user-profile-img" onclick="document.getElementById('myFileInput').click()" style="cursor:pointer;">`
-                    userProfileName = response.user.avatar;
-
-                    var username = document.getElementById("profile-user-name");
-                    username.innerHTML = `${response.user.firstName} ${response.user.lastName}`;
-
-                    var Name = document.getElementById("profile-form-name");
-                    Name.value = `${response.user.firstName}`
-
-                    var surname = document.getElementById("profile-form-surname");
-                    surname.value = `${response.user.lastName}`
-
-
-                    var empId = document.getElementById("profile-form-empId");
-                    empId.value = `${response.user.employeeId==null?"":response.user.employeeId}`
-
-                    var Manager = document.getElementById("profile-form-manager");
-                    Manager.value = `${response.user.manager==null?"":response.user.manager}`
-
-                    var title = document.getElementById("profile-form-title");
-                    title.value = `${response.user.title==null?"":response.user.title}`
-
-                    var department = document.getElementById("profile-form-department");
-                    department.value = `${response.user.department==null?"":response.user.department}`
-
-                    var profileText = document.getElementById("profile-text");
-                    profileText.value = `${response.user.profileText==null?"":response.user.profileText}`
-
-                    var WhyIVolunteer = document.getElementById("profile-WhyIVolunteer");
-                    WhyIVolunteer.value = `${response.user.whyIVolunteer==null?"":response.user.whyIVolunteer}`
-
-                    var linkedIn = document.getElementById("profile-linkedIn");
-                    linkedIn.value = `${response.user.linkedInUrl==null?"":response.user.linkedInUrl}`
-
-                    userId = response.user.id;
-
-                    var available = document.getElementById("user-available");
-                    if(response.user.available != null) {
-
-                        var availableHtml = '<option disabled>select your availablity</option>';
-                        if(response.user.available == "Daily"){
-                            availableHtml += '<option value="Daily" selected>Daily</option>'
-                        }else {
-                            availableHtml += '<option value="Daily">Daily</option>'
+                var userId;
+                var userProfileName;
+                
+                // js functions for add skills modal
+                $(function () {
+                    $("body").on("click", ".list-group .list-group-item", function () {
+                        $(this).toggleClass("active");
+                    });
+                    $(".list-arrows button").click(function () {
+                        var $button = $(this),
+                            actives = "";
+                        if ($button.hasClass("move-left")) {
+                            actives = $(".list-right ul li.active");
+                            actives.remove();
+                        } else if ($button.hasClass("move-right")) {
+                            actives = $(".list-left ul li.active");
+                            activesDelete = $(".list-right ul");
+                            activesDelete.empty();
+                            actives.clone().appendTo(".list-right ul");
                         }
-                        if(response.user.available == "Weekend"){
-                            availableHtml += '<option value="Weekend" selected>Weekend</option>'
-                        }else {
-                            availableHtml += '<option value="Weekend">Weekend</option>'
-                        }
-                        if(response.user.available == "Weekly"){
-                            availableHtml += '<option value="Weekly" selected>Weekly</option>'
-                        }else {
-                            availableHtml += '<option value="Weekly">Weekly</option>'
-                        }
-                        if(response.user.available == "Monthly"){
-                            availableHtml += '<option value="Monthly" selected>Monthly</option>'
-                        }else {
-                            availableHtml += '<option value="Monthly">Monthly</option>'
-                        }
-
-                        available.innerHTML = availableHtml
-                    }
-
-                    if(response.user.cityId!=null && response.user.city!=null) {
-                        var userCityOnload = document.getElementById("user-city");
-                        userCityOnload.innerHTML = `<option disabled>select your city</option><option value="${response.user.cityId}" selected>${response.user.city}</option>`;
-                    }
-                },
-                failure: function (response) {
-                    alert(response.responseText);
-                },
-                error: function (response) {
-                    alert(response.responseText);
-                }
-            });
-
-            //function for innerhtml loading country
-            function loadCountry(response) {
-
-                var html = "";
-                if(response.userCountry != null ) {
-                    html = "<option disabled>select your country</option>";
-                } else {
-                    html = "<option selected disabled>select your country</option>";
-                }
-
-                response.country.map(item => {
-                    if(response.userCountry != null && item.countryId == response.userCountry ) {
-                        html += `<option value="${item.countryId}" selected>${item.name}</option>`
-                    } else {
-                        html += `<option value="${item.countryId}" >${item.name}</option>`
-                    }
-
-                }).join(" ")
-                return html;
-            }
-
-            //load countrys in drop-down
-            $.ajax({
-                type: "GET",
-                url: `/api/profile/country`,
-                success: function (response) {
-
-                    var countryElements = document.getElementById("user-country");
-                    countryElements.innerHTML = loadCountry(response);
-
-                },
-                failure: function (response) {
-                    alert(response.responseText);
-                },
-                error: function (response) {
-                    alert(response.responseText);
-                }
-             });
-
-             // load country related city
-             function loadCity(response) {
-                 var html = "<option selected disabled>select your city</option>";
-                response.country.map(item => {
-                    html += `<option value="${item.cityId}" >${item.name}</option>`
-                }).join(" ")
-                return html;
-             }
-
-
-            function loadCityForCountry(countryId) {
-
-                $.ajax({
-                    type: "GET",
-                    url: `/api/profile/country/${countryId}`,
-                    success: function (response) {
-
-                        var city = document.getElementById("user-city");
-                        city.innerHTML = loadCity(response);
-
-                    },
-                    failure: function (response) {
-                        alert(response.responseText);
-                    },
-                    error: function (response) {
-                        alert(response.responseText);
-                    }
+                    });
                 });
-            }
 
+                function userSelectedSkills(response) {
+                    return response.notUserSkills.map(item => {
+                        var status = 0;
+                        response.userSkills.map(checkSkills => {
+                            if(checkSkills.id == item.id) {
+                                status = 1;
+                            }
+                        })
+                        if(status==1){
+                            return `<li class="list-group-item active" id="${item.id}">${item.name}</li>`
+                        } else {
+                            return `<li class="list-group-item" id="${item.id}">${item.name}</li>`
+                        }
+                        
+                    }).join("")
+                }
 
-            function FormSubmit() {
+                $("#user-add-skills-btn").on("click", function() {
 
-                var error = 0;
-
-                    
-
-                    var firstName = document.getElementById("profile-form-name").value;
-                    if(firstName=="") {
-                        document.getElementById("error-firstname").classList.remove("d-none");
-                        error += 1;
-                    } else {
-                        document.getElementById("error-firstname").classList.add("d-none");
-                    }
-
-                    var surname = document.getElementById("profile-form-surname").value;
-                    if(surname=="") {
-                        document.getElementById("error-surname").classList.remove("d-none");
-                        error += 1;
-                    } else {
-                        document.getElementById("error-surname").classList.add("d-none");
-                    }
-
-                    var empId = document.getElementById("profile-form-empId").value;
-
-                    var manager = document.getElementById("profile-form-manager").value;
-
-                    var title = document.getElementById("profile-form-title").value;
-
-                    var department = document.getElementById("profile-form-department").value;
-
-                    var profileText = document.getElementById("profile-text").value;
-                    if(profileText=="") {
-                        document.getElementById("error-profileText").classList.remove("d-none");
-                        error += 1;
-                    } else {
-                        document.getElementById("error-profileText").classList.add("d-none");
-                    }
-
-                    var WhyIVolunteer = document.getElementById("profile-WhyIVolunteer").value;
-
-                    var available = document.getElementById("user-available").value;
-
-                    var linkedIn = document.getElementById("profile-linkedIn").value;
-
-                    var cityId = document.getElementById("user-city").value;
-                    //if(cityId=="select your city") {
-                    //    document.getElementById("error-cityId").classList.remove("d-none");
-                    //    error = true;
-                    //} else {
-                    //    document.getElementById("error-cityId").classList.add("d-none");
-                    //    error = false;
-                    //}
-
-                    var countryId = document.getElementById("user-country").value;
-                    if(countryId=="select your country") {
-                        document.getElementById("error-countryId").classList.remove("d-none");
-                        error += 1;
-                    } else {
-                        document.getElementById("error-countryId").classList.add("d-none");
-                    }
-
-                    var spinner = document.getElementById("user-profile-save-btn");
-                    spinner.innerHTML = `<div class="spinner-border spinner-border-sm" role="status">
-                                          <span class="visually-hidden">Loading...</span>
-                                        </div>`
-
-                if(error == 0) {
                     $.ajax({
-                        type: "POST",
-                        url: `/getUserProfile`,
-                        data: {
-                            "Id": userId,
-                            "firstName": firstName,
-                            "lastName": surname,
-                            "employeeId": empId,
-                            "title": title,
-                            "department": department,
-                            "profileText": profileText,
-                            "whyIVolunteer": WhyIVolunteer,
-                            "linkedInUrl": linkedIn,
-                            "cityId": cityId,
-                            "countryId": countryId,
-                            "manager": manager,
-                            "avatar": userProfileName,
-                            "available": available
-                        },
+                        type: "GET",
+                        url: `/api/profile/addskills`,
                         success: function (response) {
 
+                            console.log(response)
+                            var leftElement = document.getElementById("add-skill-left-group");
+                            leftElement.innerHTML = userSelectedSkills(response)
+
+                            var temprightElement = document.getElementById("temp-add-skill-right-group")
+                            temprightElement.innerHTML = response.userSkills.map(item => `<li class="list-group-item" id="${item.id}">${item.name}</li>`).join("")
+
+                        },
+                        failure: function (response) {
+                            alert(response.responseText);
+                        },
+                        error: function (response) {
+                            alert(response.responseText);
+                        }
+                     });
+                });
+
+                // save skills onclick function
+                $("#user-add-skill-save-btn").on("click", function() {
+                    var actives = "";
+                    actives = $(".list-right ul");
+
+                    //var skillsToAdd = [];
+                    var skillsToAdd = new Array();
+                    for(var i=0; i<actives[0].children.length; i++) {
+                        skillsToAdd.push(actives[0].children[i].id)
+                    }
+
+
+                    console.log(skillsToAdd)
+                    
+                    skillsToAdd = Object.entries(skillsToAdd)
+                    console.log(typeof skillsToAdd)
+
+                    
+                    
+                    
+                    $.ajax({
+                        type: "GET",
+                        url: `/api/profile/saveskills`,
+                        data: {
+                            "skillsToAdd": skillsToAdd
+                        },
+                        traditional: true,
+                        success: function (response) {
+
+                            //var btn = document.getElementById("user-add-skill-save-btn");
+                            //btn.innerHTML = `Skill Added`
                             location.reload();
+                            
+                        },
+                        failure: function (response) {
+                            alert(response.responseText);
+                        },
+                        error: function (response) {
+                            alert(response.responseText);
+                        }
+                     });
+
+
+                });
+
+
+                $.ajax({
+                        type: "GET",
+                        url: `/getUserProfile`,
+                        success: function (response) {
+
+                            console.log(response)
+                            var avatar = document.getElementById("profile-user-img");
+                            avatar.innerHTML = `<img src="/mediaUpload/${response.user.avatar}" alt="" class="rounded-circle user-profile-img" onclick="document.getElementById('myFileInput').click()" style="cursor:pointer;">`
+                            userProfileName = response.user.avatar;
+
+                            var username = document.getElementById("profile-user-name");
+                            username.innerHTML = `${response.user.firstName} ${response.user.lastName}`;
+
+                            var Name = document.getElementById("profile-form-name");
+                            Name.value = `${response.user.firstName}`
+
+                            var surname = document.getElementById("profile-form-surname");
+                            surname.value = `${response.user.lastName}`
+
+
+                            var empId = document.getElementById("profile-form-empId");
+                            empId.value = `${response.user.employeeId==null?"":response.user.employeeId}`
+
+                            var Manager = document.getElementById("profile-form-manager");
+                            Manager.value = `${response.user.manager==null?"":response.user.manager}`
+
+                            var title = document.getElementById("profile-form-title");
+                            title.value = `${response.user.title==null?"":response.user.title}`
+
+                            var department = document.getElementById("profile-form-department");
+                            department.value = `${response.user.department==null?"":response.user.department}`
+
+                            var profileText = document.getElementById("profile-text");
+                            profileText.value = `${response.user.profileText==null?"":response.user.profileText}`
+
+                            var WhyIVolunteer = document.getElementById("profile-WhyIVolunteer");
+                            WhyIVolunteer.value = `${response.user.whyIVolunteer==null?"":response.user.whyIVolunteer}`
+
+                            var linkedIn = document.getElementById("profile-linkedIn");
+                            linkedIn.value = `${response.user.linkedInUrl==null?"":response.user.linkedInUrl}`
+
+                            userId = response.user.id;
+
+                            var available = document.getElementById("user-available");
+                            if(response.user.available != null) {
+
+                                var availableHtml = '<option disabled>select your availablity</option>';
+                                if(response.user.available == "Daily"){
+                                    availableHtml += '<option value="Daily" selected>Daily</option>'
+                                }else {
+                                    availableHtml += '<option value="Daily">Daily</option>'
+                                }
+                                if(response.user.available == "Weekend"){
+                                    availableHtml += '<option value="Weekend" selected>Weekend</option>'
+                                }else {
+                                    availableHtml += '<option value="Weekend">Weekend</option>'
+                                }
+                                if(response.user.available == "Weekly"){
+                                    availableHtml += '<option value="Weekly" selected>Weekly</option>'
+                                }else {
+                                    availableHtml += '<option value="Weekly">Weekly</option>'
+                                }
+                                if(response.user.available == "Monthly"){
+                                    availableHtml += '<option value="Monthly" selected>Monthly</option>'
+                                }else {
+                                    availableHtml += '<option value="Monthly">Monthly</option>'
+                                }
+
+                                available.innerHTML = availableHtml
+                            }
+
+                            if(response.user.cityId!=null && response.user.city!=null) {
+                                var userCityOnload = document.getElementById("user-city");
+                                userCityOnload.innerHTML = `<option disabled>select your city</option><option value="${response.user.cityId}" selected>${response.user.city}</option>`;
+                            }
                         },
                         failure: function (response) {
                             alert(response.responseText);
@@ -526,41 +484,299 @@
                             alert(response.responseText);
                         }
                     });
-                } else {
-                    spinner.innerHTML = `<button class="user-profile-save-btn" onclick="FormSubmit()">Save</button>`;
-                }
-            }
 
+                    //function for innerhtml loading country
+                    function loadCountry(response) {
 
-            $("#myFileInput").on('change', function () {
-                    console.log("change")
-                     var files = $('#myFileInput').prop("files");
-                    var url = "/api/static/save";
-                    formData = new FormData();
-                    formData.append("MyUploader", files[0]);
-                 
-                    jQuery.ajax({
-                        type: 'POST',
-                        url: url,
-                        data: formData,
-                        cache: false,
-                        contentType: false,
-                        processData: false,
-                        beforeSend: function (xhr) {
-                            xhr.setRequestHeader("XSRF-TOKEN",
-                                $('input:hidden[name="__RequestVerificationToken"]').val());
-                        },
-                        success: function (response) {
-                            var avatar = document.getElementById("profile-user-img");
-                            avatar.innerHTML = `<img src="/mediaUpload/${files[0].name}" alt="" class="rounded-circle user-profile-img" onclick="document.getElementById('myFileInput').click()" style="cursor:pointer;">`;
-                            // assign filename to local variable
-                            userProfileName = files[0].name;
-                        },
-                        error: function(response) {
-                            alert(response);
+                        var html = "";
+                        if(response.userCountry != null ) {
+                            html = "<option disabled>select your country</option>";
+                        } else {
+                            html = "<option selected disabled>select your country</option>";
                         }
+
+                        response.country.map(item => {
+                            if(response.userCountry != null && item.countryId == response.userCountry ) {
+                                html += `<option value="${item.countryId}" selected>${item.name}</option>`
+                            } else {
+                                html += `<option value="${item.countryId}" >${item.name}</option>`
+                            }
+
+                        }).join(" ")
+                        return html;
+                    }
+
+                    //load countrys in drop-down
+                    $.ajax({
+                        type: "GET",
+                        url: `/api/profile/country`,
+                        success: function (response) {
+
+                            var countryElements = document.getElementById("user-country");
+                            countryElements.innerHTML = loadCountry(response);
+
+                        },
+                        failure: function (response) {
+                            alert(response.responseText);
+                        },
+                        error: function (response) {
+                            alert(response.responseText);
+                        }
+                     });
+
+                     function loadSkills(response) {
+                         if(response.skillList.length == 0) {
+                             return `<li>No Skill Added.</li>`
+                         }
+                         return response.skillList.map(item => `<li>${item.name}</li>`).join("")
+                     }
+
+                     //load userSkills in MySkills
+                     $.ajax({
+                            type: "GET",
+                            url: `/api/profile/skills`,
+                            success: function (response) {
+
+                                console.log(response);
+                                var element = document.getElementById("user-skills-list");
+                                element.innerHTML = loadSkills(response);
+
+                            },
+                            failure: function (response) {
+                                alert(response.responseText);
+                            },
+                            error: function (response) {
+                                alert(response.responseText);
+                            }
+                        });
+
+                     // load country related city
+                     function loadCity(response) {
+                         var html = "<option selected disabled>select your city</option>";
+                        response.country.map(item => {
+                            html += `<option value="${item.cityId}" >${item.name}</option>`
+                        }).join(" ")
+                        return html;
+                     }
+
+
+                    function loadCityForCountry(countryId) {
+
+                        $.ajax({
+                            type: "GET",
+                            url: `/api/profile/country/${countryId}`,
+                            success: function (response) {
+
+                                var city = document.getElementById("user-city");
+                                city.innerHTML = loadCity(response);
+
+                            },
+                            failure: function (response) {
+                                alert(response.responseText);
+                            },
+                            error: function (response) {
+                                alert(response.responseText);
+                            }
+                        });
+                    }
+
+
+                    function FormSubmit() {
+
+                        var error = 0;
+
+
+
+                            var firstName = document.getElementById("profile-form-name").value;
+                            if(firstName=="") {
+                                document.getElementById("error-firstname").classList.remove("d-none");
+                                error += 1;
+                            } else {
+                                document.getElementById("error-firstname").classList.add("d-none");
+                            }
+
+                            var surname = document.getElementById("profile-form-surname").value;
+                            if(surname=="") {
+                                document.getElementById("error-surname").classList.remove("d-none");
+                                error += 1;
+                            } else {
+                                document.getElementById("error-surname").classList.add("d-none");
+                            }
+
+                            var empId = document.getElementById("profile-form-empId").value;
+
+                            var manager = document.getElementById("profile-form-manager").value;
+
+                            var title = document.getElementById("profile-form-title").value;
+
+                            var department = document.getElementById("profile-form-department").value;
+
+                            var profileText = document.getElementById("profile-text").value;
+                            if(profileText=="") {
+                                document.getElementById("error-profileText").classList.remove("d-none");
+                                error += 1;
+                            } else {
+                                document.getElementById("error-profileText").classList.add("d-none");
+                            }
+
+                            var WhyIVolunteer = document.getElementById("profile-WhyIVolunteer").value;
+
+                            var available = document.getElementById("user-available").value;
+
+                            var linkedIn = document.getElementById("profile-linkedIn").value;
+
+                            var cityId = document.getElementById("user-city").value;
+                            //if(cityId=="select your city") {
+                            //    document.getElementById("error-cityId").classList.remove("d-none");
+                            //    error = true;
+                            //} else {
+                            //    document.getElementById("error-cityId").classList.add("d-none");
+                            //    error = false;
+                            //}
+
+                            var countryId = document.getElementById("user-country").value;
+                            if(countryId=="select your country") {
+                                document.getElementById("error-countryId").classList.remove("d-none");
+                                error += 1;
+                            } else {
+                                document.getElementById("error-countryId").classList.add("d-none");
+                            }
+
+                            var spinner = document.getElementById("user-profile-save-btn");
+                            spinner.innerHTML = `<div class="spinner-border spinner-border-sm" role="status">
+                                                  <span class="visually-hidden">Loading...</span>
+                                                </div>`
+
+                        if(error == 0) {
+                            $.ajax({
+                                type: "POST",
+                                url: `/getUserProfile`,
+                                data: {
+                                    "Id": userId,
+                                    "firstName": firstName,
+                                    "lastName": surname,
+                                    "employeeId": empId,
+                                    "title": title,
+                                    "department": department,
+                                    "profileText": profileText,
+                                    "whyIVolunteer": WhyIVolunteer,
+                                    "linkedInUrl": linkedIn,
+                                    "cityId": cityId,
+                                    "countryId": countryId,
+                                    "manager": manager,
+                                    "avatar": userProfileName,
+                                    "available": available
+                                },
+                                success: function (response) {
+
+                                    location.reload();
+                                },
+                                failure: function (response) {
+                                    alert(response.responseText);
+                                },
+                                error: function (response) {
+                                    alert(response.responseText);
+                                }
+                            });
+                        } else {
+                            spinner.innerHTML = `<button class="user-profile-save-btn" onclick="FormSubmit()">Save</button>`;
+                        }
+                    }
+
+
+                    $("#myFileInput").on('change', function () {
+                            console.log("change")
+                             var files = $('#myFileInput').prop("files");
+                            var url = "/api/static/save";
+                            formData = new FormData();
+                            formData.append("MyUploader", files[0]);
+
+                            jQuery.ajax({
+                                type: 'POST',
+                                url: url,
+                                data: formData,
+                                cache: false,
+                                contentType: false,
+                                processData: false,
+                                beforeSend: function (xhr) {
+                                    xhr.setRequestHeader("XSRF-TOKEN",
+                                        $('input:hidden[name="__RequestVerificationToken"]').val());
+                                },
+                                success: function (response) {
+                                    var avatar = document.getElementById("profile-user-img");
+                                    avatar.innerHTML = `<img src="/mediaUpload/${files[0].name}" alt="" class="rounded-circle user-profile-img" onclick="document.getElementById('myFileInput').click()" style="cursor:pointer;">`;
+                                    // assign filename to local variable
+                                    userProfileName = files[0].name;
+                                },
+                                error: function(response) {
+                                    alert(response);
+                                }
+                            });
                     });
-            });
+
+                    function changePassword() {
+                        var oldPassword = document.getElementById("inputPassword1").value
+                        var newPassword = document.getElementById("inputPassword2").value
+                        var confirmPassword = document.getElementById("inputPassword3").value
+
+                        if(newPassword != confirmPassword) {
+                            var error = document.getElementById("error-new-password");
+                            error.innerHTML = `confirm Password does not match`
+                            error.classList.remove("d-none");
+                        } else if(newPassword == "") {
+                            var error = document.getElementById("error-new-password");
+                            error.innerHTML = `Password Cannot empty`;
+                            error.classList.remove("d-none");
+                        } else if(newPassword == oldPassword) {
+                            var error = document.getElementById("error-new-password");
+                            error.innerHTML = `New Password and old password must be different`
+                            error.classList.remove("d-none");
+                        } else {
+                            var error = document.getElementById("error-new-password");
+                            error.classList.add("d-none");
+
+                            // if all clear than do AJAX call...
+                            $.ajax({
+                            type: "GET",
+                            url: `/api/profile/changepassword`,
+                            data: {
+                                "oldPassword": oldPassword,
+                                "newPassword": newPassword
+                            },
+                            success: function (response) {
+
+                                if(response.status == "Error") {
+                                    var error = document.getElementById("error-old-password");
+                                    error.innerHTML = `Password Does Not Match!!!`
+                                    error.classList.remove("d-none");
+                                } else {
+                                    var error = document.getElementById("error-old-password");
+                                    error.classList.add("d-none");
+
+                                    var btn = document.getElementById("password-change-btn");
+                                    btn.innerHTML = `<button type="button" class="btn user-password-cancel-btn"
+                                                        data-bs-dismiss="modal">
+                                                        Cancel
+                                                    </button>
+                                                    <button type="button" class="btn user-password-change-btn" style="color:green;" onclick="changePassword()">
+                                                        Password Changed
+                                                    </button>`
+
+                                    location.reload();
+                                }
+
+                            },
+                            failure: function (response) {
+                                alert(response.responseText);
+                            },
+                            error: function (response) {
+                                alert(response.responseText);
+                            }
+                        });
+                        }
+
+
+                    }
 
 
     </script>

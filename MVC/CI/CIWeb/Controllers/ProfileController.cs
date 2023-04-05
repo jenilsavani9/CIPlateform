@@ -29,7 +29,22 @@ namespace CIWeb.Controllers
             {
                 return RedirectToAction("Login", "User");
             }
-            
+        }
+
+        public ActionResult Privacy()
+        {
+            String? userId = HttpContext.Session.GetString("userEmail");
+            var user = _repository.FindUser(userId);
+            ViewBag.user = user;
+            if (user != null)
+            {
+                return View();
+            }
+            else
+            {
+                return RedirectToAction("Login", "User");
+            }
+
         }
 
         [HttpGet("/getUserProfile")]
@@ -67,9 +82,33 @@ namespace CIWeb.Controllers
         public ActionResult GetUserSkills()
         {
             String? userEmail = HttpContext.Session.GetString("userEmail");
-            _repository.GetUserSkills(userEmail);
-            return Json(new {  });
+            var skillList = _repository.GetUserSkills(userEmail);
+            return Json(new { skillList });
         }
 
+        [HttpGet("/api/profile/changepassword")]
+        public ActionResult ChangePassword(string? oldPassword, string? newPassword)
+        {
+            String? userEmail = HttpContext.Session.GetString("userEmail");
+            var status = _repository.ChangePassword(userEmail, oldPassword, newPassword);
+            return Json(new { status });
+        }
+
+        [HttpGet("/api/profile/addskills")]
+        public ActionResult SetUserSkills()
+        {
+            String? userEmail = HttpContext.Session.GetString("userEmail");
+            var userSkills = _repository.GetUserSkills(userEmail);
+            var NotUserSkills = _repository.GetNotUserSkills(userEmail);
+            return Json(new { userSkills, NotUserSkills });
+        }
+
+        [HttpGet("/api/profile/saveskills")]
+        public JsonResult SaveUserSkills(List<string> skillsToAdd)
+        {
+            String? userEmail = HttpContext.Session.GetString("userEmail");
+            _repository.SaveUserSkills(userEmail, skillsToAdd);
+            return Json(new {  });
+        }
     }
 }

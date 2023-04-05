@@ -114,16 +114,91 @@ namespace CI.Repository.Repository
             return user.CountryId;
         }
 
-        public void GetUserSkills(string? userEmail)
+        public List<AddSkillModel> GetUserSkills(string? userEmail)
         {
             var TempUserData = _db.Users.FirstOrDefault(x => x.Email == userEmail);
-            var skills = from uk in _db.UserSkills
-                         join sk in _db.Skills on uk.UserId equals TempUserData.UserId
-                         select new
-                         {
-                             skill = sk
-                         };
-            //
+            //var userSkills = from s in _db.Skills
+            //                 join u in _db.UserSkills on s.SkillId equals u.UserSkillId
+            //                 where u.UserId == TempUserData.UserId
+            //                 select new
+            //                 {
+            //                     id = u.SkillId,
+            //                     name = u.Skill.SkillName
+            //                 };
+            var tempskills = _db.UserSkills.Where(us => us.UserId == TempUserData.UserId).ToList();
+            List<Skill> userSkills = new List<Skill>();
+            foreach (var skill in tempskills)
+            {
+                var TP = _db.Skills.FirstOrDefault(s => s.SkillId == skill.SkillId);
+                userSkills.Add(new Skill
+                {
+                    SkillId = TP.SkillId,
+                    SkillName = TP.SkillName
+                    
+                });
+            }
+            List<AddSkillModel> skillList = new List<AddSkillModel>();
+            foreach (var skill in userSkills)
+            {
+                skillList.Add(new AddSkillModel
+                {
+                    Id = skill.SkillId,
+                    Name = skill.SkillName
+                });
+            }
+
+            return skillList;
+            
+        }
+
+        public string ChangePassword(string? userEmail, string? oldPassword, string? newPassword)
+        {
+            var user = _db.Users.Where(u => u.Email == userEmail).FirstOrDefault();
+            if(user!=null && newPassword != null && user.Password == oldPassword)
+            {
+                user.Password = newPassword;
+                _db.SaveChanges();
+                return "OK";
+            } else
+            {
+                return "Error";
+            }
+        }
+
+        public List<AddSkillModel> GetNotUserSkills(string? userEmail)
+        {
+            var skills = _db.Skills.ToList();
+
+            List<AddSkillModel> skillList = new List<AddSkillModel>();
+            foreach (var skill in skills)
+            {
+                skillList.Add(new AddSkillModel
+                {
+                    Id = skill.SkillId,
+                    Name = skill.SkillName
+                });
+            }
+
+            return skillList;
+        }
+
+        public void SaveUserSkills(string? userEmail, List<string> skillsToAdd)
+        {
+            var user = _db.Users.Where(u => u.Email == userEmail).FirstOrDefault();
+            var userSkills = _db.UserSkills.Where(uk => uk.UserId == user.UserId).ToList();
+            if(userSkills.Any())
+            {
+                foreach (var skill in userSkills)
+                {
+                    _db.Remove(skill);
+                }
+            }
+            foreach (var skill in skillsToAdd)
+            {
+                var splitSkill = skill.Split(',')[1];
+                _db.UserSkills.Add(new UserSkill { SkillId = long.Parse(splitSkill), UserId = user.UserId });
+            }
+            _db.SaveChanges();
         }
     }
 }
