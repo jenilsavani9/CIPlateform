@@ -72,8 +72,13 @@ namespace CIWeb.Controllers
             return View();
         }
 
+        [Route("/Error")]
         public IActionResult ErrorNotFound()
         {
+            String? userId = HttpContext.Session.GetString("userEmail");
+
+            var user = _db.Users.Where(e => e.Email == userId).SingleOrDefault();
+            ViewBag.user = user;
             return View();
         }
 
