@@ -1,0 +1,28 @@
+﻿body {
+}
+
+.timesheet {
+    margin-top: 70px;
+}
+
+.borderbox {
+    border: 1px solid black;
+}
+
+.cardtitleborder {
+    border-bottom: 1px solid black;
+}
+
+.addbtn {
+    border: 1px solid #F88634;
+    color: #F88634;
+    background-color: white;
+}
+
+.editimg {
+    color: #F88634;
+}
+
+.datediv {
+    border: 1px solid lightgrey
+}

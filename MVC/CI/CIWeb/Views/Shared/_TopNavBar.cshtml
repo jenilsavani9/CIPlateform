@@ -42,13 +42,8 @@ For more information on enabling MVC for empty projects, visit https://go.micros
                             Policy
                         </a>
                         <ul class="dropdown-menu ddpolicy dropdown-menu-start" aria-labelledby="navbarDropdownMenuLink">
-                            <li><a class="dropdown-item" href="#">Read Policy</a></li>
-                            <li>
-                                <a class="dropdown-item" href="#">Terms & Conditions</a>
-                            </li>
-                            <li>
-                                <a class="dropdown-item" href="#">User's Policy</a>
-                            </li>
+                            <li><a class="dropdown-item" asp-action="Privacy" asp-controller="Profile" >Read Policy</a></li>
+                            
                         </ul>
                     </div>
                 </div>
@@ -83,7 +78,7 @@ For more information on enabling MVC for empty projects, visit https://go.micros
                                         <ul class="dropdown-menu dropdown-menu-start"
                                         aria-labelledby="navbarDropdownMenuLink">
                                             <li><a class="dropdown-item" asp-action="Index" asp-controller="Profile">My profile</a></li>
-                                            <li><a class="dropdown-item" href="#">Settings</a></li>
+                                            <li><a class="dropdown-item" asp-action="Index" asp-controller="Timesheet">Volunteering Timesheet</a></li>
                                             <li><a class="dropdown-item" asp-action="login" asp-controller="User">Logout</a></li>
                                         </ul>
                                     </div>
