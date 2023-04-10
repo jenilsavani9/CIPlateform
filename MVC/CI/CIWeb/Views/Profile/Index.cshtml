@@ -37,8 +37,7 @@
                         </button>
 
                         <!-- Modal -->
-                        <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel"
-                             aria-hidden="true">
+                        <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                             <div class="modal-dialog">
                                 <div class="modal-content">
                                     <div class="modal-header">
@@ -256,7 +255,7 @@
                                                         <li class="list-group-item" id="5">Vestibulum at eros</li>
                                                     </ul>
 
-                                                    
+
                                                 </div>
                                             </div>
 
@@ -286,235 +285,445 @@
     <hr>
     <div class="container user-profile-footer d-flex align-items-center">
         <div class="me-3 user-profile-privacy-policy"><a asp-action="Privacy" asp-controller="Profile" style="text-decoration: none;">Privacy Policy</a></div>
-        <div class="user-profile-contact-us">Contact Us</div>
+        <div class="user-profile-contact-us" data-bs-toggle="modal" data-bs-target="#contact-us">Contact Us</div>
+
+        @*modal*@
+
+        <div class="modal fade" id="contact-us" tabindex="-1">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h1 class="modal-title fs-5" id="exampleModalLabel">Contact Us</h1>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+
+                        <div class="mb-3">
+                          <label for="contact-name" class="form-label">Name*</label>
+                          <input type="text" class="form-control" id="contact-name" placeholder="Enter your name" disabled>
+                        </div>
+
+                        <div class="mb-3">
+                          <label for="contact-email" class="form-label">Email Address*</label>
+                          <input type="email" class="form-control" id="contact-email" placeholder="name@example.com" disabled>
+                        </div>
+
+                        <div class="mb-3">
+                          <label for="contact-subject" class="form-label">Subject*</label>
+                          <input type="text" class="form-control" id="contact-subject" placeholder="Enter your subject">
+                          <span id="error-contact-subject" class="d-none form-validation-msg">Please provide a valid subject.</span>
+                        </div>
+
+                        <div class="mb-3">
+                          <label for="contact-message" class="form-label">Message*</label>
+                          <textarea class="form-control" id="contact-message" placeholder="Enter your message"></textarea>
+                          <span id="error-contact-message" class="d-none form-validation-msg">Please provide a valid message.</span>
+                        </div>
+
+                    </div>
+                    <div class="modal-footer" id="password-change-btn">
+                        <button type="button" class="btn user-password-cancel-btn"
+                                data-bs-dismiss="modal">
+                            Cancel
+                        </button>
+                        <button type="button" class="btn user-password-change-btn" onclick="SubmitContactUsForm()">
+                            Save
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
 
     <script>
 
-                var userId;
-                var userProfileName;
-                
-                // js functions for add skills modal
-                $(function () {
-                    $("body").on("click", ".list-group .list-group-item", function () {
-                        $(this).toggleClass("active");
-                    });
-                    $(".list-arrows button").click(function () {
-                        var $button = $(this),
-                            actives = "";
-                        if ($button.hasClass("move-left")) {
-                            actives = $(".list-right ul li.active");
-                            actives.remove();
-                        } else if ($button.hasClass("move-right")) {
-                            actives = $(".list-left ul li.active");
-                            activesDelete = $(".list-right ul");
-                            activesDelete.empty();
-                            actives.clone().appendTo(".list-right ul");
-                        }
-                    });
-                });
+        var userId;
+        var userProfileName;
 
-                function userSelectedSkills(response) {
-                    return response.notUserSkills.map(item => {
-                        var status = 0;
-                        response.userSkills.map(checkSkills => {
-                            if(checkSkills.id == item.id) {
-                                status = 1;
-                            }
-                        })
-                        if(status==1){
-                            return `<li class="list-group-item active" id="${item.id}">${item.name}</li>`
-                        } else {
-                            return `<li class="list-group-item" id="${item.id}">${item.name}</li>`
-                        }
-                        
-                    }).join("")
+        // js functions for add skills modal
+        $(function () {
+            $("body").on("click", ".list-group .list-group-item", function () {
+                $(this).toggleClass("active");
+            });
+            $(".list-arrows button").click(function () {
+                var $button = $(this),
+                    actives = "";
+                if ($button.hasClass("move-left")) {
+                    actives = $(".list-right ul li.active");
+                    actives.remove();
+                } else if ($button.hasClass("move-right")) {
+                    actives = $(".list-left ul li.active");
+                    activesDelete = $(".list-right ul");
+                    activesDelete.empty();
+                    actives.clone().appendTo(".list-right ul");
+                }
+            });
+        });
+
+        function userSelectedSkills(response) {
+            return response.notUserSkills.map(item => {
+                var status = 0;
+                response.userSkills.map(checkSkills => {
+                    if(checkSkills.id == item.id) {
+                        status = 1;
+                    }
+                })
+                if(status==1){
+                    return `<li class="list-group-item active" id="${item.id}">${item.name}</li>`
+                } else {
+                    return `<li class="list-group-item" id="${item.id}">${item.name}</li>`
                 }
 
-                $("#user-add-skills-btn").on("click", function() {
+            }).join("")
+        }
 
-                    $.ajax({
-                        type: "GET",
-                        url: `/api/profile/addskills`,
-                        success: function (response) {
+        $("#user-add-skills-btn").on("click", function() {
 
-                            console.log(response)
-                            var leftElement = document.getElementById("add-skill-left-group");
-                            leftElement.innerHTML = userSelectedSkills(response)
+            $.ajax({
+                type: "GET",
+                url: `/api/profile/addskills`,
+                success: function (response) {
 
-                            var temprightElement = document.getElementById("temp-add-skill-right-group")
-                            temprightElement.innerHTML = response.userSkills.map(item => `<li class="list-group-item" id="${item.id}">${item.name}</li>`).join("")
+                    console.log(response)
+                    var leftElement = document.getElementById("add-skill-left-group");
+                    leftElement.innerHTML = userSelectedSkills(response)
 
-                        },
-                        failure: function (response) {
-                            alert(response.responseText);
-                        },
-                        error: function (response) {
-                            alert(response.responseText);
+                    var temprightElement = document.getElementById("temp-add-skill-right-group")
+                    temprightElement.innerHTML = response.userSkills.map(item => `<li class="list-group-item" id="${item.id}">${item.name}</li>`).join("")
+
+                },
+                failure: function (response) {
+                    alert(response.responseText);
+                },
+                error: function (response) {
+                    alert(response.responseText);
+                }
+             });
+        });
+
+        // save skills onclick function
+        $("#user-add-skill-save-btn").on("click", function() {
+            var actives = "";
+            actives = $(".list-right ul");
+
+            //var skillsToAdd = [];
+            var skillsToAdd = new Array();
+            for(var i=0; i<actives[0].children.length; i++) {
+                skillsToAdd.push(actives[0].children[i].id)
+            }
+
+
+            console.log(skillsToAdd)
+
+            skillsToAdd = Object.entries(skillsToAdd)
+            console.log(typeof skillsToAdd)
+
+
+
+
+            $.ajax({
+                type: "GET",
+                url: `/api/profile/saveskills`,
+                data: {
+                    "skillsToAdd": skillsToAdd
+                },
+                traditional: true,
+                success: function (response) {
+
+                    //var btn = document.getElementById("user-add-skill-save-btn");
+                    //btn.innerHTML = `Skill Added`
+                    location.reload();
+
+                },
+                failure: function (response) {
+                    alert(response.responseText);
+                },
+                error: function (response) {
+                    alert(response.responseText);
+                }
+             });
+
+
+        });
+
+
+        $.ajax({
+                type: "GET",
+                url: `/getUserProfile`,
+                success: function (response) {
+
+                    console.log(response)
+                    var avatar = document.getElementById("profile-user-img");
+                    avatar.innerHTML = `<img src="/mediaUpload/${response.user.avatar}" alt="" class="rounded-circle user-profile-img" onclick="document.getElementById('myFileInput').click()" style="cursor:pointer;">`
+                    userProfileName = response.user.avatar;
+
+                    var username = document.getElementById("profile-user-name");
+                    username.innerHTML = `${response.user.firstName} ${response.user.lastName}`;
+
+                    var Name = document.getElementById("profile-form-name");
+                    Name.value = `${response.user.firstName}`
+
+                    var surname = document.getElementById("profile-form-surname");
+                    surname.value = `${response.user.lastName}`
+
+
+                    var empId = document.getElementById("profile-form-empId");
+                    empId.value = `${response.user.employeeId==null?"":response.user.employeeId}`
+
+                    var Manager = document.getElementById("profile-form-manager");
+                    Manager.value = `${response.user.manager==null?"":response.user.manager}`
+
+                    var title = document.getElementById("profile-form-title");
+                    title.value = `${response.user.title==null?"":response.user.title}`
+
+                    var department = document.getElementById("profile-form-department");
+                    department.value = `${response.user.department==null?"":response.user.department}`
+
+                    var profileText = document.getElementById("profile-text");
+                    profileText.value = `${response.user.profileText==null?"":response.user.profileText}`
+
+                    var WhyIVolunteer = document.getElementById("profile-WhyIVolunteer");
+                    WhyIVolunteer.value = `${response.user.whyIVolunteer==null?"":response.user.whyIVolunteer}`
+
+                    var linkedIn = document.getElementById("profile-linkedIn");
+                    linkedIn.value = `${response.user.linkedInUrl==null?"":response.user.linkedInUrl}`
+
+                    userId = response.user.id;
+
+                    // fill name and email in contact us form
+                    var contactName = document.getElementById("contact-name");
+                    contactName.value = `${response.user.firstName} ${response.user.lastName}`;
+                    var contactEmail = document.getElementById("contact-email");
+                    contactEmail.value = `${response.user.email}`;
+
+
+                    var available = document.getElementById("user-available");
+                    if(response.user.available != null) {
+
+                        var availableHtml = '<option disabled>select your availablity</option>';
+                        if(response.user.available == "Daily"){
+                            availableHtml += '<option value="Daily" selected>Daily</option>'
+                        }else {
+                            availableHtml += '<option value="Daily">Daily</option>'
                         }
-                     });
-                });
+                        if(response.user.available == "Weekend"){
+                            availableHtml += '<option value="Weekend" selected>Weekend</option>'
+                        }else {
+                            availableHtml += '<option value="Weekend">Weekend</option>'
+                        }
+                        if(response.user.available == "Weekly"){
+                            availableHtml += '<option value="Weekly" selected>Weekly</option>'
+                        }else {
+                            availableHtml += '<option value="Weekly">Weekly</option>'
+                        }
+                        if(response.user.available == "Monthly"){
+                            availableHtml += '<option value="Monthly" selected>Monthly</option>'
+                        }else {
+                            availableHtml += '<option value="Monthly">Monthly</option>'
+                        }
 
-                // save skills onclick function
-                $("#user-add-skill-save-btn").on("click", function() {
-                    var actives = "";
-                    actives = $(".list-right ul");
-
-                    //var skillsToAdd = [];
-                    var skillsToAdd = new Array();
-                    for(var i=0; i<actives[0].children.length; i++) {
-                        skillsToAdd.push(actives[0].children[i].id)
+                        available.innerHTML = availableHtml
                     }
 
+                    if(response.user.cityId!=null && response.user.city!=null) {
+                        var userCityOnload = document.getElementById("user-city");
+                        userCityOnload.innerHTML = `<option disabled>select your city</option><option value="${response.user.cityId}" selected>${response.user.city}</option>`;
+                    }
+                },
+                failure: function (response) {
+                    alert(response.responseText);
+                },
+                error: function (response) {
+                    alert(response.responseText);
+                }
+            });
 
-                    console.log(skillsToAdd)
-                    
-                    skillsToAdd = Object.entries(skillsToAdd)
-                    console.log(typeof skillsToAdd)
+            //function for innerhtml loading country
+            function loadCountry(response) {
 
-                    
-                    
-                    
-                    $.ajax({
-                        type: "GET",
-                        url: `/api/profile/saveskills`,
-                        data: {
-                            "skillsToAdd": skillsToAdd
-                        },
-                        traditional: true,
-                        success: function (response) {
+                var html = "";
+                if(response.userCountry != null ) {
+                    html = "<option disabled>select your country</option>";
+                } else {
+                    html = "<option selected disabled>select your country</option>";
+                }
 
-                            //var btn = document.getElementById("user-add-skill-save-btn");
-                            //btn.innerHTML = `Skill Added`
-                            location.reload();
-                            
-                        },
-                        failure: function (response) {
-                            alert(response.responseText);
-                        },
-                        error: function (response) {
-                            alert(response.responseText);
-                        }
-                     });
+                response.country.map(item => {
+                    if(response.userCountry != null && item.countryId == response.userCountry ) {
+                        html += `<option value="${item.countryId}" selected>${item.name}</option>`
+                    } else {
+                        html += `<option value="${item.countryId}" >${item.name}</option>`
+                    }
 
+                }).join(" ")
+                return html;
+            }
 
+            //load countrys in drop-down
+            $.ajax({
+                type: "GET",
+                url: `/api/profile/country`,
+                success: function (response) {
+
+                    var countryElements = document.getElementById("user-country");
+                    countryElements.innerHTML = loadCountry(response);
+
+                },
+                failure: function (response) {
+                    alert(response.responseText);
+                },
+                error: function (response) {
+                    alert(response.responseText);
+                }
+             });
+
+             function loadSkills(response) {
+                 if(response.skillList.length == 0) {
+                     return `<li>No Skill Added.</li>`
+                 }
+                 return response.skillList.map(item => `<li>${item.name}</li>`).join("")
+             }
+
+             //load userSkills in MySkills
+             $.ajax({
+                    type: "GET",
+                    url: `/api/profile/skills`,
+                    success: function (response) {
+
+                        console.log(response);
+                        var element = document.getElementById("user-skills-list");
+                        element.innerHTML = loadSkills(response);
+
+                    },
+                    failure: function (response) {
+                        alert(response.responseText);
+                    },
+                    error: function (response) {
+                        alert(response.responseText);
+                    }
                 });
 
+             // load country related city
+             function loadCity(response) {
+                 var html = "<option selected disabled>select your city</option>";
+                response.country.map(item => {
+                    html += `<option value="${item.cityId}" >${item.name}</option>`
+                }).join(" ")
+                return html;
+             }
+
+
+            function loadCityForCountry(countryId) {
 
                 $.ajax({
-                        type: "GET",
-                        url: `/getUserProfile`,
-                        success: function (response) {
+                    type: "GET",
+                    url: `/api/profile/country/${countryId}`,
+                    success: function (response) {
 
-                            console.log(response)
-                            var avatar = document.getElementById("profile-user-img");
-                            avatar.innerHTML = `<img src="/mediaUpload/${response.user.avatar}" alt="" class="rounded-circle user-profile-img" onclick="document.getElementById('myFileInput').click()" style="cursor:pointer;">`
-                            userProfileName = response.user.avatar;
+                        var city = document.getElementById("user-city");
+                        city.innerHTML = loadCity(response);
 
-                            var username = document.getElementById("profile-user-name");
-                            username.innerHTML = `${response.user.firstName} ${response.user.lastName}`;
+                    },
+                    failure: function (response) {
+                        alert(response.responseText);
+                    },
+                    error: function (response) {
+                        alert(response.responseText);
+                    }
+                });
+            }
 
-                            var Name = document.getElementById("profile-form-name");
-                            Name.value = `${response.user.firstName}`
 
-                            var surname = document.getElementById("profile-form-surname");
-                            surname.value = `${response.user.lastName}`
+            function FormSubmit() {
+
+                var error = 0;
 
 
-                            var empId = document.getElementById("profile-form-empId");
-                            empId.value = `${response.user.employeeId==null?"":response.user.employeeId}`
 
-                            var Manager = document.getElementById("profile-form-manager");
-                            Manager.value = `${response.user.manager==null?"":response.user.manager}`
-
-                            var title = document.getElementById("profile-form-title");
-                            title.value = `${response.user.title==null?"":response.user.title}`
-
-                            var department = document.getElementById("profile-form-department");
-                            department.value = `${response.user.department==null?"":response.user.department}`
-
-                            var profileText = document.getElementById("profile-text");
-                            profileText.value = `${response.user.profileText==null?"":response.user.profileText}`
-
-                            var WhyIVolunteer = document.getElementById("profile-WhyIVolunteer");
-                            WhyIVolunteer.value = `${response.user.whyIVolunteer==null?"":response.user.whyIVolunteer}`
-
-                            var linkedIn = document.getElementById("profile-linkedIn");
-                            linkedIn.value = `${response.user.linkedInUrl==null?"":response.user.linkedInUrl}`
-
-                            userId = response.user.id;
-
-                            var available = document.getElementById("user-available");
-                            if(response.user.available != null) {
-
-                                var availableHtml = '<option disabled>select your availablity</option>';
-                                if(response.user.available == "Daily"){
-                                    availableHtml += '<option value="Daily" selected>Daily</option>'
-                                }else {
-                                    availableHtml += '<option value="Daily">Daily</option>'
-                                }
-                                if(response.user.available == "Weekend"){
-                                    availableHtml += '<option value="Weekend" selected>Weekend</option>'
-                                }else {
-                                    availableHtml += '<option value="Weekend">Weekend</option>'
-                                }
-                                if(response.user.available == "Weekly"){
-                                    availableHtml += '<option value="Weekly" selected>Weekly</option>'
-                                }else {
-                                    availableHtml += '<option value="Weekly">Weekly</option>'
-                                }
-                                if(response.user.available == "Monthly"){
-                                    availableHtml += '<option value="Monthly" selected>Monthly</option>'
-                                }else {
-                                    availableHtml += '<option value="Monthly">Monthly</option>'
-                                }
-
-                                available.innerHTML = availableHtml
-                            }
-
-                            if(response.user.cityId!=null && response.user.city!=null) {
-                                var userCityOnload = document.getElementById("user-city");
-                                userCityOnload.innerHTML = `<option disabled>select your city</option><option value="${response.user.cityId}" selected>${response.user.city}</option>`;
-                            }
-                        },
-                        failure: function (response) {
-                            alert(response.responseText);
-                        },
-                        error: function (response) {
-                            alert(response.responseText);
-                        }
-                    });
-
-                    //function for innerhtml loading country
-                    function loadCountry(response) {
-
-                        var html = "";
-                        if(response.userCountry != null ) {
-                            html = "<option disabled>select your country</option>";
-                        } else {
-                            html = "<option selected disabled>select your country</option>";
-                        }
-
-                        response.country.map(item => {
-                            if(response.userCountry != null && item.countryId == response.userCountry ) {
-                                html += `<option value="${item.countryId}" selected>${item.name}</option>`
-                            } else {
-                                html += `<option value="${item.countryId}" >${item.name}</option>`
-                            }
-
-                        }).join(" ")
-                        return html;
+                    var firstName = document.getElementById("profile-form-name").value;
+                    if(firstName=="") {
+                        document.getElementById("error-firstname").classList.remove("d-none");
+                        error += 1;
+                    } else {
+                        document.getElementById("error-firstname").classList.add("d-none");
                     }
 
-                    //load countrys in drop-down
+                    var surname = document.getElementById("profile-form-surname").value;
+                    if(surname=="") {
+                        document.getElementById("error-surname").classList.remove("d-none");
+                        error += 1;
+                    } else {
+                        document.getElementById("error-surname").classList.add("d-none");
+                    }
+
+                    var empId = document.getElementById("profile-form-empId").value;
+
+                    var manager = document.getElementById("profile-form-manager").value;
+
+                    var title = document.getElementById("profile-form-title").value;
+
+                    var department = document.getElementById("profile-form-department").value;
+
+                    var profileText = document.getElementById("profile-text").value;
+                    if(profileText=="") {
+                        document.getElementById("error-profileText").classList.remove("d-none");
+                        error += 1;
+                    } else {
+                        document.getElementById("error-profileText").classList.add("d-none");
+                    }
+
+                    var WhyIVolunteer = document.getElementById("profile-WhyIVolunteer").value;
+
+                    var available = document.getElementById("user-available").value;
+
+                    var linkedIn = document.getElementById("profile-linkedIn").value;
+
+                    var cityId = document.getElementById("user-city").value;
+                    //if(cityId=="select your city") {
+                    //    document.getElementById("error-cityId").classList.remove("d-none");
+                    //    error = true;
+                    //} else {
+                    //    document.getElementById("error-cityId").classList.add("d-none");
+                    //    error = false;
+                    //}
+
+                    var countryId = document.getElementById("user-country").value;
+                    if(countryId=="select your country") {
+                        document.getElementById("error-countryId").classList.remove("d-none");
+                        error += 1;
+                    } else {
+                        document.getElementById("error-countryId").classList.add("d-none");
+                    }
+
+                    var spinner = document.getElementById("user-profile-save-btn");
+                    spinner.innerHTML = `<div class="spinner-border spinner-border-sm" role="status">
+                                          <span class="visually-hidden">Loading...</span>
+                                        </div>`
+
+                if(error == 0) {
                     $.ajax({
-                        type: "GET",
-                        url: `/api/profile/country`,
+                        type: "POST",
+                        url: `/getUserProfile`,
+                        data: {
+                            "Id": userId,
+                            "firstName": firstName,
+                            "lastName": surname,
+                            "employeeId": empId,
+                            "title": title,
+                            "department": department,
+                            "profileText": profileText,
+                            "whyIVolunteer": WhyIVolunteer,
+                            "linkedInUrl": linkedIn,
+                            "cityId": cityId,
+                            "countryId": countryId,
+                            "manager": manager,
+                            "avatar": userProfileName,
+                            "available": available
+                        },
                         success: function (response) {
 
-                            var countryElements = document.getElementById("user-country");
-                            countryElements.innerHTML = loadCountry(response);
-
+                            location.reload();
                         },
                         failure: function (response) {
                             alert(response.responseText);
@@ -522,261 +731,144 @@
                         error: function (response) {
                             alert(response.responseText);
                         }
-                     });
-
-                     function loadSkills(response) {
-                         if(response.skillList.length == 0) {
-                             return `<li>No Skill Added.</li>`
-                         }
-                         return response.skillList.map(item => `<li>${item.name}</li>`).join("")
-                     }
-
-                     //load userSkills in MySkills
-                     $.ajax({
-                            type: "GET",
-                            url: `/api/profile/skills`,
-                            success: function (response) {
-
-                                console.log(response);
-                                var element = document.getElementById("user-skills-list");
-                                element.innerHTML = loadSkills(response);
-
-                            },
-                            failure: function (response) {
-                                alert(response.responseText);
-                            },
-                            error: function (response) {
-                                alert(response.responseText);
-                            }
-                        });
-
-                     // load country related city
-                     function loadCity(response) {
-                         var html = "<option selected disabled>select your city</option>";
-                        response.country.map(item => {
-                            html += `<option value="${item.cityId}" >${item.name}</option>`
-                        }).join(" ")
-                        return html;
-                     }
-
-
-                    function loadCityForCountry(countryId) {
-
-                        $.ajax({
-                            type: "GET",
-                            url: `/api/profile/country/${countryId}`,
-                            success: function (response) {
-
-                                var city = document.getElementById("user-city");
-                                city.innerHTML = loadCity(response);
-
-                            },
-                            failure: function (response) {
-                                alert(response.responseText);
-                            },
-                            error: function (response) {
-                                alert(response.responseText);
-                            }
-                        });
-                    }
-
-
-                    function FormSubmit() {
-
-                        var error = 0;
-
-
-
-                            var firstName = document.getElementById("profile-form-name").value;
-                            if(firstName=="") {
-                                document.getElementById("error-firstname").classList.remove("d-none");
-                                error += 1;
-                            } else {
-                                document.getElementById("error-firstname").classList.add("d-none");
-                            }
-
-                            var surname = document.getElementById("profile-form-surname").value;
-                            if(surname=="") {
-                                document.getElementById("error-surname").classList.remove("d-none");
-                                error += 1;
-                            } else {
-                                document.getElementById("error-surname").classList.add("d-none");
-                            }
-
-                            var empId = document.getElementById("profile-form-empId").value;
-
-                            var manager = document.getElementById("profile-form-manager").value;
-
-                            var title = document.getElementById("profile-form-title").value;
-
-                            var department = document.getElementById("profile-form-department").value;
-
-                            var profileText = document.getElementById("profile-text").value;
-                            if(profileText=="") {
-                                document.getElementById("error-profileText").classList.remove("d-none");
-                                error += 1;
-                            } else {
-                                document.getElementById("error-profileText").classList.add("d-none");
-                            }
-
-                            var WhyIVolunteer = document.getElementById("profile-WhyIVolunteer").value;
-
-                            var available = document.getElementById("user-available").value;
-
-                            var linkedIn = document.getElementById("profile-linkedIn").value;
-
-                            var cityId = document.getElementById("user-city").value;
-                            //if(cityId=="select your city") {
-                            //    document.getElementById("error-cityId").classList.remove("d-none");
-                            //    error = true;
-                            //} else {
-                            //    document.getElementById("error-cityId").classList.add("d-none");
-                            //    error = false;
-                            //}
-
-                            var countryId = document.getElementById("user-country").value;
-                            if(countryId=="select your country") {
-                                document.getElementById("error-countryId").classList.remove("d-none");
-                                error += 1;
-                            } else {
-                                document.getElementById("error-countryId").classList.add("d-none");
-                            }
-
-                            var spinner = document.getElementById("user-profile-save-btn");
-                            spinner.innerHTML = `<div class="spinner-border spinner-border-sm" role="status">
-                                                  <span class="visually-hidden">Loading...</span>
-                                                </div>`
-
-                        if(error == 0) {
-                            $.ajax({
-                                type: "POST",
-                                url: `/getUserProfile`,
-                                data: {
-                                    "Id": userId,
-                                    "firstName": firstName,
-                                    "lastName": surname,
-                                    "employeeId": empId,
-                                    "title": title,
-                                    "department": department,
-                                    "profileText": profileText,
-                                    "whyIVolunteer": WhyIVolunteer,
-                                    "linkedInUrl": linkedIn,
-                                    "cityId": cityId,
-                                    "countryId": countryId,
-                                    "manager": manager,
-                                    "avatar": userProfileName,
-                                    "available": available
-                                },
-                                success: function (response) {
-
-                                    location.reload();
-                                },
-                                failure: function (response) {
-                                    alert(response.responseText);
-                                },
-                                error: function (response) {
-                                    alert(response.responseText);
-                                }
-                            });
-                        } else {
-                            spinner.innerHTML = `<button class="user-profile-save-btn" onclick="FormSubmit()">Save</button>`;
-                        }
-                    }
-
-
-                    $("#myFileInput").on('change', function () {
-                            console.log("change")
-                             var files = $('#myFileInput').prop("files");
-                            var url = "/api/static/save";
-                            formData = new FormData();
-                            formData.append("MyUploader", files[0]);
-
-                            jQuery.ajax({
-                                type: 'POST',
-                                url: url,
-                                data: formData,
-                                cache: false,
-                                contentType: false,
-                                processData: false,
-                                beforeSend: function (xhr) {
-                                    xhr.setRequestHeader("XSRF-TOKEN",
-                                        $('input:hidden[name="__RequestVerificationToken"]').val());
-                                },
-                                success: function (response) {
-                                    var avatar = document.getElementById("profile-user-img");
-                                    avatar.innerHTML = `<img src="/mediaUpload/${files[0].name}" alt="" class="rounded-circle user-profile-img" onclick="document.getElementById('myFileInput').click()" style="cursor:pointer;">`;
-                                    // assign filename to local variable
-                                    userProfileName = files[0].name;
-                                },
-                                error: function(response) {
-                                    alert(response);
-                                }
-                            });
                     });
+                } else {
+                    spinner.innerHTML = `<button class="user-profile-save-btn" onclick="FormSubmit()">Save</button>`;
+                }
+            }
 
-                    function changePassword() {
-                        var oldPassword = document.getElementById("inputPassword1").value
-                        var newPassword = document.getElementById("inputPassword2").value
-                        var confirmPassword = document.getElementById("inputPassword3").value
 
-                        if(newPassword != confirmPassword) {
-                            var error = document.getElementById("error-new-password");
-                            error.innerHTML = `confirm Password does not match`
-                            error.classList.remove("d-none");
-                        } else if(newPassword == "") {
-                            var error = document.getElementById("error-new-password");
-                            error.innerHTML = `Password Cannot empty`;
-                            error.classList.remove("d-none");
-                        } else if(newPassword == oldPassword) {
-                            var error = document.getElementById("error-new-password");
-                            error.innerHTML = `New Password and old password must be different`
+            $("#myFileInput").on('change', function () {
+                    console.log("change")
+                     var files = $('#myFileInput').prop("files");
+                    var url = "/api/static/save";
+                    formData = new FormData();
+                    formData.append("MyUploader", files[0]);
+
+                    jQuery.ajax({
+                        type: 'POST',
+                        url: url,
+                        data: formData,
+                        cache: false,
+                        contentType: false,
+                        processData: false,
+                        beforeSend: function (xhr) {
+                            xhr.setRequestHeader("XSRF-TOKEN",
+                                $('input:hidden[name="__RequestVerificationToken"]').val());
+                        },
+                        success: function (response) {
+                            var avatar = document.getElementById("profile-user-img");
+                            avatar.innerHTML = `<img src="/mediaUpload/${files[0].name}" alt="" class="rounded-circle user-profile-img" onclick="document.getElementById('myFileInput').click()" style="cursor:pointer;">`;
+                            // assign filename to local variable
+                            userProfileName = files[0].name;
+                        },
+                        error: function(response) {
+                            alert(response);
+                        }
+                    });
+            });
+
+            function changePassword() {
+                var oldPassword = document.getElementById("inputPassword1").value
+                var newPassword = document.getElementById("inputPassword2").value
+                var confirmPassword = document.getElementById("inputPassword3").value
+
+                if(newPassword != confirmPassword) {
+                    var error = document.getElementById("error-new-password");
+                    error.innerHTML = `confirm Password does not match`
+                    error.classList.remove("d-none");
+                } else if(newPassword == "") {
+                    var error = document.getElementById("error-new-password");
+                    error.innerHTML = `Password Cannot empty`;
+                    error.classList.remove("d-none");
+                } else if(newPassword == oldPassword) {
+                    var error = document.getElementById("error-new-password");
+                    error.innerHTML = `New Password and old password must be different`
+                    error.classList.remove("d-none");
+                } else {
+                    var error = document.getElementById("error-new-password");
+                    error.classList.add("d-none");
+
+                    // if all clear than do AJAX call...
+                    $.ajax({
+                    type: "GET",
+                    url: `/api/profile/changepassword`,
+                    data: {
+                        "oldPassword": oldPassword,
+                        "newPassword": newPassword
+                    },
+                    success: function (response) {
+
+                        if(response.status == "Error") {
+                            var error = document.getElementById("error-old-password");
+                            error.innerHTML = `Password Does Not Match!!!`
                             error.classList.remove("d-none");
                         } else {
-                            var error = document.getElementById("error-new-password");
+                            var error = document.getElementById("error-old-password");
                             error.classList.add("d-none");
 
-                            // if all clear than do AJAX call...
-                            $.ajax({
-                            type: "GET",
-                            url: `/api/profile/changepassword`,
-                            data: {
-                                "oldPassword": oldPassword,
-                                "newPassword": newPassword
-                            },
-                            success: function (response) {
+                            var btn = document.getElementById("password-change-btn");
+                            btn.innerHTML = `<button type="button" class="btn user-password-cancel-btn"
+                                                data-bs-dismiss="modal">
+                                                Cancel
+                                            </button>
+                                            <button type="button" class="btn user-password-change-btn" style="color:green;" onclick="changePassword()">
+                                                Password Changed
+                                            </button>`
 
-                                if(response.status == "Error") {
-                                    var error = document.getElementById("error-old-password");
-                                    error.innerHTML = `Password Does Not Match!!!`
-                                    error.classList.remove("d-none");
-                                } else {
-                                    var error = document.getElementById("error-old-password");
-                                    error.classList.add("d-none");
-
-                                    var btn = document.getElementById("password-change-btn");
-                                    btn.innerHTML = `<button type="button" class="btn user-password-cancel-btn"
-                                                        data-bs-dismiss="modal">
-                                                        Cancel
-                                                    </button>
-                                                    <button type="button" class="btn user-password-change-btn" style="color:green;" onclick="changePassword()">
-                                                        Password Changed
-                                                    </button>`
-
-                                    location.reload();
-                                }
-
-                            },
-                            failure: function (response) {
-                                alert(response.responseText);
-                            },
-                            error: function (response) {
-                                alert(response.responseText);
-                            }
-                        });
+                            location.reload();
                         }
 
-
+                    },
+                    failure: function (response) {
+                        alert(response.responseText);
+                    },
+                    error: function (response) {
+                        alert(response.responseText);
                     }
+                });
+                }
+
+
+            }
+
+            function SubmitContactUsForm() {
+
+                if($('#contact-subject').val() == ""){
+                    
+                    $('#error-contact-subject').removeClass('d-none');
+
+                } else if($('#contact-message').val() == "") {
+                    
+                    $('#error-contact-message').removeClass('d-none');
+
+                } else {
+                    $.ajax({
+                        type: "POST",
+                        url: `/api/contact`,
+                        data: {
+                            "Name": $('#contact-name').val(),
+                            "Email": $('#contact-email').val(),
+                            "Subject": $('#contact-subject').val(),
+                            "Message": $('#contact-message').val(),
+                        },
+                        success: function (response) {
+
+                           location.reload();
+
+                        },
+                        failure: function (response) {
+                            alert(response.responseText);
+                        },
+                        error: function (response) {
+                            alert(response.responseText);
+                        }
+                    });
+                }
+                
+                
+
+            }
 
 
     </script>

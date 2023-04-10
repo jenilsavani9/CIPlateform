@@ -17,6 +17,7 @@ namespace CI.Entities.ViewModels
         public string? notes { get; set; }
         public string? mission { get; set; }
         public int? action { get; set; }
+        public int? jenil { get; set; }
 
     }
 }

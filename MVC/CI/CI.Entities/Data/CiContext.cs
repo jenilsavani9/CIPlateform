@@ -26,6 +26,8 @@ public partial class CiContext : DbContext
 
     public virtual DbSet<Comment> Comments { get; set; }
 
+    public virtual DbSet<ContactU> ContactUs { get; set; }
+
     public virtual DbSet<Country> Countries { get; set; }
 
     public virtual DbSet<FavoriteMission> FavoriteMissions { get; set; }
@@ -232,6 +234,23 @@ public partial class CiContext : DbContext
             entity.HasOne(d => d.User).WithMany(p => p.Comments)
                 .HasForeignKey(d => d.UserId)
                 .HasConstraintName("FK__comment__user_id__73BA3083");
+        });
+
+        modelBuilder.Entity<ContactU>(entity =>
+        {
+            entity.HasKey(e => e.ContactId);
+
+            entity.ToTable("contact_us");
+
+            entity.Property(e => e.ContactId).HasColumnName("contact_id");
+            entity.Property(e => e.Email)
+                .HasMaxLength(50)
+                .HasColumnName("email");
+            entity.Property(e => e.Message).HasColumnName("message");
+            entity.Property(e => e.Name)
+                .HasMaxLength(50)
+                .HasColumnName("name");
+            entity.Property(e => e.Subject).HasColumnName("subject");
         });
 
         modelBuilder.Entity<Country>(entity =>

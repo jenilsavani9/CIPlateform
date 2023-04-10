@@ -1,4 +1,5 @@
-﻿using CI.Entities.ViewModels;
+﻿using CI.Entities.Models;
+using CI.Entities.ViewModels;
 using CI.Repository.Interface;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
@@ -109,6 +110,13 @@ namespace CIWeb.Controllers
             String? userEmail = HttpContext.Session.GetString("userEmail");
             _repository.SaveUserSkills(userEmail, skillsToAdd);
             return Json(new {  });
+        }
+
+        [HttpPost("/api/contact")]
+        public JsonResult Contact(ContactU obj)
+        {
+            var status = _repository.ContactUs(obj);
+            return Json(new { status });
         }
     }
 }

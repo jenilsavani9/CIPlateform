@@ -186,13 +186,8 @@
                                 var images = document.getElementById("imagelist");
                                 images.innerHTML = loadDraftImages(response)
 
+                                listOfImage = []
                                 response.media.map(item => listOfImage.push(item.storyPath));
-
-
-                                //document.getElementById("share-story-date").value = response.res.createdAt;
-                                //document.getElementById("share-story-video-url").value = response.res.;
-
-
 
                             },
                             failure: function (response) {

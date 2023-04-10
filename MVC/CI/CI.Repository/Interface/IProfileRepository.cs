@@ -29,5 +29,7 @@ namespace CI.Repository.Interface
         public string ChangePassword(string? userEmail, string? oldPassword, string? newPassword);
 
         public void SaveUserSkills(string? userEmail, List<string> skillsToAdd);
+
+        public bool ContactUs(ContactU obj);
     }
 }

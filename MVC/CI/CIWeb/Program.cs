@@ -11,7 +11,6 @@ builder.Services.AddControllersWithViews();
 builder.Services.AddAntiforgery(o => o.HeaderName = "XSRF-TOKEN");
 builder.Services.AddDbContext<CiContext>(options => options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
 builder.Services.AddSession();
-builder.Services.AddCloudscribePagination();
 
 builder.Services.AddScoped<IStoryRepository, StoryRepository>();
 builder.Services.AddScoped<IUserRepository, UserRepository>();

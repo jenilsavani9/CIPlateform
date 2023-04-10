@@ -19,5 +19,9 @@ namespace CI.Repository.Interface
         public bool DeleteTimesheet(long? id);
 
         public bool AddTimeSheets(TimeSheetModel model, long userId);
+
+        public bool AddGoalSheets(TimeSheetModel model, long userId);
+
+        public Timesheet GetSingleTimeSheet(int id);
     }
 }

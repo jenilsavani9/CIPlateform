@@ -48,5 +48,22 @@ namespace CIWeb.Controllers
             var status = _repository.AddTimeSheets(model, user.UserId);
             return Json(new {  });
         }
+
+        [HttpGet("/api/goalsheets/add")]
+        public JsonResult AddGoalSheets(TimeSheetModel model)
+        {
+            var x = Request;
+            String? userEmail = HttpContext.Session.GetString("userEmail");
+            var user = _repository.GetUser(userEmail);
+            var status = _repository.AddGoalSheets(model, user.UserId);
+            return Json(new { });
+        }
+
+        [HttpGet("/api/timesheets/{id:int}")]
+        public JsonResult GetSingleTimeSheet(int id)
+        {
+            var result = _repository.GetSingleTimeSheet(id);
+            return Json(new { result });
+        }
     }
 }

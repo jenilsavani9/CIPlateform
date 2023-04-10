@@ -78,7 +78,7 @@ ViewData["Title"] = "Timesheet";
                      <div class="modal fade" id="TimeADDbtn1" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                         <div class="modal-dialog modal-lg modal-dialog-centered">
                            <div class="modal-content">
-                              <form >
+                              
                                  <div class="modal-header">
                                     <h1 class="modal-title fs-5" id="exampleModalLabel">Please input below Volunteering Hours</h1>
                                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
@@ -93,30 +93,30 @@ ViewData["Title"] = "Timesheet";
                                        </div>
                                        <div class="row mt-2">
                                           <lable class="col-6 fs-6">Date Volunteered</lable>
-                                          <input class="col-12 datediv py-1 rounded-1" id="date1" type="datetime-local" />
+                                          <input class="col-12 datediv py-1 rounded-1" id="edit-date-time" type="datetime-local" />
                                        </div>
                                        <div class="row mt-1 ">
                                           <div class=" col-12 col-xl-6 col-1g-6 p-0">
                                              <label class=" col-8 fs-6"> Hours</label>
-                                             <input type="number" min="0" max="23" placeholder="Enter Spent Hours " class="py-1 datediv rounded-1 w-100 " id="hour1" />
+                                             <input type="number" min="0" max="23" placeholder="Enter Spent Hours " class="py-1 datediv rounded-1 w-100 " id="edit-hour-time" />
                                           </div>
                                           <div class=" col-12 col-xl-6 col-1g-6 p-0 ">
                                              <label class=" col-8 fs-6"> Minutes</label>
-                                             <input id="minute1" type="number" min="0" max="59" placeholder="Enter Spent Minutes " class=" ms-0 ms-xl-2 py-1 datediv rounded-1 w-100 me-2" />
+                                             <input id="edit-min-time" type="number" min="0" max="59" placeholder="Enter Spent Minutes " class=" ms-0 ms-xl-2 py-1 datediv rounded-1 w-100 me-2" />
                                           </div>
                                           <input type="hidden" id="timesheetid1" />
                                        </div>
                                        <div class="row mt-1">
                                           <label class=" col-8 fs-6"> Enter Your Message</label>
-                                          <textarea id="notes" class=" datediv rounded-1 mt-1 " placeholder="Leave a comment here" id="floatingTextarea"></textarea>
+                                          <textarea id="edit-notes-time" class=" datediv rounded-1 mt-1 " placeholder="Leave a comment here" id="floatingTextarea"></textarea>
                                        </div>
                                     </div>
                                  </div>
                                  <div class="modal-footer">
                                     <button type="button" class="rounded-pill bg-white px-3 py-1" data-bs-dismiss="modal">Cancel</button>
-                                    <button type="submit" class="rounded-pill addbtn px-3 py-1" id="time-based-submit" onclick="timeSubmit()">Submit</button>
+                                    <button type="submit" class="rounded-pill addbtn px-3 py-1" id="time-based-submit" onclick="goalSubmit()">Submit</button>
                                  </div>
-                              </form>
+                              
                            </div>
                         </div>
                      </div>
@@ -155,7 +155,7 @@ ViewData["Title"] = "Timesheet";
                      <div class="modal fade" id="GoalADDbtn" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                         <div class="modal-dialog modal-lg modal-dialog-centered">
                            <div class="modal-content">
-                              <form>
+
                                  <div class="modal-header">
                                     <h1 class="modal-title fs-5" id="exampleModalLabel">Please input below Volunteering Goal</h1>
                                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
@@ -170,23 +170,23 @@ ViewData["Title"] = "Timesheet";
                                        </div>
                                        <div class="row mt-2">
                                           <lable class="col-6 fs-6">Action</lable>
-                                          <input class="col-12 datediv py-1 rounded-1" placeholder="Enter Actions" type="text" />
+                                          <input class="col-12 datediv py-1 rounded-1" id="mission-action-goal" placeholder="Enter Actions" type="text" />
                                        </div>
                                        <div class="row mt-1 ">
                                           <label class=" col-8 fs-6"> Date of Volunteered</label>
-                                          <input type="datetime-local" placeholder="Enter Date " class="py-1 datediv rounded-1 col-12 " />
+                                          <input type="datetime-local" id="mission-dateVolunteered-goal" placeholder="Enter Date " class="py-1 datediv rounded-1 col-12 " />
                                        </div>
                                        <div class="row mt-1">
                                           <label class=" col-8 fs-6"> Enter Your Message</label>
-                                          <textarea class=" datediv rounded-1 mt-1 " placeholder="Leave a comment here" id="floatingTextarea"></textarea>
+                                          <textarea class=" datediv rounded-1 mt-1 " id="mission-Message-goal" placeholder="Leave a comment here" id="floatingTextarea"></textarea>
                                        </div>
                                     </div>
                                  </div>
                                  <div class="modal-footer">
                                     <button type="button" class="rounded-pill bg-white px-3 py-1" data-bs-dismiss="modal">Cancel</button>
-                                    <button type="submit" class="rounded-pill addbtn px-3 py-1">Submit</button>
+                                    <button type="submit" class="rounded-pill addbtn px-3 py-1" onclick="goalSubmit()">Submit</button>
                                  </div>
-                              </form>
+
                            </div>
                         </div>
                      </div>
@@ -202,22 +202,22 @@ ViewData["Title"] = "Timesheet";
                                     <div class="container">
                                        <div class="row">
                                           <lable class="col-6 fs-6">Mission</lable>
-                                          <select  class=" datediv py-1 ro col-12" aria-label="Default select example">
+                                          <select id="mission-edit-goal"  class=" datediv py-1 ro col-12" aria-label="Default select example">
                                              <option value="1">1 title</option>
                                           </select>
                                        </div>
                                        <div class="row mt-2">
                                           <lable class="col-6 fs-6">Action</lable>
-                                          <input id="action1" class="col-12 datediv py-1 rounded-1" placeholder="Enter Actions" type="text" />
+                                          <input id="edit-action-goal" class="col-12 datediv py-1 rounded-1" placeholder="Enter Actions" type="text" />
                                        </div>
                                        <div class="row mt-1 ">
                                           <label class=" col-8 fs-6"> Date of Volunteered</label>
-                                          <input type="datetime-local" id="date2" placeholder="Enter Date " class="py-1 datediv rounded-1 col-12 " />
+                                          <input type="datetime-local" id="edit-date-goal" placeholder="Enter Date " class="py-1 datediv rounded-1 col-12 " />
                                        </div>
                                        <input type="hidden" id="timesheetid2" />
                                        <div class="row mt-1">
                                           <label class=" col-8 fs-6"> Enter Your Message</label>
-                                          <textarea id="notes1" class=" datediv rounded-1 mt-1 " placeholder="Leave a comment here" id="floatingTextarea"></textarea>
+                                          <textarea id="edit-notes-goal" class=" datediv rounded-1 mt-1 " placeholder="Leave a comment here" id="floatingTextarea"></textarea>
                                        </div>
                                     </div>
                                  </div>
@@ -231,7 +231,7 @@ ViewData["Title"] = "Timesheet";
                      </div>
                   </div>
                </div>
-               <div class="row overflow-y-auto goalsheetdiv" style="height:300px;">
+               <div class="row goalsheetdiv" >
                   <table class="table table-borderless">
                      <thead>
                         <tr>
@@ -266,7 +266,7 @@ ViewData["Title"] = "Timesheet";
                            <td>${item.dateVolunteered.toString().split("T")[0]}</td>
                            <td>${item.timesheetTime.toString().split(":")[0]}</td>
                            <td>${item.timesheetTime.toString().split(":")[1]}</td>
-                           <td class="d-flex align-items-center mt-1"> <i class="bi bi-pencil-square editimg" data-bs-toggle="modal" data-bs-target="#TimeADDbtn1" id="" onclick=""></i></td>
+                           <td class="d-flex align-items-center mt-1"> <i class="bi bi-pencil-square editimg" data-bs-toggle="modal" data-bs-target="#TimeADDbtn1" id="" onclick="editTimeSheet(${item.timesheetId})"></i></td>
                            <td> <img src="/img/bin.png" id="${item.timesheetId}" onclick="deletetimesheet(this.id)" /></td>
                         </tr>`).join("")
        }
@@ -277,7 +277,7 @@ ViewData["Title"] = "Timesheet";
                            <td>${item.mission}</td>
                            <td>${item.dateVolunteered.toString().split("T")[0]}</td>
                            <td>${item.action}</td>
-                           <td class="d-flex align-items-center mt-1"> <i class="bi bi-pencil-square editimg" data-bs-toggle="modal" data-bs-target="#TimeADDbtn1" id="" onclick=""></i></td>
+                           <td class="d-flex align-items-center mt-1"> <i class="bi bi-pencil-square editimg" data-bs-toggle="modal" data-bs-target="#GoalADDbtn1" id="" onclick="editTimeSheet(${item.timesheetId})" ></i></td>
                            <td> <img src="/img/bin.png" id="${item.timesheetId}" onclick="deletetimesheet(this.id)" /></td>
                         </tr>`).join("")
        }
@@ -317,7 +317,7 @@ ViewData["Title"] = "Timesheet";
             url: `/story/sharestory/getmission`,
             success: function (response) {
 
-                console.log(response)
+                
 
                 var mission1 = document.getElementById("mission-add-time");
                 mission1.innerHTML = loadAppliedMissions(response);
@@ -334,7 +334,6 @@ ViewData["Title"] = "Timesheet";
        });
 
        function deletetimesheet(id) {
-           console.log(id)
 
            $.ajax({
                 type: "GET",
@@ -390,21 +389,21 @@ ViewData["Title"] = "Timesheet";
 
        function goalSubmit(){
 
-           var missionId = document.getElementById("mission-add-time").value;
-           var dateVolunteered = document.getElementById("mission-dateVolunteered-time").value;
-           var Hours = document.getElementById("mission-Hours-time").value;
-           var min = document.getElementById("mission-min-time").value;
-           var Message = document.getElementById("mission-Message-time").value;
-           console.log(missionId, dateVolunteered, Hours, min, Message, Hours+":"+min+":"+"00")
+           var missionId = document.getElementById("mission2").value;
+           var dateVolunteered = document.getElementById("mission-dateVolunteered-goal").value;
+           var Action = document.getElementById("mission-action-goal").value;
+           var Message = document.getElementById("mission-Message-goal").value;
 
            $.ajax({
                 type: "GET",
-                url: `/api/timesheets/add`,
+                url: `/api/goalsheets/add`,
                 data: {
                     "missionId" : missionId,
                     "dateVolunteered" : dateVolunteered,
+                    "jenil" : Action,
                     "notes" : Message,
-                    "timesheetTime" : Hours+":"+min+":"+"00"
+                    "timesheetTime": "20:50"
+                    
                 },
                 success: function (response) {
 
@@ -418,6 +417,75 @@ ViewData["Title"] = "Timesheet";
                     alert(response.responseText);
                 }
             });
+       }
+
+       // load mission on edit modal
+       function loadEditAppliedMissions(response, id) {
+           html = '<option disabled>Select Mission</option>'
+           response.mission.map(item => {
+                if(item.id == id) {
+                    html += `<option value="${item.id}" selected>${item.title}</option>`
+                } else {
+                    html += `<option value="${item.id}">${item.title}</option>`
+                }
+           }).join("")
+           return html;
+       }
+
+       function editTimeSheet(id) {
+
+           var missionId;
+
+           $.ajax({
+               type: "GET",
+               url: `/api/timesheets/${id}`,
+               success: function (response) {
+
+                   console.log(response)
+                    missionId = response.result.missionId
+
+                    if(response.result.timesheetTime != null) {
+                        $('#edit-min-time').val(response.result.timesheetTime.toString().split(":")[1])
+                        $('#edit-hour-time').val(response.result.timesheetTime.toString().split(":")[0])
+                        $('#edit-date-time').val(response.result.dateVolunteered)
+                        $('#edit-notes-time').val(response.result.notes)
+                    } else {
+                        $('#edit-action-goal').val(response.result.action)
+                        $('#edit-date-goal').val(response.result.dateVolunteered)
+                        $('#edit-notes-goal').val(response.result.notes)
+                    }
+                    
+                    
+
+               },
+               failure: function (response) {
+                    alert(response.responseText);
+               },
+               error: function (response) {
+                    alert(response.responseText);
+               }
+           });
+
+           $.ajax({
+                type: "GET",
+                url: `/story/sharestory/getmission`,
+                success: function (response) {
+
+                    var mission1 = document.getElementById("mission1");
+                    mission1.innerHTML = loadEditAppliedMissions(response, missionId);
+                    
+                    var element = document.getElementById("mission-edit-goal");
+                    element.innerHTML = loadEditAppliedMissions(response, missionId);
+
+                },
+                failure: function (response) {
+                    alert(response.responseText);
+                },
+                error: function (response) {
+                    alert(response.responseText);
+                }
+           });
+
        }
 
 

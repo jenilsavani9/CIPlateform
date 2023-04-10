@@ -45,6 +45,7 @@ namespace CI.Repository.Repository
                 user.linkedInUrl = TempUserData.LinkedInUrl;
                 user.title = TempUserData.Title;
                 user.available = TempUserData.Available;
+                user.email = TempUserData.Email;
                 if(tempCity != null)
                 {
                     user.city = tempCity.Name;
@@ -199,6 +200,19 @@ namespace CI.Repository.Repository
                 _db.UserSkills.Add(new UserSkill { SkillId = long.Parse(splitSkill), UserId = user.UserId });
             }
             _db.SaveChanges();
+        }
+
+        public bool ContactUs(ContactU obj)
+        {
+            if (obj == null)
+            {
+                return false;
+            } else
+            {
+                _db.ContactUs.Add(obj);
+                _db.SaveChanges();
+                return true;
+            }
         }
     }
 }

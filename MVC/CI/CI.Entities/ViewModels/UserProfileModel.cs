@@ -23,6 +23,7 @@ namespace CI.Entities.ViewModels
         public string? linkedInUrl { get; set; }
         public string? title { get; set; }
         public string? available { get; set; }
+        public string? email { get; set; }
         public long? cityId { get; set; }
         public long? countryId { get; set; }
     }

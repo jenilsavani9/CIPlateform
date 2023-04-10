@@ -96,5 +96,24 @@ namespace CI.Repository.Repository
             _db.SaveChanges();
             return true;
         }
+
+        public bool AddGoalSheets(TimeSheetModel model, long userId)
+        {
+            Timesheet tempSheet = new Timesheet();
+            tempSheet.UserId = userId;
+            tempSheet.MissionId = (long)model.missionId;
+            tempSheet.DateVolunteered = model.dateVolunteered;
+            tempSheet.Notes = model.notes;
+            tempSheet.Action = model.jenil;
+            _db.Timesheets.Add(tempSheet);
+            _db.SaveChanges();
+            return true;
+        }
+
+        public Timesheet GetSingleTimeSheet(int id)
+        {
+            var timesheet = _db.Timesheets.Where(ts=> ts.TimesheetId == id).FirstOrDefault();
+            return timesheet;
+        }
     }
 }
