@@ -7,10 +7,9 @@ namespace CIWeb.Controllers
 {
     public class TimesheetController : Controller
     {
-
         private readonly ITimesheetRepository _repository;
 
-        public TimesheetController(ILogger<HomeController> logger, ITimesheetRepository repository)
+        public TimesheetController(ITimesheetRepository repository)
         {
             _repository = repository;
         }
@@ -40,7 +39,7 @@ namespace CIWeb.Controllers
             return Json(new { status });
         }
 
-        [HttpGet("/api/timesheets/add")]
+        [HttpPost("/api/timesheets/add")]
         public JsonResult AddTimeSheets(TimeSheetModel model)
         {
             String? userEmail = HttpContext.Session.GetString("userEmail");
@@ -49,10 +48,9 @@ namespace CIWeb.Controllers
             return Json(new {  });
         }
 
-        [HttpGet("/api/goalsheets/add")]
+        [HttpPost("/api/goalsheets/add")]
         public JsonResult AddGoalSheets(TimeSheetModel model)
         {
-            var x = Request;
             String? userEmail = HttpContext.Session.GetString("userEmail");
             var user = _repository.GetUser(userEmail);
             var status = _repository.AddGoalSheets(model, user.UserId);
@@ -64,6 +62,24 @@ namespace CIWeb.Controllers
         {
             var result = _repository.GetSingleTimeSheet(id);
             return Json(new { result });
+        }
+
+        [HttpPost("/api/timesheets/edit")]
+        public JsonResult EditTimeSheets(TimeSheetModel model)
+        {
+            String? userEmail = HttpContext.Session.GetString("userEmail");
+            var user = _repository.GetUser(userEmail);
+            var status = _repository.EditTimeSheets(model, user.UserId);
+            return Json(new { });
+        }
+
+        [HttpPost("/api/goalsheets/edit")]
+        public JsonResult EditGoalSheets(TimeSheetModel model)
+        {
+            String? userEmail = HttpContext.Session.GetString("userEmail");
+            var user = _repository.GetUser(userEmail);
+            var status = _repository.EditGoalSheets(model, user.UserId);
+            return Json(new { });
         }
     }
 }

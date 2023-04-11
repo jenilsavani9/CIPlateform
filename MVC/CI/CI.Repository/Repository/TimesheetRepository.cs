@@ -28,7 +28,7 @@ namespace CI.Repository.Repository
         public List<TimeSheetModel> GetGoalBasedTimeSheet(string? userEmail)
         {
             var user = _db.Users.FirstOrDefault(u => u.Email == userEmail);
-            var result = _db.Timesheets.Where(ts => ts.UserId == user.UserId && ts.Action != null).ToList();
+            var result = _db.Timesheets.Where(ts => ts.UserId == user.UserId && ts.Action != null && ts.Status != "pending").ToList();
 
             List<TimeSheetModel> timeSheets = new List<TimeSheetModel>();
             foreach (var t in result)
@@ -50,7 +50,7 @@ namespace CI.Repository.Repository
         public List<TimeSheetModel> GetTimeBasedTimeSheet(string? userEmail)
         {
             var user = _db.Users.FirstOrDefault(u => u.Email == userEmail);
-            var result = _db.Timesheets.Where(ts => ts.UserId == user.UserId && ts.Action == null).ToList();
+            var result = _db.Timesheets.Where(ts => ts.UserId == user.UserId && ts.Action == null && ts.Status != "pending").ToList();
 
             List<TimeSheetModel> timeSheets = new List<TimeSheetModel>();
             foreach (var t in result)
@@ -114,6 +114,30 @@ namespace CI.Repository.Repository
         {
             var timesheet = _db.Timesheets.Where(ts=> ts.TimesheetId == id).FirstOrDefault();
             return timesheet;
+        }
+
+        public bool EditTimeSheets(TimeSheetModel model, long userId)
+        {
+            var tempSheet = _db.Timesheets.Where(ts => ts.TimesheetId == model.timesheetId).FirstOrDefault();
+            tempSheet.MissionId = model.missionId;
+            tempSheet.DateVolunteered = model.dateVolunteered;
+            tempSheet.Notes = model.notes;
+            tempSheet.TimesheetTime = model.timesheetTime;
+            tempSheet.UpdatedAt = DateTime.Now;
+            _db.SaveChanges();
+            return true;
+        }
+
+        public bool EditGoalSheets(TimeSheetModel model, long userId)
+        {
+            var tempSheet = _db.Timesheets.Where(ts => ts.TimesheetId == model.timesheetId).FirstOrDefault();
+            tempSheet.MissionId = model.missionId;
+            tempSheet.DateVolunteered = model.dateVolunteered;
+            tempSheet.Notes = model.notes;
+            tempSheet.Action = model.jenil;
+            tempSheet.UpdatedAt = DateTime.Now;
+            _db.SaveChanges();
+            return true;
         }
     }
 }

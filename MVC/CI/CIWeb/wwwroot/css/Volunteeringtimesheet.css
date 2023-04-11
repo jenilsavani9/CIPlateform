@@ -26,3 +26,8 @@
 .datediv {
     border: 1px solid lightgrey
 }
+
+.form-validation-msg {
+    font-size: 12px;
+    color: red;
+}

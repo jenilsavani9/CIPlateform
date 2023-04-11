@@ -22,30 +22,32 @@ namespace CI.Repository.Repository
             List<StoryModel> storys = new List<StoryModel>();
 
             int pageSize = 3;
-            var tempStorys = _db.Stories.Skip(int.Parse(page) * pageSize).Take(pageSize).ToList();
+            var tempStorys = _db.Stories.Where(s => s.Status == "approve").Skip(int.Parse(page) * pageSize).Take(pageSize).ToList();
             foreach (var storyItem in tempStorys)
             {
-                var tempStory = _db.Stories.Where(s => s.StoryId == storyItem.StoryId).SingleOrDefault();
+                var tempStory = _db.Stories.Where(s => s.StoryId == storyItem.StoryId && storyItem.Status == "approve").SingleOrDefault();
                 var tempUser = _db.Users.Where(u => u.UserId == storyItem.UserId).SingleOrDefault();
                 var tempMission = _db.Missions.Where(u => u.MissionId == storyItem.MissionId).SingleOrDefault();
                 var tempTheme = _db.MissionThemes.Where(u => u.MissionThemeId == storyItem.MissionId).SingleOrDefault();
-                var storyMedia = _db.StoryMedia.Where(s => s.StoryId == tempStory.StoryId && s.StoryType == "png").FirstOrDefault();
-
-                storys.Add(new StoryModel
+                if(tempStory != null)
                 {
-                    story = tempStory,
-                    user = tempUser,
-                    mission = tempMission,
-                    theme = tempTheme,
-                    StoryMedia = storyMedia
-                });
+                    var storyMedia = _db.StoryMedia.Where(s => s.StoryId == tempStory.StoryId && s.StoryType == "png").FirstOrDefault();
+                    storys.Add(new StoryModel
+                    {
+                        story = tempStory,
+                        user = tempUser,
+                        mission = tempMission,
+                        theme = tempTheme,
+                        StoryMedia = storyMedia
+                    });
+                }
             }
             return storys;
         }
 
         public int StoryCount()
         {
-            var story = _db.Stories.Count();
+            var story = _db.Stories.Where(s => s.Status == "approve").Count();
             return story;
         }
 
@@ -99,6 +101,7 @@ namespace CI.Repository.Repository
                         tempStory.UserId = user.UserId;
                         tempStory.PublishedAt = DateTime.Now;
                         tempStory.Description = desc;
+                        tempStory.Status = "draft";
                         id = tempStory.StoryId;
                     }
                     else
@@ -257,7 +260,7 @@ namespace CI.Repository.Repository
             {
                 return null;
             }
-            var story = _db.Stories.Where(s => s.MissionId == missionId && s.UserId == user.UserId).OrderByDescending(s => s.PublishedAt).FirstOrDefault();
+            var story = _db.Stories.Where(s => s.MissionId == missionId && s.UserId == user.UserId && s.Status == "draft").OrderByDescending(s => s.PublishedAt).FirstOrDefault();
 
             return story;
         }

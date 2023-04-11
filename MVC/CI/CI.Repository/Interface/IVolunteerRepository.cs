@@ -47,5 +47,7 @@ namespace CI.Repository.Interface
 
         public List<MissionAvailableModel> GetMissionDays(int missionId);
 
+        public List<MissionMedium> GetMissionMedia(int missionId);
+
     }
 }

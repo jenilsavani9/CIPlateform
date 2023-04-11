@@ -331,5 +331,12 @@ namespace CIWeb.Controllers
             var document = _repository.GetMissionDocument(missionId);
             return Json(new { document });
         }
+        
+        [HttpGet("/missions/{missionId:int}/getMissionMedia")]
+        public IActionResult GetMissionMedia(int missionId)
+        {
+            var result = _repository.GetMissionMedia(missionId);
+            return Json(new { result });
+        }
     }
 }

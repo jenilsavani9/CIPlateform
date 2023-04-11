@@ -23,5 +23,9 @@ namespace CI.Repository.Interface
         public bool AddGoalSheets(TimeSheetModel model, long userId);
 
         public Timesheet GetSingleTimeSheet(int id);
+
+        public bool EditTimeSheets(TimeSheetModel model, long userId);
+
+        public bool EditGoalSheets(TimeSheetModel model, long userId);
     }
 }

@@ -25,15 +25,18 @@
                 <div class="col-11 col-lg-4 col-md-6 col-sm-11 mt-2">
                     <lable class="fs-6">Select Mission</lable>
                     <select class="form-select" aria-label="Default select example" id="share-story-mission-list" onchange="loadDraftStory()">
-                        <option disabled>Select Mission</option>
+                        @*<option disabled>Select Mission</option>
                         <option value="1">One</option>
                         <option value="2">Two</option>
-                        <option value="3">Three</option>
+                        <option value="3">Three</option>*@
                     </select>
+                    <span class="d-none mb-3 form-validation-msg" id="story-mission-error"></span>
                 </div>
                 <div class="col-11 col-lg-4 col-md-6 col-sm-11 mt-2 ">
                     <lable class="fs-6">My Story Title </lable>
-                    <input type="text" class="w-100 py-1 border-1 rounded-1 mt-1" style="border-color:lightgray" id="share-story-title" required />
+                    <input type="text" class="w-100 py-1 border-1 rounded-1 mt-1" style="border-color:lightgray" id="share-story-title" />
+                    <span class="d-none mb-3 form-validation-msg" id="story-title-error"></span>
+                    
                 </div>
                 <div class="col-11 col-lg-4 col-md-6 col-sm-11 mt-2">
                     <lable class="fs-6">Date </lable>
@@ -50,6 +53,7 @@
             <div class="row mt-4">
                 <label class="fs-5">Enter Video URL</label>
                 <textarea  type="text" placeholder="Enter your URL" id="share-story-video-url" class="col-12 border-1 border-black mt-1 mb-2" style="height:40px; border-radius:5px" ></textarea>
+                <span class="d-none mb-3 form-validation-msg" id="story-url-error"></span>
             </div>
             <div class="row mt-4">
                 <label class=" fs-5"> Upload Your Photos</label>
@@ -105,7 +109,7 @@
 
                         for (let i = 0; i < this.files.length; i++) {
                             const li = document.createElement("li");
-                            li.setAttribute("class", "col-3 mt-2");
+                            li.setAttribute("class", "col-2 mt-2");
                             li.setAttribute("id", `${this.files[i].name}`);
                             const icon = document.createElement("i");
                             icon.setAttribute("class", "bi bi-x fa-2x crossicon");
@@ -147,7 +151,7 @@
 
                 function loadDraftImages(response) {
 
-                    return response.media.map(item => `<li class="col-3 mt-2" id="${item.storyPath}">
+                    return response.media.map(item => `<li class="col-2 mt-2" id="${item.storyPath}">
                                                         <img src="/mediaUpload/${item.storyPath}" height="60" >
                                                         
                                                         <i class="bi bi-x fa-2x crossicon" onclick="crossicon('${item.storyPath}')"></i>
@@ -207,6 +211,16 @@
                      return html;
                  }
 
+                 function validateYouTubeUrl(urlToParse){
+                    if (urlToParse) {
+                        var regExp = /^(?:https?:\/\/)?(?:m\.|www\.)?(?:youtu\.be\/|youtube\.com\/(?:embed\/|v\/|watch\?v=|watch\?.+&v=))((\w|-){11})(?:\S+)?$/;
+                        if (urlToParse.match(regExp)) {
+                            return true;
+                        }
+                    }
+                    return false;
+                }
+
                  function saveStory(event, status){
                     event.preventDefault();
 
@@ -217,7 +231,41 @@
 
                     var desc = CKEDITOR.instances.editor1.getData();
 
-                    if(title != "") {
+                    if(mission == "Select Mission") {
+                        $('#story-mission-error').removeClass('d-none');
+                        $('#story-mission-error').html('Select Valid Mission');
+                    } else {
+                        $('#story-mission-error').addClass('d-none');
+                    }
+
+                    if(title == "" ) {
+                        $('#story-title-error').removeClass('d-none');
+                        $('#story-title-error').html('Enter Valid title');
+                    } else {
+                        $('#story-title-error').addClass('d-none');
+                    }
+
+                    if(url.split(" ").length > 20) {
+                        $('#story-url-error').removeClass('d-none');
+                        $('#story-url-error').html('Url cannot be more than 20');
+
+                    } else {
+                        $('#story-url-error').addClass('d-none');
+                    }
+
+                    var urlCheck = url.split(" ")
+                        var result = urlCheck.map(item => validateYouTubeUrl(item))
+                        for(var i=0; i<urlCheck.length; i++) {
+                            var y = validateYouTubeUrl(urlCheck[i]);
+                            if(y == false) {
+                                $('#story-url-error').removeClass('d-none');
+                                $('#story-url-error').html('only youtube url is valid');
+                                break;
+                            }
+
+                        }
+
+                    if(mission != "Select Mission" && title != "") {
                         $.ajax({
                             type: "POST",
                             url: `https://localhost:44398/story/sharestory/saveStory`,

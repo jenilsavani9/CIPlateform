@@ -264,5 +264,11 @@ namespace CI.Repository.Repository
 
             return missionDays;
         }
+
+        public List<MissionMedium> GetMissionMedia(int missionId)
+        {
+            var result = _db.MissionMedia.Where(mm => mm.MissionId == missionId).ToList();
+            return result;
+        }
     }
 }

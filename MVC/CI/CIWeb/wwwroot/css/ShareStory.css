@@ -13,3 +13,8 @@
 .share-story-btn {
     border-radius: 30px !important;
 }
+
+.form-validation-msg {
+    font-size: 12px;
+    color: red;
+}
