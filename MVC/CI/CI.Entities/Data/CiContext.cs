@@ -861,6 +861,7 @@ public partial class CiContext : DbContext
             entity.ToTable("users");
 
             entity.Property(e => e.UserId).HasColumnName("user_id");
+            entity.Property(e => e.Admin).HasColumnName("admin");
             entity.Property(e => e.Available)
                 .HasMaxLength(50)
                 .HasColumnName("available");
