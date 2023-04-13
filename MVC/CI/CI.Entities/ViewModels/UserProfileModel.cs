@@ -24,6 +24,8 @@ namespace CI.Entities.ViewModels
         public string? title { get; set; }
         public string? available { get; set; }
         public string? email { get; set; }
+        public string? password { get; set; }
+        public string? status { get; set; }
         public long? cityId { get; set; }
         public long? countryId { get; set; }
     }

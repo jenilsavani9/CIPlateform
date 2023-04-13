@@ -1,238 +1,317 @@
 ﻿@{
-Layout = "_Empty";
-ViewData["Title"] = "Stories";
+    Layout = "_Empty";
+    ViewData["Title"] = "Stories";
 }
 <div>
-   <div class="container-fluid well" id="home" style="display:block;">
-      <div class="row">
-         <div class="col-lg-2 dashboard-sidebar-toggle" style="height: 100vh;">
-            <div class="sidebar" id="sidebar-divs">
-               <div class="mb-3">Navigation</div>
-               <div class="sidebar-detail dashbord-sidebar-detail dashboard-active-tab d-flex" id="User" onclick="makeDivActive('User')">
-                  <img src="~/img/dashboard-active.svg" alt="" class="dashboard-active sidebarimg">
-                  <div class="title-name">User</div>
-               </div>
-               <div class="sidebar-detail d-flex" id="CMS-Page" onclick="makeDivActive('CMS-Page')">
-                  <img src="~/img/graph-default.svg" alt="" class="graph-default sidebarimg ">
-                  <div class="title-name">CMS Page</div>
-               </div>
-               <div class="sidebar-detail d-flex" id="Mission" onclick="makeDivActive('Mission')">
-                  <img src="~/img/inbox-default.svg" alt="" class="inbox-default sidebarimg ">
-                  <div class="title-name">Mission</div>
-               </div>
-               <div class="sidebar-detail d-flex" id="Mission-Theme" onclick="makeDivActive('Mission-Theme')">
-                  <img src="~/img/clock-default.svg" alt="" class="clock-default sidebarimg ">
-                  <div class="title-name">Mission Theme</div>
-               </div>
-               <div class="sidebar-detail d-flex" id="Mission-SKills" onclick="makeDivActive('Mission-SKills')">
-                  <img src="~/img/user-default.svg" alt="" class="user-default sidebarimg ">
-                  <div class="title-name">Mission SKills</div>
-               </div>
-               <div class="sidebar-detail d-flex" id="Mission-Applications" onclick="makeDivActive('Mission-Applications')">
-                  <img src="~/img/maintenance-default.svg" alt="" class="maintenance-default sidebarimg ">
-                  <div class="title-name">Mission Applications</div>
-               </div>
-               <div class="sidebar-detail d-flex" id="Story" onclick="makeDivActive('Story')">
-                  <img src="~/img/setting-default.svg" alt="" class="setting-default sidebarimg ">
-                  <div class="title-name">Story</div>
-               </div>
-               <div class="sidebar-detail d-flex" id="Banner-Management" onclick="makeDivActive('Banner-Management')">
-                  <img src="~/img/setting-default.svg" alt="" class="setting-default sidebarimg ">
-                  <div class="title-name">Banner Management</div>
-               </div>
+    <div class="container-fluid well" id="home" style="display:block;">
+        <div class="row">
+            <div class="col-lg-2 dashboard-sidebar-toggle" style="height: 100vh;">
+                <div class="sidebar" id="sidebar-divs">
+                    <div class="mb-3">Navigation</div>
+                    <div class="sidebar-detail dashbord-sidebar-detail dashboard-active-tab d-flex" id="User" onclick="makeDivActive('User')">
+                        <img src="~/img/dashboard-active.svg" alt="" class="dashboard-active sidebarimg">
+                        <div class="title-name">User</div>
+                    </div>
+                    <div class="sidebar-detail d-flex" id="CMS-Page" onclick="makeDivActive('CMS-Page')">
+                        <img src="~/img/graph-default.svg" alt="" class="graph-default sidebarimg ">
+                        <div class="title-name">CMS Page</div>
+                    </div>
+                    <div class="sidebar-detail d-flex" id="Mission" onclick="makeDivActive('Mission')">
+                        <img src="~/img/inbox-default.svg" alt="" class="inbox-default sidebarimg ">
+                        <div class="title-name">Mission</div>
+                    </div>
+                    <div class="sidebar-detail d-flex" id="Mission-Theme" onclick="makeDivActive('Mission-Theme')">
+                        <img src="~/img/clock-default.svg" alt="" class="clock-default sidebarimg ">
+                        <div class="title-name">Mission Theme</div>
+                    </div>
+                    <div class="sidebar-detail d-flex" id="Mission-SKills" onclick="makeDivActive('Mission-SKills')">
+                        <img src="~/img/user-default.svg" alt="" class="user-default sidebarimg ">
+                        <div class="title-name">Mission SKills</div>
+                    </div>
+                    <div class="sidebar-detail d-flex" id="Mission-Applications" onclick="makeDivActive('Mission-Applications')">
+                        <img src="~/img/maintenance-default.svg" alt="" class="maintenance-default sidebarimg ">
+                        <div class="title-name">Mission Applications</div>
+                    </div>
+                    <div class="sidebar-detail d-flex" id="Story" onclick="makeDivActive('Story')">
+                        <img src="~/img/setting-default.svg" alt="" class="setting-default sidebarimg ">
+                        <div class="title-name">Story</div>
+                    </div>
+                    <div class="sidebar-detail d-flex" id="Banner-Management" onclick="makeDivActive('Banner-Management')">
+                        <img src="~/img/setting-default.svg" alt="" class="setting-default sidebarimg ">
+                        <div class="title-name">Banner Management</div>
+                    </div>
+                </div>
             </div>
-         </div>
-         <div class="col-lg-10 col-12 maindashboard">
-            <nav class="navbar navbar-expand-lg admin-user-profile-section shadow-none" style="background-color: #ffffff;">
-               <div class="container-fluid">
-                  <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas"
-                     data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar">
-                  <span><img src="~/img/menu-bar.svg" alt="logo"></span>
-                  </button>
-                  <div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvasNavbar"
-                     aria-labelledby="offcanvasNavbarLabel">
-                     <div class="offcanvas-header">
-                        <div class="offcanvas-title" id="offcanvasNavbarLabel">Navigation</div>
-                        <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
-                     </div>
-                     <div class="offcanvas-body" style="justify-content: end;">
-                        <ul class="navbar-nav justify-content-end dashboard-nav-sidebar-toggle">
-                           <li class="nav-item d-flex align-items-center">
-                              <div class="sidebar-detail dashbord-sidebar-detail-mobile dashboard-active-tab d-flex" id="div1m" onclick="makeDivActive('div1m')">
-                                 <img src="~/img/dashboard-active.svg" alt="" class="dashboard-active sidebarimg">
-                                 <div class="title-name">User</div>
-                              </div>
-                           </li>
-                           <li class="nav-item d-flex align-items-center">
-                              <div class="sidebar-detail d-flex" id="div2m" onclick="makeDivActiveMobile('div2m')">
-                                 <img src="~/img/graph-default.svg" alt="" class="graph-default sidebarimg ">
-                                 <div class="title-name">CMS Page</div>
-                              </div>
-                           </li>
-                           <li class="nav-item d-flex align-items-center">
-                              <div class="sidebar-detail d-flex" id="div3m" onclick="makeDivActiveMobile('div3m')">
-                                 <img src="~/img/inbox-default.svg" alt="" class="inbox-default sidebarimg ">
-                                 <div class="title-name">Mission</div>
-                              </div>
-                           </li>
-                           <li class="nav-item d-flex align-items-center">
-                              <div class="sidebar-detail d-flex" id="div4m" onclick="makeDivActiveMobile('div4m')">
-                                 <img src="~/img/clock-default.svg" alt="" class="clock-default sidebarimg ">
-                                 <div class="title-name">Mission Theme</div>
-                              </div>
-                           </li>
-                           <li class="nav-item d-flex align-items-center">
-                              <div class="sidebar-detail d-flex" id="div5m" onclick="makeDivActiveMobile('div5m')">
-                                 <img src="~/img/user-default.svg" alt="" class="user-default sidebarimg ">
-                                 <div class="title-name">Mission SKills</div>
-                              </div>
-                           </li>
-                           <li class="nav-item d-flex align-items-center">
-                              <div class="sidebar-detail d-flex" id="div6m" onclick="makeDivActiveMobile('div6m')">
-                                 <img src="~/img/maintenance-default.svg" alt="" class="maintenance-default sidebarimg ">
-                                 <div class="title-name">Mission Applications</div>
-                              </div>
-                           </li>
-                           <li class="nav-item d-flex align-items-center">
-                              <div class="sidebar-detail d-flex" id="div7m" onclick="makeDivActiveMobile('div7m')">
-                                 <img src="~/img/setting-default.svg" alt="" class="setting-default sidebarimg ">
-                                 <div class="title-name">Story</div>
-                              </div>
-                           </li>
-                           <li class="nav-item d-flex align-items-center">
-                              <div class="sidebar-detail d-flex" id="div8m" onclick="makeDivActiveMobile('div8m')">
-                                 <img src="~/img/setting-default.svg" alt="" class="setting-default sidebarimg ">
-                                 <div class="title-name">Banner Management</div>
-                              </div>
-                           </li>
-                        </ul>
-                        <ul class="navbar-nav justify-content-between" style="width:100%">
-                           <li id="dashboard-time">
-                           </li>
-                           <li class="nav-item d-flex align-items-center">
-                              <div class="dropdown">
-                                 <a class="text-reset dropdown-toggle d-flex align-items-center" href="#"
-                                    id="navbarDropdownMenuLink" role="button" data-mdb-toggle="dropdown"
-                                    aria-expanded="false">
-                                 <img src="~/img/volunteer1.png" class="rounded-circle me-3" height="22" alt=""
-                                    loading="lazy" style="
+            <div class="col-lg-10 col-12 maindashboard">
+                <nav class="navbar navbar-expand-lg admin-user-profile-section shadow-none" style="background-color: #ffffff;">
+                    <div class="container-fluid">
+                        <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas"
+                                data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar">
+                            <span><img src="~/img/menu-bar.svg" alt="logo"></span>
+                        </button>
+                        <div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvasNavbar"
+                             aria-labelledby="offcanvasNavbarLabel">
+                            <div class="offcanvas-header">
+                                <div class="offcanvas-title" id="offcanvasNavbarLabel">Navigation</div>
+                                <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+                            </div>
+                            <div class="offcanvas-body" style="justify-content: end;">
+                                <ul class="navbar-nav justify-content-end dashboard-nav-sidebar-toggle">
+                                    <li class="nav-item d-flex align-items-center">
+                                        <div class="sidebar-detail dashbord-sidebar-detail-mobile dashboard-active-tab d-flex" id="div1m" onclick="makeDivActive('div1m')">
+                                            <img src="~/img/dashboard-active.svg" alt="" class="dashboard-active sidebarimg">
+                                            <div class="title-name">User</div>
+                                        </div>
+                                    </li>
+                                    <li class="nav-item d-flex align-items-center">
+                                        <div class="sidebar-detail d-flex" id="div2m" onclick="makeDivActiveMobile('div2m')">
+                                            <img src="~/img/graph-default.svg" alt="" class="graph-default sidebarimg ">
+                                            <div class="title-name">CMS Page</div>
+                                        </div>
+                                    </li>
+                                    <li class="nav-item d-flex align-items-center">
+                                        <div class="sidebar-detail d-flex" id="div3m" onclick="makeDivActiveMobile('div3m')">
+                                            <img src="~/img/inbox-default.svg" alt="" class="inbox-default sidebarimg ">
+                                            <div class="title-name">Mission</div>
+                                        </div>
+                                    </li>
+                                    <li class="nav-item d-flex align-items-center">
+                                        <div class="sidebar-detail d-flex" id="div4m" onclick="makeDivActiveMobile('div4m')">
+                                            <img src="~/img/clock-default.svg" alt="" class="clock-default sidebarimg ">
+                                            <div class="title-name">Mission Theme</div>
+                                        </div>
+                                    </li>
+                                    <li class="nav-item d-flex align-items-center">
+                                        <div class="sidebar-detail d-flex" id="div5m" onclick="makeDivActiveMobile('div5m')">
+                                            <img src="~/img/user-default.svg" alt="" class="user-default sidebarimg ">
+                                            <div class="title-name">Mission SKills</div>
+                                        </div>
+                                    </li>
+                                    <li class="nav-item d-flex align-items-center">
+                                        <div class="sidebar-detail d-flex" id="div6m" onclick="makeDivActiveMobile('div6m')">
+                                            <img src="~/img/maintenance-default.svg" alt="" class="maintenance-default sidebarimg ">
+                                            <div class="title-name">Mission Applications</div>
+                                        </div>
+                                    </li>
+                                    <li class="nav-item d-flex align-items-center">
+                                        <div class="sidebar-detail d-flex" id="div7m" onclick="makeDivActiveMobile('div7m')">
+                                            <img src="~/img/setting-default.svg" alt="" class="setting-default sidebarimg ">
+                                            <div class="title-name">Story</div>
+                                        </div>
+                                    </li>
+                                    <li class="nav-item d-flex align-items-center">
+                                        <div class="sidebar-detail d-flex" id="div8m" onclick="makeDivActiveMobile('div8m')">
+                                            <img src="~/img/setting-default.svg" alt="" class="setting-default sidebarimg ">
+                                            <div class="title-name">Banner Management</div>
+                                        </div>
+                                    </li>
+                                </ul>
+                                <ul class="navbar-nav justify-content-between" style="width:100%">
+                                    <li id="dashboard-time">
+                                    </li>
+                                    <li class="nav-item d-flex align-items-center">
+                                        <div class="dropdown">
+                                            <a class="text-reset dropdown-toggle d-flex align-items-center" href="#"
+                                               id="navbarDropdownMenuLink" role="button" data-mdb-toggle="dropdown"
+                                               aria-expanded="false">
+                                                <img src="~/img/volunteer1.png" class="rounded-circle me-3" height="22" alt=""
+                                                     loading="lazy" style="
                                     width: 30px;
                                     height: 30px;
                                     " />
-                                 Jenil Savani
-                                 </a>
-                                 <ul class="dropdown-menu dropdown-menu-start"
-                                    aria-labelledby="navbarDropdownMenuLink">
-                                    <li><a class="dropdown-item">DropDown</a></li>
-                                    <li><a class="dropdown-item">DropDown</a></li>
-                                    <li><a class="dropdown-item">DropDown</a></li>
-                                 </ul>
-                              </div>
-                           </li>
-                        </ul>
-                     </div>
-                  </div>
-               </div>
-            </nav>
-            <div class="container" id="selected-option-title" style="position: relative;">
-               User
-               <hr />
+                                                Jenil Savani
+                                            </a>
+                                            <ul class="dropdown-menu dropdown-menu-start"
+                                                aria-labelledby="navbarDropdownMenuLink">
+                                                <li><a class="dropdown-item">DropDown</a></li>
+                                                <li><a class="dropdown-item">DropDown</a></li>
+                                                <li><a class="dropdown-item">DropDown</a></li>
+                                            </ul>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </nav>
+                <div class="container" id="selected-option-title" style="position: relative;">
+                    User
+                    <hr />
+                </div>
+                <div class="container admin-data-table" id="admin-data-table">
+                </div>
+                @*
+                    <table class="table container table-striped table-hover" id='example'></table>
+                *@
             </div>
-            <div class="container admin-data-table" id="admin-data-table">
+        </div>
+    </div>
+</div>
+
+
+
+@*user crud modal*@
+<div class="modal fade" id="User-Modal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-xl">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
-            @*
-            <table class="table container table-striped table-hover" id='example'></table>
-            *@
-         </div>
-      </div>
-   </div>
+            <div class="modal-body row">
+                <div class="form-group col-md-6 mt-3">
+                    <label for="exampleInputEmail1">First Name</label>
+                    <input type="text" class="form-control" id="user-crud-first-name" placeholder="Enter First Name">
+                </div>
+                <div class="form-group col-md-6 mt-3">
+                    <label for="exampleInputEmail1">Last Name</label>
+                    <input type="text" class="form-control" id="user-crud-last-name" placeholder="Enter Last Name">
+                </div>
+                <div class="form-group col-md-6 mt-3">
+                    <label for="exampleInputEmail1">Email address</label>
+                    <input type="email" class="form-control" id="user-crud-email" aria-describedby="emailHelp" placeholder="Enter email" value="" autocomplete="off">
+                </div>
+                <div class="form-group col-md-6 mt-3">
+                    <label for="exampleInputEmail1">Password</label>
+                    <input type="password" class="form-control" id="user-crud-password" placeholder="Enter password" value="" autocomplete="off">
+                </div>
+                <div class="form-group col-md-6 mt-3">
+                    <label for="exampleInputEmail1">Avatar</label>
+                    <input type="file" accept="image/jpeg, image/png, image/jpg" class="form-control file" id="user-crud-avatar" placeholder="Upload Image Here...">
+                </div>
+                <div class="form-group col-md-6 mt-3">
+                    <label for="exampleInputEmail1">Employee Id</label>
+                    <input type="number" class="form-control" id="user-crud-employee-id" placeholder="Enter employee id">
+                </div>
+                <div class="form-group col-md-6 mt-3">
+                    <label for="exampleInputEmail1">Department</label>
+                    <input type="text" class="form-control" id="user-crud-department" placeholder="Enter department">
+                </div>
+                <div class="form-group col-md-6 mt-3">
+                    <label for="exampleInputEmail1">Mobile Number</label>
+                    <input type="tel" class="form-control" id="user-crud-mobile-number" placeholder="Enter phone number">
+                </div>
+                <div class="col-lg-6 col-md-10 d-flex flex-column mt-3">
+                    <label for="exampleFormControlTextarea1">Country</label>
+
+                    <select class="form-control form-select mt-2" aria-label="Default select example" id="user-crud-country-dropdown">
+                        <option class="country-option" value="0" selected>Please Select Country</option>
+
+
+                    </select>
+                </div>
+                <div class="col-lg-6 col-md-10 d-flex flex-column mt-3">
+                    <label for="exampleFormControlTextarea1">City</label>
+
+                    <select class="form-control form-select mt-2" aria-label="Default select example" id="user-crud-city-dropdown" disabled>
+                        <option value="0" selected>Please Select Country First</option>
+                    </select>
+                </div>
+                <div class="form-group col-md-6 mt-3">
+                    <label for="exampleInputEmail1">Profile Text</label>
+                    <textarea class="form-control" id="user-crud-profile-text" rows="2"></textarea>
+                </div>
+                <div class="col-lg-6 col-md-10 d-flex flex-column mt-3">
+                    <label for="exampleFormControlTextarea1">Status</label>
+
+                    <select class="form-control form-select mt-2" aria-label="Default select example" id="user-crud-status-dropdown">
+                        <option selected>Active</option>
+                        <option>In-Active</option>
+                        @*<input hidden type="text" id="user-crud-edit-id" value="" />*@
+                    </select>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary user-crud-close-btn" data-bs-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary user-crud-save-btn" data-bs-dismiss="modal" id="user-crud-save-btn">Save changes</button>
+            </div>
+        </div>
+    </div>
 </div>
 <script>
-    
-   var currentdate = new Date();
-   var datetime = "Last Sync: " + currentdate.getDate() + "/"
-                   + (currentdate.getMonth()+1)  + "/"
-                   + currentdate.getFullYear() +  " "
-                   + currentdate.getHours() + ":"
-                   + currentdate.getMinutes()
-   
-   $('#dashboard-time').html(datetime)
-   
-   
-   
-   // datatable
-   var tableDiv = document.querySelector("#admin-data-table");
-   var missionTable = `
-   <table class="table container table-striped table-hover" id='mission-table'>
-       <thead>
-           <tr>
-               <th>First Name</th>
-               <th>Last Name</th>
-               <th>Email</th>
-               <th>Employee Id</th>
-               <th>Department</th>
-               <th>Status</th>
-               <th>Action</th>
-           </tr>
-       </thead>
-       <tbody id="table-data-user">
-       </tbody>
-   
-   </table>`;
-   
-   tableDiv.innerHTML = missionTable;
 
-   // fill data in user table
-   $.ajax({
-        type: "GET",
-        url: `/api/admin/user`,
-        success: function (response) {
-            
-            console.log(response)
-             $(function () {
-               $.each(response.users, function (i, item) {
-                   if (response.users.length > 0) {
-                       if ($(".dataTables_empty").hasClass("dataTables_empty")) {
-                            $(".dataTables_empty").hide();
-                       }
-                   }
-   
-                   $("#table-data-user").append(`
-                       <tr id='${item.userId}'>
-                           <td id="firstname">${item.firstName}</td>
-                           <td id="lastname">${item.lastName}</td>
-                           <td id="email">${item.email}</td>
-                           <td id="employeeid">${item.employeeId}</td>
-                           <td id="department">${item.department}</td>
-                           <td id="status">${item.status==1?"Active":"Not Active"}</td>
-                           <td id="action">
-                               <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-pencil-square" viewBox="0 0 16 16">
-                               <path d="M15.502 1.94a.5.5 0 0 1 0 .706L14.459 3.69l-2-2L13.502.646a.5.5 0 0 1 .707 0l1.293 1.293zm-1.75 2.456-2-2L4.939 9.21a.5.5 0 0 0-.121.196l-.805 2.414a.25.25 0 0 0 .316.316l2.414-.805a.5.5 0 0 0 .196-.12l6.813-6.814z" />
-                               <path fill-rule="evenodd" d="M1 13.5A1.5 1.5 0 0 0 2.5 15h11a1.5 1.5 0 0 0 1.5-1.5v-6a.5.5 0 0 0-1 0v6a.5.5 0 0 1-.5.5h-11a.5.5 0 0 1-.5-.5v-11a.5.5 0 0 1 .5-.5H9a.5.5 0 0 0 0-1H2.5A1.5 1.5 0 0 0 1 2.5v11z" />
-                               </svg> | <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-trash3-fill" viewBox="0 0 16 16">
-                               <path d="M11 1.5v1h3.5a.5.5 0 0 1 0 1h-.538l-.853 10.66A2 2 0 0 1 11.115 16h-6.23a2 2 0 0 1-1.994-1.84L2.038 3.5H1.5a.5.5 0 0 1 0-1H5v-1A1.5 1.5 0 0 1 6.5 0h3A1.5 1.5 0 0 1 11 1.5Zm-5 0v1h4v-1a.5.5 0 0 0-.5-.5h-3a.5.5 0 0 0-.5.5ZM4.5 5.029l.5 8.5a.5.5 0 1 0 .998-.06l-.5-8.5a.5.5 0 1 0-.998.06Zm6.53-.528a.5.5 0 0 0-.528.47l-.5 8.5a.5.5 0 0 0 .998.058l.5-8.5a.5.5 0 0 0-.47-.528ZM8 4.5a.5.5 0 0 0-.5.5v8.5a.5.5 0 0 0 1 0V5a.5.5 0 0 0-.5-.5Z" />
-                               </svg>
-                           </td>
-                       </tr>`
-                   );
-               });
-               
-               $("#mission-table").DataTable();
+    var currentdate = new Date();
+    var datetime = "Last Sync: " + currentdate.getDate() + "/"
+                    + (currentdate.getMonth()+1)  + "/"
+                    + currentdate.getFullYear() +  " "
+                    + currentdate.getHours() + ":"
+                    + currentdate.getMinutes()
 
-           });
+    $('#dashboard-time').html(datetime)
 
-           
-            
-        },
-        failure: function (response) {
-            alert(response.responseText);
-        },
-        error: function (response) {
-            alert(response.responseText);
-        }
-   });
-   
-  
+
+
+    // datatable
+    var tableDiv = document.querySelector("#admin-data-table");
+    var missionTable = `
+    <table class="table container table-striped table-hover" id='mission-table'>
+        <thead>
+            <tr>
+                <th>First Name</th>
+                <th>Last Name</th>
+                <th>Email</th>
+                <th>Employee Id</th>
+                <th>Department</th>
+                <th>Status</th>
+                <th>Action</th>
+            </tr>
+        </thead>
+        <tbody id="table-data-user">
+        </tbody>
+
+    </table>`;
+
+    tableDiv.innerHTML = missionTable;
+
+    // fill data in user table
+    $.ajax({
+         type: "GET",
+         url: `/api/admin/user`,
+         success: function (response) {
+              $(function () {
+                $.each(response.users, function (i, item) {
+                    if (response.users.length > 0) {
+                        if ($(".dataTables_empty").hasClass("dataTables_empty")) {
+                             $(".dataTables_empty").hide();
+                        }
+                    }
+
+                    $("#table-data-user").append(`
+                        <tr id='${item.userId}'>
+                            <td id="firstname">${item.firstName}</td>
+                            <td id="lastname">${item.lastName}</td>
+                            <td id="email">${item.email}</td>
+                            <td id="employeeid">${item.employeeId}</td>
+                            <td id="department">${item.department}</td>
+                            <td id="status">${item.status==1?"Active":"Not Active"}</td>
+                            <td id="action">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-pencil-square" viewBox="0 0 16 16">
+                                <path d="M15.502 1.94a.5.5 0 0 1 0 .706L14.459 3.69l-2-2L13.502.646a.5.5 0 0 1 .707 0l1.293 1.293zm-1.75 2.456-2-2L4.939 9.21a.5.5 0 0 0-.121.196l-.805 2.414a.25.25 0 0 0 .316.316l2.414-.805a.5.5 0 0 0 .196-.12l6.813-6.814z" />
+                                <path fill-rule="evenodd" d="M1 13.5A1.5 1.5 0 0 0 2.5 15h11a1.5 1.5 0 0 0 1.5-1.5v-6a.5.5 0 0 0-1 0v6a.5.5 0 0 1-.5.5h-11a.5.5 0 0 1-.5-.5v-11a.5.5 0 0 1 .5-.5H9a.5.5 0 0 0 0-1H2.5A1.5 1.5 0 0 0 1 2.5v11z" />
+                                </svg> | <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-trash3-fill" viewBox="0 0 16 16">
+                                <path d="M11 1.5v1h3.5a.5.5 0 0 1 0 1h-.538l-.853 10.66A2 2 0 0 1 11.115 16h-6.23a2 2 0 0 1-1.994-1.84L2.038 3.5H1.5a.5.5 0 0 1 0-1H5v-1A1.5 1.5 0 0 1 6.5 0h3A1.5 1.5 0 0 1 11 1.5Zm-5 0v1h4v-1a.5.5 0 0 0-.5-.5h-3a.5.5 0 0 0-.5.5ZM4.5 5.029l.5 8.5a.5.5 0 1 0 .998-.06l-.5-8.5a.5.5 0 1 0-.998.06Zm6.53-.528a.5.5 0 0 0-.528.47l-.5 8.5a.5.5 0 0 0 .998.058l.5-8.5a.5.5 0 0 0-.47-.528ZM8 4.5a.5.5 0 0 0-.5.5v8.5a.5.5 0 0 0 1 0V5a.5.5 0 0 0-.5-.5Z" />
+                                </svg>
+                            </td>
+                        </tr>`
+                     );
+                  });
+
+                $("#mission-table").DataTable();
+
+            });
+
+
+
+         },
+         failure: function (response) {
+             alert(response.responseText);
+         },
+         error: function (response) {
+             alert(response.responseText);
+         }
+    });
+
+
 
 
 </script>

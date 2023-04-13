@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "gzIGQRrdERkH6mtIbH6YVZI2s/ohqrRcqOC6xDz0Z1Y=",
+  "Hash": "rREIHbYfVEpXnXHFGvqdyTE1QdLQNYnrwffcu26dwhg=",
   "Source": "CIWeb",
   "BasePath": "_content/CIWeb",
   "Mode": "Default",
@@ -595,6 +595,23 @@
       "OriginalItemSpec": "wwwroot\\img\\checked.png"
     },
     {
+      "Identity": "C:\\Users\\pci114\\Downloads\\CIPlateform\\MVC\\CI\\CIWeb\\wwwroot\\img\\clock-default.svg",
+      "SourceId": "CIWeb",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\pci114\\Downloads\\CIPlateform\\MVC\\CI\\CIWeb\\wwwroot\\",
+      "BasePath": "_content/CIWeb",
+      "RelativePath": "img/clock-default.svg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\img\\clock-default.svg"
+    },
+    {
       "Identity": "C:\\Users\\pci114\\Downloads\\CIPlateform\\MVC\\CI\\CIWeb\\wwwroot\\img\\cross.png",
       "SourceId": "CIWeb",
       "SourceType": "Discovered",
@@ -729,6 +746,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\img\\CSR-initiative-stands-for-Coffee--and-Farmer-Equity-6.png"
+    },
+    {
+      "Identity": "C:\\Users\\pci114\\Downloads\\CIPlateform\\MVC\\CI\\CIWeb\\wwwroot\\img\\dashboard-active.svg",
+      "SourceId": "CIWeb",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\pci114\\Downloads\\CIPlateform\\MVC\\CI\\CIWeb\\wwwroot\\",
+      "BasePath": "_content/CIWeb",
+      "RelativePath": "img/dashboard-active.svg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\img\\dashboard-active.svg"
     },
     {
       "Identity": "C:\\Users\\pci114\\Downloads\\CIPlateform\\MVC\\CI\\CIWeb\\wwwroot\\img\\deadline.png",
@@ -950,6 +984,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\img\\graph.png"
+    },
+    {
+      "Identity": "C:\\Users\\pci114\\Downloads\\CIPlateform\\MVC\\CI\\CIWeb\\wwwroot\\img\\graph-default.svg",
+      "SourceId": "CIWeb",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\pci114\\Downloads\\CIPlateform\\MVC\\CI\\CIWeb\\wwwroot\\",
+      "BasePath": "_content/CIWeb",
+      "RelativePath": "img/graph-default.svg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\img\\graph-default.svg"
     },
     {
       "Identity": "C:\\Users\\pci114\\Downloads\\CIPlateform\\MVC\\CI\\CIWeb\\wwwroot\\img\\grid.png",
@@ -1326,6 +1377,23 @@
       "OriginalItemSpec": "wwwroot\\img\\img33.png"
     },
     {
+      "Identity": "C:\\Users\\pci114\\Downloads\\CIPlateform\\MVC\\CI\\CIWeb\\wwwroot\\img\\inbox-default.svg",
+      "SourceId": "CIWeb",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\pci114\\Downloads\\CIPlateform\\MVC\\CI\\CIWeb\\wwwroot\\",
+      "BasePath": "_content/CIWeb",
+      "RelativePath": "img/inbox-default.svg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\img\\inbox-default.svg"
+    },
+    {
       "Identity": "C:\\Users\\pci114\\Downloads\\CIPlateform\\MVC\\CI\\CIWeb\\wwwroot\\img\\info.png",
       "SourceId": "CIWeb",
       "SourceType": "Discovered",
@@ -1426,6 +1494,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\img\\logo.png"
+    },
+    {
+      "Identity": "C:\\Users\\pci114\\Downloads\\CIPlateform\\MVC\\CI\\CIWeb\\wwwroot\\img\\maintenance-default.svg",
+      "SourceId": "CIWeb",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\pci114\\Downloads\\CIPlateform\\MVC\\CI\\CIWeb\\wwwroot\\",
+      "BasePath": "_content/CIWeb",
+      "RelativePath": "img/maintenance-default.svg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\img\\maintenance-default.svg"
     },
     {
       "Identity": "C:\\Users\\pci114\\Downloads\\CIPlateform\\MVC\\CI\\CIWeb\\wwwroot\\img\\menu-bar.svg",
@@ -1819,6 +1904,23 @@
       "OriginalItemSpec": "wwwroot\\img\\selected-star.png"
     },
     {
+      "Identity": "C:\\Users\\pci114\\Downloads\\CIPlateform\\MVC\\CI\\CIWeb\\wwwroot\\img\\setting-default.svg",
+      "SourceId": "CIWeb",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\pci114\\Downloads\\CIPlateform\\MVC\\CI\\CIWeb\\wwwroot\\",
+      "BasePath": "_content/CIWeb",
+      "RelativePath": "img/setting-default.svg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\img\\setting-default.svg"
+    },
+    {
       "Identity": "C:\\Users\\pci114\\Downloads\\CIPlateform\\MVC\\CI\\CIWeb\\wwwroot\\img\\settings.png",
       "SourceId": "CIWeb",
       "SourceType": "Discovered",
@@ -1953,6 +2055,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\img\\user1.png"
+    },
+    {
+      "Identity": "C:\\Users\\pci114\\Downloads\\CIPlateform\\MVC\\CI\\CIWeb\\wwwroot\\img\\user-default.svg",
+      "SourceId": "CIWeb",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\pci114\\Downloads\\CIPlateform\\MVC\\CI\\CIWeb\\wwwroot\\",
+      "BasePath": "_content/CIWeb",
+      "RelativePath": "img/user-default.svg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\img\\user-default.svg"
     },
     {
       "Identity": "C:\\Users\\pci114\\Downloads\\CIPlateform\\MVC\\CI\\CIWeb\\wwwroot\\img\\user-img.png",

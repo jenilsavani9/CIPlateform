@@ -1,0 +1,880 @@
+﻿@{
+    Layout = "_Empty";
+    ViewData["Title"] = "Stories";
+}
+
+
+<div>
+    <div class="container-fluid well" id="home" style="display:block;">
+        <div class="row">
+            <div class="col-lg-2 dashboard-sidebar-toggle" style="height: 100vh;">
+                <div class="sidebar" id="sidebar-divs">
+                    <div class="mb-3">Navigation</div>
+                    <div class="sidebar-detail dashbord-sidebar-detail dashboard-active-tab d-flex" id="User" onclick="makeDivActive('User')">
+                        <img src="~/img/dashboard-active.svg" alt="" class="dashboard-active sidebarimg">
+                        <div class="title-name">User</div>
+                    </div>
+                    <div class="sidebar-detail d-flex" id="CMS-Page" onclick="makeDivActive('CMS-Page')">
+                        <img src="~/img/graph-default.svg" alt="" class="graph-default sidebarimg ">
+                        <div class="title-name">CMS Page</div>
+                    </div>
+                    <div class="sidebar-detail d-flex" id="Mission" onclick="makeDivActive('Mission')">
+                        <img src="~/img/inbox-default.svg" alt="" class="inbox-default sidebarimg ">
+                        <div class="title-name">Mission</div>
+                    </div>
+                    <div class="sidebar-detail d-flex" id="Mission-Theme" onclick="makeDivActive('Mission-Theme')">
+                        <img src="~/img/clock-default.svg" alt="" class="clock-default sidebarimg ">
+                        <div class="title-name">Mission Theme</div>
+                    </div>
+                    <div class="sidebar-detail d-flex" id="Mission-SKills" onclick="makeDivActive('Mission-SKills')">
+                        <img src="~/img/user-default.svg" alt="" class="user-default sidebarimg ">
+                        <div class="title-name">Mission SKills</div>
+                    </div>
+                    <div class="sidebar-detail d-flex" id="Mission-Applications" onclick="makeDivActive('Mission-Applications')">
+                        <img src="~/img/maintenance-default.svg" alt="" class="maintenance-default sidebarimg ">
+                        <div class="title-name">Mission Applications</div>
+                    </div>
+                    <div class="sidebar-detail d-flex" id="Story" onclick="makeDivActive('Story')">
+                        <img src="~/img/setting-default.svg" alt="" class="setting-default sidebarimg ">
+                        <div class="title-name">Story</div>
+                    </div>
+                    <div class="sidebar-detail d-flex" id="Banner-Management" onclick="makeDivActive('Banner-Management')">
+                        <img src="~/img/setting-default.svg" alt="" class="setting-default sidebarimg ">
+                        <div class="title-name">Banner Management</div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-10 col-12 maindashboard">
+                <nav class="navbar navbar-expand-lg admin-user-profile-section shadow-none" style="background-color: #ffffff;">
+                    <div class="container-fluid">
+                        <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas"
+                                data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar">
+                            <span><img src="~/img/menu-bar.svg" alt="logo"></span>
+                        </button>
+                        <div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvasNavbar"
+                             aria-labelledby="offcanvasNavbarLabel">
+                            <div class="offcanvas-header">
+                                <div class="offcanvas-title" id="offcanvasNavbarLabel">Navigation</div>
+                                <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+                            </div>
+                            <div class="offcanvas-body" style="justify-content: end;">
+                                <ul class="navbar-nav justify-content-end dashboard-nav-sidebar-toggle">
+                                    <li class="nav-item d-flex align-items-center">
+                                        <div class="sidebar-detail dashbord-sidebar-detail-mobile dashboard-active-tab d-flex" id="div1m" onclick="makeDivActive('div1m')">
+                                            <img src="~/img/dashboard-active.svg" alt="" class="dashboard-active sidebarimg">
+                                            <div class="title-name">User</div>
+                                        </div>
+                                    </li>
+                                    <li class="nav-item d-flex align-items-center">
+                                        <div class="sidebar-detail d-flex" id="div2m" onclick="makeDivActiveMobile('div2m')">
+                                            <img src="~/img/graph-default.svg" alt="" class="graph-default sidebarimg ">
+                                            <div class="title-name">CMS Page</div>
+                                        </div>
+                                    </li>
+                                    <li class="nav-item d-flex align-items-center">
+                                        <div class="sidebar-detail d-flex" id="div3m" onclick="makeDivActiveMobile('div3m')">
+                                            <img src="~/img/inbox-default.svg" alt="" class="inbox-default sidebarimg ">
+                                            <div class="title-name">Mission</div>
+                                        </div>
+                                    </li>
+                                    <li class="nav-item d-flex align-items-center">
+                                        <div class="sidebar-detail d-flex" id="div4m" onclick="makeDivActiveMobile('div4m')">
+                                            <img src="~/img/clock-default.svg" alt="" class="clock-default sidebarimg ">
+                                            <div class="title-name">Mission Theme</div>
+                                        </div>
+                                    </li>
+                                    <li class="nav-item d-flex align-items-center">
+                                        <div class="sidebar-detail d-flex" id="div5m" onclick="makeDivActiveMobile('div5m')">
+                                            <img src="~/img/user-default.svg" alt="" class="user-default sidebarimg ">
+                                            <div class="title-name">Mission SKills</div>
+                                        </div>
+                                    </li>
+                                    <li class="nav-item d-flex align-items-center">
+                                        <div class="sidebar-detail d-flex" id="div6m" onclick="makeDivActiveMobile('div6m')">
+                                            <img src="~/img/maintenance-default.svg" alt="" class="maintenance-default sidebarimg ">
+                                            <div class="title-name">Mission Applications</div>
+                                        </div>
+                                    </li>
+                                    <li class="nav-item d-flex align-items-center">
+                                        <div class="sidebar-detail d-flex" id="div7m" onclick="makeDivActiveMobile('div7m')">
+                                            <img src="~/img/setting-default.svg" alt="" class="setting-default sidebarimg ">
+                                            <div class="title-name">Story</div>
+                                        </div>
+                                    </li>
+                                    <li class="nav-item d-flex align-items-center">
+                                        <div class="sidebar-detail d-flex" id="div8m" onclick="makeDivActiveMobile('div8m')">
+                                            <img src="~/img/setting-default.svg" alt="" class="setting-default sidebarimg ">
+                                            <div class="title-name">Banner Management</div>
+                                        </div>
+                                    </li>
+                                </ul>
+                                <ul class="navbar-nav justify-content-between" style="width:100%">
+                                    <li id="dashboard-time">
+                                    </li>
+                                    <li class="nav-item d-flex align-items-center">
+                                        <div class="dropdown">
+                                            <a class="text-reset dropdown-toggle d-flex align-items-center" href="#"
+                                               id="navbarDropdownMenuLink" role="button" data-mdb-toggle="dropdown"
+                                               aria-expanded="false">
+                                                <img src="~/img/volunteer1.png" class="rounded-circle me-3" height="22" alt=""
+                                                     loading="lazy" style="
+                                    width: 30px;
+                                    height: 30px;
+                                    " />
+                                                Jenil Savani
+                                            </a>
+                                            <ul class="dropdown-menu dropdown-menu-start"
+                                                aria-labelledby="navbarDropdownMenuLink">
+                                                <li><a class="dropdown-item">DropDown</a></li>
+                                                <li><a class="dropdown-item">DropDown</a></li>
+                                                <li><a class="dropdown-item">DropDown</a></li>
+                                            </ul>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </nav>
+
+
+                <div class="container" id="selected-option-title" style="position: relative;">
+                    User
+                    <hr />
+                </div>
+                <div class="container admin-data-table" id="admin-data-table">
+                </div>
+                @*
+                    <table class="table container table-striped table-hover" id='example'></table>
+                *@
+            </div>
+        </div>
+    </div>
+</div>
+
+@*
+    all the modals for crud
+*@
+
+
+@*
+    User Crud Modal
+*@
+
+<div class="modal fade" id="User-Modal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-xl">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">User</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body row">
+                <div class="form-group col-md-6 mt-3">
+                    <label for="exampleInputEmail1">First Name</label>
+                    <input type="text" class="form-control" id="user-crud-first-name" placeholder="Enter First Name">
+                </div>
+                <div class="form-group col-md-6 mt-3">
+                    <label for="exampleInputEmail1">Last Name</label>
+                    <input type="text" class="form-control" id="user-crud-last-name" placeholder="Enter Last Name">
+                </div>
+                <div class="form-group col-md-6 mt-3">
+                    <label for="exampleInputEmail1">Email address</label>
+                    <input type="email" class="form-control" id="user-crud-email" aria-describedby="emailHelp" placeholder="Enter email" value="" autocomplete="off">
+                </div>
+                <div class="form-group col-md-6 mt-3">
+                    <label for="exampleInputEmail1">Password</label>
+                    <input type="password" class="form-control" id="user-crud-password" placeholder="Enter password" value="" autocomplete="off">
+                </div>
+                <div class="form-group col-md-6 mt-3">
+                    <label for="exampleInputEmail1">Avatar</label>
+                    <input type="file" accept="image/jpeg, image/png, image/jpg" class="form-control file" id="user-crud-avatar" placeholder="Upload Image Here...">
+                </div>
+                <div class="form-group col-md-6 mt-3">
+                    <label for="exampleInputEmail1">Employee Id</label>
+                    <input type="number" class="form-control" id="user-crud-employee-id" placeholder="Enter employee id">
+                </div>
+                <div class="form-group col-md-6 mt-3">
+                    <label for="exampleInputEmail1">Department</label>
+                    <input type="text" class="form-control" id="user-crud-department" placeholder="Enter department">
+                </div>
+                <div class="form-group col-md-6 mt-3">
+                    <label for="exampleInputEmail1">Mobile Number</label>
+                    <input type="tel" class="form-control" id="user-crud-mobile-number" placeholder="Enter phone number">
+                </div>
+                <div class="col-lg-6 col-md-10 d-flex flex-column mt-3">
+                    <label for="exampleFormControlTextarea1">Country</label>
+
+                    <select class="form-control form-select mt-2" aria-label="Default select example" id="user-crud-country-dropdown" onchange="loadCityForCountry(this.value)">
+                        <option class="country-option" value="0" selected>Please Select Country</option>
+
+
+                    </select>
+                </div>
+                <div class="col-lg-6 col-md-10 d-flex flex-column mt-3">
+                    <label for="exampleFormControlTextarea1">City</label>
+
+                    <select class="form-control form-select mt-2" aria-label="Default select example" id="user-crud-city-dropdown">
+                        <option value="0" selected>Please Select Country First</option>
+                    </select>
+                </div>
+                <div class="form-group col-md-6 mt-3">
+                    <label for="exampleInputEmail1">Profile Text</label>
+                    <textarea class="form-control" id="user-crud-profile-text" rows="2"></textarea>
+                </div>
+                <div class="col-lg-6 col-md-10 d-flex flex-column mt-3">
+                    <label for="exampleFormControlTextarea1">Status</label>
+
+                    <select class="form-control form-select mt-2" aria-label="Default select example" id="user-crud-status-dropdown">
+                        <option value="1" selected>Active</option>
+                        <option value="0">In-Active</option>
+                        <input hidden type="text" id="user-crud-edit-id" value="" />
+                    </select>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary user-crud-close-btn" data-bs-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary user-crud-save-btn" data-bs-dismiss="modal" id="user-crud-save-btn" onclick="AddUserModal()">Save changes</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+@*
+    CMS Page Crud Modal
+*@
+
+<div class="modal fade" id="CMS-Page-Modal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-xl">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Add New CMS Page</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+
+            <div class="modal-body">
+                <div class="form-group mt-3">
+                    <label for="exampleInputEmail1">Title</label>
+                    <input type="text" class="form-control" name="CMSTitle" id="cms-crud-title" placeholder="Enter Title">
+                </div>
+                <div class="form-group mt-3">
+                    <label for="exampleInputEmail1">Description</label>
+                    <textarea class="cmspageeditor" id="cmspageeditor" name="cmspageeditor"></textarea>
+                </div>
+                <div class="form-group mt-3">
+                    <label for="exampleInputEmail1">Slug</label>
+                    <input type="text" class="form-control" name="Slug" id="cms-crud-Slug" placeholder="Enter Slug">
+                </div>
+                <div class="form-group mt-3">
+                    <label for="exampleInputEmail1">Status</label>
+                    <select class="form-control form-select mt-2" name="Status" aria-label="Default select example" id="cms-crud-status">
+                        <option value="Pending" selected>Pending</option>
+                        <option value="Published">Published</option>
+                        <input hidden type="text" id="cms-page-edit-id" value="" />
+                    </select>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary cms-crud-close-btn" data-bs-dismiss="modal">Close</button>
+                <button type="submit" class="btn btn-primary cms-crud-save-btn" data-bs-dismiss="modal" id="cms-crud-save-btn">Save changes</button>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+
+@*
+    Mission Theme Crud Modal
+*@
+
+<div class="modal fade" id="Mission-Theme-Modal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Add New Mission Theme</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+
+            <div class="modal-body">
+                <div class="form-group mt-3">
+                    <label for="exampleInputEmail1">Title</label>
+                    <input type="text" class="form-control" name="MTTitle" id="mission-theme-crud-title" placeholder="Enter Title">
+                </div>
+                <div class="form-group mt-3">
+                    <label for="exampleInputEmail1">Status</label>
+                    <select class="form-control form-select mt-2" name="Status" aria-label="Default select example" id="mission-theme-crud-status">
+                        <option value="Pending" selected>Pending</option>
+                        <option value="Published">Published</option>
+                        <input hidden type="text" id="mission-theme-edit-id" value="" />
+                    </select>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary mission-theme-crud-close-btn" data-bs-dismiss="modal">Close</button>
+                <button type="submit" class="btn btn-primary mission-theme-crud-save-btn" data-bs-dismiss="modal" id="mission-theme-crud-save-btn">Save changes</button>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+@*
+    Mission Skill Crud Modal
+*@
+
+<div class="modal fade" id="Mission-SKills-Modal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Add New Skill</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+
+            <div class="modal-body">
+                <div class="form-group mt-3">
+                    <label for="exampleInputEmail1">Skill Name</label>
+                    <input type="text" class="form-control" id="mission-skill-crud-title" placeholder="Enter skill name">
+                </div>
+                <div class="form-group mt-3">
+                    <label for="exampleInputEmail1">Status</label>
+                    <select class="form-control form-select mt-2" aria-label="Default select example" id="mission-skill-crud-status">
+                        <option value="Pending" selected>Pending</option>
+                        <option value="Published">Published</option>
+                        <input hidden type="text" id="mission-skill-edit-id" value="" />
+                    </select>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary mission-skill-crud-close-btn" data-bs-dismiss="modal">Close</button>
+                <button type="submit" class="btn btn-primary mission-skill-crud-save-btn" data-bs-dismiss="modal" id="mission-skill-crud-save-btn">Save changes</button>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN"
+        crossorigin="anonymous"></script>
+<script>
+    CKEDITOR.replace('cmspageeditor');
+    $(document).ready(function() {
+        makeDivActive('User')
+    })
+
+    var currentdate = new Date();
+    var datetime = "Last Sync: " + currentdate.getDate() + "/"
+                    + (currentdate.getMonth()+1)  + "/"
+                    + currentdate.getFullYear() +  " "
+                    + currentdate.getHours() + ":"
+                    + currentdate.getMinutes()
+
+    $('#dashboard-time').html(datetime)
+
+    function makeDivActive(ID) {
+        var allDivs = document.querySelector(".dashbord-sidebar-detail");
+        allDivs.classList.remove("dashbord-sidebar-detail");
+
+        var newActiveDiv = document.querySelector("#" + ID);
+        newActiveDiv.classList.add("dashbord-sidebar-detail");
+
+        var title = document.querySelector("#selected-option-title");
+
+        var newTitle = document.getElementById(ID).querySelector(".title-name");
+        const hr = document.createElement("hr");
+
+        var addBtn = `<button type="button" id="user-add-btn" class="btn btn-outline-warning" data-bs-toggle="modal" data-bs-target="#${ID}-Modal" style="right: 32px;position: absolute;">Add +</button>`;
+
+        title.innerHTML = newTitle.innerHTML;
+        title.innerHTML += addBtn;
+        title.appendChild(hr);
+
+        $.ajax({
+            url: "/api/admin",
+            type: "GET",
+            //data: {
+            //    DataId: ID
+            //},
+            success: function(result) {
+                var myJsonString = JSON.stringify(result);
+
+                // mission datatable
+
+                if (ID == "Mission") {
+                    var tableDiv = document.querySelector("#admin-data-table");
+                    var missionTable = `
+                <table class="table container table-striped table-hover" id='mission-table'>
+                    <thead>
+
+                        <tr>
+                            <th>Title</th>
+                            <th>Mission Type</th>
+                            <th>Start Date</th>
+                            <th>End Date</th>
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+                    <tbody id="table-data-mission">
+                    </tbody>
+
+                </table>`;
+
+                    tableDiv.innerHTML = missionTable;
+
+                    $(function() {
+                        $.each(result.missions, function(i, item) {
+                            if (result.missions.length > 0) {
+                                if ($(".dataTables_empty").hasClass("dataTables_empty")) {
+                                    $(".dataTables_empty").hide();
+                                }
+                            }
+
+                            $("#table-data-mission").append(`
+                <tr id='${item.missionId}'>
+                    <td id="title">${item.title}</td>
+                    <td id="type">${item.missionType}
+                    </td>
+                    <td id="sDate">${item.startDate.split("T")[0]}</td>
+                    <td id="eDate">${item.endDate.split("T")[0]}</td>
+                    <td id="action"><i class="fas fa-edit"></i> | <i class="fa fa-trash" style="color:red"></i></td>
+                </tr>`);
+                        });
+
+                        $("#mission-table").DataTable();
+                    });
+                }
+
+                // User datatable
+                else if (ID == "User") {
+                    var tableDiv = document.querySelector("#admin-data-table");
+                    var missionTable = `
+                <table class="table container table-striped table-hover" id='mission-table'>
+                    <thead>
+
+                        <tr>
+                            <th>FirstName</th>
+                            <th>LastName</th>
+                            <th>Email</th>
+                            <th>Employee Id</th>
+                            <th>Department</th>
+                            <th>Status</th>
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+                    <tbody id="table-data-mission" class="new-table">
+                    </tbody>
+
+                </table>`;
+
+                    tableDiv.innerHTML = missionTable;
+                    $(function() {
+                        $.each(result.users, function(i, item) {
+                            if (result.users.length > 0) {
+                                if ($(".dataTables_empty").hasClass("dataTables_empty")) {
+                                    $(".dataTables_empty").hide();
+                                }
+                            }
+
+                            $("#table-data-mission").append(`
+                <tr id='${item.userId}'>
+                    <td id="fName">${item.firstName}</td>
+                    <td id="lName">${item.lastName}</td>
+                    <td id="email">${item.email}</td>
+                    <td id="empId">${item.employeeId}</td>
+                    <td id="dept">${item.department}</td>
+                    <td class="userStatus">${item.status==1?"Active":"In-Active"}</td>
+                    <td id="action"><i class="fas fa-edit" data-bs-toggle="modal" data-bs-target="#${ID}-Modal" onclick="editUserCrud('${item.userId}')"></i> | <i class="fa fa-trash" style="color:red"></i></td>
+
+                </tr>`);
+                        });
+
+                        $("#mission-table").DataTable();
+                    });
+                }
+                 
+                //CMS Pages datatable
+                else if (ID == "CMS-Page") {
+                    console.log(result.cmsPages);
+                    var tableDiv = document.querySelector("#admin-data-table");
+                    var missionTable = `
+                <table class="table container table-striped table-hover" id='mission-table'>
+                    <thead>
+
+                        <tr>
+                            <th>Title</th>
+                            <th>Status</th>
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+                    <tbody id="table-data-mission">
+                    </tbody>
+
+                </table>`;
+
+                    tableDiv.innerHTML = missionTable;
+
+                    $(function() {
+                        $.each(result.cmsPages, function(i, item) {
+                            if (result.cmsPages.length > 0) {
+                                if ($(".dataTables_empty").hasClass("dataTables_empty")) {
+                                    $(".dataTables_empty").hide();
+                                }
+                            }
+
+                            $("#table-data-mission").append(`
+                <tr id='${item.cmsPageId}'>
+                    <td id="title">${item.title}</td>
+                    <td id="sDate">${item.status}</td>
+                    <td id="action"><i class="fas fa-edit" data-bs-toggle="modal" data-bs-target="#${ID}-Modal" onclick="editCMSPage(${item.cmsPageId})"></i> | <i class="fa fa-trash" style="color:red"></i></td>
+                </tr>`);
+                        });
+
+                        $("#mission-table").DataTable();
+                    });
+                }
+
+                //Mission Theme datatable
+                else if (ID == "Mission-Theme") {
+                    console.log(result.missionthemes);
+                    var tableDiv = document.querySelector("#admin-data-table");
+                    var missionTable = `
+                <table class="table container table-striped table-hover" id='mission-table'>
+                    <thead>
+
+                        <tr>
+                            <th>Title</th>
+                            <th>Status</th>
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+                    <tbody id="table-data-mission">
+                    </tbody>
+
+                </table>`;
+
+                    tableDiv.innerHTML = missionTable;
+
+                    $(function() {
+                        $.each(result.missionthemes, function(i, item) {
+                            if (result.missionthemes.length > 0) {
+                                if ($(".dataTables_empty").hasClass("dataTables_empty")) {
+                                    $(".dataTables_empty").hide();
+                                }
+                            }
+
+                            $("#table-data-mission").append(`
+                <tr id='${item.cmsPageId}'>
+                    <td id="title">${item.title}</td>
+                    <td id="sDate">${item.status}</td>
+                    <td id="action"><i class="fas fa-edit" data-bs-toggle="modal" data-bs-target="#${ID}-Modal" onclick="editMissionTheme(${item.missionThemeId})"></i> | <i class="fa fa-trash" style="color:red"></i></td>
+                </tr>`);
+                        });
+
+                        $("#mission-table").DataTable();
+                    });
+                }
+
+                //Mission Skills datatable
+                else if (ID == "Mission-SKills") {
+                    console.log(result.missionSkills);
+                    var tableDiv = document.querySelector("#admin-data-table");
+                    var missionTable = `
+                <table class="table container table-striped table-hover" id='mission-table'>
+                    <thead>
+
+                        <tr>
+                            <th>Title</th>
+                            <th>Status</th>
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+                    <tbody id="table-data-mission">
+                    </tbody>
+
+                </table>`;
+                console.log(result.missionSkills)
+                    tableDiv.innerHTML = missionTable;
+
+                    $(function() {
+                        $.each(result.missionSkills, function(i, item) {
+                            if (result.missionSkills.length > 0) {
+                                if ($(".dataTables_empty").hasClass("dataTables_empty")) {
+                                    $(".dataTables_empty").hide();
+                                }
+                            }
+
+                            $("#table-data-mission").append(`
+                <tr id='${item.cmsPageId}'>
+                    <td id="title">${item.skillName}</td>
+                    <td id="sDate">${item.status==1?"Active":"In-Active"}</td>
+                    <td id="action"><i class="fas fa-edit" data-bs-toggle="modal" data-bs-target="#${ID}-Modal" onclick="editMissionSkill(${item.skillId})"></i> | <i class="fa fa-trash" style="color:red"></i></td>
+                </tr>`);
+                        });
+
+                        $("#mission-table").DataTable();
+                    });
+                }
+
+                // mission application datatable
+                else if (ID == "Mission-Applications") {
+                    $("#user-add-btn").addClass('d-none');
+                    var tableDiv = document.querySelector("#admin-data-table");
+                    tableDiv.innerHTML = "";
+                    var missionTable = `
+                <table class="table container table-striped table-hover" id='mission-table'>
+                    <thead>
+
+                        <tr>
+                            <th>Mission Title</th>
+                            <th>Misison Id</th>
+                            <th>User Id</th>
+                            <th>User Name</th>
+                            <th>Applied At</th>
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+                    <tbody id="table-data-mission">
+                    </tbody>
+
+                </table>`;
+
+                    tableDiv.innerHTML = missionTable;
+
+                    $(function() {
+                        $.each(result.missionApplication, function(i, item) {
+                            if (result.missionApplication.length > 0) {
+                                if ($(".dataTables_empty").hasClass("dataTables_empty")) {
+                                    $(".dataTables_empty").hide();
+                                }
+                            }
+
+                            $("#table-data-mission").append(`
+                <tr id='${i}'>
+                    <td id="title">${item.title}</td>
+                    <td id="mId">${item.missionId}</td>
+                    <td id="uId">${item.userId}</td>
+                    <td id="name">${item.username}</td>
+                    <td id="aDate">${item.appliedAt.split("T")[0]}</td>
+                    <td id="action"><i class="fas fa-edit"></i> | <i class="fa fa-trash" style="color:red"></i></td>
+                </tr>`);
+                        });
+
+                        $("#mission-table").DataTable();
+                    });
+                }
+
+                // story datatable
+                else if (ID == "Story") {
+                    $("#user-add-btn").addClass('d-none');
+                    var tableDiv = document.querySelector("#admin-data-table");
+                    tableDiv.innerHTML = "";
+                    var missionTable = `
+                <table class="table container table-striped table-hover" id='mission-table'>
+                    <thead>
+
+                        <tr>
+                            <th>Story Title</th>
+                            <th>Full Name</th>
+                            <th>Mission Title</th>
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+                    <tbody id="table-data-mission">
+                    </tbody>
+
+                </table>`;
+
+                    tableDiv.innerHTML = missionTable;
+
+                    $(function() {
+                        $.each(result.missionStory, function(i, item) {
+                            if (result.missionStory.length > 0) {
+                                if ($(".dataTables_empty").hasClass("dataTables_empty")) {
+                                    $(".dataTables_empty").hide();
+                                }
+                            }
+
+                            $("#table-data-mission").append(`
+                <tr id='${item.storyId}'>
+                    <td id="stitle">${item.storyTitle}</td>
+                    <td id="uName">${item.username}</td>
+                    <td id="mTitle">${item.missionTitle}</td>
+                    <td id="action">
+                    <a type="button" class="btn btn-outline-warning" href="/story/${item.storyId}">View</a>
+                    | <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-check-circle" viewBox="0 0 16 16">
+                          <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>
+                          <path d="M10.97 4.97a.235.235 0 0 0-.02.022L7.477 9.417 5.384 7.323a.75.75 0 0 0-1.06 1.06L6.97 11.03a.75.75 0 0 0 1.079-.02l3.992-4.99a.75.75 0 0 0-1.071-1.05z"/>
+                        </svg>| <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-x-circle" viewBox="0 0 16 16">
+                          <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>
+                          <path d="M4.646 4.646a.5.5 0 0 1 .708 0L8 7.293l2.646-2.647a.5.5 0 0 1 .708.708L8.707 8l2.647 2.646a.5.5 0 0 1-.708.708L8 8.707l-2.646 2.647a.5.5 0 0 1-.708-.708L7.293 8 4.646 5.354a.5.5 0 0 1 0-.708z"/>
+                        </svg> | <i class="fa fa-trash" style="color:red"></i>
+
+                    </td>
+                </tr>`);
+                        });
+
+                        $("#mission-table").DataTable();
+                    });
+                }
+            },
+        });
+        
+
+    }
+
+    // user crud start 
+    function loadCountry(response) {
+
+                    var html = "";
+                    if(response.userCountry != null ) {
+                        html = "<option disabled>select your country</option>";
+                    } else {
+                        html = "<option selected disabled>select your country</option>";
+                    }
+
+                    response.country.map(item => {
+                        if(response.userCountry != null && item.countryId == response.userCountry ) {
+                            html += `<option value="${item.countryId}" selected>${item.name}</option>`
+                        } else {
+                            html += `<option value="${item.countryId}" >${item.name}</option>`
+                        }
+
+                    }).join(" ")
+                    return html;
+                }
+
+                //load countrys in drop-down
+                $.ajax({
+                    type: "GET",
+                    url: `/api/profile/country`,
+                    success: function (response) {
+
+                        var countryElements = document.getElementById("user-crud-country-dropdown");
+                        countryElements.innerHTML = loadCountry(response);
+
+                    },
+                    failure: function (response) {
+                        alert(response.responseText);
+                    },
+                    error: function (response) {
+                        alert(response.responseText);
+                    }
+                 });
+
+    // load country related city
+             function loadCity(response) {
+                 var html = "<option selected disabled>select your city</option>";
+                response.country.map(item => {
+                    html += `<option value="${item.cityId}" >${item.name}</option>`
+                }).join(" ")
+                return html;
+             }
+
+
+            function loadCityForCountry(countryId) {
+
+                $.ajax({
+                    type: "GET",
+                    url: `/api/profile/country/${countryId}`,
+                    success: function (response) {
+
+                        var city = document.getElementById("user-crud-city-dropdown");
+                        city.innerHTML = loadCity(response);
+
+                    },
+                    failure: function (response) {
+                        alert(response.responseText);
+                    },
+                    error: function (response) {
+                        alert(response.responseText);
+                    }
+                });
+            }
+
+
+    function AddUserModal() {
+
+        var firstname = $('#user-crud-first-name').val()
+        var lastname= $('#user-crud-last-name').val()
+        var email= $('#user-crud-email').val()
+        var password= $('#user-crud-password').val()
+        var avatar= $('#user-crud-avatar').val()
+        var empId= $('#user-crud-employee-id').val()
+        var department= $('#user-crud-department').val()
+        var mobileNo= $('#user-crud-mobile-number').val()
+        var country= $('#user-crud-country-dropdown').val()
+        var city= $('#user-crud-city-dropdown').val()
+        var pText= $('#user-crud-profile-text').val()
+        var status= $('#user-crud-status-dropdown').val()
+
+        $.ajax({
+                    type: "POST",
+                    url: `/api/admin/addUser`,
+                    data: {
+                        "firstName":firstname,
+                        "lastName":lastname,
+                        "phoneNumber":mobileNo,
+                        "avatar":avatar,
+                        "employeeId":empId,
+                        "department":department,
+                        "city":city,
+                        "country":country,
+                        "profileText":pText,
+                        "password":password,
+                        "email":email
+                    },
+                    success: function (response) {
+
+                        
+
+                    },
+                    failure: function (response) {
+                        alert(response.responseText);
+                    },
+                    error: function (response) {
+                        alert(response.responseText);
+                    }
+                });
+
+    }
+
+    // edit user
+    function editUserCrud(id) {
+
+    
+
+    }
+
+    // user crud end
+
+    function makeDivActiveMobile(ID) {
+        var allDivs = document.querySelector(".dashbord-sidebar-detail-mobile");
+        var removed = allDivs.classList.remove("dashbord-sidebar-detail-mobile");
+
+        var newActiveDiv = document.querySelector("#" + ID);
+        newActiveDiv.classList.add("dashbord-sidebar-detail-mobile");
+
+        var title = document.querySelector("#selected-option-title");
+
+        var newTitle = document.getElementById(ID).querySelector(".title-name");
+        const hr = document.createElement("hr");
+
+
+
+
+        title.innerHTML = newTitle.innerHTML;
+
+        title.appendChild(hr);
+    }
+
+   var elements = document.getElementsByClassName("dataTables_filter");
+   console.log(elements.length );
+
+</script>
+

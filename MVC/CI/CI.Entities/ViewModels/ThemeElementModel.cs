@@ -4,5 +4,6 @@
     {
         public long? themeId { get; set; }
         public string? title { get; set; }
+        public byte status { get; set; }
     }
 }

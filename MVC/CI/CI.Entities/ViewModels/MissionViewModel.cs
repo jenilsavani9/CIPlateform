@@ -19,5 +19,6 @@
         public int NoOfSeatsLeft { get; set; }
         public string Deadline { get; set; }
         public DateTime createdAt { get; set; }
+        public string Action { get; set; }
     }
 }
