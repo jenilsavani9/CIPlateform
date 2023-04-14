@@ -130,6 +130,12 @@ namespace CI.Repository.Repository
             return stories;
         }
 
+        public List<CmsPage> GetCMS()
+        {
+            var cms = _db.CmsPages.ToList();
+            return cms;
+        }
+
         public bool AddUsers(UserProfileModel user)
         {
             User tempUser = new User();
@@ -144,6 +150,109 @@ namespace CI.Repository.Repository
             tempUser.CityId = (long)Convert.ToDouble(user.city);
             tempUser.CountryId = (long)Convert.ToDouble(user.country);
             _db.Users.Add(tempUser);
+            _db.SaveChanges();
+            return true;
+        }
+
+        public bool EditUsers(UserProfileModel user)
+        {
+            var tempUser = _db.Users.Where(u => u.UserId == user.Id).FirstOrDefault();
+            tempUser.FirstName = user.firstName;
+            tempUser.LastName = user.lastName;
+            tempUser.PhoneNumber = user.phoneNumber;
+            tempUser.Email = user.email;
+            //if(tempUser.Avatar != null)
+            //{
+            //    tempUser.Avatar = user.avatar.ToString().Split('\\')[2];
+            //}
+            tempUser.EmployeeId = user.employeeId;
+            tempUser.Department = user.department;
+            tempUser.CityId = (long)Convert.ToDouble(user.city);
+            tempUser.CountryId = (long)Convert.ToDouble(user.country);
+            _db.SaveChanges();
+            return true;
+        }
+
+        public UserProfileModel GetUserProfile(long? id)
+        {
+            UserProfileModel user = new UserProfileModel();
+            var TempUserData = _db.Users.FirstOrDefault(x => x.UserId == id);
+            var tempCity = _db.Cities.Where(c => c.CityId == TempUserData.CityId).FirstOrDefault();
+            if (TempUserData != null)
+            {
+                user.Id = TempUserData.UserId;
+                user.firstName = TempUserData.FirstName;
+                user.lastName = TempUserData.LastName;
+                user.phoneNumber = TempUserData.PhoneNumber;
+                user.avatar = TempUserData.Avatar;
+                user.whyIVolunteer = TempUserData.WhyIVolunteer;
+                user.employeeId = TempUserData.EmployeeId;
+                user.department = TempUserData.Department;
+                user.manager = TempUserData.Manager;
+                user.profileText = TempUserData.ProfileText;
+                user.linkedInUrl = TempUserData.LinkedInUrl;
+                user.title = TempUserData.Title;
+                user.available = TempUserData.Available;
+                user.email = TempUserData.Email;
+                if (tempCity != null)
+                {
+                    user.city = tempCity.Name;
+                    user.cityId = tempCity.CityId;
+                }
+
+            }
+            return user;
+        }
+
+        public bool DeleteUserProfile(long? id)
+        {
+            var TempUserData = _db.Users.FirstOrDefault(x => x.UserId == id);
+            TempUserData.DeletedAt = DateTime.Now;
+            TempUserData.Status = "0";
+            _db.SaveChanges();
+            return true;
+        }
+
+        public bool AddCms(CMSModel obj)
+        {
+            CmsPage cms = new CmsPage();
+            cms.Title = obj.title;
+            cms.Description = obj.description;
+            cms.Slug = obj.slug;
+            cms.Status = obj.status;
+            _db.CmsPages.Add(cms);
+            _db.SaveChanges();
+            return true;
+        }
+
+        public CMSModel GetCMSWithId(long id)
+        {
+            var cms = _db.CmsPages.FirstOrDefault(cms => cms.CmsPageId == id);
+            CMSModel cmsModel = new CMSModel();
+            cmsModel.title = cms.Title;
+            cmsModel.description = cms.Description;
+            cmsModel.slug = cms.Slug;
+            cmsModel.status = cms.Status;
+            return cmsModel;
+        }
+
+        public bool EditCMS(CMSModel obj)
+        {
+            var cms = _db.CmsPages.FirstOrDefault(cms => cms.CmsPageId == obj.id);
+            cms.Title = obj?.title;
+            cms.Description = obj?.description;
+            cms.Slug = obj?.slug;
+            cms.Status = obj?.status;
+            cms.UpdatedAt = DateTime.Now;
+            _db.SaveChanges();
+            return true;
+        }
+
+        public bool DeleteCMS(long? id)
+        {
+            var cms = _db.CmsPages.FirstOrDefault(cms => cms.CmsPageId == id);
+            cms.Status = "Decline";
+            cms.DeletedAt = DateTime.Now;
             _db.SaveChanges();
             return true;
         }

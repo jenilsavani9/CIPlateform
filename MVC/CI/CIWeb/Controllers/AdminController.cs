@@ -39,7 +39,8 @@ namespace CIWeb.Controllers
             var missionSkills = _repository.GetMissionSkills();
             var missionApplication = _repository.GetMissionApplications();
             var missionStory = _repository.GetMissionStory();
-            return Json(new {users, missions, missionthemes, missionSkills, missionApplication, missionStory });
+            var cmsPages = _repository.GetCMS();
+            return Json(new {users, missions, missionthemes, missionSkills, missionApplication, missionStory, cmsPages });
         }
 
         [HttpPost("api/admin/addUser")]
@@ -47,6 +48,55 @@ namespace CIWeb.Controllers
         {
             var status = _repository.AddUsers(obj);
             return Json(new { });
+        }
+
+        [HttpPost("api/admin/editUser")]
+        public IActionResult EditUsers(UserProfileModel obj)
+        {
+            var status = _repository.EditUsers(obj);
+            return Json(new { });
+        }
+
+        [HttpGet("api/admin/getUserProfile")]
+        public IActionResult GetUserProfile(long id)
+        {
+            var result = _repository.GetUserProfile(id);
+            return Json(new { result });
+        }
+
+        [HttpPost("api/admin/deleteUserProfile")]
+        public IActionResult DeleteUserProfile(long id)
+        {
+            var result = _repository.DeleteUserProfile(id);
+            return Json(new { result });
+        }
+
+        [HttpPost("api/admin/addCMS")]
+        public IActionResult AddCms(CMSModel obj)
+        {
+            var result = _repository.AddCms(obj);
+            return Json(new { result });
+        }
+
+        [HttpGet("api/admin/getCMS")]
+        public IActionResult GetCMSWithId(long id)
+        {
+            var result = _repository.GetCMSWithId(id);
+            return Json(new { result });
+        }
+
+        [HttpPost("api/admin/editCMS")]
+        public IActionResult EditCMS(CMSModel obj)
+        {
+            var result = _repository.EditCMS(obj);
+            return Json(new { result });
+        }
+        
+        [HttpPost("api/admin/deleteCMS")]
+        public IActionResult DeleteCMS(long id)
+        {
+            var result = _repository.DeleteCMS(id);
+            return Json(new { result });
         }
     }
 }

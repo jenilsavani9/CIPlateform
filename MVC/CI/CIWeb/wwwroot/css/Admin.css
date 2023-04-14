@@ -134,3 +134,8 @@ span .paginate_button {
     .dataTable > tbody {
         background-color: rgb(255, 255, 255);
     }
+
+.form-validation-msg {
+    font-size: 12px;
+    color: red;
+}

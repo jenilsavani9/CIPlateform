@@ -172,18 +172,22 @@
                 <div class="form-group col-md-6 mt-3">
                     <label for="exampleInputEmail1">First Name</label>
                     <input type="text" class="form-control" id="user-crud-first-name" placeholder="Enter First Name">
+                    <span class="d-none mb-3 form-validation-msg" id="user-crud-first-name-error"></span>
                 </div>
                 <div class="form-group col-md-6 mt-3">
                     <label for="exampleInputEmail1">Last Name</label>
                     <input type="text" class="form-control" id="user-crud-last-name" placeholder="Enter Last Name">
+                    <span class="d-none mb-3 form-validation-msg" id="user-crud-last-name-error"></span>
                 </div>
                 <div class="form-group col-md-6 mt-3">
                     <label for="exampleInputEmail1">Email address</label>
                     <input type="email" class="form-control" id="user-crud-email" aria-describedby="emailHelp" placeholder="Enter email" value="" autocomplete="off">
+                    <span class="d-none mb-3 form-validation-msg" id="user-crud-email-error"></span>
                 </div>
                 <div class="form-group col-md-6 mt-3">
                     <label for="exampleInputEmail1">Password</label>
                     <input type="password" class="form-control" id="user-crud-password" placeholder="Enter password" value="" autocomplete="off">
+                    <span class="d-none mb-3 form-validation-msg" id="user-crud-password-error"></span>
                 </div>
                 <div class="form-group col-md-6 mt-3">
                     <label for="exampleInputEmail1">Avatar</label>
@@ -192,14 +196,17 @@
                 <div class="form-group col-md-6 mt-3">
                     <label for="exampleInputEmail1">Employee Id</label>
                     <input type="number" class="form-control" id="user-crud-employee-id" placeholder="Enter employee id">
+                    <span class="d-none mb-3 form-validation-msg" id="user-crud-employee-id-error"></span>
                 </div>
                 <div class="form-group col-md-6 mt-3">
                     <label for="exampleInputEmail1">Department</label>
                     <input type="text" class="form-control" id="user-crud-department" placeholder="Enter department">
+                    <span class="d-none mb-3 form-validation-msg" id="user-crud-department-error"></span>
                 </div>
                 <div class="form-group col-md-6 mt-3">
                     <label for="exampleInputEmail1">Mobile Number</label>
                     <input type="tel" class="form-control" id="user-crud-mobile-number" placeholder="Enter phone number">
+                    <span class="d-none mb-3 form-validation-msg" id="user-crud-mobile-number-error"></span>
                 </div>
                 <div class="col-lg-6 col-md-10 d-flex flex-column mt-3">
                     <label for="exampleFormControlTextarea1">Country</label>
@@ -209,6 +216,7 @@
 
 
                     </select>
+                    <span class="d-none mb-3 form-validation-msg" id="user-crud-country-dropdown-error"></span>
                 </div>
                 <div class="col-lg-6 col-md-10 d-flex flex-column mt-3">
                     <label for="exampleFormControlTextarea1">City</label>
@@ -216,10 +224,12 @@
                     <select class="form-control form-select mt-2" aria-label="Default select example" id="user-crud-city-dropdown">
                         <option value="0" selected>Please Select Country First</option>
                     </select>
+                    <span class="d-none mb-3 form-validation-msg" id="user-crud-city-dropdown-error"></span>
                 </div>
                 <div class="form-group col-md-6 mt-3">
                     <label for="exampleInputEmail1">Profile Text</label>
                     <textarea class="form-control" id="user-crud-profile-text" rows="2"></textarea>
+                    <span class="d-none mb-3 form-validation-msg" id="user-crud-profile-text-error"></span>
                 </div>
                 <div class="col-lg-6 col-md-10 d-flex flex-column mt-3">
                     <label for="exampleFormControlTextarea1">Status</label>
@@ -231,7 +241,7 @@
                     </select>
                 </div>
             </div>
-            <div class="modal-footer">
+            <div class="modal-footer" id="user-crud-modal-btn">
                 <button type="button" class="btn btn-secondary user-crud-close-btn" data-bs-dismiss="modal">Close</button>
                 <button type="button" class="btn btn-primary user-crud-save-btn" data-bs-dismiss="modal" id="user-crud-save-btn" onclick="AddUserModal()">Save changes</button>
             </div>
@@ -247,7 +257,7 @@
     <div class="modal-dialog modal-xl">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel">Add New CMS Page</h5>
+                <h5 class="modal-title" id="exampleModalLabel">CMS Page</h5>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
 
@@ -255,6 +265,7 @@
                 <div class="form-group mt-3">
                     <label for="exampleInputEmail1">Title</label>
                     <input type="text" class="form-control" name="CMSTitle" id="cms-crud-title" placeholder="Enter Title">
+                    <span class="d-none mb-3 form-validation-msg" id="cms-crud-title-error"></span>
                 </div>
                 <div class="form-group mt-3">
                     <label for="exampleInputEmail1">Description</label>
@@ -263,6 +274,7 @@
                 <div class="form-group mt-3">
                     <label for="exampleInputEmail1">Slug</label>
                     <input type="text" class="form-control" name="Slug" id="cms-crud-Slug" placeholder="Enter Slug">
+                    <span class="d-none mb-3 form-validation-msg" id="cms-crud-Slug-error"></span>
                 </div>
                 <div class="form-group mt-3">
                     <label for="exampleInputEmail1">Status</label>
@@ -273,9 +285,9 @@
                     </select>
                 </div>
             </div>
-            <div class="modal-footer">
+            <div class="modal-footer" id="cms-page-modal-btn">
                 <button type="button" class="btn btn-secondary cms-crud-close-btn" data-bs-dismiss="modal">Close</button>
-                <button type="submit" class="btn btn-primary cms-crud-save-btn" data-bs-dismiss="modal" id="cms-crud-save-btn">Save changes</button>
+                <button type="submit" class="btn btn-primary cms-crud-save-btn" data-bs-dismiss="modal" id="cms-crud-save-btn" onclick="addCMS()">Save changes</button>
             </div>
 
         </div>
@@ -363,7 +375,12 @@
         integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN"
         crossorigin="anonymous"></script>
 <script>
-    CKEDITOR.replace('cmspageeditor');
+
+    CKEDITOR.config.toolbar_MA=[
+                        { name: 'basicstyles', items: [ 'Bold', 'Italic', 'Strike', '-', 'Subscript', 'Superscript', 'RemoveFormat' ] }
+                    ];
+
+    CKEDITOR.replace('cmspageeditor', {   toolbar:'MA'    });
     $(document).ready(function() {
         makeDivActive('User')
     })
@@ -409,21 +426,21 @@
                 if (ID == "Mission") {
                     var tableDiv = document.querySelector("#admin-data-table");
                     var missionTable = `
-                <table class="table container table-striped table-hover" id='mission-table'>
-                    <thead>
+                        <table class="table container table-striped table-hover" id='mission-table'>
+                            <thead>
 
-                        <tr>
-                            <th>Title</th>
-                            <th>Mission Type</th>
-                            <th>Start Date</th>
-                            <th>End Date</th>
-                            <th>Action</th>
-                        </tr>
-                    </thead>
-                    <tbody id="table-data-mission">
-                    </tbody>
+                                <tr>
+                                    <th>Title</th>
+                                    <th>Mission Type</th>
+                                    <th>Start Date</th>
+                                    <th>End Date</th>
+                                    <th>Action</th>
+                                </tr>
+                            </thead>
+                            <tbody id="table-data-mission">
+                            </tbody>
 
-                </table>`;
+                        </table>`;
 
                     tableDiv.innerHTML = missionTable;
 
@@ -436,17 +453,22 @@
                             }
 
                             $("#table-data-mission").append(`
-                <tr id='${item.missionId}'>
-                    <td id="title">${item.title}</td>
-                    <td id="type">${item.missionType}
-                    </td>
-                    <td id="sDate">${item.startDate.split("T")[0]}</td>
-                    <td id="eDate">${item.endDate.split("T")[0]}</td>
-                    <td id="action"><i class="fas fa-edit"></i> | <i class="fa fa-trash" style="color:red"></i></td>
-                </tr>`);
+                                <tr id='${item.missionId}'>
+                                    <td id="title">${item.title}</td>
+                                    <td id="type">${item.missionType}
+                                    </td>
+                                    <td id="sDate">${item.startDate.split("T")[0]}</td>
+                                    <td id="eDate">${item.endDate.split("T")[0]}</td>
+                                    <td id="action"><i class="fas fa-edit"></i> | <i class="fa fa-trash" style="color:red"></i></td>
+                                </tr>`);
                         });
 
-                        $("#mission-table").DataTable();
+                        $("#mission-table").DataTable({
+                            language: {
+                                searchPlaceholder: "Search records",
+                                search: "",
+                              }
+                        });
                     });
                 }
 
@@ -454,24 +476,25 @@
                 else if (ID == "User") {
                     var tableDiv = document.querySelector("#admin-data-table");
                     var missionTable = `
-                <table class="table container table-striped table-hover" id='mission-table'>
-                    <thead>
+                        <table class="table container table-striped table-hover" id='mission-table'>
+                            <thead>
 
-                        <tr>
-                            <th>FirstName</th>
-                            <th>LastName</th>
-                            <th>Email</th>
-                            <th>Employee Id</th>
-                            <th>Department</th>
-                            <th>Status</th>
-                            <th>Action</th>
-                        </tr>
-                    </thead>
-                    <tbody id="table-data-mission" class="new-table">
-                    </tbody>
+                                <tr>
+                                    <th>FirstName</th>
+                                    <th>LastName</th>
+                                    <th>Email</th>
+                                    <th>Employee Id</th>
+                                    <th>Department</th>
+                                    <th>Status</th>
+                                    <th>Action</th>
+                                </tr>
+                            </thead>
+                            <tbody id="table-data-mission" class="new-table">
+                            </tbody>
 
-                </table>`;
+                        </table>`;
 
+                console.log(result)
                     tableDiv.innerHTML = missionTable;
                     $(function() {
                         $.each(result.users, function(i, item) {
@@ -482,19 +505,24 @@
                             }
 
                             $("#table-data-mission").append(`
-                <tr id='${item.userId}'>
-                    <td id="fName">${item.firstName}</td>
-                    <td id="lName">${item.lastName}</td>
-                    <td id="email">${item.email}</td>
-                    <td id="empId">${item.employeeId}</td>
-                    <td id="dept">${item.department}</td>
-                    <td class="userStatus">${item.status==1?"Active":"In-Active"}</td>
-                    <td id="action"><i class="fas fa-edit" data-bs-toggle="modal" data-bs-target="#${ID}-Modal" onclick="editUserCrud('${item.userId}')"></i> | <i class="fa fa-trash" style="color:red"></i></td>
+                                <tr id='${item.id}'>
+                                    <td id="fName">${item.firstName}</td>
+                                    <td id="lName">${item.lastName}</td>
+                                    <td id="email">${item.email}</td>
+                                    <td id="empId">${item.employeeId}</td>
+                                    <td id="dept">${item.department}</td>
+                                    <td class="userStatus">${item.status==1?"Active":"In-Active"}</td>
+                                    <td id="action"><i class="fas fa-edit" data-bs-toggle="modal" data-bs-target="#${ID}-Modal" onclick="editUserCrud(${item.id})"></i> | <i class="fa fa-trash" style="color:red" onclick="deleteUserCrud(${item.id})"></i></td>
 
-                </tr>`);
+                                </tr>`);
                         });
 
-                        $("#mission-table").DataTable();
+                        $("#mission-table").DataTable({
+                            language: {
+                                searchPlaceholder: "Search records",
+                                search: "",
+                              }
+                        });
                     });
                 }
                  
@@ -531,11 +559,16 @@
                 <tr id='${item.cmsPageId}'>
                     <td id="title">${item.title}</td>
                     <td id="sDate">${item.status}</td>
-                    <td id="action"><i class="fas fa-edit" data-bs-toggle="modal" data-bs-target="#${ID}-Modal" onclick="editCMSPage(${item.cmsPageId})"></i> | <i class="fa fa-trash" style="color:red"></i></td>
+                    <td id="action"><i class="fas fa-edit" data-bs-toggle="modal" data-bs-target="#${ID}-Modal" onclick="editCMSPage(${item.cmsPageId})"></i> | <i class="fa fa-trash" style="color:red" onclick="deleteCMS(${item.cmsPageId})"></i></td>
                 </tr>`);
                         });
 
-                        $("#mission-table").DataTable();
+                        $("#mission-table").DataTable({
+                            language: {
+                                searchPlaceholder: "Search records",
+                                search: "",
+                              }
+                        });
                     });
                 }
 
@@ -576,7 +609,12 @@
                 </tr>`);
                         });
 
-                        $("#mission-table").DataTable();
+                        $("#mission-table").DataTable({
+                            language: {
+                                searchPlaceholder: "Search records",
+                                search: "",
+                              }
+                        });
                     });
                 }
 
@@ -617,7 +655,12 @@
                 </tr>`);
                         });
 
-                        $("#mission-table").DataTable();
+                        $("#mission-table").DataTable({
+                            language: {
+                                searchPlaceholder: "Search records",
+                                search: "",
+                              }
+                        });
                     });
                 }
 
@@ -665,7 +708,12 @@
                 </tr>`);
                         });
 
-                        $("#mission-table").DataTable();
+                        $("#mission-table").DataTable({
+                            language: {
+                                searchPlaceholder: "Search records",
+                                search: "",
+                              }
+                        });
                     });
                 }
 
@@ -719,7 +767,12 @@
                 </tr>`);
                         });
 
-                        $("#mission-table").DataTable();
+                        $("#mission-table").DataTable({
+                            language: {
+                                searchPlaceholder: "Search records",
+                                search: "",
+                              }
+                        });
                     });
                 }
             },
@@ -799,21 +852,92 @@
 
 
     function AddUserModal() {
-
+        var error = 0;
         var firstname = $('#user-crud-first-name').val()
+        if(firstname=="") {
+            error = 1;
+            $('#user-crud-first-name-error').removeClass("d-none")
+            $('#user-crud-first-name-error').html("FirstName is required.")
+        } else {
+            $('#user-crud-first-name-error').addClass("d-none")
+        }
         var lastname= $('#user-crud-last-name').val()
+        if(lastname=="") {
+            error = 1;
+            $('#user-crud-last-name-error').removeClass("d-none")
+            $('#user-crud-last-name-error').html("LastName is required.")
+        } else {
+            $('#user-crud-last-name-error').addClass("d-none")
+        }
         var email= $('#user-crud-email').val()
+        if(email=="") {
+            error = 1;
+            $('#user-crud-email-error').removeClass("d-none")
+            $('#user-crud-email-error').html("Email is required.")
+        } else {
+            $('#user-crud-email-error').addClass("d-none")
+        }
         var password= $('#user-crud-password').val()
+        if(password=="") {
+            error = 1;
+            $('#user-crud-password-error').removeClass("d-none")
+            $('#user-crud-password-error').html("password is required.")
+        } else {
+            $('#user-crud-password-error').addClass("d-none")
+        }
         var avatar= $('#user-crud-avatar').val()
         var empId= $('#user-crud-employee-id').val()
+        if(empId=="") {
+            error = 1;
+            $('#user-crud-employee-id-error').removeClass("d-none")
+            $('#user-crud-employee-id-error').html("Emp Id is required.")
+        } else {
+            $('#user-crud-employee-id-error').addClass("d-none")
+        }
         var department= $('#user-crud-department').val()
+        if(department=="") {
+            error = 1;
+            $('#user-crud-department-error').removeClass("d-none")
+            $('#user-crud-department-error').html("department is required.")
+        } else {
+            $('#user-crud-department-error').addClass("d-none")
+        }
         var mobileNo= $('#user-crud-mobile-number').val()
+        if(mobileNo=="") {
+            error = 1;
+            $('#user-crud-mobile-number-error').removeClass("d-none")
+            $('#user-crud-mobile-number-error').html("mobile number is required.")
+        } else {
+            $('#user-crud-mobile-number-error').addClass("d-none")
+        }
         var country= $('#user-crud-country-dropdown').val()
+        if(country=="0") {
+            error = 1;
+            $('#user-crud-country-dropdown-error').removeClass("d-none")
+            $('#user-crud-country-dropdown-error').html("Country is required.")
+        } else {
+            $('#user-crud-country-dropdown-error').addClass("d-none")
+        }
         var city= $('#user-crud-city-dropdown').val()
+        if(city=="0") {
+            error = 1;
+            $('#user-crud-city-dropdown-error').removeClass("d-none")
+            $('#user-crud-city-dropdown-error').html("City is required.")
+        } else {
+            $('#user-crud-city-dropdown-error').addClass("d-none")
+        }
         var pText= $('#user-crud-profile-text').val()
+        if(pText=="") {
+            error = 1;
+            $('#user-crud-profile-text').removeClass("d-none")
+            $('#user-crud-profile-text').html("profile text is required.")
+        } else {
+            $('#user-crud-profile-text-error').addClass("d-none")
+        }
         var status= $('#user-crud-status-dropdown').val()
 
-        $.ajax({
+        if(error==0) {
+            $.ajax({
                     type: "POST",
                     url: `/api/admin/addUser`,
                     data: {
@@ -841,17 +965,346 @@
                         alert(response.responseText);
                     }
                 });
+        }
+        error=0;
 
+    }
+
+    function EditUserModal(id) {
+
+        //edit ajax call
+        var error = 0;
+        var firstname = $('#user-crud-first-name').val()
+        if(firstname=="") {
+            error = 1;
+            $('#user-crud-first-name-error').removeClass("d-none")
+            $('#user-crud-first-name-error').html("FirstName is required.")
+        } else {
+            $('#user-crud-first-name-error').addClass("d-none")
+        }
+        var lastname= $('#user-crud-last-name').val()
+        if(lastname=="") {
+            error = 1;
+            $('#user-crud-last-name-error').removeClass("d-none")
+            $('#user-crud-last-name-error').html("LastName is required.")
+        } else {
+            $('#user-crud-last-name-error').addClass("d-none")
+        }
+        var email= $('#user-crud-email').val()
+        if(email=="") {
+            error = 1;
+            $('#user-crud-email-error').removeClass("d-none")
+            $('#user-crud-email-error').html("Email is required.")
+        } else {
+            $('#user-crud-email-error').addClass("d-none")
+        }
+        var password= $('#user-crud-password').val()
+        if(password=="") {
+            error = 1;
+            $('#user-crud-password-error').removeClass("d-none")
+            $('#user-crud-password-error').html("password is required.")
+        } else {
+            $('#user-crud-password-error').addClass("d-none")
+        }
+        var avatar= $('#user-crud-avatar').val()
+        var empId= $('#user-crud-employee-id').val()
+        if(empId=="") {
+            error = 1;
+            $('#user-crud-employee-id-error').removeClass("d-none")
+            $('#user-crud-employee-id-error').html("Emp Id is required.")
+        } else {
+            $('#user-crud-employee-id-error').addClass("d-none")
+        }
+        var department= $('#user-crud-department').val()
+        if(department=="") {
+            error = 1;
+            $('#user-crud-department-error').removeClass("d-none")
+            $('#user-crud-department-error').html("department is required.")
+        } else {
+            $('#user-crud-department-error').addClass("d-none")
+        }
+        var mobileNo= $('#user-crud-mobile-number').val()
+        if(mobileNo=="") {
+            error = 1;
+            $('#user-crud-mobile-number-error').removeClass("d-none")
+            $('#user-crud-mobile-number-error').html("mobile number is required.")
+        } else {
+            $('#user-crud-mobile-number-error').addClass("d-none")
+        }
+        var country= $('#user-crud-country-dropdown').val()
+        if(country=="0") {
+            error = 1;
+            $('#user-crud-country-dropdown-error').removeClass("d-none")
+            $('#user-crud-country-dropdown-error').html("Country is required.")
+        } else {
+            $('#user-crud-country-dropdown-error').addClass("d-none")
+        }
+        var city= $('#user-crud-city-dropdown').val()
+        if(city=="0") {
+            error = 1;
+            $('#user-crud-city-dropdown-error').removeClass("d-none")
+            $('#user-crud-city-dropdown-error').html("City is required.")
+        } else {
+            $('#user-crud-city-dropdown-error').addClass("d-none")
+        }
+        var pText= $('#user-crud-profile-text').val()
+        if(pText=="") {
+            error = 1;
+            $('#user-crud-profile-text').removeClass("d-none")
+            $('#user-crud-profile-text').html("profile text is required.")
+        } else {
+            $('#user-crud-profile-text-error').addClass("d-none")
+        }
+        var status= $('#user-crud-status-dropdown').val()
+
+        if(error==0) {
+            $.ajax({
+                    type: "POST",
+                    url: `/api/admin/editUser`,
+                    data: {
+                        "Id": id,
+                        "firstName":firstname,
+                        "lastName":lastname,
+                        "phoneNumber":mobileNo,
+                        "avatar":avatar,
+                        "employeeId":empId,
+                        "department":department,
+                        "city":city,
+                        "country":country,
+                        "profileText":pText,
+                        "password":password,
+                        "email":email
+                    },
+                    success: function (response) {
+
+                        location.reload();
+
+                    },
+                    failure: function (response) {
+                        alert(response.responseText);
+                    },
+                    error: function (response) {
+                        alert(response.responseText);
+                    }
+                });
+        }
+        error = 0;
     }
 
     // edit user
     function editUserCrud(id) {
 
-    
+        var element = document.getElementById("user-crud-modal-btn");
+        element.innerHTML = `<button type="button" class="btn btn-secondary user-crud-close-btn" data-bs-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary user-crud-save-btn" data-bs-dismiss="modal" id="user-crud-save-btn" onclick="EditUserModal(${id})">Save changes</button>`
+      
+                $.ajax({
+                    type: "GET",
+                    url: `/api/admin/getUserProfile`,
+                    data: {
+                        "id": id,
+                    },
+                    success: function (response) {
+
+                        console.log(response)
+                        $('#user-crud-first-name').val(response.result.firstName)
+                        $('#user-crud-last-name').val(response.result.lastName)
+                        $('#user-crud-email').val(response.result.email)
+                        $('#user-crud-password').val(response.result.password)
+                        $('#user-crud-employee-id').val(response.result.employeeId)
+                        $('#user-crud-department').val(response.result.department)
+                        $('#user-crud-mobile-number').val(response.result.phoneNumber)
+                        //$('#user-crud-country-dropdown').val(response.result.lastName)
+                        //$('#user-crud-city-dropdown').val(response.result.lastName)
+                        $('#user-crud-profile-text').val(response.result.profileText)
+                        $('#user-crud-status-dropdown').val(response.result.status)
+
+
+                    },
+                    failure: function (response) {
+                        alert(response.responseText);
+                    },
+                    error: function (response) {
+                        alert(response.responseText);
+                    }
+                });
 
     }
 
+    function deleteUserCrud(id) {
+        $.ajax({
+                    type: "POST",
+                    url: `/api/admin/deleteUserProfile`,
+                    data: {
+                        "id": id,
+                    },
+                    success: function (response) {
+                        location.reload();
+                    },
+                    failure: function (response) {
+                        alert(response.responseText);
+                    },
+                    error: function (response) {
+                        alert(response.responseText);
+                    }
+                });
+    }
+
     // user crud end
+
+    // cms crud start
+
+    function addCMS() {
+
+        var error = 0;
+        var title = $('#cms-crud-title').val()
+        if(title=="") {
+            error = 1;
+            $('#cms-crud-title-error').removeClass("d-none")
+            $('#cms-crud-title-error').html("Title is required.")
+        } else {
+            $('#cms-crud-title-error').addClass("d-none")
+        }
+        var editor = CKEDITOR.instances.cmspageeditor.getData();
+        var slug = $('#cms-crud-Slug').val()
+        if(slug=="") {
+            error = 1;
+            $('#cms-crud-Slug-error').removeClass("d-none")
+            $('#cms-crud-Slug-error').html("Slug is required.")
+        } else {
+            $('#cms-crud-Slug-error').addClass("d-none")
+        }
+        var status = $('#cms-crud-status').val()
+        
+        if(error == 0) {
+            $.ajax({
+                    type: "POST",
+                    url: `/api/admin/addCMS`,
+                    data: {
+                        "title": title,
+                        "slug": slug,
+                        "status": status,
+                        "description": editor
+                    },
+                    success: function (response) {
+
+                        location.reload();
+
+                    },
+                    failure: function (response) {
+                        alert(response.responseText);
+                    },
+                    error: function (response) {
+                        alert(response.responseText);
+                    }
+                });
+        }
+        error = 0;
+    }
+
+    function EditCMS(id) {
+
+
+        var error = 0;
+        var title = $('#cms-crud-title').val()
+        if(title=="") {
+            error = 1;
+            $('#cms-crud-title-error').removeClass("d-none")
+            $('#cms-crud-title-error').html("Title is required.")
+        } else {
+            $('#cms-crud-title-error').addClass("d-none")
+        }
+        var editor = CKEDITOR.instances.cmspageeditor.getData();
+        var slug = $('#cms-crud-Slug').val()
+        if(slug=="") {
+            error = 1;
+            $('#cms-crud-Slug-error').removeClass("d-none")
+            $('#cms-crud-Slug-error').html("Slug is required.")
+        } else {
+            $('#cms-crud-Slug-error').addClass("d-none")
+        }
+        var status = $('#cms-crud-status').val()
+        
+        if(error == 0) {
+            $.ajax({
+                    type: "POST",
+                    url: `/api/admin/editCMS`,
+                    data: {
+                        "id": id,
+                        "title": title,
+                        "slug": slug,
+                        "status": status,
+                        "description": editor
+                    },
+                    success: function (response) {
+
+                        location.reload();
+
+                    },
+                    failure: function (response) {
+                        alert(response.responseText);
+                    },
+                    error: function (response) {
+                        alert(response.responseText);
+                    }
+                });
+        }
+        error = 0;
+
+
+    }
+
+    function editCMSPage(id) {
+
+        var element = document.getElementById('cms-page-modal-btn');
+        element.innerHTML = `<button type="button" class="btn btn-secondary cms-crud-close-btn" data-bs-dismiss="modal">Close</button>
+                <button type="submit" class="btn btn-primary cms-crud-save-btn" data-bs-dismiss="modal" id="cms-crud-save-btn" onclick="EditCMS(${id})">Save changes</button>`
+
+         $.ajax({
+                    type: "GET",
+                    url: `/api/admin/getCMS`,
+                    data: {
+                        "id": id,
+                    },
+                    success: function (response) {
+                        
+                        console.log(response);
+                        var title = $('#cms-crud-title').val(response.result.title)
+                        CKEDITOR.instances.cmspageeditor.setData(response.result.description);
+                        var slug = $('#cms-crud-Slug').val(response.result.slug)
+                    },
+                    failure: function (response) {
+                        alert(response.responseText);
+                    },
+                    error: function (response) {
+                        alert(response.responseText);
+                    }
+                });
+
+    }
+
+    function deleteCMS(id) {
+
+        $.ajax({
+                    type: "POST",
+                    url: `/api/admin/deleteCMS`,
+                    data: {
+                        "id": id,
+                    },
+                    success: function (response) {
+                        location.reload();
+                    },
+                    failure: function (response) {
+                        alert(response.responseText);
+                    },
+                    error: function (response) {
+                        alert(response.responseText);
+                    }
+                });
+
+    }
+
+    // cms crud end
 
     function makeDivActiveMobile(ID) {
         var allDivs = document.querySelector(".dashbord-sidebar-detail-mobile");

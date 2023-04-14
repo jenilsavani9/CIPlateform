@@ -11,10 +11,6 @@ namespace CI.Repository.Repository
     {
         private readonly CiContext _db;
 
-        private List<CommentsModel> CommentsModel = new List<CommentsModel>();
-
-        private List<MissionViewModel> relatedMissions = new List<MissionViewModel>();
-
         public VolunteerRepository(CiContext db)
         {
             _db = db;
