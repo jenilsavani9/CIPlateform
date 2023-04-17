@@ -16,7 +16,7 @@ namespace CIWeb.Controllers
             _repository = repository;
         }
 
-        public IActionResult Index1()
+        public IActionResult Index()
         {
             String? userId = HttpContext.Session.GetString("userEmail");
             var user = _repository.FindUser(userId);
@@ -96,6 +96,97 @@ namespace CIWeb.Controllers
         public IActionResult DeleteCMS(long id)
         {
             var result = _repository.DeleteCMS(id);
+            return Json(new { result });
+        }
+
+        [HttpPost("api/admin/addTheme")]
+        public IActionResult AddTheme(ThemeElementModel obj)
+        {
+            var result = _repository.AddTheme(obj);
+            return Json(new { result });
+        }
+
+        [HttpGet("api/admin/getTheme")]
+        public IActionResult GetThemeWithId(long id)
+        {
+            var result = _repository.GetThemeWithId(id);
+            return Json(new { result });
+        }
+
+        [HttpPost("api/admin/editTheme")]
+        public IActionResult EditTheme(ThemeElementModel obj)
+        {
+            var result = _repository.EditTheme(obj);
+            return Json(new { result });
+        }
+
+        [HttpPost("api/admin/deleteTheme")]
+        public IActionResult DeleteTheme(long id)
+        {
+            var result = _repository.DeleteTheme(id);
+            return Json(new { result });
+        }
+
+        [HttpPost("api/admin/addSkill")]
+        public IActionResult AddSkill(MissionSkillModel obj)
+        {
+            var result = _repository.AddSkill(obj);
+            return Json(new { result });
+        }
+
+        [HttpGet("api/admin/getSkill")]
+        public IActionResult GetSkillWithId(long id)
+        {
+            var result = _repository.GetSkillById(id);
+            return Json(new { result });
+        }
+
+        [HttpPost("api/admin/editSkill")]
+        public IActionResult EditSkill(MissionSkillModel obj)
+        {
+            var result = _repository.EditSkill(obj);
+            return Json(new { result });
+        }
+
+        [HttpPost("api/admin/deleteSkill")]
+        public IActionResult DeleteSkill(long id)
+        {
+            var result = _repository.DeleteSkill(id);
+            return Json(new { result });
+        }
+
+        [HttpPost("api/admin/approveMission")]
+        public IActionResult ApproveMission(long id)
+        {
+            var result = _repository.ApproveMission(id);
+            return Json(new { result });
+        }
+
+        [HttpPost("api/admin/rejectMission")]
+        public IActionResult RejectMission(long id)
+        {
+            var result = _repository.RejectMission(id);
+            return Json(new { result });
+        }
+
+        [HttpPost("api/admin/approveStory")]
+        public IActionResult ApproveStory(long id)
+        {
+            var result = _repository.ApproveStory(id);
+            return Json(new { result });
+        }
+
+        [HttpPost("api/admin/rejectStory")]
+        public IActionResult RejectStory(long id)
+        {
+            var result = _repository.RejectStory(id);
+            return Json(new { result });
+        }
+
+        [HttpPost("api/admin/deleteStory")]
+        public IActionResult DeleteStory(long id)
+        {
+            var result = _repository.DeleteStory(id);
             return Json(new { result });
         }
     }

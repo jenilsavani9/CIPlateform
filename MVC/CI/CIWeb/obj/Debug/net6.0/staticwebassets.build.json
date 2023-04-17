@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "rREIHbYfVEpXnXHFGvqdyTE1QdLQNYnrwffcu26dwhg=",
+  "Hash": "OQSyR4vlDhFm+q2j6l1BrnpsFSpRjrjzChbdQkiwOvA=",
   "Source": "CIWeb",
   "BasePath": "_content/CIWeb",
   "Mode": "Default",
@@ -3400,6 +3400,23 @@
       "OriginalItemSpec": "wwwroot\\lib\\jquery-validation-unobtrusive\\LICENSE.txt"
     },
     {
+      "Identity": "C:\\Users\\pci114\\Downloads\\CIPlateform\\MVC\\CI\\CIWeb\\wwwroot\\mediaUpload\\404-Page-image.png",
+      "SourceId": "CIWeb",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\pci114\\Downloads\\CIPlateform\\MVC\\CI\\CIWeb\\wwwroot\\",
+      "BasePath": "_content/CIWeb",
+      "RelativePath": "mediaUpload/404-Page-image.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\mediaUpload\\404-Page-image.png"
+    },
+    {
       "Identity": "C:\\Users\\pci114\\Downloads\\CIPlateform\\MVC\\CI\\CIWeb\\wwwroot\\mediaUpload\\add.png",
       "SourceId": "CIWeb",
       "SourceType": "Discovered",
@@ -3568,6 +3585,40 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\mediaUpload\\cancel.png"
+    },
+    {
+      "Identity": "C:\\Users\\pci114\\Downloads\\CIPlateform\\MVC\\CI\\CIWeb\\wwwroot\\mediaUpload\\clock-default.svg",
+      "SourceId": "CIWeb",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\pci114\\Downloads\\CIPlateform\\MVC\\CI\\CIWeb\\wwwroot\\",
+      "BasePath": "_content/CIWeb",
+      "RelativePath": "mediaUpload/clock-default.svg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\mediaUpload\\clock-default.svg"
+    },
+    {
+      "Identity": "C:\\Users\\pci114\\Downloads\\CIPlateform\\MVC\\CI\\CIWeb\\wwwroot\\mediaUpload\\cross.png",
+      "SourceId": "CIWeb",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\pci114\\Downloads\\CIPlateform\\MVC\\CI\\CIWeb\\wwwroot\\",
+      "BasePath": "_content/CIWeb",
+      "RelativePath": "mediaUpload/cross.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\mediaUpload\\cross.png"
     },
     {
       "Identity": "C:\\Users\\pci114\\Downloads\\CIPlateform\\MVC\\CI\\CIWeb\\wwwroot\\mediaUpload\\CSR-initiative-stands-for-Coffee--and-Farmer-Equity.png",

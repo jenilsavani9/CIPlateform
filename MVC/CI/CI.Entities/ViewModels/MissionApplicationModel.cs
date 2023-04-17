@@ -13,5 +13,6 @@ namespace CI.Entities.ViewModels
         public long userId { get; set; }
         public string username { get; set; }
         public DateTime appliedAt { get; set; }
+        public long id { get; set; }
     }
 }

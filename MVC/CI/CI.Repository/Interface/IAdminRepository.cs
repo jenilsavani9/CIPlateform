@@ -41,5 +41,31 @@ namespace CI.Repository.Interface
         public bool EditCMS(CMSModel obj);
 
         public bool DeleteCMS(long? id);
+
+        public bool AddTheme(ThemeElementModel obj);
+
+        public ThemeElementModel GetThemeWithId(long id);   
+
+        public bool EditTheme(ThemeElementModel obj);
+
+        public bool DeleteTheme(long id);
+
+        public bool AddSkill(MissionSkillModel obj);
+
+        public MissionSkillModel GetSkillById(long id);
+
+        public bool EditSkill(MissionSkillModel obj);
+
+        public bool DeleteSkill(long id);
+
+        public bool ApproveMission(long id);
+
+        public bool RejectMission(long id);
+
+        public bool ApproveStory(long id);
+
+        public bool RejectStory(long id);
+
+        public bool DeleteStory(long id);
     }
 }

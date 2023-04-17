@@ -139,3 +139,11 @@ span .paginate_button {
     font-size: 12px;
     color: red;
 }
+
+
+.view-story-btn,
+.view-story-btn:hover {
+    border: 1px solid orange;
+    padding: 1px 10px;
+    border-radius: 30px;
+}

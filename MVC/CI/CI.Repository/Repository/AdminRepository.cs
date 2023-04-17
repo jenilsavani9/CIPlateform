@@ -22,6 +22,11 @@ namespace CI.Repository.Repository
         public User FindUser(string? userEmail)
         {
             var user = _db.Users.Where(u => u.Email == userEmail).FirstOrDefault();
+            if(user == null)
+            {
+                User tempReturn = new User();
+                return tempReturn;
+            }
             return user;
         }
 
@@ -58,17 +63,26 @@ namespace CI.Repository.Repository
             List<MissionViewModel> tempMissions = new List<MissionViewModel>();
             foreach (var mission in missions)
             {
-                tempMissions.Add(new MissionViewModel
+                if(mission.Title!=null && mission.Description!=null 
+                    && mission.OrganizationName != null
+                    && mission.MissionType != null
+                    && mission.StartDate != null
+                    && mission.EndDate != null
+                    && mission.Status != null)
                 {
-                    MissionId = mission.MissionId,
-                    Title = mission.Title,
-                    Description = mission.Description,
-                    Organization = mission.OrganizationName,
-                    missionType = mission.MissionType,
-                    StartDate = (DateTime)mission.StartDate,
-                    EndDate = (DateTime)mission.EndDate,
-                    Action = mission.Status
-                });
+                    tempMissions.Add(new MissionViewModel
+                    {
+                        MissionId = mission.MissionId,
+                        Title = mission.Title,
+                        Description = mission.Description,
+                        Organization = mission.OrganizationName,
+                        missionType = mission.MissionType,
+                        StartDate = (DateTime)mission.StartDate,
+                        EndDate = (DateTime)mission.EndDate,
+                        Action = mission.Status
+                    });
+                }
+                
             }
             return tempMissions;
         }
@@ -97,18 +111,23 @@ namespace CI.Repository.Repository
 
         public List<MissionApplicationModel> GetMissionApplications()
         {
-            var missionApplication = _db.MissionApplications.ToList();
+            var missionApplication = _db.MissionApplications.Where(ma => ma.ApprovalStatus == "pending").ToList();
             List<MissionApplicationModel> tempMissionApplication = new List<MissionApplicationModel>();
             foreach (var application in missionApplication)
             {
-                tempMissionApplication.Add(new MissionApplicationModel
+                if(application.Mission.Title != null)
                 {
-                    missionId = application.MissionId,
-                    userId = application.UserId,
-                    appliedAt = application.CreatedAt,
-                    title = application.Mission.Title,
-                    username = application.User.FirstName + " " + application.User.LastName,
-                });
+                    tempMissionApplication.Add(new MissionApplicationModel
+                    {
+                        missionId = application.MissionId,
+                        userId = application.UserId,
+                        appliedAt = application.CreatedAt,
+                        title = application.Mission.Title,
+                        username = application.User.FirstName + " " + application.User.LastName,
+                        id = application.MissionApplicationId
+                    });
+                }
+                
             }
             return tempMissionApplication;
         }
@@ -142,9 +161,18 @@ namespace CI.Repository.Repository
             tempUser.FirstName = user.firstName;
             tempUser.LastName = user.lastName;
             tempUser.PhoneNumber = user.phoneNumber;
-            tempUser.Email = user.email;
-            tempUser.Password = user.password;
-            tempUser.Avatar = user.avatar.ToString().Split('\\')[2];
+            if(user.email != null)
+            {
+                tempUser.Email = user.email;
+            }
+            if (user.password != null)
+            {
+                tempUser.Password = user.password;
+            }
+            if (user.avatar != null)
+            {
+                tempUser.Avatar = user.avatar.ToString().Split('\\')[2];
+            }
             tempUser.EmployeeId = user.employeeId;
             tempUser.Department = user.department;
             tempUser.CityId = (long)Convert.ToDouble(user.city);
@@ -157,19 +185,23 @@ namespace CI.Repository.Repository
         public bool EditUsers(UserProfileModel user)
         {
             var tempUser = _db.Users.Where(u => u.UserId == user.Id).FirstOrDefault();
-            tempUser.FirstName = user.firstName;
-            tempUser.LastName = user.lastName;
-            tempUser.PhoneNumber = user.phoneNumber;
-            tempUser.Email = user.email;
-            //if(tempUser.Avatar != null)
-            //{
-            //    tempUser.Avatar = user.avatar.ToString().Split('\\')[2];
-            //}
-            tempUser.EmployeeId = user.employeeId;
-            tempUser.Department = user.department;
-            tempUser.CityId = (long)Convert.ToDouble(user.city);
-            tempUser.CountryId = (long)Convert.ToDouble(user.country);
-            _db.SaveChanges();
+            if(tempUser != null && user.email != null)
+            {
+                tempUser.FirstName = user.firstName;
+                tempUser.LastName = user.lastName;
+                tempUser.PhoneNumber = user.phoneNumber;
+                tempUser.Email = user.email;
+                //if(tempUser.Avatar != null)
+                //{
+                //    tempUser.Avatar = user.avatar.ToString().Split('\\')[2];
+                //}
+                tempUser.EmployeeId = user.employeeId;
+                tempUser.Department = user.department;
+                tempUser.CityId = (long)Convert.ToDouble(user.city);
+                tempUser.CountryId = (long)Convert.ToDouble(user.country);
+                _db.SaveChanges();
+            }
+            
             return true;
         }
 
@@ -207,9 +239,12 @@ namespace CI.Repository.Repository
         public bool DeleteUserProfile(long? id)
         {
             var TempUserData = _db.Users.FirstOrDefault(x => x.UserId == id);
-            TempUserData.DeletedAt = DateTime.Now;
-            TempUserData.Status = "0";
-            _db.SaveChanges();
+            if(TempUserData != null)
+            {
+                TempUserData.DeletedAt = DateTime.Now;
+                TempUserData.Status = "0";
+                _db.SaveChanges();
+            }
             return true;
         }
 
@@ -229,32 +264,215 @@ namespace CI.Repository.Repository
         {
             var cms = _db.CmsPages.FirstOrDefault(cms => cms.CmsPageId == id);
             CMSModel cmsModel = new CMSModel();
-            cmsModel.title = cms.Title;
-            cmsModel.description = cms.Description;
-            cmsModel.slug = cms.Slug;
-            cmsModel.status = cms.Status;
+            if(cms!=null && cms.Title != null && cms.Description != null && cms.Status != null)
+            {
+                cmsModel.title = cms.Title;
+                cmsModel.description = cms.Description;
+                cmsModel.slug = cms.Slug;
+                cmsModel.status = cms.Status;
+            }
+            
             return cmsModel;
         }
 
         public bool EditCMS(CMSModel obj)
         {
             var cms = _db.CmsPages.FirstOrDefault(cms => cms.CmsPageId == obj.id);
-            cms.Title = obj?.title;
-            cms.Description = obj?.description;
-            cms.Slug = obj?.slug;
-            cms.Status = obj?.status;
-            cms.UpdatedAt = DateTime.Now;
-            _db.SaveChanges();
+            if(cms != null && obj!=null && cms.Title != null && obj.slug != null)
+            {
+                cms.Title = obj?.title;
+                cms.Description = obj?.description;
+                cms.Slug = obj?.slug;
+                cms.Status = obj?.status;
+                cms.UpdatedAt = DateTime.Now;
+                _db.SaveChanges();
+            }
+            
             return true;
         }
 
         public bool DeleteCMS(long? id)
         {
             var cms = _db.CmsPages.FirstOrDefault(cms => cms.CmsPageId == id);
-            cms.Status = "Decline";
-            cms.DeletedAt = DateTime.Now;
+            if(cms != null)
+            {
+                cms.Status = "Decline";
+                cms.DeletedAt = DateTime.Now;
+                _db.SaveChanges();
+            }
+            
+            return true;
+        }
+
+        public bool AddTheme(ThemeElementModel obj)
+        {
+            MissionTheme theme = new MissionTheme();
+            if(obj!=null && obj?.status != null)
+            {
+                theme.Title = obj?.title;
+                theme.Status = obj.status;
+                _db.MissionThemes.Add(theme);
+                _db.SaveChanges();
+            }
+            
+            return true;
+        }
+
+        public ThemeElementModel GetThemeWithId(long id)
+        {
+            var Theme = _db.MissionThemes.FirstOrDefault(mt => mt.MissionThemeId == id);
+            ThemeElementModel theme = new ThemeElementModel();
+            if(Theme != null)
+            {
+                theme.title = Theme?.Title;
+                theme.themeId = id;
+                theme.status = Theme.Status;
+            }
+            return theme;
+        }
+
+        public bool EditTheme(ThemeElementModel obj)
+        {
+            var theme = _db.MissionThemes.FirstOrDefault(mt => mt.MissionThemeId == obj.themeId);
+            if(theme != null)
+            {
+                theme.Title = obj.title;
+                theme.Status = obj.status;
+                theme.UpdatedAt = DateTime.Now;
+                _db.SaveChanges();
+                return true;
+            }
+            return false;
+        }
+
+        public bool DeleteTheme(long id)
+        {
+            var theme = _db.MissionThemes.FirstOrDefault(mt => mt.MissionThemeId == id);
+            if(theme != null)
+            {
+                theme.Status = 2;
+                theme.DeletedAt = DateTime.Now;
+                _db.SaveChanges();
+                return true;
+            }
+            return false;
+        }
+
+        public bool AddSkill(MissionSkillModel obj)
+        {
+            Skill skill = new Skill();
+            skill.SkillName = obj.skillName;
+            skill.Status = obj.status;
+            _db.Skills.Add(skill);
             _db.SaveChanges();
             return true;
+        }
+
+        public MissionSkillModel GetSkillById(long id)
+        {
+            var skill = _db.Skills.FirstOrDefault(ms => ms.SkillId == id);
+            MissionSkillModel answer = new MissionSkillModel();
+            if(skill != null)
+            {
+                answer.skillName = skill.SkillName;
+                answer.status = skill.Status;
+                answer.skillId = skill.SkillId;
+            }
+            
+            return answer;
+        }
+
+        public bool EditSkill(MissionSkillModel obj)
+        {
+            var skill = _db.Skills.FirstOrDefault(ms => ms.SkillId==obj.skillId);
+            if(skill != null)
+            {
+                skill.SkillName = obj.skillName;
+                skill.Status = obj.status;
+                skill.UpdatedAt = DateTime.Now;
+                _db.SaveChanges();
+                return true;
+            }
+            return false;
+            
+        }
+
+        public bool DeleteSkill(long id)
+        {
+            var skill = _db.Skills.FirstOrDefault(ms => ms.SkillId == id);
+            if(skill!=null)
+            {
+                skill.Status = "2";
+                skill.DeletedAt = DateTime.Now;
+                _db.SaveChanges();
+                return true;
+            }
+
+            return false;
+        }
+
+        public bool ApproveMission(long id)
+        {
+            var application = _db.MissionApplications.FirstOrDefault(ma => ma.MissionApplicationId == id);
+            if (application != null)
+            {
+                application.ApprovalStatus = "Approve";
+                _db.SaveChanges();
+                return true;
+            }
+                
+            return false;
+        }
+
+        public bool RejectMission(long id)
+        {
+            var application = _db.MissionApplications.FirstOrDefault(ma => ma.MissionApplicationId == id);
+            if(application != null)
+            {
+                application.ApprovalStatus = "Reject";
+                _db.SaveChanges();
+                return true;
+            }
+            
+            return false;
+        }
+
+        public bool ApproveStory(long id)
+        {
+            var story = _db.Stories.FirstOrDefault(s => s.StoryId == id);
+            if(story != null)
+            {
+                story.Status = "approve";
+                _db.SaveChanges();
+                return true;
+            }
+            
+            return false;
+        }
+
+        public bool RejectStory(long id)
+        {
+            var story = _db.Stories.FirstOrDefault(s => s.StoryId == id);
+            if (story != null)
+            {
+                story.Status = "reject";
+                _db.SaveChanges();
+                return true;
+            }
+            return false;
+        }
+
+        public bool DeleteStory(long id)
+        {
+            var story = _db.Stories.FirstOrDefault(s => s.StoryId == id);
+            if(story != null)
+            {
+                story.Status = "delete";
+                story.DeletedAt = DateTime.Now;
+                _db.SaveChanges();
+                return true;
+            }
+            return false;
         }
     }
 }

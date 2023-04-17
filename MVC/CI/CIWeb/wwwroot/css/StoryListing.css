@@ -89,6 +89,9 @@
     display: inline-block !important;
 }
 
+.list-group-image {
+    height: 230px;
+}
 
 /* .story-page-card-top-btn:hover+.story-page-card-top,
 .story-page-card-top:hover {
@@ -101,7 +104,6 @@
     background-color: #000;
     opacity: 0.5;
 } */
-
 @media only screen and (max-width: 992px) and (min-width: 576px) {
     .story-page-top-header-p-tage {
         margin: 0 100px;
