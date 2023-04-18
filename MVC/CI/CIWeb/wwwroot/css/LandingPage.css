@@ -356,3 +356,9 @@ ul {
 .offcanvas-body .dropdown-section .dropdown {
     margin: 10px 0;
 }
+
+/* fix image height */
+
+.list-group-image {
+    height: 200px;
+}

@@ -191,14 +191,19 @@ namespace CI.Repository.Repository
                 tempUser.LastName = user.lastName;
                 tempUser.PhoneNumber = user.phoneNumber;
                 tempUser.Email = user.email;
-                //if(tempUser.Avatar != null)
-                //{
-                //    tempUser.Avatar = user.avatar.ToString().Split('\\')[2];
-                //}
+                if (user.avatar != null)
+                {
+                    tempUser.Avatar = user.avatar.ToString().Split('\\')[2];
+                }
                 tempUser.EmployeeId = user.employeeId;
                 tempUser.Department = user.department;
                 tempUser.CityId = (long)Convert.ToDouble(user.city);
                 tempUser.CountryId = (long)Convert.ToDouble(user.country);
+                tempUser.ProfileText = user.profileText;
+                if(user.status != null)
+                {
+                    tempUser.Status = user.status;
+                }
                 _db.SaveChanges();
             }
             
@@ -473,6 +478,147 @@ namespace CI.Repository.Repository
                 return true;
             }
             return false;
+        }
+
+        public bool AddMission(AdminMissionModel obj)
+        {
+            if (obj == null)
+            {
+                return false;
+            }
+            Mission mission = new Mission();
+            mission.Title = obj.title;
+            mission.Description = obj.description;
+            mission.OrganizationName = obj.organization;
+            mission.OrganizationDetail = obj.organizationDetails;
+            mission.StartDate = obj.startDate;
+            mission.EndDate = obj.endDate;
+            mission.CountryId = obj.countryId;
+            mission.CityId = obj.cityId;
+            mission.SeatLeft = obj.seats;
+            mission.Availability = obj.availability;
+            mission.MissionType = obj.missionType;
+            mission.Status = obj.status;
+            mission.ThemeId = obj.themeId;
+            _db.Missions.Add(mission);
+            _db.SaveChanges();
+
+            if(obj.images != null)
+            {
+                for(var i=0; i<obj.images.Count;i++)
+                {
+                    var img = obj.images[i];
+                    _db.MissionMedia.Add(new MissionMedium { MissionId = mission.MissionId, MediaName = img, MediaType = "png", MediaPath = img });
+                    _db.SaveChanges();
+                }
+            }
+
+            if (obj.docs != null)
+            {
+                for (var i = 0; i < obj.docs.Count; i++)
+                {
+                    var doc = obj.docs[i];
+                    _db.MissionDocuments.Add(new MissionDocument { MissionId = mission.MissionId, DocumentName = doc.Split(".")[0], DocumentType = doc.Split(".")[1], DocumentPath = doc });
+                    _db.SaveChanges();
+                }
+            }
+            return true;
+        }
+
+        public AdminMissionModel LoadMission(long id)
+        {
+            AdminMissionModel model = new AdminMissionModel();
+            var tempMission = _db.Missions.FirstOrDefault(m => m.MissionId == id);
+            if(tempMission != null)
+            {
+                model.id = tempMission.MissionId;
+                model.title = tempMission.Title;
+                model.description = tempMission.Description;
+                model.organization = tempMission.OrganizationName;
+                model.organizationDetails = tempMission.OrganizationDetail;
+                model.startDate = tempMission.StartDate;
+                model.endDate = tempMission.EndDate;
+                model.seats = tempMission.SeatLeft;
+                model.availability = tempMission.Availability;
+            }
+            return model;
+        }
+
+        public bool EditMission(AdminMissionModel obj)
+        {
+            if (obj == null)
+            {
+                return false;
+            }
+            var mission = _db.Missions.FirstOrDefault(m => m.MissionId == obj.id);
+            if(mission != null)
+            {
+                mission.Title = obj.title;
+                mission.Description = obj.description;
+                mission.OrganizationName = obj.organization;
+                mission.OrganizationDetail = obj.organizationDetails;
+                mission.StartDate = obj.startDate;
+                mission.EndDate = obj.endDate;
+                mission.CountryId = obj.countryId;
+                mission.CityId = obj.cityId;
+                mission.SeatLeft = obj.seats;
+                mission.Availability = obj.availability;
+                mission.MissionType = obj.missionType;
+                mission.Status = obj.status;
+                mission.ThemeId = obj.themeId;
+                mission.UpdatedAt = DateTime.Now;
+                _db.SaveChanges();
+
+
+                if (obj.images != null)
+                {
+                    var images = _db.MissionMedia.Where(mm => mm.MissionId == mission.MissionId).ToList();
+                    foreach (var image in images)
+                    {
+                        _db.MissionMedia.Remove(image);
+                    }
+                    for (var i = 0; i < obj.images.Count; i++)
+                    {
+                        var img = obj.images[i];
+                        _db.MissionMedia.Add(new MissionMedium { MissionId = mission.MissionId, MediaName = img, MediaType = "png", MediaPath = img });
+                        _db.SaveChanges();
+                    }
+                }
+            } 
+            
+            return true;
+        }
+
+        public bool DeleteMission(long id)
+        { 
+            if(id == 0)
+            {
+                return false;
+            }
+            var mission = _db.Missions.FirstOrDefault(m => m.MissionId==id);    
+            if(mission != null)
+            {
+                mission.Status = "0";
+                mission.DeletedAt = DateTime.Now;
+                _db.SaveChanges();
+            }
+            return true;
+        }
+
+        public List<ThemeElementModel> GetValidMissionThemes()
+        {
+            var missionthemes = _db.MissionThemes.Where(t => t.Status == 1).ToList();
+            List<ThemeElementModel> tempMissionThemes = new List<ThemeElementModel>();
+            foreach (var theme in missionthemes)
+            {
+                tempMissionThemes.Add(new ThemeElementModel
+                {
+                    themeId = theme.MissionThemeId,
+                    title = theme.Title,
+                    status = theme.Status,
+                });
+            }
+            return tempMissionThemes;
         }
     }
 }

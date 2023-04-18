@@ -67,5 +67,15 @@ namespace CI.Repository.Interface
         public bool RejectStory(long id);
 
         public bool DeleteStory(long id);
+
+        public bool AddMission(AdminMissionModel obj);
+
+        public AdminMissionModel LoadMission(long id);
+
+        public bool EditMission(AdminMissionModel obj);
+
+        public bool DeleteMission(long id);
+
+        public List<ThemeElementModel> GetValidMissionThemes();
     }
 }

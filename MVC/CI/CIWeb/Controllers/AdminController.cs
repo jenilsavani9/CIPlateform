@@ -9,11 +9,13 @@ namespace CIWeb.Controllers
     {
         private readonly CiContext _db;
         private readonly IAdminRepository _repository;
+        private readonly IWebHostEnvironment _webHostEnvironment;
 
-        public AdminController(CiContext db, IAdminRepository repository)
+        public AdminController(CiContext db, IAdminRepository repository, IWebHostEnvironment webHostEnvironment)
         {
             _db = db;
             _repository = repository;
+            _webHostEnvironment = webHostEnvironment;
         }
 
         public IActionResult Index()
@@ -188,6 +190,79 @@ namespace CIWeb.Controllers
         {
             var result = _repository.DeleteStory(id);
             return Json(new { result });
+        }
+
+        [HttpPost("api/admin/addMission")]
+        public IActionResult AddMission(AdminMissionModel obj)
+        {
+            var result = _repository.AddMission(obj);
+            return Json(new { result });
+        }
+
+        [HttpGet("api/admin/loadMission")]
+        public IActionResult LoadMission(long id)
+        {
+            var result = _repository.LoadMission(id);
+            return Json(new { result });
+        }
+
+        [HttpPost("api/admin/editMission")]
+        public IActionResult EditMission(AdminMissionModel obj)
+        {
+            var result = _repository.EditMission(obj);
+            return Json(new { result });
+        }
+
+        [HttpPost("api/admin/deleteMission")]
+        public IActionResult DeleteMission(long id)
+        {
+            var result = _repository.DeleteMission(id);
+            return Json(new { result });
+        }
+        
+        [HttpGet("api/admin/getThemes")]
+        public IActionResult GetMissionTheme()
+        {
+            var result = _repository.GetValidMissionThemes();
+            return Json(new { result });
+        }
+
+        [HttpPost("api/admin/saveImg")]
+        public IActionResult SaveImagesToRoot(List<IFormFile> MyUploader)
+        {
+            if (MyUploader != null)
+            {
+                for(int i = 0; i < MyUploader.Count; i++)
+                {
+                    string uploadsFolder = Path.Combine(_webHostEnvironment.WebRootPath, "mediaUpload");
+                    string filePath = Path.Combine(uploadsFolder, MyUploader[i].FileName);
+                    using (var fileStream = new FileStream(filePath, FileMode.Create))
+                    {
+                        MyUploader[i].CopyTo(fileStream);
+                    }
+                }
+                return new ObjectResult(new { status = "success" });
+            }
+            return new ObjectResult(new { status = "fail" });
+        }
+
+        [HttpPost("api/admin/saveDoc")]
+        public IActionResult SaveDocsToRoot(List<IFormFile> MyUploader)
+        {
+            if (MyUploader != null)
+            {
+                for (int i = 0; i < MyUploader.Count; i++)
+                {
+                    string uploadsFolder = Path.Combine(_webHostEnvironment.WebRootPath, "document");
+                    string filePath = Path.Combine(uploadsFolder, MyUploader[i].FileName);
+                    using (var fileStream = new FileStream(filePath, FileMode.Create))
+                    {
+                        MyUploader[i].CopyTo(fileStream);
+                    }
+                }
+                return new ObjectResult(new { status = "success" });
+            }
+            return new ObjectResult(new { status = "fail" });
         }
     }
 }

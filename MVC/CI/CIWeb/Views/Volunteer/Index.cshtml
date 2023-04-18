@@ -873,7 +873,7 @@
                 var notfound = "/img/404-Page-image.png";
                 var storyPath = "";
                 if (response.result != null && response.result[0] != null && response.result[0].mediaPath != null) {
-                    storyPath = "/img/" + response.result[0].mediaPath;
+                    storyPath = "/mediaUpload/" + response.result[0].mediaPath;
                 } else {
                     storyPath = notfound;
                 }
@@ -895,7 +895,7 @@
                                                 <div class="col-md-3">
                                                     <div class="card">
                                                         <div class="card-img">
-                                                            <img src="/img/${item.mediaPath}" class="img-fluid smallSliderImageHeight" style="height: 12.5vh" onclick="changeImage(${item.missionMediaId})" id="img${item.missionMediaId}">
+                                                            <img src="/mediaUpload/${item.mediaPath}" class="img-fluid smallSliderImageHeight" style="height: 12.5vh" onclick="changeImage(${item.missionMediaId})" id="img${item.missionMediaId}">
                                                         </div>
                                                     </div>
                                                 </div>
