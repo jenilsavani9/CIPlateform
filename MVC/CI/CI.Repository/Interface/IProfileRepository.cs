@@ -31,5 +31,7 @@ namespace CI.Repository.Interface
         public void SaveUserSkills(string? userEmail, List<string> skillsToAdd);
 
         public bool ContactUs(ContactU obj);
+
+        public List<CmsPage> PrivacyDetails();
     }
 }

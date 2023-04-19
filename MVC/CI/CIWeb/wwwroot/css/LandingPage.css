@@ -362,3 +362,9 @@ ul {
 .list-group-image {
     height: 200px;
 }
+
+.card-body > p {
+    font-size: 13px;
+    color: #a8a8a8;
+}
+}

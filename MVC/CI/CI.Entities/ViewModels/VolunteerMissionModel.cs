@@ -8,7 +8,7 @@ namespace CI.Entities.ViewModels
 
         public IEnumerable<Mission>? Mission { get; set; }
 
-        public IEnumerable<Mission>? relatedMission { get; set; }
+        public IEnumerable<MissionViewModel>? relatedMission { get; set; }
 
         public IEnumerable<City>? City { get; set; }
 

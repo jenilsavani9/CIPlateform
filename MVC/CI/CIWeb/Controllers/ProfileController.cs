@@ -118,5 +118,13 @@ namespace CIWeb.Controllers
             var status = _repository.ContactUs(obj);
             return Json(new { status });
         }
+
+        // privacy page slug...
+        [HttpGet("/api/privacy")]
+        public JsonResult PrivacyDetails()
+        {
+            var result = _repository.PrivacyDetails();
+            return Json(new { result });
+        }
     }
 }

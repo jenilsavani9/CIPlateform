@@ -214,5 +214,11 @@ namespace CI.Repository.Repository
                 return true;
             }
         }
+
+        public List<CmsPage> PrivacyDetails()
+        {
+            var result = _db.CmsPages.ToList();
+            return result;
+        }
     }
 }

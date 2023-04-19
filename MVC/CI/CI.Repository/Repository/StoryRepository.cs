@@ -189,7 +189,7 @@ namespace CI.Repository.Repository
 
             model.storyMedia = _db.StoryMedia.Where(s => s.StoryId == story.StoryId && s.StoryType == "png").ToList();
             model.whyIVolunteer = user.WhyIVolunteer;
-            model.missionTitle = mission.Title;
+            model.missionTitle = story.Title;
             model.avatar = user.Avatar;
             model.storyDetails = story.Description;
             model.userName = user.FirstName + " " + user.LastName;

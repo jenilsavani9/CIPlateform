@@ -363,8 +363,8 @@
                 success: function (response) {
 
                     var user = document.getElementById("story-details-user-details");
-                    user.innerHTML = `<img src="/img/${response.model.avatar}" class="commentImage" alt="" style="border-radius:50%;height:80px;width:80px">
-                                        <p class="text-muted">${response.model. userName}</p>`;
+                    user.innerHTML = `<img src="/mediaUpload/${response.model.avatar}" class="commentImage" alt="" style="border-radius:50%;height:80px;width:80px">
+                                        <p class="text-muted">${response.model.userName}</p>`;
 
                     var whyIVolunteer = document.getElementById("story-details-why-i-voluntter");
                     whyIVolunteer.innerHTML = `<p>${response.model.whyIVolunteer}</p>`;

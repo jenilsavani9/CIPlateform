@@ -171,7 +171,7 @@ namespace CI.Repository.Repository
             }
             if (user.avatar != null)
             {
-                tempUser.Avatar = user.avatar.ToString().Split('\\')[2];
+                tempUser.Avatar = user.avatar;
             }
             tempUser.EmployeeId = user.employeeId;
             tempUser.Department = user.department;
@@ -193,7 +193,7 @@ namespace CI.Repository.Repository
                 tempUser.Email = user.email;
                 if (user.avatar != null)
                 {
-                    tempUser.Avatar = user.avatar.ToString().Split('\\')[2];
+                    tempUser.Avatar = user.avatar;
                 }
                 tempUser.EmployeeId = user.employeeId;
                 tempUser.Department = user.department;
@@ -231,6 +231,8 @@ namespace CI.Repository.Repository
                 user.title = TempUserData.Title;
                 user.available = TempUserData.Available;
                 user.email = TempUserData.Email;
+                user.countryId = TempUserData.CountryId;
+                user.status = TempUserData.Status;
                 if (tempCity != null)
                 {
                     user.city = tempCity.Name;
@@ -540,7 +542,32 @@ namespace CI.Repository.Repository
                 model.endDate = tempMission.EndDate;
                 model.seats = tempMission.SeatLeft;
                 model.availability = tempMission.Availability;
+                model.missionType = tempMission.MissionType;
+                model.status = tempMission.Status;
+                model.availability = tempMission.Availability;
+                model.themeId = (long)tempMission.ThemeId;
+                model.countryId = (int)tempMission.CountryId;
+                model.cityId = (int)tempMission.CityId;
             }
+
+            // load mission images
+            var images = _db.MissionMedia.Where(m => m.MissionId == id).ToList();
+            List<string> files = new List<string>();
+            foreach (var image in images)
+            {
+                files.Add(image.MediaPath);
+            }
+            model.images = files;
+
+            // load mission docs
+            var docs = _db.MissionDocuments.Where(md => md.MissionId == id).ToList();
+            List<string> Docfiles = new List<string>();
+            foreach(var doc in docs)
+            {
+                Docfiles.Add(doc.DocumentPath);
+            }
+            model.docs = Docfiles;
+
             return model;
         }
 
@@ -581,6 +608,21 @@ namespace CI.Repository.Repository
                     {
                         var img = obj.images[i];
                         _db.MissionMedia.Add(new MissionMedium { MissionId = mission.MissionId, MediaName = img, MediaType = "png", MediaPath = img });
+                        _db.SaveChanges();
+                    }
+                }
+
+                if (obj.docs != null)
+                {
+                    var docs = _db.MissionDocuments.Where(md => md.MissionId == mission.MissionId).ToList();
+                    foreach (var doc in docs)
+                    {
+                        _db.MissionDocuments.Remove(doc);
+                    }
+                    for (var i = 0; i < obj.docs.Count; i++)
+                    {
+                        var doc = obj.docs[i];
+                        _db.MissionDocuments.Add(new MissionDocument { MissionId = mission.MissionId, DocumentName = doc, DocumentType = "pdf", DocumentPath = doc });
                         _db.SaveChanges();
                     }
                 }

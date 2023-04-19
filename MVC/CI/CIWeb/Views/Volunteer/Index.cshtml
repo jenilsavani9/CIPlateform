@@ -506,7 +506,7 @@
         function getRelatedMissions(res) {
            return res.volunteerMissionModel.relatedMission.map(item => {
                 
-
+               console.log(res);
                 if(item.missionType == "Time" )
                 { 
                     
@@ -514,8 +514,8 @@
                             <div class="thumbnail card">
                                 <div class="img-event">
                                     <img class="group list-group-image img-fluid" style="width:100%;"
-                                         src="/img/Grow-Trees-On-the-path-to-environment-sustainability.png" alt="" />
-                                    @*<div class="landing-page-top-right"><img src="/img/pin.png" alt=""> ${item.city.name}</div>*@
+                                         src="/mediaUpload/${item.imgUrl}" alt="" />
+                                    <div class="landing-page-top-right"><img src="/img/pin.png" alt=""> ${item.city}</div>
                                     <div class="landing-page-bottom-right d-flex flex-column"  style="bottom: 10px !important;">
                                         <button class="mb-2 landing-page-btn-img" id="vol-page-add-to-fav-btn-card-${item.missionId}" onclick="changeAddtoFavRelatedMission(${item.missionId})">
                                             <img src="/img/heart.png" alt="" onload="LoadAddtoFav(${item.missionId})">
@@ -524,17 +524,17 @@
                                                  alt="">
                                         </button>
                                     </div>
-                                    @*<div class="landing-page-bottom-center">${item.theme.title}</div>*@
+                                    <div class="landing-page-bottom-center">${item.theme}</div>
                                 </div>
                                 <div class="caption card-body">
                                     <h4 class="group card-title inner list-group-item-heading">
                                        ${item.title}
                                     </h4>
                                     <p class="group inner landing-page-list-group-item-text">
-                                       ${item.shortDescription}
+                                       ${item.description}
                                     </p>
                                     <div class="d-flex justify-content-between landing-page-card-rating">
-                                        <div>${item.organizationName}</div>
+                                        <div>${item.organization}</div>
                                         <div>
                                             <img src="/img/selected-star.png" alt="">
                                             <img src="/img/selected-star.png" alt="">
@@ -545,7 +545,7 @@
                                     </div>
                                     <div class="rule d-flex mt-1">
                                             <hr>
-                                            <button class="date-btn mt-1">From ${item.startDate.toString().substring(0,10)} until ${item.endDate.toString().substring(0,10)}</button>
+                                            <button class="date-btn mt-1">${item.startDateEndDate}</button>
                                             <hr>
                                     </div>
                                     <div class="row landing-page-box-border">
@@ -553,7 +553,7 @@
                                             <p class="lead me-2 pt-2">
                                                 <img src="/img/Seats-left.png" alt="">
                                                 <div>
-                                                    <div>10</div>
+                                                    <div>${item.noOfSeatsLeft}</div>
                                                     <div class="landing-page-card-vol-small">Seats Left</div>
                                                 </div>
                                             </p>
@@ -562,7 +562,7 @@
                                             <p class="lead me-2 pt-2">
                                                 <img src="/img/deadline.png" alt="">
                                                 <div>
-                                                    <div>09/01/2023</div>
+                                                    <div>${item.deadline}</div>
                                                     <div class="landing-page-card-vol-small">Deadline</div>
                                                 </div>
                                             </p>
@@ -585,8 +585,8 @@
                             <div class="thumbnail card">
                                 <div class="img-event">
                                     <img class="group list-group-image img-fluid" style="width:100%;"
-                                         src="/img/Grow-Trees-On-the-path-to-environment-sustainability.png" alt="" />
-                                    @*<div class="landing-page-top-right"><img src="/img/pin.png" alt=""> ${item.city.name}</div>*@
+                                         src="/mediaUpload/${item.imgUrl}" alt="" />
+                                    <div class="landing-page-top-right"><img src="/img/pin.png" alt=""> ${item.city}</div>
                                     <div class="landing-page-bottom-right d-flex flex-column" style="bottom: 10px !important;">
                                         <button class="mb-2 landing-page-btn-img" id="vol-page-add-to-fav-btn-card-${item.missionId}" onclick="changeAddtoFavRelatedMission(${item.missionId})">
                                             <img src="/img/heart.png" alt="" onload="LoadAddtoFav(${item.missionId})">
@@ -595,17 +595,17 @@
                                                  alt="">
                                         </button>
                                     </div>
-                                    @*<div class="landing-page-bottom-center">${item.theme.title}</div>*@
+                                    <div class="landing-page-bottom-center">${item.theme}</div>
                                 </div>
                                 <div class="caption card-body">
                                     <h4 class="group card-title inner list-group-item-heading">
                                        ${item.title}
                                     </h4>
                                     <p class="group inner landing-page-list-group-item-text">
-                                       ${item.shortDescription}
+                                       ${item.description}
                                     </p>
                                     <div class="d-flex justify-content-between landing-page-card-rating">
-                                        <div>${item.organizationName}</div>
+                                        <div>${item.organization}</div>
                                         <div>
                                             <img src="/img/selected-star.png" alt="">
                                             <img src="/img/selected-star.png" alt="">
@@ -616,7 +616,7 @@
                                     </div>
                                     <div class="rule d-flex mt-1">
                                             <hr>
-                                            <button class="date-btn mt-1">From ${item.startDate.toString().substring(0,10)} until ${item.endDate.toString().substring(0,10)}</button>
+                                            <button class="date-btn mt-1">${item.startDateEndDate}</button>
                                             <hr>
                                     </div>
                                     <div class="row landing-page-box-border">
@@ -763,14 +763,14 @@
             }
 
             function loadComments(response) {
-
+                console.log(response)
                 return response.commentsModel.map(item => {
 
                     return `
                                 <div class="card my-2">
                                     <div class="card-body d-flex">
                                         <div>
-                                            <img class="vol-page-tab-comments-img" src="/img/volunteer1.png" alt="">
+                                            <img class="vol-page-tab-comments-img" src="/mediaUpload/${item.avatar}" alt="">
                                         </div>
                                         <div class="d-flex flex-column justify-content-around ms-3">
                                             <div>
@@ -814,7 +814,7 @@
                 return response.recentVolunteerModel.map(item => {
                     return `
                             <div class="col-4 mt-1 text-center">
-                                <img class="vol-page-right-recent-vol-img" src="/img/${item.user[0].avatar}" alt="">
+                                <img class="vol-page-right-recent-vol-img" src="/mediaUpload/${item.user[0].avatar}" alt="">
                                 <div class="vol-page-right-2nd-vol-name">${item.user[0].firstName} ${item.user[0].lastName}</div>
                             </div>`
                 }).join("")

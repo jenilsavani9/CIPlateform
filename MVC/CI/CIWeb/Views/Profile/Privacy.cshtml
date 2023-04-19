@@ -11,6 +11,7 @@ Layout = "_TopNavbar";
       <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha2/dist/css/bootstrap.min.css" rel="stylesheet"
           integrity="sha384-aFq/bzH65dt+w6FI2ooMVUpc+21e0SRygnTpmBvdBgSdnuTN7QbdgL+OapgHtvPp" crossorigin="anonymous">
       <link rel="stylesheet" href="~/css/Privacypolicy.css" asp-append-version="true" />
+      <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
    </head>
    <body>
       <div class="container">
@@ -21,16 +22,16 @@ Layout = "_TopNavbar";
                      Privacy and Cookies Policy
                   </lable>
                </div>
-               <div class="row">
-                  <div class="col-12 col-md-3">
-                     <div id="list-example" class="list-group">
-                        <a class="list-group-item list-group-item-action" href="#list-item-1">Introduction</a>
-                        <a class="list-group-item list-group-item-action" href="#list-item-2">How does use cookies? </a>
-                        <a class="list-group-item list-group-item-action" href="#list-item-3">How to manage your cookie preferences?</a>
+               <div class="row mt-3">
+                  <div class="col-12 col-md-3 mt-2">
+                     <div id="list-example">
+                        <a class="" href="#list-item-1">Introduction</a>
+                        <a class="" href="#list-item-2">How does use cookies? </a>
+                        <a class="" href="#list-item-3">How to manage your cookie preferences?</a>
                      </div>
                   </div>
                   <div class="col-12 col-md-9">
-                     <div data-bs-spy="scroll" data-bs-target="#list-example" data-bs-smooth-scroll="true" class="scrollspy-example" tabindex="0">
+                     <div data-bs-spy="scroll" id="list-desc-privacy" data-bs-target="#list-example" data-bs-smooth-scroll="true" class="scrollspy-example" tabindex="0">
                         <h4 id="list-item-1">Introduction</h4>
                         <div class="mt-3 mb-5">
                            <p>
@@ -84,6 +85,48 @@ Layout = "_TopNavbar";
          </div>
       </div>
       <script>
+
+          // load sidebar slug
+          function loadSidebar(response) {
+              return response.result.map(item => `<div class="d-flex"><a class="list-group-item list-group-item-action" href="#${item.slug}">${item.title}</a>
+                                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-chevron-right" viewBox="0 0 16 16">
+                                                  <path fill-rule="evenodd" d="M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708z"/>
+                                                </svg>
+                                                </div><hr/>`).join("");
+          }
+
+          //load main content
+          function loadDesc(response) {
+              return response.result.map(item => `<h4 id="${item.slug}">${item.title}</h4>
+                                                    <div class="mt-3 mb-5">
+                                                       ${item.description}
+                                                    </div>
+                                                  <hr/>`).join("");
+          }
+
+          // to load data from CMS-Table
+          $.ajax({
+                type: "GET",
+                url: `/api/privacy`,
+                processData: false,
+                success: function (response) {
+
+                    console.log(response);
+
+                    var sidebar = document.getElementById('list-example');
+                    sidebar.innerHTML = loadSidebar(response);
+                    
+                    var Main = document.getElementById('list-desc-privacy');
+                    Main.innerHTML = loadDesc(response);
+
+                },
+                failure: function (response) {
+                    alert(response.responseText);
+                },
+                error: function (response) {
+                    alert(response.responseText);
+                }
+             });
          
       </script>
    </body>

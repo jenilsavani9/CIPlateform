@@ -46,7 +46,7 @@ namespace CI.Repository.Repository
             return user;
         }
 
-        public List<Mission>? RelatedMissions(long? CityId, long? CountryId, long? ThemeId)
+        public List<MissionViewModel>? RelatedMissions(long? CityId, long? CountryId, long? ThemeId)
         {
             var relatedMission = _db.Missions.Where(m => m.CityId == CityId).Take(3).ToList();
             if (relatedMission.Count < 3)
@@ -57,7 +57,36 @@ namespace CI.Repository.Repository
             {
                 relatedMission = _db.Missions.Where(m => m.ThemeId == ThemeId).Take(3).ToList();
             }
-            return relatedMission;
+            List<MissionViewModel> missionsVMList = new List<MissionViewModel>();
+            foreach (var mission in relatedMission)
+            {
+                var city = _db.Cities.Where(e => e.CityId == mission.CityId).FirstOrDefault();
+                var theme = _db.MissionThemes.Where(e => e.MissionThemeId == mission.ThemeId).FirstOrDefault();
+                string[] startDateNtime = mission.StartDate.ToString().Split(' ');
+                string[] endDateNtime = mission.EndDate.ToString().Split(' ');
+                var missionURL = _db.MissionMedia.Where(e => e.MissionId == mission.MissionId).FirstOrDefault();
+                missionsVMList.Add(new MissionViewModel
+                {
+                    MissionId = mission.MissionId,
+                    Title = (mission.Title != null) ? mission.Title : "",
+                    Description = (mission.Description != null) ? mission.Description : "",
+                    City = (city?.Name != null) ? city.Name : "",
+                    Organization = (mission?.OrganizationName != null)? mission.OrganizationName : "",
+                    Theme = (theme?.Title != null) ? theme.Title : "",
+                    //Rating = rating,
+                    StartDate = (mission?.StartDate != null) ? (DateTime)mission.StartDate : DateTime.Now,
+                    EndDate = (mission?.EndDate != null) ? (DateTime)mission.EndDate : DateTime.Now,
+                    missionType = (mission?.MissionType != null) ? mission.MissionType : "",
+                    //isFavrouite = (user != null) ? _db.FavoriteMissions.Any(e => e.MissionId == mission.MissionId && e.UserId == user.UserId) : false,
+                    //userApplied = (user != null) ? _db.MissionApplications.Any(e => e.MissionId == mission.MissionId && e.UserId == user.UserId && e.ApprovalStatus != "pending") : false,
+                    ImgUrl = (missionURL?.MediaPath != null) ? missionURL.MediaPath : "404-Page-image.png",
+                    StartDateEndDate = "From " + startDateNtime[0] + " until " + endDateNtime[0],
+                    NoOfSeatsLeft = (mission?.SeatLeft != null) ? (int)mission.SeatLeft : 0,
+                    Deadline = endDateNtime[0],
+                    //createdAt = (DateTime)mission.CreatedAt
+                });
+            }
+            return missionsVMList;
         }
 
         public bool AddToFavorite(long? userId, int? missionId)
@@ -179,7 +208,9 @@ namespace CI.Repository.Repository
                     firstName = u?.FirstName,
                     lastName = u?.LastName,
                     commentText = comment.CommentText,
-                    createdAt = comment.CreatedAt
+                    createdAt = comment.CreatedAt,
+                    avatar = u?.Avatar
+                   
                 });
             }
             return CommentsModel;
@@ -212,7 +243,7 @@ namespace CI.Repository.Repository
         public List<RecentVolunteerModel> GetVolunteers(int missionId, string page)
         {
 
-            int pageSize = 3;
+            int pageSize = 9;
             var recentVoluntters = _db.MissionApplications.Where(m => m.MissionId == missionId && m.ApprovalStatus != "pending").Skip(int.Parse(page) * pageSize).Take(pageSize);
 
             List<RecentVolunteerModel> RecentVolunteerModel = new List<RecentVolunteerModel>();

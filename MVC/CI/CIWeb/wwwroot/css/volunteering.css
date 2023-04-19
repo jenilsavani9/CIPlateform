@@ -235,3 +235,15 @@
     font-size: 13px;
     padding: 0 30px;
 }
+
+.landing-page-list-group-item-text,
+.card-body > p {
+    font-size: 13px;
+    color: #a8a8a8;
+}
+
+
+
+.list-group-image {
+    height: 200px
+}

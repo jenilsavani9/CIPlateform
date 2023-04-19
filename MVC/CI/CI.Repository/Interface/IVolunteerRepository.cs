@@ -15,7 +15,7 @@ namespace CI.Repository.Interface
 
         public List<MissionTheme>? GetThemes(long? id);
 
-        public List<Mission>? RelatedMissions(long? CityId, long? CountryId, long? ThemeId);
+        public List<MissionViewModel>? RelatedMissions(long? CityId, long? CountryId, long? ThemeId);
 
         public bool AddToFavorite(long? userId, int? missionId);
 

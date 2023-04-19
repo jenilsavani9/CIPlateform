@@ -235,7 +235,7 @@ namespace CI.Repository.Repository
                     missionType = mission.MissionType,
                     isFavrouite = (user != null) ? _db.FavoriteMissions.Any(e => e.MissionId == mission.MissionId && e.UserId == user.UserId) : false,
                     userApplied = (user != null) ? _db.MissionApplications.Any(e => e.MissionId == mission.MissionId && e.UserId == user.UserId && e.ApprovalStatus != "pending") : false,
-                    ImgUrl = (missionURL != null) ? missionURL.MediaPath : "404-Page-image.png",
+                    ImgUrl = (missionURL?.MediaPath != null) ? missionURL.MediaPath : "404-Page-image.png",
                     StartDateEndDate = "From " + startDateNtime[0] + " until " + endDateNtime[0],
                     NoOfSeatsLeft = (int)mission?.SeatLeft,
                     Deadline = endDateNtime[0],

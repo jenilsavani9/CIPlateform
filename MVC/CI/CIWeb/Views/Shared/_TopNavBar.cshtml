@@ -41,7 +41,7 @@ For more information on enabling MVC for empty projects, visit https://go.micros
                            data-mdb-toggle="dropdown" aria-expanded="false">
                             Policy
                         </a>
-                        <ul class="dropdown-menu ddpolicy dropdown-menu-start" aria-labelledby="navbarDropdownMenuLink">
+                        <ul class="dropdown-menu ddpolicy dropdown-menu-start" aria-labelledby="navbarDropdownMenuLink" id="dropdown-menu-start-privacy">
                             <li><a class="dropdown-item" asp-action="Privacy" asp-controller="Profile" >Read Policy</a></li>
                             
                         </ul>
@@ -107,6 +107,36 @@ For more information on enabling MVC for empty projects, visit https://go.micros
 
     </div>
 
+    <script>
+
+        // for load CMS-slug in top navbar
+        function loadSidebar(response) {
+            return response.result.map(item => `<li><a class="dropdown-item" href="/Profile/Privacy#${item.slug}">${item.title}</a></li>`).join("");
+        }
+        
+        // to load data from CMS-Table to privacy dropdown
+          $.ajax({
+                type: "GET",
+                url: `/api/privacy`,
+                success: function (response) {
+
+                    console.log(response);
+
+                    var sidebar = document.getElementById('dropdown-menu-start-privacy');
+                    sidebar.innerHTML = loadSidebar(response);
+                                        
+
+                },
+                failure: function (response) {
+                    alert(response.responseText);
+                },
+                error: function (response) {
+                    alert(response.responseText);
+                }
+             });
+
+
+    </script>
 
     <script
       src="https://code.jquery.com/jquery-3.6.0.min.js"
