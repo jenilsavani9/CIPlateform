@@ -173,7 +173,7 @@ namespace CIWeb.Controllers
 
             if (user != null && user.FirstName != null)
             {
-                if (user.Password == obj.Password)
+                if (BCrypt.Net.BCrypt.Verify(obj.Password, user.Password))
                 {
                     HttpContext.Session.SetString("userEmail", user.Email);
                     HttpContext.Session.SetString("firstname", user.FirstName);

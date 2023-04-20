@@ -155,9 +155,9 @@ namespace CI.Repository.Repository
         public string ChangePassword(string? userEmail, string? oldPassword, string? newPassword)
         {
             var user = _db.Users.Where(u => u.Email == userEmail).FirstOrDefault();
-            if(user!=null && newPassword != null && user.Password == oldPassword)
+            if(user!=null && newPassword != null && BCrypt.Net.BCrypt.Verify(oldPassword, user.Password))
             {
-                user.Password = newPassword;
+                user.Password = BCrypt.Net.BCrypt.HashPassword(newPassword);
                 _db.SaveChanges();
                 return "OK";
             } else

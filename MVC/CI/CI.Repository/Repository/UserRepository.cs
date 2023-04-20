@@ -40,9 +40,15 @@ namespace CI.Repository.Repository
             else
             {
                 // Update the user's password
-                user.Password = user.Password;
-                _db.SaveChanges();
-                return true;
+                var TempUser = _db.Users.Where(u => u.Email == user.Email).FirstOrDefault();
+                if(TempUser != null && user.Password != null)
+                {
+                    TempUser.Password = BCrypt.Net.BCrypt.HashPassword(user.Password);
+                    _db.SaveChanges();
+                    return true;
+                }
+                return false;
+                
             }
         }
 
@@ -54,6 +60,7 @@ namespace CI.Repository.Repository
 
         public bool SaveUser(User user)
         {
+            user.Password = BCrypt.Net.BCrypt.HashPassword(user.Password);
             _db.Users.Add(user);
             _db.SaveChanges();
             return true;

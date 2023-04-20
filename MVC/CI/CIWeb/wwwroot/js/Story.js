@@ -33,7 +33,7 @@ function loadStory(response) {
                                 ${desc}
                             </p>
                             <div class="d-flex align-items-center">
-                                <img class="card-body-user-img" src="./img/${item.user.avatar}" alt="">
+                                <img class="card-body-user-img" src="/mediaUpload/${item.user.avatar}" alt="">
                                 <div class="ms-2">${item.user.firstName} ${item.user.lastName}</div>
                             </div>
                         </div>

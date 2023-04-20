@@ -482,6 +482,9 @@
 
                         var totalMission = document.getElementById("landing-page-total-missions");
                         totalMission.innerHTML = `${response.noOfMissions} Missions`
+
+                       
+
                     },
                     failure: function (response) {
                         alert(response.responseText);
@@ -714,6 +717,9 @@
                             } else {
                                 element.innerHTML = `<img src="/img/heart.png" alt="">`
                             }
+
+                            
+
                         },
                         failure: function (response) {
                             alert(response.responseText);

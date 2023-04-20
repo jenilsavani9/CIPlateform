@@ -511,3 +511,4 @@ C:\Users\pci114\Downloads\CIPlateform\MVC\CI\CIWeb\obj\Debug\net6.0\CIWeb.dll
 C:\Users\pci114\Downloads\CIPlateform\MVC\CI\CIWeb\obj\Debug\net6.0\ref\CIWeb.dll
 C:\Users\pci114\Downloads\CIPlateform\MVC\CI\CIWeb\obj\Debug\net6.0\CIWeb.pdb
 C:\Users\pci114\Downloads\CIPlateform\MVC\CI\CIWeb\obj\Debug\net6.0\CIWeb.genruntimeconfig.cache
+C:\Users\pci114\Downloads\CIPlateform\MVC\CI\CIWeb\bin\Debug\net6.0\BCrypt.Net-Next.dll

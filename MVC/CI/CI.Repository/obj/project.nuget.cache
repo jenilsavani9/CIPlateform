@@ -1,11 +1,12 @@
 {
   "version": 2,
-  "dgSpecHash": "FSmrwOcmee/dyl2l1lxtCOFErJzyz8n4uxZQguDu/9BeCC13Pc9Skl9FFD19cVeJju5KRGX17YKYYjZZAJatYg==",
+  "dgSpecHash": "43svdgQDGdTpOfnoAp5rXWOh5VGX4JszjGF9+6tBxmTTjYQNl2EiXEH7bwSR5iO1LoslewcKivhj09yD8TjgoQ==",
   "success": true,
   "projectFilePath": "C:\\Users\\pci114\\Downloads\\CIPlateform\\MVC\\CI\\CI.Repository\\CI.Repository.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\pci114\\.nuget\\packages\\azure.core\\1.24.0\\azure.core.1.24.0.nupkg.sha512",
     "C:\\Users\\pci114\\.nuget\\packages\\azure.identity\\1.6.0\\azure.identity.1.6.0.nupkg.sha512",
+    "C:\\Users\\pci114\\.nuget\\packages\\bcrypt.net-next\\4.0.3\\bcrypt.net-next.4.0.3.nupkg.sha512",
     "C:\\Users\\pci114\\.nuget\\packages\\cloudscribe.pagination.models\\1.1.0\\cloudscribe.pagination.models.1.1.0.nupkg.sha512",
     "C:\\Users\\pci114\\.nuget\\packages\\cloudscribe.web.pagination\\6.0.0\\cloudscribe.web.pagination.6.0.0.nupkg.sha512",
     "C:\\Users\\pci114\\.nuget\\packages\\humanizer.core\\2.14.1\\humanizer.core.2.14.1.nupkg.sha512",

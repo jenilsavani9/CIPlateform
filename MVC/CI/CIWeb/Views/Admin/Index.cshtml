@@ -116,18 +116,21 @@
                                             <a class="text-reset dropdown-toggle d-flex align-items-center" href="#"
                                                id="navbarDropdownMenuLink" role="button" data-mdb-toggle="dropdown"
                                                aria-expanded="false">
-                                                <img src="~/img/volunteer1.png" class="rounded-circle me-3" height="22" alt=""
+                                                    <img src="~/mediaUpload/@ViewBag.user.Avatar" class="rounded-circle me-3" height="22" alt=""
                                                      loading="lazy" style="
-                                    width: 30px;
-                                    height: 30px;
-                                    " />
-                                                Jenil Savani
+                                                                    width: 30px;
+                                                                    height: 30px;
+                                                                " />
+                                                @ViewBag.user.FirstName @ViewBag.user.LastName 
                                             </a>
-                                            <ul class="dropdown-menu dropdown-menu-start"
-                                                aria-labelledby="navbarDropdownMenuLink">
-                                                <li><a class="dropdown-item">DropDown</a></li>
-                                                <li><a class="dropdown-item">DropDown</a></li>
-                                                <li><a class="dropdown-item">DropDown</a></li>
+                                            <ul class="dropdown-menu dropdown-menu-start" aria-labelledby="navbarDropdownMenuLink">
+                                                @if(ViewBag.user.Admin == 1)
+                                                {
+                                                    <li><a class="dropdown-item" asp-action="Index" asp-controller="Admin">Admin</a></li>
+                                                }
+                                                <li><a class="dropdown-item" asp-action="Index" asp-controller="Profile">My profile</a></li>
+                                                <li><a class="dropdown-item" asp-action="Index" asp-controller="Timesheet">Volunteering Timesheet</a></li>
+                                                <li><a class="dropdown-item" asp-action="login" asp-controller="User">Logout</a></li>
                                             </ul>
                                         </div>
                                     </li>
@@ -218,7 +221,6 @@
                     <select class="form-control form-select mt-2" aria-label="Default select example" id="user-crud-status-dropdown">
                         <option value="1" selected>Active</option>
                         <option value="0">In-Active</option>
-                        <input hidden type="text" id="user-crud-edit-id" value="" />
                     </select>
                 </div>
                 <div class="col-lg-6 col-md-10 d-flex flex-column mt-3">
@@ -287,7 +289,6 @@
                     <select class="form-control form-select mt-2" name="Status" aria-label="Default select example" id="cms-crud-status">
                         <option value="Pending" selected>Pending</option>
                         <option value="Published">Published</option>
-                        <input hidden type="text" id="cms-page-edit-id" value="" />
                     </select>
                 </div>
             </div>
@@ -324,7 +325,6 @@
                     <select class="form-control form-select mt-2" name="Status" aria-label="Default select example" id="mission-theme-crud-status">
                         <option value="Pending" selected>Pending</option>
                         <option value="Published">Published</option>
-                        <input hidden type="text" id="mission-theme-edit-id" value="" />
                     </select>
                 </div>
             </div>
@@ -360,7 +360,6 @@
                     <select class="form-control form-select mt-2" aria-label="Default select example" id="mission-skill-crud-status">
                         <option value="Pending" selected>Pending</option>
                         <option value="Published">Published</option>
-                        <input hidden type="text" id="mission-skill-edit-id" value="" />
                     </select>
                 </div>
             </div>
@@ -484,14 +483,14 @@
                     </div>
                     <div class="form-group mt-3 col-md-4">
                         <lable for="mission-images" class="form-label">Mission Media</lable>
-                        <input id="mission-images" name="input2[]" type="file" class="file" data-show-caption="true" multiple onchange="InsertMissionImage()">
+                        <input id="mission-images" name="input2[]" type="file" class="file" data-show-caption="true" multiple onchange="InsertMissionImage()" accept="image/*">
                     </div>
                     <div class="form-group mt-3 col-md-8 row" id="mission-media-edit-files">
                         
                     </div>
                     <div class="form-group mt-3 col-md-4">
                         <lable for="mission-document" class="form-label">Mission Document</lable>
-                        <input id="mission-document" name="input2[]" type="file" class="file"  data-show-upload="false" data-show-caption="true" multiple onchange="InsertMissionDocs()">
+                        <input id="mission-document" name="input2[]" type="file" class="file"  data-show-upload="false" data-show-caption="true" multiple onchange="InsertMissionDocs()" accept="application/pdf    ">
                     </div>
                     <div class="form-group mt-3 col-md-8 row" id="mission-docs-edit-files">
                         
@@ -537,6 +536,25 @@
                      + currentdate.getMinutes()
 
      $('#dashboard-time').html(datetime)
+
+
+     $('.modal').on('hidden.bs.modal', function () {
+        $(this)
+            .find("input:not([type=hidden]),textarea,select, input[type=file]")
+            .val('')
+            .end()
+            .find("input[type=checkbox], input[type=radio]")
+            .prop("checked", "")
+            .end();
+
+        CKEDITOR.instances.cmspageeditor.setData("");
+        CKEDITOR.instances.cmspageeditor1.setData("");
+        CKEDITOR.instances.cmspageeditor2.setData("");
+
+        $('#mission-media-edit-files').addClass('d-none');
+        $('#mission-docs-edit-files').addClass('d-none');
+
+    });
 
      function makeDivActive(ID) {
          var allDivs = document.querySelector(".dashbord-sidebar-detail");
@@ -1943,7 +1961,12 @@
 
      // mission start
 
+     // var for image list
+     var ImagesList = [];
+
      function AddMission() {
+
+         ImagesList = [];
 
          var error = 0;
          var title = $('#mission-title').val();
@@ -2086,16 +2109,27 @@
          error = 0;
      }
 
+     
+
+     function RemoveImagesFromList(item) {
+         ImagesList = ImagesList.filter(name => name !== item);
+         var element = document.getElementById(item);
+         element.classList.add('d-none');
+         console.log(element);
+     }
+
      function LoadImages(response) {
          html = '';
+         console.log(response);
          if(response.result.images.length == 0) {
              html += "No image Selected";
              return html;
          }
          response.result.images.map(item => {
-             html += `<img src="/mediaUpload/${item}" class="col-3 me-1" width="100px" height="100px" />`
+             html += `<div class="col-2" id="${item}"><img src="/mediaUpload/${item}"  width="100px" height="100px" style="position: relative;" /><i class="bi bi-x-square-fill" style="cursor:pointer;" onclick="RemoveImagesFromList('${item}')"></i></div>`
+             ImagesList.push(item);
          }).join("");
-
+         console.log("images : " + ImagesList)
          return html;
      }
 
@@ -2107,7 +2141,9 @@
          }
          response.result.docs.map(item => {
              html += `<a href="/document/${item}" class="col-3 me-2 edit-mission-documents" >${item}</a>`
+             
          }).join("");
+         
          return html;
      }
 
@@ -2117,6 +2153,8 @@
          element.innerHTML = `<button type="button" class="btn btn-secondary mission-skill-crud-close-btn" data-bs-dismiss="modal">Close</button>
                 <button type="submit" class="btn btn-primary mission-skill-crud-save-btn" id="mission-crud-save-btn" onclick="EditMission(${id})">Save changes</button>`
 
+         $('#mission-media-edit-files').removeClass('d-none');
+         $('#mission-docs-edit-files').removeClass('d-none');
 
          $.ajax({
              type: "GET",
@@ -2295,13 +2333,15 @@
              $('#mission-theme-error').addClass("d-none")
          }
 
-         // for images
+         // for images from file select
          let file = $("#mission-images")[0].files; 
         
-         var images = [];
+         
          for(var i=0; i<file.length; i++) {
-             images.push(file[i].name);
+             ImagesList.push(file[i].name);
          }
+
+         
 
          // for docs
          let Docfile = $("#mission-document")[0].files; 
@@ -2332,7 +2372,7 @@
                      "missionType": type,
                      "status": status,
                      "themeId": themeId,
-                     "images": images,
+                     "images": ImagesList,
                      "docs": doc
 
                  },

@@ -49,6 +49,11 @@ namespace CI.Repository.Repository
         public User FindUser(string? email)
         {
             var user = _db.Users.FirstOrDefault(x => x.Email == email);
+            if(user == null)
+            {
+                User Empty = new User();
+                return Empty;
+            }
             return user;
         }
 
@@ -206,7 +211,8 @@ namespace CI.Repository.Repository
             var missions = FinalMissionsList.ToList();
             foreach (var mission in missions)
             {
-                City city = _db.Cities.Where(e => e.CityId == mission.CityId).FirstOrDefault();
+                City city = new City();
+                city = _db.Cities.Where(e => e.CityId == mission.CityId).FirstOrDefault();
                 MissionTheme theme = _db.MissionThemes.Where(e => e.MissionThemeId == mission.ThemeId).FirstOrDefault();
                 string[] startDateNtime = mission.StartDate.ToString().Split(' ');
                 string[] endDateNtime = mission.EndDate.ToString().Split(' ');

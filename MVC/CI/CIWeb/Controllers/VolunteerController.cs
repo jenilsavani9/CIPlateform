@@ -38,17 +38,25 @@ namespace CIWeb.Controllers
             int? missionId = id;
             //var mission = _db.Missions.Where(m => m.MissionId == missionId).ToList();
             var mission = _repository.GetMissions(missionId);
-            var city = _repository.GetCitys(mission[0].CityId);
-            var country = _repository.GetCountrys(city[0].CountryId);
-            var theme = _repository.GetThemes(mission[0].ThemeId);
-            VolunteerMissionModel.Mission = mission;
-            VolunteerMissionModel.City = city;
-            VolunteerMissionModel.Country = country;
-            VolunteerMissionModel.Themes = theme;
+            if(mission != null)
+            {
+                var city = _repository.GetCitys(mission[0].CityId);
+                if(city != null)
+                {
+                    var country = _repository.GetCountrys(city[0].CountryId);
+                    var theme = _repository.GetThemes(mission[0].ThemeId);
+                    VolunteerMissionModel.Mission = mission;
+                    VolunteerMissionModel.City = city;
+                    VolunteerMissionModel.Country = country;
+                    VolunteerMissionModel.Themes = theme;
 
-            //related missions
-            var relatedMission = _repository.RelatedMissions(mission[0].CityId, city[0].CountryId, mission[0].ThemeId);
-            VolunteerMissionModel.relatedMission = relatedMission;
+                    //related missions
+                    var relatedMission = _repository.RelatedMissions(mission[0].CityId, city[0].CountryId, mission[0].ThemeId);
+                    VolunteerMissionModel.relatedMission = relatedMission;
+                }
+                
+            }
+            
             return Json(new { VolunteerMissionModel });
         }
 

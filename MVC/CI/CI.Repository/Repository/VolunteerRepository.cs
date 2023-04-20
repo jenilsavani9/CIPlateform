@@ -199,7 +199,7 @@ namespace CI.Repository.Repository
         {
 
             List<CommentsModel> CommentsModel = new List<CommentsModel>();
-            var comments = _db.Comments.Where(c => c.MissionId == missionId && c.ApprovalStatus != "pending").ToList();
+            var comments = _db.Comments.Where(c => c.MissionId == missionId).ToList();
             foreach (var comment in comments)
             {
                 var u = _db.Users.Where(u => u.UserId == comment.UserId).SingleOrDefault();

@@ -214,32 +214,36 @@ namespace CI.Repository.Repository
         {
             UserProfileModel user = new UserProfileModel();
             var TempUserData = _db.Users.FirstOrDefault(x => x.UserId == id);
-            var tempCity = _db.Cities.Where(c => c.CityId == TempUserData.CityId).FirstOrDefault();
-            if (TempUserData != null)
+            if(TempUserData != null)
             {
-                user.Id = TempUserData.UserId;
-                user.firstName = TempUserData.FirstName;
-                user.lastName = TempUserData.LastName;
-                user.phoneNumber = TempUserData.PhoneNumber;
-                user.avatar = TempUserData.Avatar;
-                user.whyIVolunteer = TempUserData.WhyIVolunteer;
-                user.employeeId = TempUserData.EmployeeId;
-                user.department = TempUserData.Department;
-                user.manager = TempUserData.Manager;
-                user.profileText = TempUserData.ProfileText;
-                user.linkedInUrl = TempUserData.LinkedInUrl;
-                user.title = TempUserData.Title;
-                user.available = TempUserData.Available;
-                user.email = TempUserData.Email;
-                user.countryId = TempUserData.CountryId;
-                user.status = TempUserData.Status;
-                if (tempCity != null)
+                var tempCity = _db.Cities.Where(c => c.CityId == TempUserData.CityId).FirstOrDefault();
+                if (TempUserData != null)
                 {
-                    user.city = tempCity.Name;
-                    user.cityId = tempCity.CityId;
-                }
+                    user.Id = TempUserData.UserId;
+                    user.firstName = TempUserData.FirstName;
+                    user.lastName = TempUserData.LastName;
+                    user.phoneNumber = TempUserData.PhoneNumber;
+                    user.avatar = TempUserData.Avatar;
+                    user.whyIVolunteer = TempUserData.WhyIVolunteer;
+                    user.employeeId = TempUserData.EmployeeId;
+                    user.department = TempUserData.Department;
+                    user.manager = TempUserData.Manager;
+                    user.profileText = TempUserData.ProfileText;
+                    user.linkedInUrl = TempUserData.LinkedInUrl;
+                    user.title = TempUserData.Title;
+                    user.available = TempUserData.Available;
+                    user.email = TempUserData.Email;
+                    user.countryId = TempUserData.CountryId;
+                    user.status = TempUserData.Status;
+                    if (tempCity != null)
+                    {
+                        user.city = tempCity.Name;
+                        user.cityId = tempCity.CityId;
+                    }
 
+                }
             }
+            
             return user;
         }
 
@@ -260,7 +264,10 @@ namespace CI.Repository.Repository
             CmsPage cms = new CmsPage();
             cms.Title = obj.title;
             cms.Description = obj.description;
-            cms.Slug = obj.slug;
+            if(obj.slug != null)
+            {
+                cms.Slug = obj.slug;
+            }
             cms.Status = obj.status;
             _db.CmsPages.Add(cms);
             _db.SaveChanges();
@@ -289,7 +296,10 @@ namespace CI.Repository.Repository
             {
                 cms.Title = obj?.title;
                 cms.Description = obj?.description;
-                cms.Slug = obj?.slug;
+                if(obj?.slug != null)
+                {
+                    cms.Slug = obj.slug;
+                }
                 cms.Status = obj?.status;
                 cms.UpdatedAt = DateTime.Now;
                 _db.SaveChanges();
@@ -317,7 +327,11 @@ namespace CI.Repository.Repository
             if(obj!=null && obj?.status != null)
             {
                 theme.Title = obj?.title;
-                theme.Status = obj.status;
+                if(obj != null)
+                {
+                    theme.Status = obj.status;
+                }
+                
                 _db.MissionThemes.Add(theme);
                 _db.SaveChanges();
             }
@@ -333,7 +347,11 @@ namespace CI.Repository.Repository
             {
                 theme.title = Theme?.Title;
                 theme.themeId = id;
-                theme.status = Theme.Status;
+                if(Theme != null)
+                {
+                    theme.status = Theme.Status;
+                }
+                
             }
             return theme;
         }
@@ -369,7 +387,11 @@ namespace CI.Repository.Repository
         {
             Skill skill = new Skill();
             skill.SkillName = obj.skillName;
-            skill.Status = obj.status;
+            if(obj.status != null)
+            {
+                skill.Status = obj.status;
+            }
+            
             _db.Skills.Add(skill);
             _db.SaveChanges();
             return true;
@@ -395,7 +417,11 @@ namespace CI.Repository.Repository
             if(skill != null)
             {
                 skill.SkillName = obj.skillName;
-                skill.Status = obj.status;
+                if(obj.status != null)
+                {
+                    skill.Status = obj.status;
+                }
+                
                 skill.UpdatedAt = DateTime.Now;
                 _db.SaveChanges();
                 return true;
@@ -545,9 +571,16 @@ namespace CI.Repository.Repository
                 model.missionType = tempMission.MissionType;
                 model.status = tempMission.Status;
                 model.availability = tempMission.Availability;
-                model.themeId = (long)tempMission.ThemeId;
-                model.countryId = (int)tempMission.CountryId;
-                model.cityId = (int)tempMission.CityId;
+                if(tempMission.ThemeId != null 
+                    && tempMission.CountryId != null
+                    && tempMission.CityId != null)
+                {
+                    model.themeId = (long)tempMission.ThemeId;
+                    model.countryId = (int)tempMission.CountryId;
+                    model.cityId = (int)tempMission.CityId;
+                }
+                
+                
             }
 
             // load mission images
@@ -555,7 +588,11 @@ namespace CI.Repository.Repository
             List<string> files = new List<string>();
             foreach (var image in images)
             {
-                files.Add(image.MediaPath);
+                if(image.MediaPath != null)
+                {
+                    files.Add(image.MediaPath);
+                }
+                
             }
             model.images = files;
 
@@ -564,7 +601,11 @@ namespace CI.Repository.Repository
             List<string> Docfiles = new List<string>();
             foreach(var doc in docs)
             {
-                Docfiles.Add(doc.DocumentPath);
+                if(doc.DocumentPath != null)
+                {
+                    Docfiles.Add(doc.DocumentPath);
+                }
+                
             }
             model.docs = Docfiles;
 

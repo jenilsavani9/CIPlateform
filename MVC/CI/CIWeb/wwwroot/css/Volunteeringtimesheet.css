@@ -6,12 +6,9 @@
 }
 
 .borderbox {
-    border: 1px solid black;
+    border: 1px solid #E8E8E8;
 }
 
-.cardtitleborder {
-    border-bottom: 1px solid black;
-}
 
 .addbtn {
     border: 1px solid #F88634;

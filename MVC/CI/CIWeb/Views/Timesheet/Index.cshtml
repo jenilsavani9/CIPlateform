@@ -23,9 +23,9 @@ ViewData["Title"] = "Timesheet";
 
    </head>
    <body>
-      <div class="container timesheet">
+      <div class="container timesheet" style="margin-top: 130px;">
          <div class="row ">
-            <label class="fs-4" style="margin-left: 85px;"> Volunteering Timesheet</label>
+            <div class="" style="margin-left: 85px;font-size: 40px;color: #414141;"> Volunteering Timesheet</div>
          </div>
          <div class="row d-flex justify-content-center ">
             <div class="col-12 col-xl-5 col-lg-5 mt-4 borderbox">
@@ -34,7 +34,7 @@ ViewData["Title"] = "Timesheet";
                      <label class="fs-5"> Volunteering Hour</label>
                   </div>
                   <div class="col-4">
-                     <button class="rounded-pill d-flex justify-content-center align-items-center ms-auto py-2 px-4 me-2 my-2 addbtn" data-bs-toggle="modal" data-bs-target="#TimeADDbtn">
+                     <button class="rounded-pill d-flex justify-content-center align-items-center ms-auto py-1 px-2 me-2 my-2 addbtn" data-bs-toggle="modal" data-bs-target="#TimeADDbtn">
                      <i class="bi bi-plus-lg me-2 "></i>
                      <span> ADD</span>
                      </button>
@@ -124,7 +124,7 @@ ViewData["Title"] = "Timesheet";
                                        </div>
                                        <div class="row mt-1">
                                           <label class=" col-8 fs-6"> Enter Your Message</label>
-                                          <textarea id="edit-notes-time" class=" datediv rounded-1 mt-1 " placeholder="Leave a comment here" id="floatingTextarea"></textarea>
+                                          <textarea id="edit-notes-time" class=" datediv rounded-1 mt-1 " placeholder="Leave a comment here"></textarea>
                                           <span class="d-none mb-3 form-validation-msg" id="edit-notes-time-error"></span>
                                        </div>
                                     </div>
@@ -162,10 +162,10 @@ ViewData["Title"] = "Timesheet";
             <div class="col-12 col-xl-5 col-lg-5 ms-0 ms-xl-4 ms-lg-4 mt-4 borderbox">
                <div class="row cardtitleborder">
                   <div class="col-8 d-flex align-items-center">
-                     <label class="fs-5"> Volunteering Hour</label>
+                     <label class="fs-5"> Volunteering Goals</label>
                   </div>
                   <div class="col-4">
-                     <button class="rounded-pill d-flex justify-content-center align-items-center py-2 px-4 ms-auto me-2 my-2 addbtn" data-bs-toggle="modal" data-bs-target="#GoalADDbtn">
+                     <button class="rounded-pill d-flex justify-content-center align-items-center py-1 px-2 ms-auto me-2 my-2 addbtn" data-bs-toggle="modal" data-bs-target="#GoalADDbtn">
                      <i class="bi bi-plus-lg me-2 "></i>
                      <span> ADD</span>
                      </button>
@@ -198,7 +198,7 @@ ViewData["Title"] = "Timesheet";
                                        </div>
                                        <div class="row mt-1">
                                           <label class=" col-8 fs-6"> Enter Your Message</label>
-                                          <textarea class=" datediv rounded-1 mt-1 " id="mission-Message-goal" placeholder="Leave a comment here" id="floatingTextarea"></textarea>
+                                          <textarea class=" datediv rounded-1 mt-1 " id="mission-Message-goal" placeholder="Leave a comment here"></textarea>
                                           <span class="d-none mb-3 form-validation-msg" id="mission-Message-goal-error"></span>
                                        </div>
                                     </div>
@@ -241,7 +241,7 @@ ViewData["Title"] = "Timesheet";
                                        <input type="hidden" id="timesheetid2" />
                                        <div class="row mt-1">
                                           <label class=" col-8 fs-6"> Enter Your Message</label>
-                                          <textarea id="edit-notes-goal" class=" datediv rounded-1 mt-1 " placeholder="Leave a comment here" id="floatingTextarea"></textarea>
+                                          <textarea id="edit-notes-goal" class=" datediv rounded-1 mt-1 " placeholder="Leave a comment here"></textarea>
                                           <span class="d-none mb-3 form-validation-msg" id="edit-notes-goal-error"></span>
                                        </div>
                                     </div>
