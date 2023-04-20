@@ -41,7 +41,7 @@
                     @*<div class="sidebar-detail d-flex" id="Banner-Management" onclick="makeDivActive('Banner-Management')">
                         <img src="~/img/setting-default.svg" alt="" class="setting-default sidebarimg ">
                         <div class="title-name">Banner Management</div>
-                    </div>*@
+                        </div>*@
                 </div>
             </div>
             <div class="col-lg-10 col-12 maindashboard">
@@ -103,10 +103,10 @@
                                     </li>
                                     @*<li class="nav-item d-flex align-items-center">
                                         <div class="sidebar-detail d-flex" id="div8m" onclick="makeDivActiveMobile('div8m')">
-                                            <img src="~/img/setting-default.svg" alt="" class="setting-default sidebarimg ">
-                                            <div class="title-name">Banner Management</div>
+                                        <img src="~/img/setting-default.svg" alt="" class="setting-default sidebarimg ">
+                                        <div class="title-name">Banner Management</div>
                                         </div>
-                                    </li>*@
+                                        </li>*@
                                 </ul>
                                 <ul class="navbar-nav justify-content-between" style="width:100%">
                                     <li id="dashboard-time">
@@ -116,15 +116,15 @@
                                             <a class="text-reset dropdown-toggle d-flex align-items-center" href="#"
                                                id="navbarDropdownMenuLink" role="button" data-mdb-toggle="dropdown"
                                                aria-expanded="false">
-                                                    <img src="~/mediaUpload/@ViewBag.user.Avatar" class="rounded-circle me-3" height="22" alt=""
+                                                <img src="~/mediaUpload/@ViewBag.user.Avatar" class="rounded-circle me-3" height="22" alt=""
                                                      loading="lazy" style="
                                                                     width: 30px;
                                                                     height: 30px;
                                                                 " />
-                                                @ViewBag.user.FirstName @ViewBag.user.LastName 
+                                                @ViewBag.user.FirstName @ViewBag.user.LastName
                                             </a>
                                             <ul class="dropdown-menu dropdown-menu-start" aria-labelledby="navbarDropdownMenuLink">
-                                                @if(ViewBag.user.Admin == 1)
+                                                @if (ViewBag.user.Admin == 1)
                                                 {
                                                     <li><a class="dropdown-item" asp-action="Index" asp-controller="Admin">Admin</a></li>
                                                 }
@@ -199,7 +199,7 @@
                     <input type="password" class="form-control" id="user-crud-password" placeholder="Enter password" value="" autocomplete="off">
                     <span class="d-none mb-3 form-validation-msg" id="user-crud-password-error"></span>
                 </div>
-                
+
                 <div class="form-group col-md-6 mt-3">
                     <label for="exampleInputEmail1">Employee Id</label>
                     <input type="number" class="form-control" id="user-crud-employee-id" placeholder="Enter employee id">
@@ -241,13 +241,13 @@
                     </select>
                     <span class="d-none mb-3 form-validation-msg" id="user-crud-city-dropdown-error"></span>
                 </div>
-                
+
                 <div class="form-group col-md-12 mt-3">
                     <label for="exampleInputEmail1">Profile Text</label>
                     <textarea class="form-control" id="user-crud-profile-text" rows="2"></textarea>
                     <span class="d-none mb-3 form-validation-msg" id="user-crud-profile-text-error"></span>
                 </div>
-                
+
             </div>
             <div class="modal-footer" id="user-crud-modal-btn">
                 <button type="button" class="btn btn-secondary user-crud-close-btn" data-bs-dismiss="modal">Close</button>
@@ -406,36 +406,36 @@
                     </div>
                     <div class="form-group mt-3 col-md-6">
                         <lable for="mission-start-date" class="form-label">Mission start date</lable>
-                        <input class="form-control" type="datetime-local" id="mission-start-date"/>
+                        <input class="form-control" type="datetime-local" id="mission-start-date" />
                         <span class="d-none mb-3 form-validation-msg" id="mission-start-date-error"></span>
                     </div>
                     <div class="form-group mt-3 col-md-6">
                         <lable for="mission-end-date" class="form-label">Mission end date</lable>
-                        <input class="form-control" type="datetime-local" id="mission-end-date"/>
+                        <input class="form-control" type="datetime-local" id="mission-end-date" />
                         <span class="d-none mb-3 form-validation-msg" id="mission-end-date-error"></span>
                     </div>
                     <div class="form-group mt-3 col-md-4">
                         <lable for="mission-country" class="form-label">Country</lable>
                         <select class="form-select" aria-label="Default select example" id="mission-country" onchange="loadCityForCountry(this.value)">
-                          <option selected disabled hidden>Open this select menu</option>
-                         
+                            <option selected disabled hidden>Open this select menu</option>
+
                         </select>
                         <span class="d-none mb-3 form-validation-msg" id="mission-country-error"></span>
                     </div>
                     <div class="form-group mt-3 col-md-4">
                         <lable for="mission-city" class="form-label">City</lable>
                         <select class="form-select" aria-label="Default select example" id="mission-city">
-                          <option selected disabled hidden>Open this select menu</option>
-                         
+                            <option selected disabled hidden>Open this select menu</option>
+
                         </select>
                         <span class="d-none mb-3 form-validation-msg" id="mission-city-error"></span>
                     </div>
                     <div class="form-group mt-3 col-md-4">
                         <lable for="mission-type" class="form-label">Mission Type</lable>
                         <select class="form-select" aria-label="Default select example" id="mission-type">
-                          <option selected disabled hidden>Open this select menu</option>
-                          <option value="Time">Time</option>
-                          <option value="Goal">Goal</option>
+                            <option selected disabled hidden>Open this select menu</option>
+                            <option value="Time">Time</option>
+                            <option value="Goal">Goal</option>
                         </select>
                         <span class="d-none mb-3 form-validation-msg" id="mission-type-error"></span>
                     </div>
@@ -445,55 +445,55 @@
                     </div>
                     <div class="form-group mt-3 col-md-4">
                         <lable for="mission-registration-deadline" class="form-label">Mission registration deadline</lable>
-                        <input class="form-control" type="datetime-local" id="mission-registration-deadline"/>
+                        <input class="form-control" type="datetime-local" id="mission-registration-deadline" />
                     </div>
                     <div class="form-group mt-3 col-md-4">
                         <lable for="mission-status" class="form-label">Mission Status</lable>
                         <select class="form-select" aria-label="Default select example" id="mission-status">
-                          <option selected disabled hidden>Open this select menu</option>
-                          <option value="1">Active</option>
-                          <option value="0">In-Active</option>
+                            <option selected disabled hidden>Open this select menu</option>
+                            <option value="1">Active</option>
+                            <option value="0">In-Active</option>
                         </select>
                         <span class="d-none mb-3 form-validation-msg" id="mission-status-error"></span>
                     </div>
                     <div class="form-group mt-3 col-md-6">
                         <lable for="mission-theme" class="form-label">Mission Theme</lable>
                         <select class="form-select" aria-label="Default select example" id="mission-theme">
-                          <option selected disabled hidden>Open this select menu</option>
-                         
+                            <option selected disabled hidden>Open this select menu</option>
+
                         </select>
                         <span class="d-none mb-3 form-validation-msg" id="mission-theme-error"></span>
                     </div>
                     @*<div class="mt-3 col-md-4">
                         <lable for="mission-skill" class="form-label">Mission Skill</lable>
                         <select class="form-select" aria-label="Default select example" id="mission-skill">
-                          <option selected disabled hidden>Open this select menu</option>
-                         
+                        <option selected disabled hidden>Open this select menu</option>
+
                         </select>
-                    </div>*@
+                        </div>*@
                     <div class="form-group mt-3 col-md-6">
                         <lable for="mission-availability" class="form-label">Mission Availability</lable>
                         <select class="form-select" aria-label="Default select example" id="mission-availability">
-                          <option selected disabled hidden>Open this select menu</option>
-                          <option value="daily">daily</option>
-                          <option value="weekly">weekly</option>
-                          <option value="weekend">weekend</option>
+                            <option selected disabled hidden>Open this select menu</option>
+                            <option value="daily">daily</option>
+                            <option value="weekly">weekly</option>
+                            <option value="weekend">weekend</option>
                         </select>
                         <span class="d-none mb-3 form-validation-msg" id="mission-availability-error"></span>
                     </div>
+
+
                     <div class="form-group mt-3 col-md-4">
                         <lable for="mission-images" class="form-label">Mission Media</lable>
                         <input id="mission-images" name="input2[]" type="file" class="file" data-show-caption="true" multiple onchange="InsertMissionImage()" accept="image/*">
                     </div>
                     <div class="form-group mt-3 col-md-8 row" id="mission-media-edit-files">
-                        
                     </div>
                     <div class="form-group mt-3 col-md-4">
                         <lable for="mission-document" class="form-label">Mission Document</lable>
-                        <input id="mission-document" name="input2[]" type="file" class="file"  data-show-upload="false" data-show-caption="true" multiple onchange="InsertMissionDocs()" accept="application/pdf    ">
+                        <input id="mission-document" name="input2[]" type="file" class="file" data-show-upload="false" data-show-caption="true" multiple onchange="InsertMissionDocs()" accept="application/pdf    ">
                     </div>
                     <div class="form-group mt-3 col-md-8 row" id="mission-docs-edit-files">
-                        
                     </div>
                 </div>
             </div>
@@ -501,7 +501,7 @@
                 <button type="button" class="btn btn-secondary mission-skill-crud-close-btn" data-bs-dismiss="modal">Close</button>
                 <button type="submit" class="btn btn-primary mission-skill-crud-save-btn" id="mission-crud-save-btn" onclick="AddMission()">Save changes</button>
             </div>
-            
+
         </div>
     </div>
 </div>
@@ -515,7 +515,7 @@
         crossorigin="anonymous"></script>
 <script>
 
-    var userProfileName;
+     var userProfileName;
 
      CKEDITOR.config.toolbar_MA=[
                          { name: 'basicstyles', items: [ 'Bold', 'Italic', 'Strike', '-', 'Subscript', 'Superscript', 'RemoveFormat' ] }
@@ -554,7 +554,7 @@
         $('#mission-media-edit-files').addClass('d-none');
         $('#mission-docs-edit-files').addClass('d-none');
 
-    });
+     });
 
      function makeDivActive(ID) {
          var allDivs = document.querySelector(".dashbord-sidebar-detail");
@@ -1025,7 +1025,7 @@
 
                          var city = document.getElementById("user-crud-city-dropdown");
                          city.innerHTML = loadCity(response);
-                         
+
                          var city = document.getElementById("mission-city");
                          city.innerHTML = loadCity(response);
 
@@ -1654,7 +1654,7 @@
                      themeStatus.innerHTML = `<option value="Pending" selected>In-Active</option>
                                                 <option value="Published">Active</option>`
                  }
-                 
+
              },
              failure: function (response) {
                  alert(response.responseText);
@@ -1854,7 +1854,8 @@
                 "id": id
              },
              success: function (response) {
-                 location.reload();
+                 //location.reload();
+                 makeDivActive("Mission-Applications");
              },
              failure: function (response) {
                  alert(response.responseText);
@@ -1875,7 +1876,7 @@
                 "id": id
              },
              success: function (response) {
-                 location.reload();
+                 makeDivActive("Mission-Applications");
              },
              failure: function (response) {
                  alert(response.responseText);
@@ -1904,7 +1905,7 @@
                 "id": id
              },
              success: function (response) {
-                 location.reload();
+                 makeDivActive("Story");
              },
              failure: function (response) {
                  alert(response.responseText);
@@ -1925,7 +1926,7 @@
                 "id": id
              },
              success: function (response) {
-                 location.reload();
+                 makeDivActive("Story");
              },
              failure: function (response) {
                  alert(response.responseText);
@@ -1945,7 +1946,7 @@
                 "id": id
              },
              success: function (response) {
-                 location.reload();
+                 makeDivActive("Story");
              },
              failure: function (response) {
                  alert(response.responseText);
@@ -2012,7 +2013,7 @@
              $('#mission-country-error').addClass("d-none")
          }
          var cityId = $('#mission-city').val();
-         
+
          if(cityId==null) {
              error = 1;
              $('#mission-city-error').removeClass("d-none")
@@ -2056,16 +2057,16 @@
          }
 
          // for images
-         let file = $("#mission-images")[0].files; 
-        
+         let file = $("#mission-images")[0].files;
+
          var images = [];
          for(var i=0; i<file.length; i++) {
              images.push(file[i].name);
          }
-         
+
          // for documents
-         let Docfile = $("#mission-document")[0].files; 
-        
+         let Docfile = $("#mission-document")[0].files;
+
          var doc = [];
          for(var i=0; i<Docfile.length; i++) {
              doc.push(Docfile[i].name);
@@ -2096,7 +2097,7 @@
 
                  },
                  success: function (response) {
-                    
+
                  },
                  failure: function (response) {
                      alert(response.responseText);
@@ -2109,7 +2110,7 @@
          error = 0;
      }
 
-     
+
 
      function RemoveImagesFromList(item) {
          ImagesList = ImagesList.filter(name => name !== item);
@@ -2141,9 +2142,9 @@
          }
          response.result.docs.map(item => {
              html += `<a href="/document/${item}" class="col-3 me-2 edit-mission-documents" >${item}</a>`
-             
+
          }).join("");
-         
+
          return html;
      }
 
@@ -2245,7 +2246,7 @@
      }
 
      function EditMission(id) {
-         
+
          var error = 0;
          var title = $('#mission-title').val();
          if(title=="") {
@@ -2290,7 +2291,7 @@
              $('#mission-country-error').addClass("d-none")
          }
          var cityId = $('#mission-city').val();
-         
+
          if(cityId==null) {
              error = 1;
              $('#mission-city-error').removeClass("d-none")
@@ -2334,18 +2335,18 @@
          }
 
          // for images from file select
-         let file = $("#mission-images")[0].files; 
-        
-         
+         let file = $("#mission-images")[0].files;
+
+
          for(var i=0; i<file.length; i++) {
              ImagesList.push(file[i].name);
          }
 
-         
+
 
          // for docs
-         let Docfile = $("#mission-document")[0].files; 
-        
+         let Docfile = $("#mission-document")[0].files;
+
          var doc = [];
          for(var i=0; i<Docfile.length; i++) {
              doc.push(Docfile[i].name);
@@ -2423,7 +2424,7 @@
          type: "GET",
          url: `/api/admin/getThemes`,
          success: function (response) {
-             
+
              var element = document.getElementById('mission-theme');
              element.innerHTML = loadTheme(response);
          },
@@ -2434,24 +2435,24 @@
              alert(response.responseText);
          }
      });
-     
+
 
      // images save to db
      function InsertMissionImage() {
-        
+
          var files = $('#mission-images').prop("files");
          var url = "/api/admin/saveImg";
 
-         
+
          var formData = new FormData();
-        
+
          //formData.append("MyUploader", files);
          if(files.length > 0) {
             for(var x = 0; x < files.length; x++) {
                 // the name has to be 'files' so that .NET could properly bind it
-                formData.append('MyUploader', files.item(x));    
+                formData.append('MyUploader', files.item(x));
             }
-         } 
+         }
 
          jQuery.ajax({
              type: 'POST',
@@ -2465,32 +2466,32 @@
                      $('input:hidden[name="__RequestVerificationToken"]').val());
              },
              success: function (response) {
-                
+
              },
              error: function(response) {
                  alert(response);
              }
          });
-         
-          
+
+
      }
 
      // save document to root
      function InsertMissionDocs() {
-        
+
          var files = $('#mission-document').prop("files");
          var url = "/api/admin/saveDoc";
 
-         
+
          var formData = new FormData();
-        
+
          //formData.append("MyUploader", files);
          if(files.length > 0) {
             for(var x = 0; x < files.length; x++) {
                 // the name has to be 'files' so that .NET could properly bind it
-                formData.append('MyUploader', files.item(x));    
+                formData.append('MyUploader', files.item(x));
             }
-         } 
+         }
 
 
          jQuery.ajax({
@@ -2505,22 +2506,22 @@
                      $('input:hidden[name="__RequestVerificationToken"]').val());
              },
              success: function (response) {
-                
+
              },
              error: function(response) {
                  alert(response);
              }
          });
-         
-          
+
+
      }
 
      // mission end
 
 
-     
 
-    
+
+
 
 </script>
 

@@ -49,11 +49,7 @@ namespace CI.Repository.Repository
         public User FindUser(string? email)
         {
             var user = _db.Users.FirstOrDefault(x => x.Email == email);
-            if(user == null)
-            {
-                User Empty = new User();
-                return Empty;
-            }
+            
             return user;
         }
 
