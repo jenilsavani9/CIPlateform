@@ -118,7 +118,7 @@ namespace CIWeb.Controllers
         }
 
         [HttpPost("api/static/save")]
-        public IActionResult OnPostMyUploader(IFormFile MyUploader, IFormCollection data)
+        public IActionResult OnPostMyUploader(IFormFile MyUploader)
         {
             if (MyUploader != null)
             {

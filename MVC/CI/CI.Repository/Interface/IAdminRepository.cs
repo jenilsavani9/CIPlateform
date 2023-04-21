@@ -24,6 +24,8 @@ namespace CI.Repository.Interface
 
         public List<AdminStoryModel> GetMissionStory();
 
+        public List<Banner> GetBanner();
+
         public bool AddUsers(UserProfileModel user);
 
         public bool EditUsers(UserProfileModel user);
@@ -77,5 +79,9 @@ namespace CI.Repository.Interface
         public bool DeleteMission(long id);
 
         public List<ThemeElementModel> GetValidMissionThemes();
+
+        public Banner GetBannerById(long id);
+
+        public bool AddBanner(Banner obj);
     }
 }

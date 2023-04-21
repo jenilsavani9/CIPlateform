@@ -38,10 +38,10 @@
                         <img src="~/img/setting-default.svg" alt="" class="setting-default sidebarimg ">
                         <div class="title-name">Story</div>
                     </div>
-                    @*<div class="sidebar-detail d-flex" id="Banner-Management" onclick="makeDivActive('Banner-Management')">
+                    <div class="sidebar-detail d-flex" id="Banner-Management" onclick="makeDivActive('Banner-Management')">
                         <img src="~/img/setting-default.svg" alt="" class="setting-default sidebarimg ">
                         <div class="title-name">Banner Management</div>
-                        </div>*@
+                    </div>
                 </div>
             </div>
             <div class="col-lg-10 col-12 maindashboard">
@@ -101,12 +101,12 @@
                                             <div class="title-name">Story</div>
                                         </div>
                                     </li>
-                                    @*<li class="nav-item d-flex align-items-center">
+                                    <li class="nav-item d-flex align-items-center">
                                         <div class="sidebar-detail d-flex" id="div8m" onclick="makeDivActiveMobile('div8m')">
                                         <img src="~/img/setting-default.svg" alt="" class="setting-default sidebarimg ">
                                         <div class="title-name">Banner Management</div>
                                         </div>
-                                        </li>*@
+                                    </li>
                                 </ul>
                                 <ul class="navbar-nav justify-content-between" style="width:100%">
                                     <li id="dashboard-time">
@@ -506,6 +506,42 @@
     </div>
 </div>
 
+@*banner management*@
+<div class="modal fade" id="Banner-Management-Modal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Banner Managment</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+
+            <div class="modal-body">
+                <div class="form-group mt-3 row">
+                    <div class="form-group mt-3 col-md-6">
+                        <lable for="banner-images" class="form-label">Banner Media</lable>
+                        <input id="banner-images" name="input2[]" type="file" class="file" accept="image/*">
+                    </div>
+                    <div class="form-group mt-3 col-md-6 row" id="banner-media-edit-files">
+                        No Media Selected.
+                    </div>
+                </div>
+                <div class="form-group mt-3">
+                    <label for="banner-text" class="form-label">Text</label>
+                    <input type="text" class="form-control" id="banner-text">
+                </div>
+                <div class="form-group mt-3">
+                    <label for="sort-order" class="form-label">Sort Order</label>
+                    <input type="number" class="form-control" id="sort-order">
+                </div>
+            </div>
+            <div class="modal-footer" id="banner-crud-btn">
+                <button type="button" class="btn btn-secondary mission-theme-crud-close-btn" data-bs-dismiss="modal">Close</button>
+                <button type="submit" class="btn btn-primary mission-theme-crud-save-btn" data-bs-dismiss="modal" id="banner-crud-save-btn" onclick="AddBanner('add', 0)">Save changes</button>
+            </div>
+
+        </div>
+    </div>
+</div>
 
 
 
@@ -652,7 +688,7 @@
                              </tbody>
 
                          </table>`;
-
+                         console.log(result)
                      tableDiv.innerHTML = missionTable;
                      $(function() {
                          $.each(result.users, function(i, item) {
@@ -938,6 +974,53 @@
                          });
                      });
                  }
+
+                 // banner managment
+                 else if (ID == "Banner-Management") {
+
+                     var tableDiv = document.querySelector("#admin-data-table");
+                     tableDiv.innerHTML = "";
+                     var missionTable = `
+                 <table class="table container table-striped table-hover" id='mission-table'>
+                     <thead>
+
+                         <tr>
+                             <th>Image Path</th>
+                             <th>Sort Order</th>
+                             <th>Action</th>
+                         </tr>
+                     </thead>
+                     <tbody id="table-data-mission">
+                     </tbody>
+
+                 </table>`;
+
+                     tableDiv.innerHTML = missionTable;
+                     
+                     $(function() {
+                         $.each(result.banner, function(i, item) {
+                             if (result.banner.length > 0) {
+                                 if ($(".dataTables_empty").hasClass("dataTables_empty")) {
+                                     $(".dataTables_empty").hide();
+                                 }
+                             }
+
+                             $("#table-data-mission").append(`
+                                 <tr id='${item.bannerId}'>
+                                     <td id="stitle">${item.image}</td>
+                                     <td id="stitle">${item.sortOrder}</td>
+                                     <td id="action"><i class="fas fa-edit" data-bs-toggle="modal" data-bs-target="#${ID}-Modal" onclick="LoadBanner(${item.bannerId})"></i> | <i class="fa fa-trash" style="color:red" onclick="DeleteBanner(${item.bannerId})"></i></td>
+                                 </tr>`);
+                         });
+
+                         $("#mission-table").DataTable({
+                             language: {
+                                 searchPlaceholder: "Search records",
+                                 search: "",
+                               }
+                         });
+                     });
+                 }
              },
          });
 
@@ -1042,7 +1125,7 @@
              // save user img
              $("#myFileInput").on('change', function () {
                     console.log("change")
-                     var files = $('#myFileInput').prop("files");
+                    var files = $('#myFileInput').prop("files");
                     var url = "/api/static/save";
                     formData = new FormData();
                     formData.append("MyUploader", files[0]);
@@ -1175,7 +1258,7 @@
                      },
                      success: function (response) {
 
-                         location.reload();
+                         makeDivActive("User");
 
                      },
                      failure: function (response) {
@@ -1298,7 +1381,7 @@
                      },
                      success: function (response) {
 
-                         location.reload();
+                         makeDivActive("User");
 
                      },
                      failure: function (response) {
@@ -1373,7 +1456,7 @@
                          "id": id,
                      },
                      success: function (response) {
-                         location.reload();
+                         makeDivActive("User");
                      },
                      failure: function (response) {
                          alert(response.responseText);
@@ -1422,7 +1505,7 @@
                      },
                      success: function (response) {
 
-                         location.reload();
+                         makeDivActive("CMS-Page");
 
                      },
                      failure: function (response) {
@@ -1472,7 +1555,7 @@
                      },
                      success: function (response) {
 
-                         location.reload();
+                         makeDivActive("CMS-Page");
 
                      },
                      failure: function (response) {
@@ -1525,7 +1608,7 @@
                          "id": id,
                      },
                      success: function (response) {
-                         location.reload();
+                        makeDivActive("CMS-Page");
                      },
                      failure: function (response) {
                          alert(response.responseText);
@@ -1570,7 +1653,7 @@
                      "status": LongStatus
                  },
                  success: function (response) {
-                     location.reload();
+                     makeDivActive("Mission-Theme");
                  },
                  failure: function (response) {
                      alert(response.responseText);
@@ -1614,7 +1697,7 @@
                      "themeId": id
                  },
                  success: function (response) {
-                     location.reload();
+                     makeDivActive("Mission-Theme");
                  },
                  failure: function (response) {
                      alert(response.responseText);
@@ -1675,7 +1758,7 @@
                 "id": id
              },
              success: function (response) {
-                 location.reload();
+                 makeDivActive("Mission-Theme");
              },
              failure: function (response) {
                  alert(response.responseText);
@@ -1723,7 +1806,7 @@
                      "status": LongStatus
                  },
                  success: function (response) {
-                     location.reload();
+                     makeDivActive("Mission-SKills");
                  },
                  failure: function (response) {
                      alert(response.responseText);
@@ -1767,7 +1850,7 @@
                      "skillId": id
                  },
                  success: function (response) {
-                     location.reload();
+                     makeDivActive("Mission-SKills");
                  },
                  failure: function (response) {
                      alert(response.responseText);
@@ -1827,7 +1910,7 @@
                 "id": id
              },
              success: function (response) {
-                 location.reload();
+                 makeDivActive("Mission-SKills");
              },
              failure: function (response) {
                  alert(response.responseText);
@@ -1854,7 +1937,7 @@
                 "id": id
              },
              success: function (response) {
-                 //location.reload();
+                 toastr.success("Application Approved.");
                  makeDivActive("Mission-Applications");
              },
              failure: function (response) {
@@ -1876,6 +1959,7 @@
                 "id": id
              },
              success: function (response) {
+                 toastr.warning("Application Rejected.");
                  makeDivActive("Mission-Applications");
              },
              failure: function (response) {
@@ -1905,6 +1989,7 @@
                 "id": id
              },
              success: function (response) {
+                 toastr.success("Story Approved.");
                  makeDivActive("Story");
              },
              failure: function (response) {
@@ -1926,6 +2011,7 @@
                 "id": id
              },
              success: function (response) {
+                 toastr.info("Story Rejected.");
                  makeDivActive("Story");
              },
              failure: function (response) {
@@ -1946,6 +2032,7 @@
                 "id": id
              },
              success: function (response) {
+                 toastr.warning("Story Deleted.");
                  makeDivActive("Story");
              },
              failure: function (response) {
@@ -2097,7 +2184,7 @@
 
                  },
                  success: function (response) {
-
+                     makeDivActive("Mission");
                  },
                  failure: function (response) {
                      alert(response.responseText);
@@ -2378,7 +2465,7 @@
 
                  },
                  success: function (response) {
-                    location.reload();
+                    makeDivActive("Mission");
                  },
                  failure: function (response) {
                      alert(response.responseText);
@@ -2399,7 +2486,7 @@
                 "id": id
              },
              success: function (response) {
-                 location.reload();
+                 makeDivActive("Mission");
              },
              failure: function (response) {
                  alert(response.responseText);
@@ -2520,7 +2607,132 @@
 
 
 
+     // banner start
+     var banner = "";
+     $('#banner-images').on('change', function() {
 
+         let file = $("#banner-images")[0].files;
+         banner = file[0].name;
+
+         var url = "/api/static/save";
+         formData = new FormData();
+         var files = $('#banner-images').prop("files");
+         formData.append("MyUploader", files[0]);
+
+          jQuery.ajax({
+              type: 'POST',
+              url: url,
+              data: formData,
+              cache: false,
+              contentType: false,
+              processData: false,
+              beforeSend: function (xhr) {
+                  xhr.setRequestHeader("XSRF-TOKEN",
+                      $('input:hidden[name="__RequestVerificationToken"]').val());
+              },    
+              success: function (response) {
+                  var element = document.getElementById('banner-media-edit-files');
+                  element.innerHTML = `<img src="/mediaUpload/${banner}" width="200px" height="200px" />`
+                  
+              },
+              error: function(response) {
+                  alert(response);
+              }
+          });
+
+     })
+
+
+     // load banner
+     function LoadBanner(id) {
+
+         var element = document.getElementById('banner-crud-btn');
+         element.innerHTML = `<button type="button" class="btn btn-secondary mission-theme-crud-close-btn" data-bs-dismiss="modal">Close</button>
+                <button type="submit" class="btn btn-primary mission-theme-crud-save-btn" data-bs-dismiss="modal" id="banner-crud-save-btn" onclick="AddBanner('edit', ${id})">Save changes</button>
+            `
+
+         $.ajax({
+             type: "GET",
+             url: `/api/admin/bannerbyid`,
+             data: {
+                 "id": id
+             },
+             success: function (response) {
+
+                 console.log(response)
+                 var bannerImage = document.getElementById('banner-media-edit-files');
+                 bannerImage.innerHTML = `<img src="/mediaUpload/${response.result.image}" width="200px" height="200px" />`;
+                 banner = response.result.image;
+                 $('#banner-text').val(response.result.text);
+                 $('#sort-order').val(response.result.sortOrder);
+
+             },
+             failure: function (response) {
+                 alert(response.responseText);
+             },
+             error: function (response) {
+                 alert(response.responseText);
+             }
+         });
+     }
+
+     function AddBanner(flag, id) {
+
+
+         var error = 0;
+         
+         var text = $('#banner-text').val();
+         var sortOrder = $('#sort-order').val();
+
+         if(error == 0) {
+
+             if(flag == "add") {
+                 $.ajax({
+                     type: "POST",
+                     url: `/api/admin/addBanner`,
+                     data: {
+                         "image": banner,
+                         "sortOrder": sortOrder,
+                         "text": text
+                     },
+                     success: function (response) {
+                         makeDivActive("Banner-Management");
+                     },
+                     failure: function (response) {
+                         alert(response.responseText);
+                     },
+                     error: function (response) {
+                         alert(response.responseText);
+                     }
+                 });
+             } else {
+                 $.ajax({
+                     type: "POST",
+                     url: `/api/admin/addBanner`,
+                     data: {
+                         "image": banner,
+                         "sortOrder": sortOrder,
+                         "text": text,
+                         "BannerId": id
+                     },
+                     success: function (response) {
+                         makeDivActive("Banner-Management");
+                     },
+                     failure: function (response) {
+                         alert(response.responseText);
+                     },
+                     error: function (response) {
+                         alert(response.responseText);
+                     }
+                 });
+             }
+             
+         }
+         error = 0;
+     }
+
+      
+     // banner end
 
 
 </script>

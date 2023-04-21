@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "YNf0gZGXoXp4OwkVCfj8UIHOOqkHNdw3RxHNBsWZwXY=",
+  "Hash": "cfZjdai4m+X1jp9tEI0VA6z4axudqKEJ5kYA/l6o8CQ=",
   "Source": "CIWeb",
   "BasePath": "_content/CIWeb",
   "Mode": "Default",
@@ -3672,6 +3672,23 @@
       "OriginalItemSpec": "wwwroot\\mediaUpload\\cancel.png"
     },
     {
+      "Identity": "C:\\Users\\pci114\\Downloads\\CIPlateform\\MVC\\CI\\CIWeb\\wwwroot\\mediaUpload\\checked.png",
+      "SourceId": "CIWeb",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\pci114\\Downloads\\CIPlateform\\MVC\\CI\\CIWeb\\wwwroot\\",
+      "BasePath": "_content/CIWeb",
+      "RelativePath": "mediaUpload/checked.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\mediaUpload\\checked.png"
+    },
+    {
       "Identity": "C:\\Users\\pci114\\Downloads\\CIPlateform\\MVC\\CI\\CIWeb\\wwwroot\\mediaUpload\\clock-default.svg",
       "SourceId": "CIWeb",
       "SourceType": "Discovered",
@@ -4350,6 +4367,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\mediaUpload\\Plantation-and-Afforestation-programme-1.png"
+    },
+    {
+      "Identity": "C:\\Users\\pci114\\Downloads\\CIPlateform\\MVC\\CI\\CIWeb\\wwwroot\\mediaUpload\\vienna-reyes-qCrKTET_09o-unsplash.jpg",
+      "SourceId": "CIWeb",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\pci114\\Downloads\\CIPlateform\\MVC\\CI\\CIWeb\\wwwroot\\",
+      "BasePath": "_content/CIWeb",
+      "RelativePath": "mediaUpload/vienna-reyes-qCrKTET_09o-unsplash.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\mediaUpload\\vienna-reyes-qCrKTET_09o-unsplash.jpg"
     },
     {
       "Identity": "C:\\Users\\pci114\\Downloads\\CIPlateform\\MVC\\CI\\CIWeb\\wwwroot\\mediaUpload\\volunteer1.png",

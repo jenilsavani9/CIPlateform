@@ -155,6 +155,12 @@ namespace CI.Repository.Repository
             return cms;
         }
 
+        public List<Banner> GetBanner()
+        {
+            var banner = _db.Banners.OrderBy(b => b.SortOrder).ToList();
+            return banner;
+        }
+
         public bool AddUsers(UserProfileModel user)
         {
             User tempUser = new User();
@@ -702,6 +708,33 @@ namespace CI.Repository.Repository
                 });
             }
             return tempMissionThemes;
+        }
+
+        // banner management
+        public Banner GetBannerById(long id)
+        {
+            var banner = _db.Banners.FirstOrDefault(b => b.BannerId == id);
+            return banner;
+        }
+
+        public bool AddBanner(Banner obj)
+        {
+            var findBanner = _db.Banners.FirstOrDefault(b => b.BannerId==obj.BannerId);
+            if(findBanner != null)
+            {
+                findBanner.Image = obj.Image;
+                findBanner.Text = obj.Text;
+                findBanner.SortOrder = obj.SortOrder;
+                _db.SaveChanges();
+                return true;
+            } 
+            else
+            {
+                _db.Banners.Add(new Banner { Image = obj.Image, Text = obj.Text, SortOrder = obj.SortOrder });
+                _db.SaveChanges();
+                return true;
+            }
+            
         }
     }
 }

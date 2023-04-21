@@ -1,4 +1,5 @@
 ﻿using CI.Entities.Data;
+using CI.Entities.Models;
 using CI.Entities.ViewModels;
 using CI.Repository.Interface;
 using Microsoft.AspNetCore.Mvc;
@@ -42,7 +43,8 @@ namespace CIWeb.Controllers
             var missionApplication = _repository.GetMissionApplications();
             var missionStory = _repository.GetMissionStory();
             var cmsPages = _repository.GetCMS();
-            return Json(new {users, missions, missionthemes, missionSkills, missionApplication, missionStory, cmsPages });
+            var banner = _repository.GetBanner();
+            return Json(new {users, missions, missionthemes, missionSkills, missionApplication, missionStory, cmsPages, banner });
         }
 
         [HttpPost("api/admin/addUser")]
@@ -263,6 +265,28 @@ namespace CIWeb.Controllers
                 return new ObjectResult(new { status = "success" });
             }
             return new ObjectResult(new { status = "fail" });
+        }
+
+        // banner 
+        [HttpGet("api/admin/bannerbyid")]
+        public IActionResult GetBannerById(long id)
+        {
+            var result = _repository.GetBannerById(id);
+            return Json(new { result });    
+        }
+
+        [HttpGet("api/admin/banner")]
+        public IActionResult GetBanner()
+        {
+            var result = _repository.GetBanner();
+            return Json(new { result });
+        }
+
+        [HttpPost("api/admin/addBanner")]
+        public IActionResult AddBanner(Banner obj)
+        {
+            var result = _repository.AddBanner(obj);
+            return Json(new { result });
         }
     }
 }
