@@ -506,7 +506,6 @@
         function getRelatedMissions(res) {
            return res.volunteerMissionModel.relatedMission.map(item => {
                 
-               console.log(res);
                 if(item.missionType == "Time" )
                 { 
                     
@@ -763,7 +762,6 @@
             }
 
             function loadComments(response) {
-                console.log(response)
                 return response.commentsModel.map(item => {
 
                     return `
@@ -887,7 +885,6 @@
                 if(response.result != null && response.result.length <=1) {
                     html = ""
                 } else {
-                    console.log(response);
                     response.result.map(item => {
 
                         if(item.mediaType == "png") {
@@ -915,7 +912,6 @@
                     type: "GET",
                     url: `https://localhost:44398/api/missions/${tempUrl}`,
                     success: function (response) {
-                        console.log(response)
                         var element = document.getElementById('vol-page-related-missions');
                         element.innerHTML = getRelatedMissions(response);
 
@@ -929,8 +925,8 @@
                         var date = document.getElementById("vol-page-sub-card-info-date");
                         var organization = document.getElementById("vol-page-sub-card-info-organization");
 
-                        theme.innerHTML = `${response.volunteerMissionModel.mission[0].city.name}`
-                        city.innerHTML = `${response.volunteerMissionModel.mission[0].theme.title}`
+                        city.innerHTML = `${response.volunteerMissionModel.mission[0].city.name}`
+                        theme.innerHTML = `${response.volunteerMissionModel.mission[0].theme.title}`
                         date.innerHTML = `${response.volunteerMissionModel.mission[0].startDate.toString().substring(0, 10)}`
                         organization.innerHTML = `${response.volunteerMissionModel.mission[0].organizationName}`
 
@@ -949,7 +945,6 @@
                     url: `https://localhost:44398/missions/${tempUrl}/getMissionMedia`,
                     success: function (response) {
                         
-                        console.log(response);
 
                         var imageContainer = document.getElementById("story-details-head-img");
                         imageContainer.innerHTML = loadHeadImage(response);
@@ -1263,7 +1258,6 @@
                     type: "GET",
                     url: `https://localhost:44398/mission/${tempUrl}/organization`,
                     success: function (response) {
-                        console.log(response)
                         var element = document.getElementById("vol-page-organization-load-data");
                         element.innerHTML = `
                                              <div>

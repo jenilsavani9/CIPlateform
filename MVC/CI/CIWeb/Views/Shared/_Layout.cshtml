@@ -75,22 +75,13 @@
                                   class="d-block w-100 loginPageImg" alt="...">
                              <div class="carousel-caption d-md-block">
                                  <h5 class="maintext">Sed ut perspiciatis unde omnis iste natus voluptatem.</h5>
-                                 <p class="smtext">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+                                 <p class="smtext">${item.text}</p>
                              </div>
                          </div>`
             }).join("")
 
             return html;
-            //return response.result.map(item => {
-            //    `<div class="carousel-item active leftimgs">
-            //         <img src="/mediaUpload/${item.image}"
-            //              class="d-block w-100 loginPageImg" alt="...">
-            //         <div class="carousel-caption d-md-block">
-            //             <h5 class="maintext">Sed ut perspiciatis unde omnis iste natus voluptatem.</h5>
-            //             <p class="smtext">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-            //         </div>
-            //     </div>`
-            //}).join("");
+            
         }
 
 
@@ -98,7 +89,6 @@
              type: "GET",
              url: `/api/admin/banner`,
              success: function (response) {
-
                  var element = document.getElementById('carousel-inner');
                  element.innerHTML = LoadBanners(response);
                  var firstImage = document.getElementById("carousel-inner").firstElementChild;

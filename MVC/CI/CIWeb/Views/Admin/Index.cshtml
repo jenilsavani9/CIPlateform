@@ -590,6 +590,11 @@
         $('#mission-media-edit-files').addClass('d-none');
         $('#mission-docs-edit-files').addClass('d-none');
 
+        // change banner btn from edit to add
+        var element = document.getElementById('banner-crud-btn');
+         element.innerHTML = `<button type="button" class="btn btn-secondary mission-theme-crud-close-btn" data-bs-dismiss="modal">Close</button>
+                <button type="submit" class="btn btn-primary mission-theme-crud-save-btn" data-bs-dismiss="modal" id="banner-crud-save-btn" onclick="AddBanner('add')">Save changes</button>`
+
      });
 
      function makeDivActive(ID) {
@@ -688,7 +693,6 @@
                              </tbody>
 
                          </table>`;
-                         console.log(result)
                      tableDiv.innerHTML = missionTable;
                      $(function() {
                          $.each(result.users, function(i, item) {
@@ -1124,7 +1128,6 @@
 
              // save user img
              $("#myFileInput").on('change', function () {
-                    console.log("change")
                     var files = $('#myFileInput').prop("files");
                     var url = "/api/static/save";
                     formData = new FormData();
@@ -1409,7 +1412,6 @@
                          "id": id,
                      },
                      success: function (response) {
-                         console.log(response);
                          $('#user-crud-first-name').val(response.result.firstName)
                          $('#user-crud-last-name').val(response.result.lastName)
                          $('#user-crud-email').val(response.result.email)
@@ -2203,12 +2205,10 @@
          ImagesList = ImagesList.filter(name => name !== item);
          var element = document.getElementById(item);
          element.classList.add('d-none');
-         console.log(element);
      }
 
      function LoadImages(response) {
          html = '';
-         console.log(response);
          if(response.result.images.length == 0) {
              html += "No image Selected";
              return html;
@@ -2217,7 +2217,6 @@
              html += `<div class="col-2" id="${item}"><img src="/mediaUpload/${item}"  width="100px" height="100px" style="position: relative;" /><i class="bi bi-x-square-fill" style="cursor:pointer;" onclick="RemoveImagesFromList('${item}')"></i></div>`
              ImagesList.push(item);
          }).join("");
-         console.log("images : " + ImagesList)
          return html;
      }
 
@@ -2648,8 +2647,7 @@
 
          var element = document.getElementById('banner-crud-btn');
          element.innerHTML = `<button type="button" class="btn btn-secondary mission-theme-crud-close-btn" data-bs-dismiss="modal">Close</button>
-                <button type="submit" class="btn btn-primary mission-theme-crud-save-btn" data-bs-dismiss="modal" id="banner-crud-save-btn" onclick="AddBanner('edit', ${id})">Save changes</button>
-            `
+                <button type="submit" class="btn btn-primary mission-theme-crud-save-btn" data-bs-dismiss="modal" id="banner-crud-save-btn" onclick="AddBanner('edit', ${id})">Save changes</button>`
 
          $.ajax({
              type: "GET",
@@ -2659,7 +2657,6 @@
              },
              success: function (response) {
 
-                 console.log(response)
                  var bannerImage = document.getElementById('banner-media-edit-files');
                  bannerImage.innerHTML = `<img src="/mediaUpload/${response.result.image}" width="200px" height="200px" />`;
                  banner = response.result.image;
@@ -2696,6 +2693,7 @@
                          "text": text
                      },
                      success: function (response) {
+                         toastr.success("Banner Added.");
                          makeDivActive("Banner-Management");
                      },
                      failure: function (response) {
@@ -2716,6 +2714,7 @@
                          "BannerId": id
                      },
                      success: function (response) {
+                         toastr.success("Banner Changed.");
                          makeDivActive("Banner-Management");
                      },
                      failure: function (response) {
@@ -2731,6 +2730,25 @@
          error = 0;
      }
 
+     function DeleteBanner(id) {
+         $.ajax({
+             type: "POST",
+             url: `/api/admin/deleteBanner`,
+             data: {
+                 "BannerId": id
+             },
+             success: function (response) {
+                 toastr.warning("Banner Deleted.");
+                 makeDivActive("Banner-Management");
+             },
+             failure: function (response) {
+                 alert(response.responseText);
+             },
+             error: function (response) {
+                 alert(response.responseText);
+             }
+         });
+     }
       
      // banner end
 

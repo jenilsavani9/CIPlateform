@@ -34,7 +34,7 @@ For more information on enabling MVC for empty projects, visit https://go.micros
         <nav class="navbar headernav navbar-expand-lg fixed-top" style="background-color: #ffffff;">
             <div class="container">
                 <div class="d-flex col-md-6 d-flex justify-content-center justify-content-md-start">
-
+                    <a asp-action="Index" asp-controller="Home" style="text-decoration: none;margin-right: 45px;">Explore</a>
                     <a asp-action="Index" asp-controller="Story" style="text-decoration: none;">Stories</a>
                     <div class="dropdown ms-5">
                         <a class="text-reset me-3 dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button"
@@ -124,7 +124,6 @@ For more information on enabling MVC for empty projects, visit https://go.micros
                 url: `/api/privacy`,
                 success: function (response) {
 
-                    console.log(response);
 
                     var sidebar = document.getElementById('dropdown-menu-start-privacy');
                     sidebar.innerHTML = loadSidebar(response);

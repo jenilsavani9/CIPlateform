@@ -157,7 +157,7 @@ namespace CI.Repository.Repository
 
         public List<Banner> GetBanner()
         {
-            var banner = _db.Banners.OrderBy(b => b.SortOrder).ToList();
+            var banner = _db.Banners.Where(b => b.DeletedAt == null).OrderBy(b => b.SortOrder).ToList();
             return banner;
         }
 
@@ -455,6 +455,11 @@ namespace CI.Repository.Repository
             var application = _db.MissionApplications.FirstOrDefault(ma => ma.MissionApplicationId == id);
             if (application != null)
             {
+                var mission = _db.Missions.FirstOrDefault(m => m.MissionId == application.MissionId);
+                if(mission != null)
+                {
+                    mission.SeatLeft -= 1;
+                }
                 application.ApprovalStatus = "Approve";
                 _db.SaveChanges();
                 return true;
@@ -734,7 +739,21 @@ namespace CI.Repository.Repository
                 _db.SaveChanges();
                 return true;
             }
-            
+        }
+
+        public bool DeleteBanner(long id)
+        {
+            var findBanner = _db.Banners.FirstOrDefault(b => b.BannerId == id);
+            if (findBanner != null)
+            {
+                findBanner.DeletedAt = DateTime.Now;
+                _db.SaveChanges();
+                return true;
+            }
+            else
+            {
+                return false;
+            }
         }
     }
 }

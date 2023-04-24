@@ -308,7 +308,6 @@ ViewData["Title"] = "Timesheet";
            url: `/api/timesheets`,
            success: function (response) {
 
-               console.log(response)
 
                var timeBasedTimeSheets = document.getElementById("time-based-timesheets");
                timeBasedTimeSheets.innerHTML = loadTimeSheets(response);
@@ -552,7 +551,6 @@ ViewData["Title"] = "Timesheet";
                url: `/api/timesheets/${id}`,
                success: function (response) {
 
-                   console.log(response)
                     missionId = response.result.missionId
 
                     if(response.result.timesheetTime != null) {
@@ -608,7 +606,6 @@ ViewData["Title"] = "Timesheet";
            var min = $('#edit-min-time').val()
            var Message = $('#edit-notes-time').val()
 
-           console.log(missionId, dateVolunteered, Hours, min, Message, Hours+":"+min+":"+"00")
 
            // form validation
            var error = 0;

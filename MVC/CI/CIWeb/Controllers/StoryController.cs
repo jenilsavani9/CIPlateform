@@ -38,7 +38,7 @@ namespace CIWeb.Controllers
         {
             var storys = _repository.GetStory(page);
 
-            var pageSize = 3;
+            var pageSize = 9;
             var StoryCount = _repository.StoryCount();
             var totalStoryPage = (int)Math.Ceiling(StoryCount / (double)pageSize);
             var currentStoryPage = int.Parse(page);

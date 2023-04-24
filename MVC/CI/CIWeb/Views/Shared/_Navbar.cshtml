@@ -37,7 +37,7 @@
         <nav class="navbar headernav navbar-expand-lg fixed-top" style="background-color: #ffffff;">
             <div class="container">
                 <div class="d-flex col-md-6 d-flex justify-content-center justify-content-md-start pt-3 mb-3 mb-md-0">
-
+                    <a asp-action="Index" asp-controller="Home" style="text-decoration: none;margin-right: 45px;">Explore</a>
                     <a asp-action="Index" asp-controller="Story" style="text-decoration: none;">Stories</a>
                     <div class="dropdown ms-5">
                         <a class="text-reset me-3 dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button"
@@ -253,6 +253,12 @@
             }, 500); // adjust the delay time as needed
         });
 
+        document.getElementById("search-bar-1").addEventListener("input", function () {
+            debounce(function () {
+                search(document.getElementById("search-bar-1").value);
+            }, 500); // adjust the delay time as needed
+        });
+
         function search(query) {
             
             changeURL(searchQuery = query, FCountries = "", FCities = "", FThemes = "", FSkills = "", pageIndex = "", sortOrder = "")
@@ -330,7 +336,6 @@
                 url: `/api/privacy`,
                 success: function (response) {
 
-                    console.log(response);
 
                     var sidebar = document.getElementById('dropdown-menu-start-privacy');
                     sidebar.innerHTML = loadSidebar(response);

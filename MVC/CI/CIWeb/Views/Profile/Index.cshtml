@@ -385,7 +385,6 @@
                 url: `/api/profile/addskills`,
                 success: function (response) {
 
-                    console.log(response)
                     var leftElement = document.getElementById("add-skill-left-group");
                     leftElement.innerHTML = userSelectedSkills(response)
 
@@ -414,10 +413,8 @@
             }
 
 
-            console.log(skillsToAdd)
 
             skillsToAdd = Object.entries(skillsToAdd)
-            console.log(typeof skillsToAdd)
 
 
 
@@ -453,7 +450,6 @@
                 url: `/getUserProfile`,
                 success: function (response) {
 
-                    console.log(response)
                     var avatar = document.getElementById("profile-user-img");
                     avatar.innerHTML = `<img src="/mediaUpload/${response.user.avatar}" alt="" class="rounded-circle user-profile-img" onclick="document.getElementById('myFileInput').click()" style="cursor:pointer;">`
                     userProfileName = response.user.avatar;
@@ -593,7 +589,6 @@
                     url: `/api/profile/skills`,
                     success: function (response) {
 
-                        console.log(response);
                         var element = document.getElementById("user-skills-list");
                         element.innerHTML = loadSkills(response);
 
@@ -741,7 +736,6 @@
 
 
             $("#myFileInput").on('change', function () {
-                    console.log("change")
                      var files = $('#myFileInput').prop("files");
                     var url = "/api/static/save";
                     formData = new FormData();

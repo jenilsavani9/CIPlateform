@@ -26,9 +26,9 @@
                     <lable class="fs-6">Select Mission</lable>
                     <select class="form-select" aria-label="Default select example" id="share-story-mission-list" onchange="loadDraftStory()">
                         @*<option disabled>Select Mission</option>
-                        <option value="1">One</option>
-                        <option value="2">Two</option>
-                        <option value="3">Three</option>*@
+                            <option value="1">One</option>
+                            <option value="2">Two</option>
+                            <option value="3">Three</option>*@
                     </select>
                     <span class="d-none mb-3 form-validation-msg" id="story-mission-error"></span>
                 </div>
@@ -36,7 +36,7 @@
                     <lable class="fs-6">My Story Title </lable>
                     <input type="text" class="w-100 py-1 border-1 rounded-1 mt-1" style="border-color:lightgray" id="share-story-title" />
                     <span class="d-none mb-3 form-validation-msg" id="story-title-error"></span>
-                    
+
                 </div>
                 <div class="col-11 col-lg-4 col-md-6 col-sm-11 mt-2">
                     <lable class="fs-6">Date </lable>
@@ -52,7 +52,7 @@
             </div>
             <div class="row mt-4">
                 <label class="fs-5">Enter Video URL</label>
-                <textarea  type="text" placeholder="Enter your URL" id="share-story-video-url" class="col-12 border-1 border-black mt-1 mb-2" style="height:40px; border-radius:5px" ></textarea>
+                <textarea type="text" placeholder="Enter your URL" id="share-story-video-url" class="col-12 border-1 border-black mt-1 mb-2" style="height:40px; border-radius:5px"></textarea>
                 <span class="d-none mb-3 form-validation-msg" id="story-url-error"></span>
             </div>
             <div class="row mt-4">
@@ -136,7 +136,7 @@
                 }
 
                 function crossicon(id) {
-                    
+
                     var element = document.getElementById(id);
                     element.setAttribute("class", "col-3 mt-2 d-none");
                     listOfImage = listOfImage.filter((img)=>{return img!=id})
@@ -153,7 +153,7 @@
 
                     return response.media.map(item => `<li class="col-2 mt-2" id="${item.storyPath}">
                                                         <img src="/mediaUpload/${item.storyPath}" height="60" >
-                                                        
+
                                                         <i class="bi bi-x fa-2x crossicon" onclick="crossicon('${item.storyPath}')"></i>
                                                       </li>`).join("")
                 }
@@ -219,7 +219,7 @@
                         }
                     }
                     return false;
-                }
+                 }
 
                  function saveStory(event, status){
                     event.preventDefault();
@@ -298,7 +298,7 @@
                             var saveBtn = document.getElementById("save-btn");
                             saveBtn.innerHTML = "Saved"
                         }
-                    }  
+                    }
                };
 
 

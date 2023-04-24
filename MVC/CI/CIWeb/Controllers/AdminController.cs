@@ -288,5 +288,12 @@ namespace CIWeb.Controllers
             var result = _repository.AddBanner(obj);
             return Json(new { result });
         }
+
+        [HttpPost("api/admin/deleteBanner")]
+        public IActionResult DeleteBanner(long BannerId)
+        {
+            var result = _repository.DeleteBanner(BannerId);
+            return Json(new { result });
+        }
     }
 }

@@ -83,5 +83,7 @@ namespace CI.Repository.Interface
         public Banner GetBannerById(long id);
 
         public bool AddBanner(Banner obj);
+
+        public bool DeleteBanner(long id);  
     }
 }

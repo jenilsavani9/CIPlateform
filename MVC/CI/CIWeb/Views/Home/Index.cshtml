@@ -100,7 +100,7 @@
 
                     <input type="search"
                            class="form-control rounded ms-2 searchbox border-0"
-                           id="search-bar"
+                           id="search-bar-1"
                            value=@ViewBag.searchQuery
                            name="searchQuery"
                            placeholder="Search Mission..."
@@ -553,7 +553,6 @@
                 }
             }
             onClickMissionPagination(url);
-            console.log(url)
         }
 
         function loadMissionForPagination(response) {
@@ -638,12 +637,11 @@
                                   <div class="spinner-border" role="status">
                                     <span class="visually-hidden">Loading...</span>
                                   </div>
-                                </div>`
+                                </div>` 
             $.ajax({
                 type: "GET",
                 url: `https://localhost:44398/api/missions?${url}`,
                 success: function (response) {
-                    console.log(response)
 
 
 

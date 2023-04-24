@@ -21,7 +21,7 @@ namespace CI.Repository.Repository
         {
             List<StoryModel> storys = new List<StoryModel>();
 
-            int pageSize = 3;
+            int pageSize = 9;
             var tempStorys = _db.Stories.Where(s => s.Status == "approve").Skip(int.Parse(page) * pageSize).Take(pageSize).ToList();
             foreach (var storyItem in tempStorys)
             {
