@@ -22,6 +22,12 @@ namespace CI.Repository.Repository
             _db = db;
         }
 
+        public List<City> GetCities()
+        {
+            var cities = _db.Cities.ToList();
+            return cities;
+        }
+
         public List<Country> GetCountry()
         {
             var countries = _db.Countries.ToList();

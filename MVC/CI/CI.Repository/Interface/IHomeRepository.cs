@@ -5,6 +5,8 @@ namespace CI.Repository.Interface
 {
     public interface IHomeRepository
     {
+        public List<City> GetCities();
+
         public List<Mission> GetMissions();
 
         public List<Country> GetCountry();

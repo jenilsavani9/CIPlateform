@@ -60,11 +60,11 @@ namespace CIWeb.Controllers
             var user = _db.Users.Where(e => e.Email == userId).SingleOrDefault();
             ViewBag.user = user;
 
-            List<City> Cities = _db.Cities.ToList();
+            List<City> Cities = _repository.GetCities();
             ViewBag.cities = Cities;
-            List<Country> Country = _db.Countries.ToList();
+            List<Country> Country = _repository.GetCountry();
             ViewBag.countries = Country;
-            List<MissionTheme> Themes = _db.MissionThemes.ToList();
+            List<MissionTheme> Themes = _repository.GetTheme();
             ViewBag.Themes = Themes;
             ViewBag.cityElements = Cities;
             ViewBag.themeElements = Themes;
@@ -77,7 +77,7 @@ namespace CIWeb.Controllers
         {
             String? userId = HttpContext.Session.GetString("userEmail");
 
-            var user = _db.Users.Where(e => e.Email == userId).SingleOrDefault();
+            var user = _repository.FindUser(userId);
             ViewBag.user = user;
             return View();
         }
