@@ -5,13 +5,8 @@
     ViewData["Title"] = "Home Page";
 }
 
-<!DOCTYPE html>
-<html lang="en">
-
 <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+   
     <title>Home</title>
 
     <link rel="stylesheet" href="~/css/LandingPage.css" />
@@ -154,7 +149,7 @@
                                        role="button" data-mdb-toggle="dropdown" aria-expanded="false">
                                         City
                                     </a>
-                                    <ul class="dropdown-menu dropdown-menu-start dropdownlist" id="load-country-city" aria-labelledby="navbarDropdownMenuLink" style="max-height: 300px; overflow-y: scroll; ">
+                                    <ul class="dropdown-menu dropdown-menu-start dropdownlist" id="load-country-city-1" aria-labelledby="navbarDropdownMenuLink" style="max-height: 300px; overflow-y: scroll; ">
 
 
                                         <li>Please select a Country</li>
@@ -282,7 +277,9 @@
     <script>
 
         function loadMissionCards(response) {
+            console.log(response)
             return response.missionsVMList.map(item => {
+                
                 if(item.missionType == "Time") {
                     return `<div class="item col-12 col-md-6 col-xl-4" onload="LoadAddtoFav()">
                         <div class="thumbnail card">
@@ -290,18 +287,37 @@
                                 <img class="group list-group-image img-fluid" style="width:100%;"
                              src="/mediaUpload/${item.imgUrl}" alt="" />
                                 <div class="landing-page-top-right"><img src="/img/pin.png" alt=""> ${item.city}</div>
+                                ${item.userApplied == true ? '<div class="landing-page-mission-apply-status"> Applied </div>' : ""}
+                                
                                 <div class="landing-page-bottom-right d-flex flex-column">
-        @if (ViewBag.user != null)
-        {
+                                            @if (ViewBag.user != null)
+                                            {
                                                 <button class="mb-2 landing-page-btn-img" id="landing-page-add-to-fav-btn-card-${item.missionId}" onclick="changeAddtoFav(${item.missionId})" >
                                                     <img src="~/img/heart.png" alt="" onload="LoadAddtoFav(${item.missionId})">
                                                 </button>
 
-                                                <button class="landing-page-btn-img">
-                                                    <img src="~/img/user.png"
-                                         alt="">
+                                                <button class="landing-page-btn-img" data-bs-toggle="modal" data-bs-target="#exampleModal" id="landing-page-recommend-btn-card-${item.missionId}" onclick="loadUserInRecomand(${item.missionId})">
+                                                    <img src="~/img/user.png" alt="">
                                                 </button>
-        }
+
+                                                <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                                  <div class="modal-dialog modal-dialog-centered">
+                                                    <div class="modal-content">
+                                                      <div class="modal-header">
+                                                        <h1 class="modal-title fs-5" id="exampleModalLabel">Recommend to a Co-Worker</h1>
+                                                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                                      </div>
+                                                      <div class="modal-body" id="vol-page-recommend-load-user" style="height: 400px; overflow-y: scroll;">
+                                                        ...
+                                                      </div>
+                                                      <div class="modal-footer">
+                                            
+                                            
+                                                      </div>
+                                                    </div>
+                                                  </div>
+                                                </div>
+                                            }
 
                                 </div>
 
@@ -352,19 +368,19 @@
                                 <div class="d-flex justify-content-center">
                                     <div class="">
 
-        @if (@ViewBag.user != null)
-        {
+                                                @if (@ViewBag.user != null)
+                                                {
 
                                                     <a class="btn mt-2 landing-page-apply-mission-btn" href="/missions/${item.missionId}">
-                                                            ${item.userApplied==true?"Applied Successfully":`Apply <img src="~/img/right-arrow.png" alt="">`}
+                                                            Apply <img src="~/img/right-arrow.png" alt="">
                                                         </a>
-        }
-        else
-        {
+                                                }
+                                                else
+                                                {
                                                     <a class="btn mt-2 landing-page-apply-mission-btn" asp-action="Login" asp-controller="User">
                                                             Login <img src="~/img/right-arrow.png" alt="">
                                                         </a>
-        }
+                                                }
                                     </div>
                                 </div>
                             </div>
@@ -377,18 +393,37 @@
                                 <img class="group list-group-image img-fluid" style="width:100%;"
                              src="/mediaUpload/${item.imgUrl}" alt="" />
                                 <div class="landing-page-top-right"><img src="/img/pin.png" alt=""> ${item.city}</div>
+                                ${item.userApplied == true ? '<div class="landing-page-mission-apply-status"> Applied </div>' : ""}
                                 <div class="landing-page-bottom-right d-flex flex-column">
-        @if (ViewBag.user != null)
-        {
+                                            @if (ViewBag.user != null)
+                                            {
                                                 <button class="mb-2 landing-page-btn-img" id="landing-page-add-to-fav-btn-card-${item.missionId}" onclick="changeAddtoFav(${item.missionId})" >
                                                     <img src="~/img/heart.png" alt="" onload="LoadAddtoFav(${item.missionId})">
                                                 </button>
 
-                                                <button class="landing-page-btn-img">
-                                                    <img src="~/img/user.png"
-                                         alt="">
+                                               
+                                                <button class="landing-page-btn-img" data-bs-toggle="modal" data-bs-target="#exampleModal" id="landing-page-recommend-btn-card-${item.missionId}" onclick="loadUserInRecomand(${item.missionId})">
+                                                    <img src="~/img/user.png" alt="">
                                                 </button>
-        }
+
+                                                <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                                  <div class="modal-dialog modal-dialog-centered">
+                                                    <div class="modal-content">
+                                                      <div class="modal-header">
+                                                        <h1 class="modal-title fs-5" id="exampleModalLabel">Recommend to a Co-Worker</h1>
+                                                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                                      </div>
+                                                      <div class="modal-body" id="vol-page-recommend-load-user" style="height: 400px; overflow-y: scroll;">
+                                                        ...
+                                                      </div>
+                                                      <div class="modal-footer">
+                                            
+                                            
+                                                      </div>
+                                                    </div>
+                                                  </div>
+                                                </div>
+                                            }
 
                                 </div>
 
@@ -446,18 +481,18 @@
                                 <div class="d-flex justify-content-center">
                                     <div class="">
 
-        @if (@ViewBag.user != null)
-        {
+                                                @if (@ViewBag.user != null)
+                                                {
                                                     <a class="btn mt-2 landing-page-apply-mission-btn" href="/missions/${item.missionId}">
-                                                            ${item.userApplied==true?"Applied Successfully":`Apply <img src="~/img/right-arrow.png" alt="">`}
+                                                            Apply <img src="~/img/right-arrow.png" alt="">
                                                         </a>
-        }
-        else
-        {
+                                                }
+                                                else
+                                                {
                                                     <a class="btn mt-2 landing-page-apply-mission-btn" asp-action="Login" asp-controller="User">
                                                             Login <img src="~/img/right-arrow.png" alt="">
                                                         </a>
-        }
+                                                }
                                     </div>
                                 </div>
                             </div>
@@ -621,6 +656,7 @@
         }
 
         function loadCountryFilterCity(response) {
+            console.log(response.cities)
             return response.cities.map(item => `<li>
                                                             <a class="dropdown-item dd-color">
                                                                 <div class="form-check">
@@ -656,8 +692,17 @@
 
                     var countryFilterCity = document.getElementById("load-country-city")
                     if(response.cities!=null) {
+                        console.log("inside");
                         countryFilterCity.innerHTML = loadCountryFilterCity(response)
                     }
+
+                    // for mobile view
+                    var countryFilterCity1 = document.getElementById("load-country-city-1")
+                    if(response.cities!=null) {
+                        
+                        countryFilterCity1.innerHTML = loadCountryFilterCity(response)
+                    }
+                    
 
                     var filter = document.getElementById("filter-element-for-landing-page");
                     var filterHTML = ""
@@ -701,6 +746,77 @@
             });
 
         }
+
+        function sendMailForRecommend(userId, missionId) {
+                
+                // display spinner for waiting 
+                var element = document.getElementById(`change-btn-when-clicked-${userId}`);
+                
+                element.innerHTML = `<button class="btn btn-dark" type="button" disabled>
+                                      <span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
+                                      Sending...
+                                    </button>`
+                  
+
+                $.ajax({
+                    type: "POST",
+                    url: `https://localhost:44398/recommand/${userId}/${missionId}`,
+                    success: function (response) {
+                        var element = document.getElementById(`change-btn-when-clicked-${userId}`);
+                        if(response.message == "sent") {
+                            element.innerHTML = `<button class="btn btn-success" onclick="sendMailForRecommend(${userId}, ${missionId})" disabled>Sent</button>`
+                        } else {
+                            element.innerHTML = `<button class="btn btn-success" onclick="sendMailForRecommend(${userId}, ${missionId})" disabled>Already Sent</button>`
+                        }
+                        
+                    },
+                    failure: function (response) {
+                        alert(response.responseText);
+                    },
+                    error: function (response) {
+                        alert(response.responseText);
+                    }
+                });
+            }
+
+        function loadUser(response, id) {
+                
+                return response.user.map(item => {
+                    return `
+                        <div class="form-check d-flex justify-content-between">
+                          <div>
+                              <img class="vol-page-right-recent-vol-img" src="/mediaUpload/${item.avatar}" alt="" style="width: 40px; height:40px">
+                              ${item.firstName} ${item.lastName}
+                          </div>
+                          <div id="change-btn-when-clicked-${item.userId}">
+                            <button class="btn btn-dark" onclick="sendMailForRecommend(${item.userId}, ${id})">Recommend</button>
+                          </div>
+                        </div>
+                        <hr/>`
+                }).join('')
+            }
+
+            function loadUserInRecomand(id, status){
+
+
+                var element = document.getElementById("vol-page-recommend-load-user");
+
+                $.ajax({
+                    type: "GET",
+                    url: `https://localhost:44398/users`,
+                    success: function (response) {
+
+                        element.innerHTML = loadUser(response, id);
+                    },
+                    failure: function (response) {
+                        alert(response.responseText);
+                    },
+                    error: function (response) {
+                        alert(response.responseText);
+                    }
+                });
+
+            }
 
         function changeAddtoFav(id) {
 
@@ -775,4 +891,3 @@
 
 </body>
 
-</html>

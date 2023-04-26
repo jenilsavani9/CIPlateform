@@ -3,13 +3,10 @@
     ViewData["Title"] = "Volunteer";
 }
 
-<!DOCTYPE html>
-<html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+
     <title>Volunteer</title>
     <link href="~/css/bootstrap.min.css" rel="stylesheet" text="text/css" />
     <link rel="stylesheet" href="~/css/volunteering.css">
@@ -124,23 +121,32 @@
         }
 
         function textareaValue() {
+             var error = 0;
              let getTextarea = document.getElementById("exampleFormControlTextarea1").value
+             if(getTextarea == "") {
+                 error = 1;
+             } 
              var url = window.location.href;
              var tempUrl = url.split("/")[4];
-             $.ajax({
-                type: "POST",
-                url: `https://localhost:44398/mission/${tempUrl}/comments`,
-                data: { "getTextarea": getTextarea },
-                success: function (response) {
-                    document.getElementById("exampleFormControlTextarea1").value = ""                                            
-                },
-                failure: function (response) {
-                    alert(response.responseText);
-                },
-                error: function (response) {
-                    alert(response.responseText);
-                }
-             });
+
+             if(error == 0) {
+                 $.ajax({
+                    type: "POST",
+                    url: `https://localhost:44398/mission/${tempUrl}/comments`,
+                    data: { "getTextarea": getTextarea },
+                    success: function (response) {
+                        //document.getElementById("exampleFormControlTextarea1").value = "";  
+                        location.reload();
+                    },
+                    failure: function (response) {
+                        alert(response.responseText);
+                    },
+                    error: function (response) {
+                        alert(response.responseText);
+                    }
+                 });
+             }
+             
         }
 
         function LoadAddtoFav(id) {
@@ -225,7 +231,7 @@
                                     <p class="lead me-2 pt-2">
                                         <img src="~/img/Seats-left.png" alt="">
                                     <div>
-                                        <div>10</div>
+                                        <div id="vol-page-seat-left">10</div>
                                         <div class="landing-page-card-vol-small">Seats Left</div>
                                     </div>
                                     </p>
@@ -789,7 +795,7 @@
                     type: "POST",
                     url: `https://localhost:44398/missions/${missionId}/apply`,
                     success: function (response) {
-                        
+                        console.log(response);
                         var element = document.getElementById("vol-page-apply-mission-btn");
                         if(response.message=="Apply"){
                             element.innerHTML = `<button class="btn vol-page-apply-btn shadow-none" style="color: green" disabled> Application Pending</button>`
@@ -929,6 +935,8 @@
                         theme.innerHTML = `${response.volunteerMissionModel.mission[0].theme.title}`
                         date.innerHTML = `${response.volunteerMissionModel.mission[0].startDate.toString().substring(0, 10)}`
                         organization.innerHTML = `${response.volunteerMissionModel.mission[0].organizationName}`
+
+                        $('#vol-page-seat-left').html(response.volunteerMissionModel.mission[0].seatLeft);
 
                     },
                     failure: function (response) {
@@ -1086,6 +1094,8 @@
                             element.innerHTML = `<button class="btn vol-page-apply-btn shadow-none" style="color: green" disabled> Applied Successfully</button>`
                         } else if(response.message=="Pending") {
                             element.innerHTML = `<button class="btn vol-page-apply-btn shadow-none" style="color: green" disabled> Application Pending</button>`
+                        } else if(response.message == "Reject") {
+                            element.innerHTML = `<button class="btn vol-page-apply-btn shadow-none" style="color: red" disabled> Application Rejected</button>`
                         }
                         else {
                             element.innerHTML = `<button class="btn vol-page-apply-btn shadow-none" onclick="applyMission(${tempUrl})">Apply Now <img src="/img/right-arrow.png"
@@ -1197,8 +1207,11 @@
                     url: `https://localhost:44398/recommand/${userId}/${missionId}`,
                     success: function (response) {
                         var element = document.getElementById(`change-btn-when-clicked-${userId}`);
+                        console.log(response);
                         if(response.message == "sent") {
                             element.innerHTML = `<button class="btn btn-success" onclick="sendMailForRecommend(${userId}, ${tempUrl})" disabled>Sent</button>`
+                        } else {
+                            element.innerHTML = `<button class="btn btn-success" onclick="sendMailForRecommend(${userId}, ${tempUrl})" disabled>Already Sent</button>`
                         }
                         
                     },
@@ -1218,7 +1231,7 @@
                     return `
                         <div class="form-check d-flex justify-content-between">
                           <div>
-                              <img class="vol-page-right-recent-vol-img" src="/img/volunteer1.png" alt="" style="width: 40px; height:40px">
+                              <img class="vol-page-right-recent-vol-img" src="/mediaUpload/${item.avatar}" alt="" style="width: 40px; height:40px">
                               ${item.firstName} ${item.lastName}
                           </div>
                           <div id="change-btn-when-clicked-${item.userId}">
@@ -1292,4 +1305,4 @@
     <script src="~/js/bootstrap.bundle.min.js"></script>
 </body>
 
-</html>
+

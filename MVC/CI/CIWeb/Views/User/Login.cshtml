@@ -1,17 +1,9 @@
 ﻿@using CI.Entities.Models
-@*
-    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
-*@
-
 @model User;
-@{
-}
-<!DOCTYPE html>
-<html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+
     <link href="~/css/bootstrap.min.css" rel="stylesheet" text="text/css" />
     <link rel="stylesheet" href="~/css/home.css" />
     <script src="~/js/bootstrap.bundle.min.js"></script>
@@ -35,7 +27,6 @@
                                        <span class="text-danger" asp-validation-for="Password"></span>
                             </div>
                             <button type="submit" class="button mt-3">Login</button>
-                            @*<button type="button" class="button mt-3" onclick="location.href='@Url.Action("Resetpass", "Home")'">Reset my Password</button>*@
                             <p class="d-flex justify-content-center mt-4">
                                 <a class="nav-link text-dark lostpasstxt" asp-area="" asp-controller="User" asp-action="ForgotPassword">Lost your Password?</a>
                             </p>
@@ -49,4 +40,3 @@
                 </div>
             </div>
 </body>
-</html>

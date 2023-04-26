@@ -36,19 +36,19 @@ namespace CI.Repository.Repository
 
         public List<Mission> GetMissions()
         {
-            var missions = _db.Missions.ToList();
+            var missions = _db.Missions.Where(m => m.DeletedAt == null).ToList();
             return missions;
         }
 
         public List<Skill> GetSkill()
         {
-            var skills = _db.Skills.ToList();
+            var skills = _db.Skills.Where(s => s.Status == "1").ToList();
             return skills;
         }
 
         public List<MissionTheme> GetTheme()
         {
-            var themes = _db.MissionThemes.ToList();
+            var themes = _db.MissionThemes.Where(t => t.Status == 1).ToList();
             return themes;
         }
 
@@ -65,7 +65,7 @@ namespace CI.Repository.Repository
             var user = _db.Users.Where(e => e.Email == userId).SingleOrDefault();
 
             MissionModel model = new MissionModel();
-            Missions = _db.Missions.ToList();
+            Missions = _db.Missions.Where(m => m.DeletedAt == null).ToList();
             if (!string.IsNullOrEmpty(searchQuery))
             {
                 Missions = Missions.Where(m => m.Title.ToLower().Contains(searchQuery.ToLower())).ToList();
@@ -242,7 +242,7 @@ namespace CI.Repository.Repository
                     EndDate = (DateTime)mission.EndDate,
                     missionType = mission.MissionType,
                     isFavrouite = (user != null) ? _db.FavoriteMissions.Any(e => e.MissionId == mission.MissionId && e.UserId == user.UserId) : false,
-                    userApplied = (user != null) ? _db.MissionApplications.Any(e => e.MissionId == mission.MissionId && e.UserId == user.UserId && e.ApprovalStatus != "pending") : false,
+                    userApplied = (user != null) ? _db.MissionApplications.Any(e => e.MissionId == mission.MissionId && e.UserId == user.UserId && e.ApprovalStatus == "Approve") : false,
                     ImgUrl = (missionURL?.MediaPath != null) ? missionURL.MediaPath : "404-Page-image.png",
                     StartDateEndDate = "From " + startDateNtime[0] + " until " + endDateNtime[0],
                     NoOfSeatsLeft = (int)mission?.SeatLeft,

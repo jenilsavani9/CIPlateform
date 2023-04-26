@@ -24,6 +24,12 @@ namespace CI.Repository.Repository
 
         public User? GetUser(string? userMail)
         {
+            var user = _db.Users.Where(u => u.Email == userMail && u.Status == "1").FirstOrDefault();
+            return user;
+        }
+
+        public User? GetValidUser(string? userMail)
+        {
             var user = _db.Users.Where(u => u.Email == userMail).FirstOrDefault();
             return user;
         }

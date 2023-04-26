@@ -167,6 +167,14 @@
     right: 16px;
 }
 
+.landing-page-mission-apply-status {
+    position: absolute;
+    bottom: 81%;
+    background-color: green;
+    color: #fff;
+    padding: 2px 10px;
+}
+
 .list-group-image {
     max-width: 100%;
     max-height: 100%;

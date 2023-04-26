@@ -1,752 +1,854 @@
 ﻿@{
-Layout = "_TopNavBar";
-ViewData["Title"] = "Timesheet";
+    Layout = "_TopNavBar";
+    ViewData["Title"] = "Timesheet";
 }
-<!DOCTYPE html>
-<html lang="en">
-   <head>
-      <meta charset="UTF-8">
-      <meta http-equiv="X-UA-Compatible" content="IE=edge">
-      <meta name="viewport" content="width=device-width, initial-scale=1.0">
-      <title>Document</title>
-      <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha2/dist/css/bootstrap.min.css" rel="stylesheet"
-         integrity="sha384-aFq/bzH65dt+w6FI2ooMVUpc+21e0SRygnTpmBvdBgSdnuTN7QbdgL+OapgHtvPp" crossorigin="anonymous">
-      <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.4/font/bootstrap-icons.css">
-      <link rel="stylesheet" href="~/css/Volunteeringtimesheet.css" asp-append-version="true" />
-      <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
-      <script src="https://www.kryogenix.org/code/browser/sorttable/sorttable.js"></script>
-      <style>
-          th:hover {
-              cursor: pointer;
-          }
-      </style>
 
-   </head>
-   <body>
-      <div class="container timesheet" style="margin-top: 130px;">
-         <div class="row ">
+
+<head>
+
+    <title>Document</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha2/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-aFq/bzH65dt+w6FI2ooMVUpc+21e0SRygnTpmBvdBgSdnuTN7QbdgL+OapgHtvPp" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.4/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="~/css/Volunteeringtimesheet.css" asp-append-version="true" />
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+    <script src="https://www.kryogenix.org/code/browser/sorttable/sorttable.js"></script>
+    <style>
+        th:hover {
+            cursor: pointer;
+        }
+    </style>
+
+</head>
+<body>
+    <div class="container timesheet" style="margin-top: 130px;">
+        <div class="row ">
             <div class="" style="margin-left: 85px;font-size: 40px;color: #414141;"> Volunteering Timesheet</div>
-         </div>
-         <div class="row d-flex justify-content-center ">
+        </div>
+        <div class="row d-flex justify-content-center ">
             <div class="col-12 col-xl-5 col-lg-5 mt-4 borderbox">
-               <div class="row cardtitleborder">
-                  <div class="col-8 d-flex align-items-center">
-                     <label class="fs-5"> Volunteering Hour</label>
-                  </div>
-                  <div class="col-4">
-                     <button class="rounded-pill d-flex justify-content-center align-items-center ms-auto py-1 px-2 me-2 my-2 addbtn" data-bs-toggle="modal" data-bs-target="#TimeADDbtn">
-                     <i class="bi bi-plus-lg me-2 "></i>
-                     <span> ADD</span>
-                     </button>
-                     <div class="modal fade" id="TimeADDbtn" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                        <div class="modal-dialog modal-lg modal-dialog-centered">
-                           <div class="modal-content">
-                             
-                                 <div class="modal-header">
-                                    <h1 class="modal-title fs-5" id="exampleModalLabel">Please input below Volunteering Hours</h1>
-                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                                 </div>
-                                 <div class="modal-body">
-                                    <div class="container">
-                                       <div class="row">
-                                          <lable class="col-6 fs-6">Mission</lable>
-                                          <select id="mission-add-time" class=" datediv py-1 ro col-12" aria-label="Default select example">
-                                             
-                                          </select>
-                                          <span class="d-none mb-3 form-validation-msg" id="mission-add-time-error"></span>
-                                       </div>
-                                       <div class="row mt-2">
-                                          <lable class="col-6 fs-6">Date Volunteered</lable>
-                                          <input class="col-12 datediv py-1 rounded-1" type="datetime-local" id="mission-dateVolunteered-time"/>
-                                          <span class="d-none mb-3 form-validation-msg" id="mission-dateVolunteered-time-error"></span> 
-                                      </div>
-                                       <div class="row mt-1 ">
-                                          <div class=" col-12 col-xl-6 col-1g-6 p-0">
-                                             <label class=" col-8 fs-6"> Hours</label>
-                                             <input type="number" min="0" max="23" placeholder="Enter Spent Hours " id="mission-Hours-time" class="py-1 datediv rounded-1 w-100 " />
-                                             <span class="d-none mb-3 form-validation-msg" id="mission-Hours-time-error"></span> 
-                                         </div>
-                                          <div class=" col-12 col-xl-6 col-1g-6 p-0 ">
-                                             <label class=" col-8 fs-6"> Minutes</label>
-                                             <input  type="number" min="0" max="59" placeholder="Enter Spent Minutes " id="mission-min-time" class=" ms-0 ms-xl-2 py-1 datediv rounded-1 w-100 me-2" />
-                                             <span class="d-none mb-3 form-validation-msg" id="mission-min-time-error"></span> 
-                                         </div>
-                                       </div>
-                                       <div class="row mt-1">
-                                          <label class=" col-8 fs-6"> Enter Your Message</label>
-                                          <textarea class=" datediv rounded-1 mt-1 " placeholder="Leave a comment here" id="mission-Message-time"></textarea>
-                                          <span class="d-none mb-3 form-validation-msg" id="mission-Message-time-error"></span> 
-                                      </div>
+                <div class="row cardtitleborder">
+                    <div class="col-8 d-flex align-items-center">
+                        <label class="fs-5"> Volunteering Hour</label>
+                    </div>
+                    <div class="col-4">
+                        <button class="rounded-pill d-flex justify-content-center align-items-center ms-auto py-1 px-2 me-2 my-2 addbtn" data-bs-toggle="modal" data-bs-target="#TimeADDbtn">
+                            <i class="bi bi-plus-lg me-2 "></i>
+                            <span> ADD</span>
+                        </button>
+                        <div class="modal fade" id="TimeADDbtn" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                            <div class="modal-dialog modal-lg modal-dialog-centered">
+                                <div class="modal-content">
+
+                                    <div class="modal-header">
+                                        <h1 class="modal-title fs-5" id="exampleModalLabel">Please input below Volunteering Hours</h1>
+                                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                                     </div>
-                                 </div>
-                                 <div class="modal-footer">
-                                    <button type="button" class="rounded-pill bg-white px-3 py-1" data-bs-dismiss="modal">Cancel</button>
-                                    <button type="submit" class="rounded-pill addbtn px-3 py-1" onclick="timeSubmit()">Submit</button>
-                                 </div>
-                              
-                           </div>
-                        </div>
-                     </div>
-                     <div class="modal fade" id="TimeADDbtn1" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                        <div class="modal-dialog modal-lg modal-dialog-centered">
-                           <div class="modal-content">
-                              
-                                 <div class="modal-header">
-                                    <h1 class="modal-title fs-5" id="exampleModalLabel">Please input below Volunteering Hours</h1>
-                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                                 </div>
-                                 <div class="modal-body">
-                                    <div class="container">
-                                       <div class="row">
-                                          <lable class="col-6 fs-6">Mission</lable>
-                                          <select id="mission1" class=" datediv py-1 ro col-12" aria-label="Default select example">
-                                             <option value="1">1 Title</option>
-                                          </select>
-                                          <span class="d-none mb-3 form-validation-msg" id="mission1-error"></span>
-                                       </div>
-                                       <div class="row mt-2">
-                                          <lable class="col-6 fs-6">Date Volunteered</lable>
-                                          <input class="col-12 datediv py-1 rounded-1" id="edit-date-time" type="datetime-local" />
-                                          <span class="d-none mb-3 form-validation-msg" id="edit-date-time-error"></span>
-                                       </div>
-                                       <div class="row mt-1 ">
-                                          <div class=" col-12 col-xl-6 col-1g-6 p-0">
-                                             <label class=" col-8 fs-6"> Hours</label>
-                                             <input type="number" min="0" max="23" placeholder="Enter Spent Hours " class="py-1 datediv rounded-1 w-100 " id="edit-hour-time" />
-                                             <span class="d-none mb-3 form-validation-msg" id="edit-hour-time-error"></span> 
-                                         </div>
-                                          <div class=" col-12 col-xl-6 col-1g-6 p-0 ">
-                                             <label class=" col-8 fs-6"> Minutes</label>
-                                             <input id="edit-min-time" type="number" min="0" max="59" placeholder="Enter Spent Minutes " class=" ms-0 ms-xl-2 py-1 datediv rounded-1 w-100 me-2" />
-                                             <span class="d-none mb-3 form-validation-msg" id="edit-min-time-error"></span>
-                                         </div>
-                                          <input type="hidden" id="timesheetid1" />
-                                       </div>
-                                       <div class="row mt-1">
-                                          <label class=" col-8 fs-6"> Enter Your Message</label>
-                                          <textarea id="edit-notes-time" class=" datediv rounded-1 mt-1 " placeholder="Leave a comment here"></textarea>
-                                          <span class="d-none mb-3 form-validation-msg" id="edit-notes-time-error"></span>
-                                       </div>
+                                    <div class="modal-body">
+                                        <div class="container">
+                                            <div class="row">
+                                                <lable class="col-6 fs-6">Mission</lable>
+                                                <select id="mission-add-time" class=" datediv py-1 ro col-12" aria-label="Default select example">
+                                                </select>
+                                                <span class="d-none mb-3 form-validation-msg" id="mission-add-time-error"></span>
+                                            </div>
+                                            <div class="row mt-2">
+                                                <lable class="col-6 fs-6">Date Volunteered</lable>
+                                                <input class="col-12 datediv py-1 rounded-1" type="datetime-local" id="mission-dateVolunteered-time" />
+                                                <span class="d-none mb-3 form-validation-msg" id="mission-dateVolunteered-time-error"></span>
+                                            </div>
+                                            <div class="row mt-1 ">
+                                                <div class=" col-12 col-xl-6 col-1g-6 p-0">
+                                                    <label class=" col-8 fs-6"> Hours</label>
+                                                    <input type="number" min="0" max="23" placeholder="Enter Spent Hours " id="mission-Hours-time" class="py-1 datediv rounded-1 w-100 " />
+                                                    <span class="d-none mb-3 form-validation-msg" id="mission-Hours-time-error"></span>
+                                                </div>
+                                                <div class=" col-12 col-xl-6 col-1g-6 p-0 ">
+                                                    <label class=" col-8 fs-6"> Minutes</label>
+                                                    <input type="number" min="0" max="59" placeholder="Enter Spent Minutes " id="mission-min-time" class=" ms-0 ms-xl-2 py-1 datediv rounded-1 w-100 me-2" />
+                                                    <span class="d-none mb-3 form-validation-msg" id="mission-min-time-error"></span>
+                                                </div>
+                                            </div>
+                                            <div class="row mt-1">
+                                                <label class=" col-8 fs-6"> Enter Your Message</label>
+                                                <textarea class=" datediv rounded-1 mt-1 " placeholder="Leave a comment here" id="mission-Message-time"></textarea>
+                                                <span class="d-none mb-3 form-validation-msg" id="mission-Message-time-error"></span>
+                                            </div>
+                                        </div>
                                     </div>
-                                 </div>
-                                 <div class="modal-footer">
-                                    <button type="button" class="rounded-pill bg-white px-3 py-1" data-bs-dismiss="modal">Cancel</button>
-                                    <button type="submit" class="rounded-pill addbtn px-3 py-1" id="time-based-submit" onclick="EditTimeSubmit()">Submit</button>
-                                 </div>
-                              
-                           </div>
+                                    <div class="modal-footer">
+                                        <button type="button" class="rounded-pill bg-white px-3 py-1" data-bs-dismiss="modal">Cancel</button>
+                                        <button type="submit" class="rounded-pill addbtn px-3 py-1" onclick="timeSubmit()">Submit</button>
+                                    </div>
+
+                                </div>
+                            </div>
                         </div>
-                     </div>
-                  </div>
-               </div>
-               <div class="row table-responsive timesheetdiv">
-                  <table class="table table-borderless sortable">
-                     <thead>
-                        <tr>
-                           <th scope="col">Mission</th>
-                           <th scope="col">Date </th>
-                           <th scope="col">Hour</th>
-                           <th scope="col">Minute</th>
-                           <th scope="col"></th>
-                           <th scope="col"></th>
-                        </tr>
-                     </thead>
-                     <tbody id="time-based-timesheets">
-                        <tr>
-                           
-                        </tr>
-                     </tbody>
-                  </table>
-               </div>
+                        <div class="modal fade" id="TimeADDbtn1" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                            <div class="modal-dialog modal-lg modal-dialog-centered">
+                                <div class="modal-content">
+
+                                    <div class="modal-header">
+                                        <h1 class="modal-title fs-5" id="exampleModalLabel">Please input below Volunteering Hours</h1>
+                                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                    </div>
+                                    <div class="modal-body">
+                                        <div class="container">
+                                            <div class="row">
+                                                <lable class="col-6 fs-6">Mission</lable>
+                                                <select id="mission1" class=" datediv py-1 ro col-12" aria-label="Default select example">
+                                                    <option value="1">1 Title</option>
+                                                </select>
+                                                <span class="d-none mb-3 form-validation-msg" id="mission1-error"></span>
+                                            </div>
+                                            <div class="row mt-2">
+                                                <lable class="col-6 fs-6">Date Volunteered</lable>
+                                                <input class="col-12 datediv py-1 rounded-1" id="edit-date-time" type="datetime-local" />
+                                                <span class="d-none mb-3 form-validation-msg" id="edit-date-time-error"></span>
+                                            </div>
+                                            <div class="row mt-1 ">
+                                                <div class=" col-12 col-xl-6 col-1g-6 p-0">
+                                                    <label class=" col-8 fs-6"> Hours</label>
+                                                    <input type="number" min="0" max="23" placeholder="Enter Spent Hours " class="py-1 datediv rounded-1 w-100 " id="edit-hour-time" />
+                                                    <span class="d-none mb-3 form-validation-msg" id="edit-hour-time-error"></span>
+                                                </div>
+                                                <div class=" col-12 col-xl-6 col-1g-6 p-0 ">
+                                                    <label class=" col-8 fs-6"> Minutes</label>
+                                                    <input id="edit-min-time" type="number" min="0" max="59" placeholder="Enter Spent Minutes " class=" ms-0 ms-xl-2 py-1 datediv rounded-1 w-100 me-2" />
+                                                    <span class="d-none mb-3 form-validation-msg" id="edit-min-time-error"></span>
+                                                </div>
+                                                <input type="hidden" id="timesheetid1" />
+                                            </div>
+                                            <div class="row mt-1">
+                                                <label class=" col-8 fs-6"> Enter Your Message</label>
+                                                <textarea id="edit-notes-time" class=" datediv rounded-1 mt-1 " placeholder="Leave a comment here"></textarea>
+                                                <span class="d-none mb-3 form-validation-msg" id="edit-notes-time-error"></span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button type="button" class="rounded-pill bg-white px-3 py-1" data-bs-dismiss="modal">Cancel</button>
+                                        <button type="submit" class="rounded-pill addbtn px-3 py-1" id="time-based-submit" onclick="EditTimeSubmit()">Submit</button>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row table-responsive timesheetdiv">
+                    <table class="table table-borderless sortable">
+                        <thead>
+                            <tr>
+                                <th scope="col">Mission</th>
+                                <th scope="col">Date </th>
+                                <th scope="col">Hour</th>
+                                <th scope="col">Minute</th>
+                                <th scope="col"></th>
+                                <th scope="col"></th>
+                            </tr>
+                        </thead>
+                        <tbody id="time-based-timesheets">
+                            <tr>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
             </div>
             <div class="col-12 col-xl-5 col-lg-5 ms-0 ms-xl-4 ms-lg-4 mt-4 borderbox">
-               <div class="row cardtitleborder">
-                  <div class="col-8 d-flex align-items-center">
-                     <label class="fs-5"> Volunteering Goals</label>
-                  </div>
-                  <div class="col-4">
-                     <button class="rounded-pill d-flex justify-content-center align-items-center py-1 px-2 ms-auto me-2 my-2 addbtn" data-bs-toggle="modal" data-bs-target="#GoalADDbtn">
-                     <i class="bi bi-plus-lg me-2 "></i>
-                     <span> ADD</span>
-                     </button>
-                     <div class="modal fade" id="GoalADDbtn" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                        <div class="modal-dialog modal-lg modal-dialog-centered">
-                           <div class="modal-content">
+                <div class="row cardtitleborder">
+                    <div class="col-8 d-flex align-items-center">
+                        <label class="fs-5"> Volunteering Goals</label>
+                    </div>
+                    <div class="col-4">
+                        <button class="rounded-pill d-flex justify-content-center align-items-center py-1 px-2 ms-auto me-2 my-2 addbtn" data-bs-toggle="modal" data-bs-target="#GoalADDbtn">
+                            <i class="bi bi-plus-lg me-2 "></i>
+                            <span> ADD</span>
+                        </button>
+                        <div class="modal fade" id="GoalADDbtn" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                            <div class="modal-dialog modal-lg modal-dialog-centered">
+                                <div class="modal-content">
 
-                                 <div class="modal-header">
-                                    <h1 class="modal-title fs-5" id="exampleModalLabel">Please input below Volunteering Goal</h1>
-                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                                 </div>
-                                 <div class="modal-body">
-                                    <div class="container">
-                                       <div class="row">
-                                          <lable class="col-6 fs-6">Mission</lable>
-                                          <select id="mission2" class=" datediv py-1 ro col-12" aria-label="Default select example">
-                                             <option value="1">1 title</option>
-                                          </select>
-                                          <span class="d-none mb-3 form-validation-msg" id="mission2-error"></span>
-                                       </div>
-                                       <div class="row mt-2">
-                                          <lable class="col-6 fs-6">Action</lable>
-                                          <input class="col-12 datediv py-1 rounded-1" id="mission-action-goal" placeholder="Enter Actions" type="text" />
-                                          <span class="d-none mb-3 form-validation-msg" id="mission-action-goal-error"></span>
-                                       </div>
-                                       <div class="row mt-1 ">
-                                          <label class=" col-8 fs-6"> Date of Volunteered</label>
-                                          <input type="datetime-local" id="mission-dateVolunteered-goal" placeholder="Enter Date " class="py-1 datediv rounded-1 col-12 " />
-                                          <span class="d-none mb-3 form-validation-msg" id="mission-dateVolunteered-goal-error"></span>
-                                       </div>
-                                       <div class="row mt-1">
-                                          <label class=" col-8 fs-6"> Enter Your Message</label>
-                                          <textarea class=" datediv rounded-1 mt-1 " id="mission-Message-goal" placeholder="Leave a comment here"></textarea>
-                                          <span class="d-none mb-3 form-validation-msg" id="mission-Message-goal-error"></span>
-                                       </div>
+                                    <div class="modal-header">
+                                        <h1 class="modal-title fs-5" id="exampleModalLabel">Please input below Volunteering Goal</h1>
+                                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                                     </div>
-                                 </div>
-                                 <div class="modal-footer">
-                                    <button type="button" class="rounded-pill bg-white px-3 py-1" data-bs-dismiss="modal">Cancel</button>
-                                    <button type="submit" class="rounded-pill addbtn px-3 py-1" onclick="goalSubmit()">Submit</button>
-                                 </div>
+                                    <div class="modal-body">
+                                        <div class="container">
+                                            <div class="row">
+                                                <lable class="col-6 fs-6">Mission</lable>
+                                                <select id="mission2" class=" datediv py-1 ro col-12" aria-label="Default select example">
+                                                    <option value="1">1 title</option>
+                                                </select>
+                                                <span class="d-none mb-3 form-validation-msg" id="mission2-error"></span>
+                                            </div>
+                                            <div class="row mt-2">
+                                                <lable class="col-6 fs-6">Action</lable>
+                                                <input class="col-12 datediv py-1 rounded-1" id="mission-action-goal" placeholder="Enter Actions" type="text" />
+                                                <span class="d-none mb-3 form-validation-msg" id="mission-action-goal-error"></span>
+                                            </div>
+                                            <div class="row mt-1 ">
+                                                <label class=" col-8 fs-6"> Date of Volunteered</label>
+                                                <input type="datetime-local" id="mission-dateVolunteered-goal" placeholder="Enter Date " class="py-1 datediv rounded-1 col-12 " />
+                                                <span class="d-none mb-3 form-validation-msg" id="mission-dateVolunteered-goal-error"></span>
+                                            </div>
+                                            <div class="row mt-1">
+                                                <label class=" col-8 fs-6"> Enter Your Message</label>
+                                                <textarea class=" datediv rounded-1 mt-1 " id="mission-Message-goal" placeholder="Leave a comment here"></textarea>
+                                                <span class="d-none mb-3 form-validation-msg" id="mission-Message-goal-error"></span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button type="button" class="rounded-pill bg-white px-3 py-1" data-bs-dismiss="modal">Cancel</button>
+                                        <button type="submit" class="rounded-pill addbtn px-3 py-1" onclick="goalSubmit()">Submit</button>
+                                    </div>
 
-                           </div>
+                                </div>
+                            </div>
                         </div>
-                     </div>
-                     <div class="modal fade" id="GoalADDbtn1" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                        <div class="modal-dialog modal-lg modal-dialog-centered">
-                           <div class="modal-content">
-                             
-                                 <div class="modal-header">
-                                    <h1 class="modal-title fs-5" id="exampleModalLabel">Please input below Volunteering Goal</h1>
-                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                                 </div>
-                                 <div class="modal-body">
-                                    <div class="container">
-                                       <div class="row">
-                                          <lable class="col-6 fs-6">Mission</lable>
-                                          <select id="mission-edit-goal"  class=" datediv py-1 ro col-12" aria-label="Default select example">
-                                             <option value="1">1 title</option>
-                                          </select>
-                                          <span class="d-none mb-3 form-validation-msg" id="mission-edit-goal-error"></span>
-                                       </div>
-                                       <div class="row mt-2">
-                                          <lable class="col-6 fs-6">Action</lable>
-                                          <input id="edit-action-goal" class="col-12 datediv py-1 rounded-1" placeholder="Enter Actions" type="text" />
-                                          <span class="d-none mb-3 form-validation-msg" id="edit-action-goal-error"></span>
-                                       </div>
-                                       <div class="row mt-1 ">
-                                          <label class=" col-8 fs-6"> Date of Volunteered</label>
-                                          <input type="datetime-local" id="edit-date-goal" placeholder="Enter Date " class="py-1 datediv rounded-1 col-12 " />
-                                          <span class="d-none mb-3 form-validation-msg" id="edit-date-goal-error"></span>
-                                       </div>
-                                       <input type="hidden" id="timesheetid2" />
-                                       <div class="row mt-1">
-                                          <label class=" col-8 fs-6"> Enter Your Message</label>
-                                          <textarea id="edit-notes-goal" class=" datediv rounded-1 mt-1 " placeholder="Leave a comment here"></textarea>
-                                          <span class="d-none mb-3 form-validation-msg" id="edit-notes-goal-error"></span>
-                                       </div>
+                        <div class="modal fade" id="GoalADDbtn1" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                            <div class="modal-dialog modal-lg modal-dialog-centered">
+                                <div class="modal-content">
+
+                                    <div class="modal-header">
+                                        <h1 class="modal-title fs-5" id="exampleModalLabel">Please input below Volunteering Goal</h1>
+                                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                                     </div>
-                                 </div>
-                                 <div class="modal-footer">
-                                    <button type="button" class="rounded-pill bg-white px-3 py-1" data-bs-dismiss="modal">Cancel</button>
-                                    <button class="submitGoal rounded-pill addbtn px-3 py-1" type="submit" onclick="EditGoalSubmit()">Submit</button>
-                                 </div>
-                            
-                           </div>
+                                    <div class="modal-body">
+                                        <div class="container">
+                                            <div class="row">
+                                                <lable class="col-6 fs-6">Mission</lable>
+                                                <select id="mission-edit-goal" class=" datediv py-1 ro col-12" aria-label="Default select example">
+                                                    <option value="1">1 title</option>
+                                                </select>
+                                                <span class="d-none mb-3 form-validation-msg" id="mission-edit-goal-error"></span>
+                                            </div>
+                                            <div class="row mt-2">
+                                                <lable class="col-6 fs-6">Action</lable>
+                                                <input id="edit-action-goal" class="col-12 datediv py-1 rounded-1" placeholder="Enter Actions" type="text" />
+                                                <span class="d-none mb-3 form-validation-msg" id="edit-action-goal-error"></span>
+                                            </div>
+                                            <div class="row mt-1 ">
+                                                <label class=" col-8 fs-6"> Date of Volunteered</label>
+                                                <input type="datetime-local" id="edit-date-goal" placeholder="Enter Date " class="py-1 datediv rounded-1 col-12 " />
+                                                <span class="d-none mb-3 form-validation-msg" id="edit-date-goal-error"></span>
+                                            </div>
+                                            <input type="hidden" id="timesheetid2" />
+                                            <div class="row mt-1">
+                                                <label class=" col-8 fs-6"> Enter Your Message</label>
+                                                <textarea id="edit-notes-goal" class=" datediv rounded-1 mt-1 " placeholder="Leave a comment here"></textarea>
+                                                <span class="d-none mb-3 form-validation-msg" id="edit-notes-goal-error"></span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button type="button" class="rounded-pill bg-white px-3 py-1" data-bs-dismiss="modal">Cancel</button>
+                                        <button class="submitGoal rounded-pill addbtn px-3 py-1" type="submit" onclick="EditGoalSubmit()">Submit</button>
+                                    </div>
+
+                                </div>
+                            </div>
                         </div>
-                     </div>
-                  </div>
-               </div>
-               <div class="row goalsheetdiv" >
-                  <table class="table table-borderless sortable">
-                     <thead>
-                        <tr>
-                           <th scope="col">Mission</th>
-                           <th scope="col">Date </th>
-                           <th scope="col">Action</th>
-                           <th scope="col"></th>
-                           <th scope="col"></th>
-                        </tr>
-                     </thead>
-                     <tbody id="goal-based-timesheets">
-                        <tr>
-                          
-                        </tr>
-                     </tbody>
-                  </table>
-               </div>
+                    </div>
+                </div>
+                <div class="row goalsheetdiv">
+                    <table class="table table-borderless sortable">
+                        <thead>
+                            <tr>
+                                <th scope="col">Mission</th>
+                                <th scope="col">Date </th>
+                                <th scope="col">Action</th>
+                                <th scope="col"></th>
+                                <th scope="col"></th>
+                            </tr>
+                        </thead>
+                        <tbody id="goal-based-timesheets">
+                            <tr>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
             </div>
-         </div>
-      </div>
-   
-   <script>
+        </div>
+    </div>
 
-       function loadTimeSheets(response) {
-           return response.timeSheets.map(item => `
-                        <tr>
-                           <td>${item.mission}</td>
-                           <td>${item.dateVolunteered.toString().split("T")[0]}</td>
-                           <td>${item.timesheetTime.toString().split(":")[0]}</td>
-                           <td>${item.timesheetTime.toString().split(":")[1]}</td>
-                           <td class="d-flex align-items-center mt-1"> <i class="bi bi-pencil-square editimg" data-bs-toggle="modal" data-bs-target="#TimeADDbtn1" id="" onclick="editTimeSheet(${item.timesheetId})"></i></td>
-                           <td> <img src="/img/bin.png" id="${item.timesheetId}" onclick="deletetimesheet(this.id)" /></td>
-                        </tr>`).join("")
-       }
+    <script>
 
-       function loadGoalSheets(response) {
-           return response.goalSheets.map(item => `
-                        <tr>
-                           <td>${item.mission}</td>
-                           <td>${item.dateVolunteered.toString().split("T")[0]}</td>
-                           <td>${item.action}</td>
-                           <td class="d-flex align-items-center mt-1"> <i class="bi bi-pencil-square editimg" data-bs-toggle="modal" data-bs-target="#GoalADDbtn1" id="" onclick="editTimeSheet(${item.timesheetId})" ></i></td>
-                           <td> <img src="/img/bin.png" id="${item.timesheetId}" onclick="deletetimesheet(this.id)" /></td>
-                        </tr>`).join("")
-       }
+        function loadTimeSheets(response) {
+            return response.timeSheets.map(item => `
+                         <tr>
+                            <td>${item.mission}</td>
+                            <td>${item.dateVolunteered.toString().split("T")[0]}</td>
+                            <td>${item.timesheetTime.toString().split(":")[0]}</td>
+                            <td>${item.timesheetTime.toString().split(":")[1]}</td>
+                            <td class="d-flex align-items-center mt-1"> <i class="bi bi-pencil-square editimg" data-bs-toggle="modal" data-bs-target="#TimeADDbtn1" id="" onclick="editTimeSheet(${item.timesheetId})"></i></td>
+                            <td> <img src="/img/bin.png" id="${item.timesheetId}" onclick="deletetimesheet(this.id)" /></td>
+                         </tr>`).join("")
+        }
 
-       $.ajax({
-           type: "GET",
-           url: `/api/timesheets`,
-           success: function (response) {
+        function loadGoalSheets(response) {
+            return response.goalSheets.map(item => `
+                         <tr>
+                            <td>${item.mission}</td>
+                            <td>${item.dateVolunteered.toString().split("T")[0]}</td>
+                            <td>${item.action}</td>
+                            <td class="d-flex align-items-center mt-1"> <i class="bi bi-pencil-square editimg" data-bs-toggle="modal" data-bs-target="#GoalADDbtn1" id="" onclick="editTimeSheet(${item.timesheetId})" ></i></td>
+                            <td> <img src="/img/bin.png" id="${item.timesheetId}" onclick="deletetimesheet(this.id)" /></td>
+                         </tr>`).join("")
+        }
 
-
-               var timeBasedTimeSheets = document.getElementById("time-based-timesheets");
-               timeBasedTimeSheets.innerHTML = loadTimeSheets(response);
-
-               var goalBasedTimeSheets = document.getElementById("goal-based-timesheets");
-               goalBasedTimeSheets.innerHTML = loadGoalSheets(response);
-
-           },
-           failure: function (response) {
-                alert(response.responseText);
-           },
-           error: function (response) {
-                alert(response.responseText);
-           }
-       });
-
-       function loadAppliedMissions(response) {
-            var html = "<option disabled selected>Select Mission</option>";
-            response.mission.map(item => html += `<option value="${item.id}">${item.title}</option>`).join("")
-
-            return html;
-       }
-
-       // load applied missions
-       $.ajax({
+        $.ajax({
             type: "GET",
-            url: `/story/sharestory/getmission`,
+            url: `/api/timesheets`,
             success: function (response) {
 
-                
 
-                var mission1 = document.getElementById("mission-add-time");
-                mission1.innerHTML = loadAppliedMissions(response);
-                var mission2 = document.getElementById("mission2");
-                mission2.innerHTML = loadAppliedMissions(response);
+                var timeBasedTimeSheets = document.getElementById("time-based-timesheets");
+                timeBasedTimeSheets.innerHTML = loadTimeSheets(response);
+
+                var goalBasedTimeSheets = document.getElementById("goal-based-timesheets");
+                goalBasedTimeSheets.innerHTML = loadGoalSheets(response);
 
             },
             failure: function (response) {
-                alert(response.responseText);
+                 alert(response.responseText);
             },
             error: function (response) {
-                alert(response.responseText);
+                 alert(response.responseText);
             }
-       });
+        });
 
-       function deletetimesheet(id) {
+        function loadAppliedMissions(response) {
+             var html = "<option disabled selected>Select Mission</option>";
+             response.mission.map(item => html += `<option value="${item.id}">${item.title}</option>`).join("")
 
-           $.ajax({
+             return html;
+        }
+
+        // load applied missions
+        $.ajax({
+             type: "GET",
+             url: `/story/sharestory/getmission`,
+             success: function (response) {
+
+
+
+                 var mission1 = document.getElementById("mission-add-time");
+                 mission1.innerHTML = loadAppliedMissions(response);
+                 var mission2 = document.getElementById("mission2");
+                 mission2.innerHTML = loadAppliedMissions(response);
+
+             },
+             failure: function (response) {
+                 alert(response.responseText);
+             },
+             error: function (response) {
+                 alert(response.responseText);
+             }
+        });
+
+        function deletetimesheet(id) {
+
+            $.ajax({
+                 type: "GET",
+                 url: `/api/timesheets/delete`,
+                 data: {
+                     "id" : id
+                 },
+                 success: function (response) {
+
+                     location.reload();
+
+                 },
+                 failure: function (response) {
+                     alert(response.responseText);
+                 },
+                 error: function (response) {
+                     alert(response.responseText);
+                 }
+             });
+        }
+
+        async function timeSubmit(){
+
+            var missionId = document.getElementById("mission-add-time").value;
+            var dateVolunteered = document.getElementById("mission-dateVolunteered-time").value;
+            var Hours = document.getElementById("mission-Hours-time").value;
+            var min = document.getElementById("mission-min-time").value;
+            var Message = document.getElementById("mission-Message-time").value;
+
+            // form validation
+            var error = 0;
+            if(missionId == "Select Mission") {
+                $('#mission-add-time-error').removeClass('d-none');
+                $('#mission-add-time-error').html('select valid mission');
+                error = 1;
+            } else {
+                $('#mission-add-time-error').addClass('d-none');
+            }
+
+            if(dateVolunteered == "") {
+                $('#mission-dateVolunteered-time-error').removeClass('d-none');
+                $('#mission-dateVolunteered-time-error').html('Enter valid date');
+                error = 1;
+            } else {
+                $('#mission-dateVolunteered-time-error').addClass('d-none');
+                // for check date of mission
+                if(missionId != "") {
+                    await $.ajax({
+                         type: "GET",
+                         url: `/api/checkDate`,
+                         data: {
+                             "id": missionId
+                         },
+                         success: function (response) {
+
+                             if(dateVolunteered < response.result.startdate || dateVolunteered > response.result.enddate) {
+                                $('#mission-dateVolunteered-time-error').removeClass('d-none');
+                                $('#mission-dateVolunteered-time-error').html('Date Must between Stat date and end date of mission');
+                                error = 1;
+                             }
+
+                         },
+                         failure: function (response) {
+                             alert(response.responseText);
+                         },
+                         error: function (response) {
+                             alert(response.responseText);
+                         }
+                    });
+                }
+                
+            }
+
+            
+
+            if(Hours == "" || parseInt(Hours) > 12 || parseInt(Hours) < 0) {
+                $('#mission-Hours-time-error').removeClass('d-none');
+                $('#mission-Hours-time-error').html('Enter valid Hours');
+                error = 1;
+            } else {
+                $('#mission-Hours-time-error').addClass('d-none');
+            }
+
+            if(min == "" || parseInt(min) > 60 || parseInt(min) < 0) {
+                $('#mission-min-time-error').removeClass('d-none');
+                $('#mission-min-time-error').html('Enter valid value');
+                error = 1;
+            } else {
+                $('#mission-min-time-error').addClass('d-none');
+            }
+
+            if(Message == "") {
+                $('#mission-Message-time-error').removeClass('d-none');
+                $('#mission-Message-time-error').html('Enter valid Message');
+                error = 1;
+            } else {
+                $('#mission-Message-time-error').addClass('d-none');
+            }
+
+            if(error == 0) {
+                $.ajax({
+                     type: "POST",
+                     url: `/api/timesheets/add`,
+                     data: {
+                         "missionId" : missionId,
+                         "dateVolunteered" : dateVolunteered,
+                         "notes" : Message,
+                         "timesheetTime" : Hours+":"+min+":"+"00"
+                     },
+                     success: function (response) {
+
+                         location.reload();
+
+                     },
+                     failure: function (response) {
+                         alert(response.responseText);
+                     },
+                     error: function (response) {
+                         alert(response.responseText);
+                     }
+                 });
+            }
+
+            error = 0;
+
+
+
+        }
+
+        async function goalSubmit(){
+
+            var missionId = document.getElementById("mission2").value;
+            var dateVolunteered = document.getElementById("mission-dateVolunteered-goal").value;
+            var Action = document.getElementById("mission-action-goal").value;
+            var Message = document.getElementById("mission-Message-goal").value;
+
+            // form validation
+            var error = 0;
+            if(missionId == "Select Mission") {
+                $('#mission2-error').removeClass('d-none');
+                $('#mission2-error').html('select valid mission');
+                error = 1;
+            } else {
+                $('#mission2-error').addClass('d-none');
+            }
+
+            if(dateVolunteered == "") {
+                $('#mission-dateVolunteered-goal-error').removeClass('d-none');
+                $('#mission-dateVolunteered-goal-error').html('Enter valid date');
+                error = 1;
+            } else {
+                $('#mission-dateVolunteered-goal-error').addClass('d-none');
+                // for check date of mission
+                if(missionId != "") {
+                    await $.ajax({
+                         type: "GET",
+                         url: `/api/checkDate`,
+                         data: {
+                             "id": missionId
+                         },
+                         success: function (response) {
+
+                             if(dateVolunteered < response.result.startdate || dateVolunteered > response.result.enddate) {
+                                
+                                $('#mission-dateVolunteered-goal-error').removeClass('d-none');
+                                $('#mission-dateVolunteered-goal-error').html('Date Must between Stat date and end date of mission');
+                                error = 1;
+                             }
+
+                         },
+                         failure: function (response) {
+                             alert(response.responseText);
+                         },
+                         error: function (response) {
+                             alert(response.responseText);
+                         }
+                    });
+                }
+            }
+
+            if(Action == "") {
+                $('#mission-action-goal-error').removeClass('d-none');
+                $('#mission-action-goal-error').html('Enter valid value');
+                error = 1;
+            } else {
+                $('#mission-action-goal-error').addClass('d-none');
+            }
+
+            if(Message == "") {
+                $('#mission-Message-goal-error').removeClass('d-none');
+                $('#mission-Message-goal-error').html('Enter valid Message');
+                error = 1;
+            } else {
+                $('#mission-Message-goal-error').addClass('d-none');
+            }
+
+            if(error == 0) {
+                $.ajax({
+                     type: "POST",
+                     url: `/api/goalsheets/add`,
+                     data: {
+                         "missionId" : missionId,
+                         "dateVolunteered" : dateVolunteered,
+                         "jenil" : Action,
+                         "notes" : Message,
+
+
+                     },
+                     success: function (response) {
+
+                         location.reload();
+
+                     },
+                     failure: function (response) {
+                         alert(response.responseText);
+                     },
+                     error: function (response) {
+                         alert(response.responseText);
+                     }
+                 });
+            }
+
+            error = 0;
+        }
+
+        // load mission on edit modal
+        function loadEditAppliedMissions(response, id) {
+            html = '<option disabled>Select Mission</option>'
+            response.mission.map(item => {
+                 if(item.id == id) {
+                     html += `<option value="${item.id}" selected>${item.title}</option>`
+                 } else {
+                     html += `<option value="${item.id}">${item.title}</option>`
+                 }
+            }).join("")
+            return html;
+        }
+
+        // variable for edit timesheet id;
+        var editTimesheetId;
+
+        function editTimeSheet(id) {
+
+            var missionId;
+            editTimesheetId = id;
+
+            $.ajax({
                 type: "GET",
-                url: `/api/timesheets/delete`,
-                data: {
-                    "id" : id
-                },
+                url: `/api/timesheets/${id}`,
                 success: function (response) {
 
-                    location.reload();
+                     missionId = response.result.missionId
+
+                     if(response.result.timesheetTime != null) {
+                         $('#edit-min-time').val(response.result.timesheetTime.toString().split(":")[1])
+                         $('#edit-hour-time').val(response.result.timesheetTime.toString().split(":")[0])
+                         $('#edit-date-time').val(response.result.dateVolunteered)
+                         $('#edit-notes-time').val(response.result.notes)
+                     } else {
+                         $('#edit-action-goal').val(response.result.action)
+                         $('#edit-date-goal').val(response.result.dateVolunteered)
+                         $('#edit-notes-goal').val(response.result.notes)
+                     }
+
+
 
                 },
                 failure: function (response) {
-                    alert(response.responseText);
+                     alert(response.responseText);
                 },
                 error: function (response) {
-                    alert(response.responseText);
+                     alert(response.responseText);
                 }
             });
-       }
 
-       function timeSubmit(){
+            $.ajax({
+                 type: "GET",
+                 url: `/story/sharestory/getmission`,
+                 success: function (response) {
 
-           var missionId = document.getElementById("mission-add-time").value;
-           var dateVolunteered = document.getElementById("mission-dateVolunteered-time").value;
-           var Hours = document.getElementById("mission-Hours-time").value;
-           var min = document.getElementById("mission-min-time").value;
-           var Message = document.getElementById("mission-Message-time").value;
+                     var mission1 = document.getElementById("mission1");
+                     mission1.innerHTML = loadEditAppliedMissions(response, missionId);
 
-           // form validation
-           var error = 0;
-           if(missionId == "Select Mission") {
-               $('#mission-add-time-error').removeClass('d-none');
-               $('#mission-add-time-error').html('select valid mission');
-               error = 1;
-           } else {
-               $('#mission-add-time-error').addClass('d-none');
-           }
-           
-           if(dateVolunteered == "") {
-               $('#mission-dateVolunteered-time-error').removeClass('d-none');
-               $('#mission-dateVolunteered-time-error').html('Enter valid date');
-               error = 1;
-           } else {
-               $('#mission-dateVolunteered-time-error').addClass('d-none');
-           }
-           
-           if(Hours == "") {
-               $('#mission-Hours-time-error').removeClass('d-none');
-               $('#mission-Hours-time-error').html('Enter valid value');
-               error = 1;
-           } else {
-               $('#mission-Hours-time-error').addClass('d-none');
-           }
-           
-           if(min == "") {
-               $('#mission-min-time-error').removeClass('d-none');
-               $('#mission-min-time-error').html('Enter valid value');
-               error = 1;
-           } else {
-               $('#mission-min-time-error').addClass('d-none');
-           }
-           
-           if(Message == "") {
-               $('#mission-Message-time-error').removeClass('d-none');
-               $('#mission-Message-time-error').html('Enter valid Message');
-               error = 1;
-           } else {
-               $('#mission-Message-time-error').addClass('d-none');
-           }
+                     var element = document.getElementById("mission-edit-goal");
+                     element.innerHTML = loadEditAppliedMissions(response, missionId);
 
-           if(error == 0) {
-               $.ajax({
-                    type: "POST",
-                    url: `/api/timesheets/add`,
-                    data: {
-                        "missionId" : missionId,
-                        "dateVolunteered" : dateVolunteered,
-                        "notes" : Message,
-                        "timesheetTime" : Hours+":"+min+":"+"00"
-                    },
-                    success: function (response) {
+                 },
+                 failure: function (response) {
+                     alert(response.responseText);
+                 },
+                 error: function (response) {
+                     alert(response.responseText);
+                 }
+            });
 
-                        location.reload();
+        }
 
-                    },
-                    failure: function (response) {
-                        alert(response.responseText);
-                    },
-                    error: function (response) {
-                        alert(response.responseText);
-                    }
-                });
-           }
-               
-           error = 0;
+        // edit timesheet submit
+        async function EditTimeSubmit(){
+
+            var missionId = $('#mission1').val();
+            var dateVolunteered = $('#edit-date-time').val()
+            var Hours = $('#edit-hour-time').val()
+            var min = $('#edit-min-time').val()
+            var Message = $('#edit-notes-time').val()
 
 
-           
-       }
+            // form validation
+            var error = 0;
+            if(missionId == "Select Mission") {
+                $('#mission1-error').removeClass('d-none');
+                $('#mission1-error').html('select valid mission');
+                error = 1;
+            } else {
+                $('#mission1-error').addClass('d-none');
+            }
 
-       function goalSubmit(){
+            if(dateVolunteered == "") {
+                $('#edit-date-time-error').removeClass('d-none');
+                $('#edit-date-time-error').html('Enter valid date');
+                error = 1;
+            } else {
+                $('#edit-date-time-error').addClass('d-none');
+                // for check date of mission
+                if(missionId != "") {
+                    await $.ajax({
+                         type: "GET",
+                         url: `/api/checkDate`,
+                         data: {
+                             "id": missionId
+                         },
+                         success: function (response) {
 
-           var missionId = document.getElementById("mission2").value;
-           var dateVolunteered = document.getElementById("mission-dateVolunteered-goal").value;
-           var Action = document.getElementById("mission-action-goal").value;
-           var Message = document.getElementById("mission-Message-goal").value;
+                             if(dateVolunteered < response.result.startdate || dateVolunteered > response.result.enddate) {
+                                
+                                
+                                $('#edit-date-time-error').removeClass('d-none');
+                                $('#edit-date-time-error').html('Date Must between Stat date and end date of mission');
+                                error = 1;
+                             }
 
-           // form validation
-           var error = 0;
-           if(missionId == "Select Mission") {
-               $('#mission2-error').removeClass('d-none');
-               $('#mission2-error').html('select valid mission');
-               error = 1;
-           } else {
-               $('#mission2-error').addClass('d-none');
-           }
-           
-           if(dateVolunteered == "") {
-               $('#mission-dateVolunteered-goal-error').removeClass('d-none');
-               $('#mission-dateVolunteered-goal-error').html('Enter valid date');
-               error = 1;
-           } else {
-               $('#mission-dateVolunteered-goal-error').addClass('d-none');
-           }
-           
-           if(Action == "") {
-               $('#mission-action-goal-error').removeClass('d-none');
-               $('#mission-action-goal-error').html('Enter valid value');
-               error = 1;
-           } else {
-               $('#mission-action-goal-error').addClass('d-none');
-           }
-           
-           if(Message == "") {
-               $('#mission-Message-goal-error').removeClass('d-none');
-               $('#mission-Message-goal-error').html('Enter valid Message');
-               error = 1;
-           } else {
-               $('#mission-Message-goal-error').addClass('d-none');
-           }
-
-           if(error == 0) {
-               $.ajax({
-                    type: "POST",
-                    url: `/api/goalsheets/add`,
-                    data: {
-                        "missionId" : missionId,
-                        "dateVolunteered" : dateVolunteered,
-                        "jenil" : Action,
-                        "notes" : Message,
-                    
-                    
-                    },
-                    success: function (response) {
-
-                        location.reload();
-
-                    },
-                    failure: function (response) {
-                        alert(response.responseText);
-                    },
-                    error: function (response) {
-                        alert(response.responseText);
-                    }
-                });
-           }
-
-           error = 0;
-       }
-
-       // load mission on edit modal
-       function loadEditAppliedMissions(response, id) {
-           html = '<option disabled>Select Mission</option>'
-           response.mission.map(item => {
-                if(item.id == id) {
-                    html += `<option value="${item.id}" selected>${item.title}</option>`
-                } else {
-                    html += `<option value="${item.id}">${item.title}</option>`
+                         },
+                         failure: function (response) {
+                             alert(response.responseText);
+                         },
+                         error: function (response) {
+                             alert(response.responseText);
+                         }
+                    });
                 }
-           }).join("")
-           return html;
-       }
+            }
 
-       // variable for edit timesheet id;
-       var editTimesheetId;
+            if(Hours == "" || parseInt(Hours) > 12 || parseInt(Hours) < 0) {
+                $('#edit-hour-time-error').removeClass('d-none');
+                $('#edit-hour-time-error').html('Enter valid value');
+                error = 1;
+            } else {
+                $('#edit-hour-time-error').addClass('d-none');
+            }
 
-       function editTimeSheet(id) {
+            if(min == "" || parseInt(min) > 60 || parseInt(min) < 0) {
+                $('#edit-min-time-error').removeClass('d-none');
+                $('#edit-min-time-error').html('Enter valid value');
+                error = 1;
+            } else {
+                $('#edit-min-time-error').addClass('d-none');
+            }
 
-           var missionId;
-           editTimesheetId = id;
+            if(Message == "") {
+                $('#edit-notes-time-error').removeClass('d-none');
+                $('#edit-notes-time-error').html('Enter valid Message');
+                error = 1;
+            } else {
+                $('#edit-notes-time-error').addClass('d-none');
+            }
 
-           $.ajax({
-               type: "GET",
-               url: `/api/timesheets/${id}`,
-               success: function (response) {
+            if(error == 0) {
+                $.ajax({
+                     type: "POST",
+                     url: `/api/timesheets/edit`,
+                     data: {
+                         "missionId" : missionId,
+                         "dateVolunteered" : dateVolunteered,
+                         "notes" : Message,
+                         "timesheetTime" : Hours+":"+min+":"+"00",
+                         "timesheetId" : editTimesheetId
+                     },
+                     success: function (response) {
 
-                    missionId = response.result.missionId
+                         location.reload();
 
-                    if(response.result.timesheetTime != null) {
-                        $('#edit-min-time').val(response.result.timesheetTime.toString().split(":")[1])
-                        $('#edit-hour-time').val(response.result.timesheetTime.toString().split(":")[0])
-                        $('#edit-date-time').val(response.result.dateVolunteered)
-                        $('#edit-notes-time').val(response.result.notes)
-                    } else {
-                        $('#edit-action-goal').val(response.result.action)
-                        $('#edit-date-goal').val(response.result.dateVolunteered)
-                        $('#edit-notes-goal').val(response.result.notes)
-                    }
-                    
-                    
+                     },
+                     failure: function (response) {
+                         alert(response.responseText);
+                     },
+                     error: function (response) {
+                         alert(response.responseText);
+                     }
+                 });
+            }
+            error = 0;
+        }
 
-               },
-               failure: function (response) {
-                    alert(response.responseText);
-               },
-               error: function (response) {
-                    alert(response.responseText);
-               }
-           });
+        async function EditGoalSubmit(){
 
-           $.ajax({
-                type: "GET",
-                url: `/story/sharestory/getmission`,
-                success: function (response) {
+            var missionId = $('#mission-edit-goal').val();
+            var dateVolunteered = $('#edit-date-goal').val()
+            var Action = $('#edit-action-goal').val()
+            var Message = $('#edit-notes-goal').val()
 
-                    var mission1 = document.getElementById("mission1");
-                    mission1.innerHTML = loadEditAppliedMissions(response, missionId);
-                    
-                    var element = document.getElementById("mission-edit-goal");
-                    element.innerHTML = loadEditAppliedMissions(response, missionId);
+            // form validation
+            var error = 0;
+            if(missionId == "Select Mission") {
+                $('#mission-edit-goal-error').removeClass('d-none');
+                $('#mission-edit-goal-error').html('select valid mission');
+                error = 1;
+            } else {
+                $('#mission-edit-goal-error').addClass('d-none');
+            }
 
-                },
-                failure: function (response) {
-                    alert(response.responseText);
-                },
-                error: function (response) {
-                    alert(response.responseText);
+            if(dateVolunteered == "") {
+                $('#edit-date-goal-error').removeClass('d-none');
+                $('#edit-date-goal-error').html('Enter valid date');
+                error = 1;
+            } else {
+                $('#edit-date-goal-error').addClass('d-none');
+                // for check date of mission
+                if(missionId != "") {
+                    await $.ajax({
+                         type: "GET",
+                         url: `/api/checkDate`,
+                         data: {
+                             "id": missionId
+                         },
+                         success: function (response) {
+
+                             if(dateVolunteered < response.result.startdate || dateVolunteered > response.result.enddate) {
+                                
+                                
+                                $('#edit-date-goal-error').removeClass('d-none');
+                                $('#edit-date-goal-error').html('Date Must between Stat date and end date of mission');
+                                error = 1;
+                             }
+
+                         },
+                         failure: function (response) {
+                             alert(response.responseText);
+                         },
+                         error: function (response) {
+                             alert(response.responseText);
+                         }
+                    });
                 }
-           });
+            }
 
-       }
+            if(Action == "") {
+                $('#edit-action-goal-error').removeClass('d-none');
+                $('#edit-action-goal-error').html('Enter valid value');
+                error = 1;
+            } else {
+                $('#edit-action-goal-error').addClass('d-none');
+            }
 
-       // edit timesheet submit
-       function EditTimeSubmit(){
+            if(Message == "") {
+                $('#edit-notes-goal-error').removeClass('d-none');
+                $('#edit-notes-goal-error').html('Enter valid Message');
+                error = 1;
+            } else {
+                $('#edit-notes-goal-error').addClass('d-none');
+            }
 
-           var missionId = $('#mission1').val();
-           var dateVolunteered = $('#edit-date-time').val()
-           var Hours = $('#edit-hour-time').val()
-           var min = $('#edit-min-time').val()
-           var Message = $('#edit-notes-time').val()
+            if(error == 0) {
 
+                $.ajax({
+                     type: "POST",
+                     url: `/api/goalsheets/edit`,
+                     data: {
+                         "missionId" : missionId,
+                         "dateVolunteered" : dateVolunteered,
+                         "jenil" : Action,
+                         "notes" : Message,
+                         "timesheetId" : editTimesheetId
+                     },
+                     success: function (response) {
 
-           // form validation
-           var error = 0;
-           if(missionId == "Select Mission") {
-               $('#mission1-error').removeClass('d-none');
-               $('#mission1-error').html('select valid mission');
-               error = 1;
-           } else {
-               $('#mission1-error').addClass('d-none');
-           }
-           
-           if(dateVolunteered == "") {
-               $('#edit-date-time-error').removeClass('d-none');
-               $('#edit-date-time-error').html('Enter valid date');
-               error = 1;
-           } else {
-               $('#edit-date-time-error').addClass('d-none');
-           }
-           
-           if(Hours == "") {
-               $('#edit-hour-time-error').removeClass('d-none');
-               $('#edit-hour-time-error').html('Enter valid value');
-               error = 1;
-           } else {
-               $('#edit-hour-time-error').addClass('d-none');
-           }
-           
-           if(min == "") {
-               $('#edit-min-time-error').removeClass('d-none');
-               $('#edit-min-time-error').html('Enter valid value');
-               error = 1;
-           } else {
-               $('#edit-min-time-error').addClass('d-none');
-           }
-           
-           if(Message == "") {
-               $('#edit-notes-time-error').removeClass('d-none');
-               $('#edit-notes-time-error').html('Enter valid Message');
-               error = 1;
-           } else {
-               $('#edit-notes-time-error').addClass('d-none');
-           }
+                         location.reload();
 
-           if(error == 0) {
-               $.ajax({
-                    type: "POST",
-                    url: `/api/timesheets/edit`,
-                    data: {
-                        "missionId" : missionId,
-                        "dateVolunteered" : dateVolunteered,
-                        "notes" : Message,
-                        "timesheetTime" : Hours+":"+min+":"+"00",
-                        "timesheetId" : editTimesheetId
-                    },
-                    success: function (response) {
-
-                        location.reload();
-
-                    },
-                    failure: function (response) {
-                        alert(response.responseText);
-                    },
-                    error: function (response) {
-                        alert(response.responseText);
-                    }
-                });
-           }
-           error = 0;
-       }
-
-       function EditGoalSubmit(){
-
-           var missionId = $('#mission-edit-goal').val();
-           var dateVolunteered = $('#edit-date-goal').val()
-           var Action = $('#edit-action-goal').val()
-           var Message = $('#edit-notes-goal').val()
-
-           // form validation
-           var error = 0;
-           if(missionId == "Select Mission") {
-               $('#mission-edit-goal-error').removeClass('d-none');
-               $('#mission-edit-goal-error').html('select valid mission');
-               error = 1;
-           } else {
-               $('#mission-edit-goal-error').addClass('d-none');
-           }
-           
-           if(dateVolunteered == "") {
-               $('#edit-date-goal-error').removeClass('d-none');
-               $('#edit-date-goal-error').html('Enter valid date');
-               error = 1;
-           } else {
-               $('#edit-date-goal-error').addClass('d-none');
-           }
-           
-           if(Action == "") {
-               $('#edit-action-goal-error').removeClass('d-none');
-               $('#edit-action-goal-error').html('Enter valid value');
-               error = 1;
-           } else {
-               $('#edit-action-goal-error').addClass('d-none');
-           }
-           
-           if(Message == "") {
-               $('#edit-notes-goal-error').removeClass('d-none');
-               $('#edit-notes-goal-error').html('Enter valid Message');
-               error = 1;
-           } else {
-               $('#edit-notes-goal-error').addClass('d-none');
-           }
-
-           if(error == 0) {
-               
-               $.ajax({
-                    type: "POST",
-                    url: `/api/goalsheets/edit`,
-                    data: {
-                        "missionId" : missionId,
-                        "dateVolunteered" : dateVolunteered,
-                        "jenil" : Action,
-                        "notes" : Message,
-                        "timesheetId" : editTimesheetId
-                    },
-                    success: function (response) {
-
-                        location.reload();
-
-                    },
-                    failure: function (response) {
-                        alert(response.responseText);
-                    },
-                    error: function (response) {
-                        alert(response.responseText);
-                    }
-                });
-           }
-           error = 0;
-       }
+                     },
+                     failure: function (response) {
+                         alert(response.responseText);
+                     },
+                     error: function (response) {
+                         alert(response.responseText);
+                     }
+                 });
+            }
+            error = 0;
+        }
 
 
 
-   </script>
-   </body>
-</html>
+    </script>
+</body>

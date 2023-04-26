@@ -1,5 +1,4 @@
-﻿using CI.Entities.Data;
-using CI.Entities.Models;
+﻿using CI.Entities.Models;
 using CI.Repository.Interface;
 using Microsoft.AspNetCore.Mvc;
 
@@ -8,28 +7,34 @@ namespace CIWeb.Controllers
     public class StoryController : Controller
     {
         private readonly ILogger<HomeController> _logger;
-        private readonly CiContext _db;
         private readonly IStoryRepository _repository;
         private readonly IWebHostEnvironment _webHostEnvironment;
 
-        public StoryController(ILogger<HomeController> logger, CiContext db, IStoryRepository repository, IWebHostEnvironment webHostEnvironment)
+        public StoryController(ILogger<HomeController> logger, IStoryRepository repository, IWebHostEnvironment webHostEnvironment)
         {
             _logger = logger;
-            _db = db;
             _repository = repository;
             _webHostEnvironment = webHostEnvironment;
         }
 
         public IActionResult Index()
         {
-            String? userId = HttpContext.Session.GetString("userEmail");
-            if (userId == null)
+            try
+            {
+                String? userId = HttpContext.Session.GetString("userEmail");
+                if (userId == null)
+                {
+                    return RedirectToAction("Login", "User");
+                }
+                var user = _repository.GetUser(userId);
+                ViewBag.user = user;
+                return View();
+            }
+            catch (Exception)
             {
                 return RedirectToAction("Login", "User");
             }
-            var user = _db.Users.Where(e => e.Email == userId).SingleOrDefault();
-            ViewBag.user = user;
-            return View();
+            
 
         }
 

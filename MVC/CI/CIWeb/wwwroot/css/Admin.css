@@ -155,3 +155,9 @@ span .paginate_button {
     padding: 1px 10px;
     border-radius: 30px;
 }
+
+.current {
+    background-color: orange;
+    color: #fff;
+    border: 1px solid orange;
+}

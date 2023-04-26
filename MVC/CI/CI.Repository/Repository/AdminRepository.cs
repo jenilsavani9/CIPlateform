@@ -59,7 +59,7 @@ namespace CI.Repository.Repository
 
         public List<MissionViewModel> GetMissions()
         {
-            var missions = _db.Missions.ToList();
+            var missions = _db.Missions.Where(m => m.DeletedAt == null).ToList();
             List<MissionViewModel> tempMissions = new List<MissionViewModel>();
             foreach (var mission in missions)
             {
@@ -115,7 +115,7 @@ namespace CI.Repository.Repository
             List<MissionApplicationModel> tempMissionApplication = new List<MissionApplicationModel>();
             foreach (var application in missionApplication)
             {
-                if(application.Mission.Title != null)
+                if(application.Mission?.Title != null)
                 {
                     tempMissionApplication.Add(new MissionApplicationModel
                     {
@@ -134,15 +134,16 @@ namespace CI.Repository.Repository
 
         public List<AdminStoryModel> GetMissionStory()
         {
-            var tempStory = _db.Stories.ToList();
+            var tempStory = _db.Stories.Where(s => s.Status == "pending").ToList();
             List<AdminStoryModel> stories = new List<AdminStoryModel>();
             foreach (var story in tempStory)
             {
+                var tempMission = _db.Missions.Where(m => m.MissionId == story.MissionId).FirstOrDefault();
                 stories.Add(new AdminStoryModel
                 {
                     storyId = story.StoryId,
                     storyTitle = story.Title,
-                    missionTitle = story.Mission.Title,
+                    missionTitle = tempMission?.Title,
                     username = story.User.FirstName + " " + story.User.LastName
                 });
             }
@@ -163,6 +164,11 @@ namespace CI.Repository.Repository
 
         public bool AddUsers(UserProfileModel user)
         {
+            var FindUser = _db.Users.FirstOrDefault(u => u.UserId == user.Id);
+            if(FindUser != null)
+            {
+                return false;
+            }
             User tempUser = new User();
             tempUser.FirstName = user.firstName;
             tempUser.LastName = user.lastName;
@@ -173,11 +179,16 @@ namespace CI.Repository.Repository
             }
             if (user.password != null)
             {
-                tempUser.Password = user.password;
+                tempUser.Password = BCrypt.Net.BCrypt.HashPassword(user.password);
             }
             if (user.avatar != null)
             {
                 tempUser.Avatar = user.avatar;
+            }
+            var DatabaseEmpId = _db.Users.FirstOrDefault(u => u.EmployeeId == user.employeeId);
+            if (DatabaseEmpId != null)
+            {
+                return false;
             }
             tempUser.EmployeeId = user.employeeId;
             tempUser.Department = user.department;
@@ -196,12 +207,23 @@ namespace CI.Repository.Repository
                 tempUser.FirstName = user.firstName;
                 tempUser.LastName = user.lastName;
                 tempUser.PhoneNumber = user.phoneNumber;
-                tempUser.Email = user.email;
+                //tempUser.Email = user.email;
+                
                 if (user.avatar != null)
                 {
                     tempUser.Avatar = user.avatar;
                 }
+                if (user.password != null)
+                {
+                    tempUser.Password = BCrypt.Net.BCrypt.HashPassword(user.password);
+
+                }
                 tempUser.EmployeeId = user.employeeId;
+                var DatabaseEmpId = _db.Users.FirstOrDefault(u => u.EmployeeId == user.employeeId);
+                if (DatabaseEmpId != null)
+                {
+                    return false;
+                }
                 tempUser.Department = user.department;
                 tempUser.CityId = (long)Convert.ToDouble(user.city);
                 tempUser.CountryId = (long)Convert.ToDouble(user.country);
@@ -329,6 +351,11 @@ namespace CI.Repository.Repository
 
         public bool AddTheme(ThemeElementModel obj)
         {
+            var DatabaseTheme = _db.MissionThemes.FirstOrDefault(t => t.Title == obj.title);
+            if(DatabaseTheme != null)
+            {
+                return false;
+            }
             MissionTheme theme = new MissionTheme();
             if(obj!=null && obj?.status != null)
             {
@@ -367,6 +394,11 @@ namespace CI.Repository.Repository
             var theme = _db.MissionThemes.FirstOrDefault(mt => mt.MissionThemeId == obj.themeId);
             if(theme != null)
             {
+                var DatabaseTheme = _db.MissionThemes.FirstOrDefault(mt => mt.Title == obj.title && mt.MissionThemeId != obj.themeId);
+                if(DatabaseTheme != null)
+                {
+                    return false;
+                }
                 theme.Title = obj.title;
                 theme.Status = obj.status;
                 theme.UpdatedAt = DateTime.Now;
@@ -391,6 +423,11 @@ namespace CI.Repository.Repository
 
         public bool AddSkill(MissionSkillModel obj)
         {
+            var DatabaseSkill = _db.Skills.FirstOrDefault(skill => skill.SkillName == obj.skillName);
+            if(DatabaseSkill != null)
+            {
+                return false;
+            }
             Skill skill = new Skill();
             skill.SkillName = obj.skillName;
             if(obj.status != null)
@@ -422,6 +459,11 @@ namespace CI.Repository.Repository
             var skill = _db.Skills.FirstOrDefault(ms => ms.SkillId==obj.skillId);
             if(skill != null)
             {
+                var DatabaseSkill = _db.Skills.FirstOrDefault(skill => skill.SkillName == obj.skillName && skill.SkillId != obj.skillId);
+                if(DatabaseSkill != null)
+                {
+                    return false;
+                }
                 skill.SkillName = obj.skillName;
                 if(obj.status != null)
                 {
@@ -747,6 +789,7 @@ namespace CI.Repository.Repository
             if (findBanner != null)
             {
                 findBanner.DeletedAt = DateTime.Now;
+                findBanner.SortOrder = null;
                 _db.SaveChanges();
                 return true;
             }
@@ -754,6 +797,16 @@ namespace CI.Repository.Repository
             {
                 return false;
             }
+        }
+
+        public bool BannerSortStatus(long id)
+        {
+            var findBanner = _db.Banners.FirstOrDefault(b => b.SortOrder == id);
+            if(findBanner == null)
+            {
+                return true;
+            }
+            return false;
         }
     }
 }

@@ -180,7 +180,7 @@ namespace CI.Repository.Repository
                 }
                 else
                 {
-                    return true;
+                    return false;
                 }
             }
             else
@@ -244,7 +244,7 @@ namespace CI.Repository.Repository
         {
 
             int pageSize = 9;
-            var recentVoluntters = _db.MissionApplications.Where(m => m.MissionId == missionId && m.ApprovalStatus != "pending").Skip(int.Parse(page) * pageSize).Take(pageSize);
+            var recentVoluntters = _db.MissionApplications.Where(m => m.MissionId == missionId && m.ApprovalStatus == "Approve").Skip(int.Parse(page) * pageSize).Take(pageSize);
 
             List<RecentVolunteerModel> RecentVolunteerModel = new List<RecentVolunteerModel>();
 

@@ -42,7 +42,7 @@ namespace CIWeb.Controllers
 
             _repository.SendMail(user);
 
-            return RedirectToAction("ForgotPassword", "User");
+            return RedirectToAction("Login", "User");
 
         }
 
@@ -69,21 +69,24 @@ namespace CIWeb.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult ResetPassword(ResetPassModel obj)
         {
-
-            // Find the user by email
-            var user = _repository.GetUser(obj.Email);
-            if (user == null)
+            if(ModelState.IsValid)
             {
-                return RedirectToAction("ForgotPassword", "User");
-            }
+                // Find the user by email
+                var user = _repository.GetUser(obj.Email);
+                if (user == null)
+                {
+                    return RedirectToAction("ForgotPassword", "User");
+                }
 
-            bool IsPasswordReset = _repository.PostResetPassword(obj);
-            if (!IsPasswordReset)
-            {
-                return RedirectToAction("Index", "Home");
-            }
+                bool IsPasswordReset = _repository.PostResetPassword(obj);
+                if (!IsPasswordReset)
+                {
+                    return RedirectToAction("Index", "Home");
+                }
 
-            return RedirectToAction("Login", "User");
+                return RedirectToAction("Login", "User");
+            }
+            return View();
         }
 
 
@@ -118,33 +121,38 @@ namespace CIWeb.Controllers
                 ModelState.AddModelError("LastName", "LastName Is required!");
                 return View();
             }
-            if (obj?.PhoneNumber == null)
+            if (obj?.PhoneNumber == 0 || obj?.PhoneNumber.ToString().Length < 10 || obj?.PhoneNumber.ToString().Length > 10)
             {
-                ModelState.AddModelError("PhoneNumber", "PhoneNumber Is required!");
+                ModelState.AddModelError("PhoneNumber", "PhoneNumber is not valid!");
                 return View();
             }
-            if (obj.Email == null)
+            if (obj?.Email == null)
             {
                 ModelState.AddModelError("Email", "Email Is required!");
                 return View();
             }
-            if (obj.Password == null)
+            if (obj.Password == null || obj.Password.Length < 8)
             {
-                ModelState.AddModelError("Password", "Password Is required!");
+                ModelState.AddModelError("Password", "Password is not valid!");
                 return View();
             }
 
 
-            User? user = _repository.GetUser(obj.Email);
+            User? user = _repository.GetValidUser(obj.Email);
             if (user != null)
             {
+                if(user.Status == "0")
+                {
+                    ModelState.AddModelError("Email", "Account Suspended!");
+                    return View();
+                }
                 ModelState.AddModelError("Email", "Email Already Registerd!");
                 return View();
             }
 
             _repository.SaveUser(obj);
 
-            return RedirectToAction("Index", "Home");
+            return RedirectToAction("Login", "User");
         }
 
         public IActionResult Login()
@@ -173,7 +181,13 @@ namespace CIWeb.Controllers
 
             if (user != null && user.FirstName != null)
             {
-                if (BCrypt.Net.BCrypt.Verify(obj.Password, user.Password))
+                if (BCrypt.Net.BCrypt.Verify(obj.Password, user.Password) && user.Admin == 1)
+                {
+                    HttpContext.Session.SetString("userEmail", user.Email);
+                    HttpContext.Session.SetString("firstname", user.FirstName);
+                    return RedirectToAction("Index", "Admin");
+                }
+                else if (BCrypt.Net.BCrypt.Verify(obj.Password, user.Password))
                 {
                     HttpContext.Session.SetString("userEmail", user.Email);
                     HttpContext.Session.SetString("firstname", user.FirstName);
@@ -191,6 +205,7 @@ namespace CIWeb.Controllers
                 return View();
             }
         }
+
 
 
 

@@ -28,7 +28,7 @@
                     </div>
                     <div class="sidebar-detail d-flex" id="Mission-SKills" onclick="makeDivActive('Mission-SKills')">
                         <img src="~/img/user-default.svg" alt="" class="user-default sidebarimg ">
-                        <div class="title-name">Mission SKills</div>
+                        <div class="title-name">Mission Skills</div>
                     </div>
                     <div class="sidebar-detail d-flex" id="Mission-Applications" onclick="makeDivActive('Mission-Applications')">
                         <img src="~/img/maintenance-default.svg" alt="" class="maintenance-default sidebarimg ">
@@ -365,7 +365,7 @@
             </div>
             <div class="modal-footer" id="mission-skill-crud-btn">
                 <button type="button" class="btn btn-secondary mission-skill-crud-close-btn" data-bs-dismiss="modal">Close</button>
-                <button type="submit" class="btn btn-primary mission-skill-crud-save-btn" data-bs-dismiss="modal" id="mission-skill-crud-save-btn" onclick="AddMissionSkill()">Save changes</button>
+                <button type="submit" class="btn btn-primary mission-skill-crud-save-btn" id="mission-skill-crud-save-btn" onclick="AddMissionSkill()">Save changes</button>
             </div>
 
         </div>
@@ -532,6 +532,7 @@
                 <div class="form-group mt-3">
                     <label for="sort-order" class="form-label">Sort Order</label>
                     <input type="number" class="form-control" id="sort-order">
+                    <span class="d-none mb-3 form-validation-msg" id="sort-order-error"></span>
                 </div>
             </div>
             <div class="modal-footer" id="banner-crud-btn">
@@ -565,11 +566,12 @@
      })
 
      var currentdate = new Date();
-     var datetime = "Last Sync: " + currentdate.getDate() + "/"
-                     + (currentdate.getMonth()+1)  + "/"
-                     + currentdate.getFullYear() +  " "
-                     + currentdate.getHours() + ":"
-                     + currentdate.getMinutes()
+     var months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
+     var datetime = currentdate.toLocaleDateString("en-In", { weekday: 'long' }).toString() + ", " +
+                    currentdate.toLocaleDateString("en-In", { month: 'long' }).toString() + " " + 
+                    currentdate.getDate() + ", " + currentdate.getFullYear() + ", " +
+                    currentdate.getHours() + ":" +
+                    currentdate.getMinutes()
 
      $('#dashboard-time').html(datetime)
 
@@ -590,11 +592,17 @@
         $('#mission-media-edit-files').addClass('d-none');
         $('#mission-docs-edit-files').addClass('d-none');
 
+        $('#banner-media-edit-files').html("");
+
+        //$('#profile-user-img').html('');
+
         // change banner btn from edit to add
         var element = document.getElementById('banner-crud-btn');
          element.innerHTML = `<button type="button" class="btn btn-secondary mission-theme-crud-close-btn" data-bs-dismiss="modal">Close</button>
                 <button type="submit" class="btn btn-primary mission-theme-crud-save-btn" data-bs-dismiss="modal" id="banner-crud-save-btn" onclick="AddBanner('add')">Save changes</button>`
 
+        // for clear image names from mission images
+        ImagesList = [];
      });
 
      function makeDivActive(ID) {
@@ -1184,7 +1192,7 @@
              $('#user-crud-email-error').addClass("d-none")
          }
          var password= $('#user-crud-password').val()
-         if(password=="") {
+         if(password!="" && password.length < 8) {
              error = 1;
              $('#user-crud-password-error').removeClass("d-none")
              $('#user-crud-password-error').html("password is required.")
@@ -1261,7 +1269,14 @@
                      },
                      success: function (response) {
 
-                         makeDivActive("User");
+                         if(response.status == false) {
+                            toastr.error("Email and Employee Id must be unique.");
+                            makeDivActive("User");
+                         } else {
+                            toastr.success("User Added.");
+                            makeDivActive("User");
+                         }
+                         
 
                      },
                      failure: function (response) {
@@ -1305,7 +1320,7 @@
              $('#user-crud-email-error').addClass("d-none")
          }
          var password= $('#user-crud-password').val()
-         if(password=="") {
+         if(password!="" && password.length < 8) {
              error = 1;
              $('#user-crud-password-error').removeClass("d-none")
              $('#user-crud-password-error').html("password is required.")
@@ -1384,7 +1399,14 @@
                      },
                      success: function (response) {
 
-                         makeDivActive("User");
+                         if(response.status == false) {
+                            toastr.error("Email and Employee Id must be unique.");
+                            makeDivActive("User");
+                         } else {
+                            toastr.success("User Changed Successfully.");
+                            makeDivActive("User");
+                         }
+                         
 
                      },
                      failure: function (response) {
@@ -1458,6 +1480,7 @@
                          "id": id,
                      },
                      success: function (response) {
+                         toastr.success("User Deleted.");
                          makeDivActive("User");
                      },
                      failure: function (response) {
@@ -1507,6 +1530,7 @@
                      },
                      success: function (response) {
 
+                         toastr.success("CMS Added.");
                          makeDivActive("CMS-Page");
 
                      },
@@ -1556,7 +1580,7 @@
                          "description": editor
                      },
                      success: function (response) {
-
+                         toastr.success("CMS Changed.");
                          makeDivActive("CMS-Page");
 
                      },
@@ -1610,6 +1634,7 @@
                          "id": id,
                      },
                      success: function (response) {
+                         toastr.success("CMS Deleted.");
                         makeDivActive("CMS-Page");
                      },
                      failure: function (response) {
@@ -1655,7 +1680,14 @@
                      "status": LongStatus
                  },
                  success: function (response) {
-                     makeDivActive("Mission-Theme");
+                     if(response.result == true) {
+                        toastr.success("Theme Added.");
+                        makeDivActive("Mission-Theme");
+                     } else {
+                        toastr.error("Theme Title Must be unique.");
+                        makeDivActive("Mission-Theme");
+                     }
+                     
                  },
                  failure: function (response) {
                      alert(response.responseText);
@@ -1699,7 +1731,14 @@
                      "themeId": id
                  },
                  success: function (response) {
-                     makeDivActive("Mission-Theme");
+                     
+                     if(response.result == true) {
+                        toastr.success("Theme Changed.");
+                        makeDivActive("Mission-Theme");
+                     } else {
+                        toastr.error("Theme Title Must be unique.");
+                        makeDivActive("Mission-Theme");
+                     }
                  },
                  failure: function (response) {
                      alert(response.responseText);
@@ -1760,6 +1799,7 @@
                 "id": id
              },
              success: function (response) {
+                 toastr.success("Theme Deleted.");
                  makeDivActive("Mission-Theme");
              },
              failure: function (response) {
@@ -1808,7 +1848,14 @@
                      "status": LongStatus
                  },
                  success: function (response) {
-                     makeDivActive("Mission-SKills");
+                     if(response.result == true) {
+                        toastr.success("Skill Added.");
+                        makeDivActive("Mission-SKills");
+                     } else {
+                        toastr.error("Skill Title must be unique.");
+                        makeDivActive("Mission-SKills");
+                     }
+                     
                  },
                  failure: function (response) {
                      alert(response.responseText);
@@ -1852,7 +1899,14 @@
                      "skillId": id
                  },
                  success: function (response) {
-                     makeDivActive("Mission-SKills");
+                     
+                     if(response.result == true) {
+                        toastr.success("Skill Changed.");
+                        makeDivActive("Mission-SKills");
+                     } else {
+                        toastr.error("Skill Title must be unique.");
+                        makeDivActive("Mission-SKills");
+                     }
                  },
                  failure: function (response) {
                      alert(response.responseText);
@@ -1912,6 +1966,7 @@
                 "id": id
              },
              success: function (response) {
+                 toastr.success("Skill Deleted.");
                  makeDivActive("Mission-SKills");
              },
              failure: function (response) {
@@ -2078,14 +2133,16 @@
          var description = CKEDITOR.instances.cmspageeditor1.getData();
          var organizationDetails = CKEDITOR.instances.cmspageeditor2.getData();
          var startDate = $('#mission-start-date').val();
-         if(startDate=="") {
+         var endDate = $('#mission-end-date').val();
+
+         if(Date.parse(startDate) > Date.parse(endDate)) {
              error = 1;
              $('#mission-start-date-error').removeClass("d-none")
-             $('#mission-start-date-error').html("Start Date is required.")
+             $('#mission-start-date-error').html("Enter Valid Date.")
          } else {
              $('#mission-start-date-error').addClass("d-none")
          }
-         var endDate = $('#mission-end-date').val();
+         
          if(endDate=="") {
              error = 1;
              $('#mission-end-date-error').removeClass("d-none")
@@ -2186,6 +2243,7 @@
 
                  },
                  success: function (response) {
+                     toastr.success("Mission Added.");
                      makeDivActive("Mission");
                  },
                  failure: function (response) {
@@ -2353,14 +2411,14 @@
          var description = CKEDITOR.instances.cmspageeditor1.getData();
          var organizationDetails = CKEDITOR.instances.cmspageeditor2.getData();
          var startDate = $('#mission-start-date').val();
-         if(startDate=="") {
+         var endDate = $('#mission-end-date').val();
+         if(startDate=="" || ( startDate!="" && Date.parse(startDate) > Date.parse(endDate))) {
              error = 1;
              $('#mission-start-date-error').removeClass("d-none")
-             $('#mission-start-date-error').html("Start Date is required.")
+             $('#mission-start-date-error').html("Enter Valid Date.")
          } else {
              $('#mission-start-date-error').addClass("d-none")
          }
-         var endDate = $('#mission-end-date').val();
          if(endDate=="") {
              error = 1;
              $('#mission-end-date-error').removeClass("d-none")
@@ -2464,6 +2522,7 @@
 
                  },
                  success: function (response) {
+                     toastr.success("Mission Changed.");
                     makeDivActive("Mission");
                  },
                  failure: function (response) {
@@ -2485,6 +2544,7 @@
                 "id": id
              },
              success: function (response) {
+                 toastr.success("Mission Deleted.");
                  makeDivActive("Mission");
              },
              failure: function (response) {
@@ -2673,13 +2733,34 @@
          });
      }
 
-     function AddBanner(flag, id) {
+     async function AddBanner(flag, id) {
 
 
          var error = 0;
          
          var text = $('#banner-text').val();
          var sortOrder = $('#sort-order').val();
+         // for checking sort order
+         await $.ajax({
+             type: "GET",
+             url: `/api/admin/checkBannerSort`,
+             data: {
+                 "id" : sortOrder
+             },
+             success: function (response) {
+
+                 if(response.result != true){
+                     error = 1;
+                     toastr.error("Sort Value Already Exists");
+                 }
+             },
+             failure: function (response) {
+                 alert(response.responseText);
+             },
+             error: function (response) {
+                 alert(response.responseText);
+             }
+         });
 
          if(error == 0) {
 

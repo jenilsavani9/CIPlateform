@@ -217,7 +217,7 @@ namespace CI.Repository.Repository
 
         public List<CmsPage> PrivacyDetails()
         {
-            var result = _db.CmsPages.ToList();
+            var result = _db.CmsPages.Where(cms => cms.Status == "Published").ToList();
             return result;
         }
     }

@@ -7,23 +7,35 @@ namespace CIWeb.Controllers
 {
     public class VolunteerController : Controller
     {
-        private readonly CiContext _db;
-
         private readonly IVolunteerRepository _repository;
 
-        public VolunteerController(CiContext db, IVolunteerRepository repository)
+        public VolunteerController(IVolunteerRepository repository)
         {
-            _db = db;
             _repository = repository;
         }
 
         [HttpGet("/missions/{id:int}")]
         public IActionResult Index(int? id)
         {
-            String? userId = HttpContext.Session.GetString("userEmail");
-            var user = _repository.GetUser(userId);
-            ViewBag.user = user;
-            return View();
+            try
+            {
+                String? userId = HttpContext.Session.GetString("userEmail");
+                var user = _repository.GetUser(userId);
+                if (user != null)
+                {
+                    ViewBag.user = user;
+                    return View();
+                }
+                else
+                {
+                    return RedirectToAction("ErrorNotFound", "Home");
+                }
+            }
+            catch (Exception)
+            {
+                return RedirectToAction("Login", "User");
+            }
+            
         }
 
         [HttpGet("/api/missions/{id:int}")]
@@ -33,15 +45,15 @@ namespace CIWeb.Controllers
             VolunteerMissionModel VolunteerMissionModel = new VolunteerMissionModel();
             String? userId = HttpContext.Session.GetString("userEmail");
 
-            VolunteerMissionModel.user = _db.Users.Where(e => e.Email == userId);
+            VolunteerMissionModel.user = _repository.GetUser(userId);
 
             int? missionId = id;
             //var mission = _db.Missions.Where(m => m.MissionId == missionId).ToList();
             var mission = _repository.GetMissions(missionId);
-            if(mission != null)
+            if (mission != null)
             {
                 var city = _repository.GetCitys(mission[0].CityId);
-                if(city != null)
+                if (city != null)
                 {
                     var country = _repository.GetCountrys(city[0].CountryId);
                     var theme = _repository.GetThemes(mission[0].ThemeId);
@@ -54,9 +66,9 @@ namespace CIWeb.Controllers
                     var relatedMission = _repository.RelatedMissions(mission[0].CityId, city[0].CountryId, mission[0].ThemeId);
                     VolunteerMissionModel.relatedMission = relatedMission;
                 }
-                
+
             }
-            
+
             return Json(new { VolunteerMissionModel });
         }
 
@@ -201,7 +213,7 @@ namespace CIWeb.Controllers
             }
             else
             {
-                return BadRequest();
+                return Json(new { message = "Already Sent" });
             }
         }
 
@@ -269,6 +281,10 @@ namespace CIWeb.Controllers
                     if (mission.ApprovalStatus == "pending")
                     {
                         return Json(new { message = "Pending" });
+                    }
+                    else if(mission.ApprovalStatus == "Reject")
+                    {
+                        return Json(new { message = "Reject" });
                     }
                     else
                     {
@@ -339,7 +355,7 @@ namespace CIWeb.Controllers
             var document = _repository.GetMissionDocument(missionId);
             return Json(new { document });
         }
-        
+
         [HttpGet("/missions/{missionId:int}/getMissionMedia")]
         public IActionResult GetMissionMedia(int missionId)
         {

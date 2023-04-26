@@ -1,5 +1,4 @@
-﻿using CI.Entities.Data;
-using CI.Entities.Models;
+﻿using CI.Entities.Models;
 using CI.Repository.Interface;
 using CIWeb.Models;
 using Microsoft.AspNetCore.Mvc;
@@ -11,13 +10,11 @@ namespace CIWeb.Controllers
     {
 
         private readonly ILogger<HomeController> _logger;
-        private readonly CiContext _db;
         private readonly IHomeRepository _repository;
 
-        public HomeController(ILogger<HomeController> logger, CiContext db, IHomeRepository repository)
+        public HomeController(ILogger<HomeController> logger, IHomeRepository repository)
         {
             _logger = logger;
-            _db = db;
             _repository = repository;
         }
 
@@ -25,16 +22,30 @@ namespace CIWeb.Controllers
         {
             String? userId = HttpContext.Session.GetString("userEmail");
             var user = _repository.FindUser(userId);
-            ViewBag.user = user;
+            if(user != null)
+            {
+                ViewBag.user = user;
 
-            var Missions = _repository.GetMissions();
-            var Countries = _repository.GetCountry();
-            var Themes = _repository.GetTheme();
-            var Skills = _repository.GetSkill();
+                var Countries = _repository.GetCountry();
+                var Themes = _repository.GetTheme();
+                var Skills = _repository.GetSkill();
 
-            ViewBag.countries = Countries;
-            ViewBag.themes = Themes;
-            ViewBag.skills = Skills;
+                ViewBag.countries = Countries;
+                ViewBag.themes = Themes;
+                ViewBag.skills = Skills;
+            } 
+            else
+            {
+                ViewData.Clear();
+                var Countries = _repository.GetCountry();
+                var Themes = _repository.GetTheme();
+                var Skills = _repository.GetSkill();
+
+                ViewBag.countries = Countries;
+                ViewBag.themes = Themes;
+                ViewBag.skills = Skills;
+            }
+            
             return View();
         }
 
@@ -57,7 +68,7 @@ namespace CIWeb.Controllers
         {
             String? userId = HttpContext.Session.GetString("userEmail");
 
-            var user = _db.Users.Where(e => e.Email == userId).SingleOrDefault();
+            var user = _repository.FindUser(userId);
             ViewBag.user = user;
 
             List<City> Cities = _repository.GetCities();

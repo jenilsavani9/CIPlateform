@@ -9,6 +9,8 @@ namespace CI.Repository.Interface
 
         public User? GetUser(String? userMail);
 
+        public User? GetValidUser(string? userMail);
+
         public bool SaveUser(User user);
 
         public bool SendMail(User user);

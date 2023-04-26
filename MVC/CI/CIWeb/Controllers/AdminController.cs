@@ -8,29 +8,35 @@ namespace CIWeb.Controllers
 {
     public class AdminController : Controller
     {
-        private readonly CiContext _db;
         private readonly IAdminRepository _repository;
         private readonly IWebHostEnvironment _webHostEnvironment;
 
-        public AdminController(CiContext db, IAdminRepository repository, IWebHostEnvironment webHostEnvironment)
+        public AdminController(IAdminRepository repository, IWebHostEnvironment webHostEnvironment)
         {
-            _db = db;
             _repository = repository;
             _webHostEnvironment = webHostEnvironment;
         }
 
         public IActionResult Index()
         {
-            String? userId = HttpContext.Session.GetString("userEmail");
-            var user = _repository.FindUser(userId);
-            if(user!=null && user.Admin == 1)
+            try
             {
-                ViewBag.user = user;
-                return View();
-            } else
+                String? userId = HttpContext.Session.GetString("userEmail");
+                var user = _repository.FindUser(userId);
+                if (user != null && user.Admin == 1)
+                {
+                    ViewBag.user = user;
+                    return View();
+                }
+                else
+                {
+                    return RedirectToAction("ErrorNotFound", "Home");
+                }
+            } catch (Exception)
             {
-                return RedirectToAction("ErrorNotFound", "Home");
+                return RedirectToAction("Login", "User");
             }
+                
         }
 
         [HttpGet("api/admin")]
@@ -44,21 +50,21 @@ namespace CIWeb.Controllers
             var missionStory = _repository.GetMissionStory();
             var cmsPages = _repository.GetCMS();
             var banner = _repository.GetBanner();
-            return Json(new {users, missions, missionthemes, missionSkills, missionApplication, missionStory, cmsPages, banner });
+            return Json(new { users, missions, missionthemes, missionSkills, missionApplication, missionStory, cmsPages, banner });
         }
 
         [HttpPost("api/admin/addUser")]
         public IActionResult AddUsers(UserProfileModel obj)
         {
             var status = _repository.AddUsers(obj);
-            return Json(new { });
+            return Json(new { status });
         }
 
         [HttpPost("api/admin/editUser")]
         public IActionResult EditUsers(UserProfileModel obj)
         {
             var status = _repository.EditUsers(obj);
-            return Json(new { });
+            return Json(new { status });
         }
 
         [HttpGet("api/admin/getUserProfile")]
@@ -95,7 +101,7 @@ namespace CIWeb.Controllers
             var result = _repository.EditCMS(obj);
             return Json(new { result });
         }
-        
+
         [HttpPost("api/admin/deleteCMS")]
         public IActionResult DeleteCMS(long id)
         {
@@ -221,7 +227,7 @@ namespace CIWeb.Controllers
             var result = _repository.DeleteMission(id);
             return Json(new { result });
         }
-        
+
         [HttpGet("api/admin/getThemes")]
         public IActionResult GetMissionTheme()
         {
@@ -234,7 +240,7 @@ namespace CIWeb.Controllers
         {
             if (MyUploader != null)
             {
-                for(int i = 0; i < MyUploader.Count; i++)
+                for (int i = 0; i < MyUploader.Count; i++)
                 {
                     string uploadsFolder = Path.Combine(_webHostEnvironment.WebRootPath, "mediaUpload");
                     string filePath = Path.Combine(uploadsFolder, MyUploader[i].FileName);
@@ -272,7 +278,7 @@ namespace CIWeb.Controllers
         public IActionResult GetBannerById(long id)
         {
             var result = _repository.GetBannerById(id);
-            return Json(new { result });    
+            return Json(new { result });
         }
 
         [HttpGet("api/admin/banner")]
@@ -293,6 +299,13 @@ namespace CIWeb.Controllers
         public IActionResult DeleteBanner(long BannerId)
         {
             var result = _repository.DeleteBanner(BannerId);
+            return Json(new { result });
+        }
+
+        [HttpGet("api/admin/checkBannerSort")]
+        public IActionResult BannerSortResult(long id)
+        {
+            var result = _repository.BannerSortStatus(id);
             return Json(new { result });
         }
     }

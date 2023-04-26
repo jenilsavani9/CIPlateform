@@ -1,6 +1,5 @@
 ﻿using CI.Entities.ViewModels;
 using CI.Repository.Interface;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
 namespace CIWeb.Controllers
@@ -17,10 +16,22 @@ namespace CIWeb.Controllers
         // GET: TimesheetController
         public ActionResult Index()
         {
-            String? userEmail = HttpContext.Session.GetString("userEmail");
-            var user = _repository.GetUser(userEmail);
-            ViewBag.user = user;
-            return View();
+            try
+            {
+                String? userEmail = HttpContext.Session.GetString("userEmail");
+                var user = _repository.GetUser(userEmail);
+                if (user == null)
+                {
+                    return RedirectToAction("Login", "User");
+                }
+                ViewBag.user = user;
+                return View();
+            } 
+            catch (Exception)
+            {
+                return RedirectToAction("Login", "User");
+            }
+            
         }
 
         [HttpGet("/api/timesheets")]
@@ -45,7 +56,7 @@ namespace CIWeb.Controllers
             String? userEmail = HttpContext.Session.GetString("userEmail");
             var user = _repository.GetUser(userEmail);
             var status = _repository.AddTimeSheets(model, user.UserId);
-            return Json(new {  });
+            return Json(new { });
         }
 
         [HttpPost("/api/goalsheets/add")]
@@ -80,6 +91,14 @@ namespace CIWeb.Controllers
             var user = _repository.GetUser(userEmail);
             var status = _repository.EditGoalSheets(model, user.UserId);
             return Json(new { });
+        }
+
+        //check date
+        [HttpGet("/api/checkDate")]
+        public JsonResult CheckDate(string id)
+        {
+            var result = _repository.CheckDate((long)Convert.ToDouble(id));
+            return Json(new { result });
         }
     }
 }

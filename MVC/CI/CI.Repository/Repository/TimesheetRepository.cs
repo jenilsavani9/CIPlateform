@@ -28,7 +28,7 @@ namespace CI.Repository.Repository
         public List<TimeSheetModel> GetGoalBasedTimeSheet(string? userEmail)
         {
             var user = _db.Users.FirstOrDefault(u => u.Email == userEmail);
-            var result = _db.Timesheets.Where(ts => ts.UserId == user.UserId && ts.Action != null && ts.Status != "pending").ToList();
+            var result = _db.Timesheets.Where(ts => ts.UserId == user.UserId && ts.Action != null ).ToList();
 
             List<TimeSheetModel> timeSheets = new List<TimeSheetModel>();
             foreach (var t in result)
@@ -50,7 +50,7 @@ namespace CI.Repository.Repository
         public List<TimeSheetModel> GetTimeBasedTimeSheet(string? userEmail)
         {
             var user = _db.Users.FirstOrDefault(u => u.Email == userEmail);
-            var result = _db.Timesheets.Where(ts => ts.UserId == user.UserId && ts.Action == null && ts.Status != "pending").ToList();
+            var result = _db.Timesheets.Where(ts => ts.UserId == user.UserId && ts.Action == null ).ToList();
 
             List<TimeSheetModel> timeSheets = new List<TimeSheetModel>();
             foreach (var t in result)
@@ -138,6 +138,18 @@ namespace CI.Repository.Repository
             tempSheet.UpdatedAt = DateTime.Now;
             _db.SaveChanges();
             return true;
+        }
+
+        public DatesModel CheckDate(long id)
+        {
+            var mission = _db.Missions.FirstOrDefault(m => m.MissionId == id);
+            DatesModel dates = new DatesModel();
+            if (mission != null)
+            {
+                dates.startdate = mission.StartDate;
+                dates.enddate = mission.EndDate;
+            }
+            return dates;
         }
     }
 }
