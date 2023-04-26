@@ -277,7 +277,7 @@
     <script>
 
         function loadMissionCards(response) {
-            console.log(response)
+
             return response.missionsVMList.map(item => {
                 
                 if(item.missionType == "Time") {
@@ -633,9 +633,9 @@
 
         function loadThemeElements(response) {
             return response.themeElements.map(item => `
-                <span class="filter-list  ps-3 pe-1 me-2 " id=${item.missionThemeId} style="margin-top:2%;">
+                <span class="filter-list  ps-3 pe-1 me-2 " id=${item.themeId} style="margin-top:2%;">
                             ${item.title}
-                            <button class="filter-close-button" id=${item.cityId} onclick="removeFilter('${item.missionThemeId}', 'FThemes')">&times;</button>
+                            <button class="filter-close-button" id=${item.cityId} onclick="removeFilter('${item.themeId}', 'FThemes')">&times;</button>
                         </span>
             `).join("")
         }
@@ -656,7 +656,7 @@
         }
 
         function loadCountryFilterCity(response) {
-            console.log(response.cities)
+
             return response.cities.map(item => `<li>
                                                             <a class="dropdown-item dd-color">
                                                                 <div class="form-check">
@@ -692,7 +692,6 @@
 
                     var countryFilterCity = document.getElementById("load-country-city")
                     if(response.cities!=null) {
-                        console.log("inside");
                         countryFilterCity.innerHTML = loadCountryFilterCity(response)
                     }
 

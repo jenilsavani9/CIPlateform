@@ -181,6 +181,7 @@
                             <label for="profile-linkedIn" class="form-label">LinkedIn</label>
                             <input type="email" class="form-control" id="profile-linkedIn"
                                    placeholder="Enter LinkedIn url">
+                            <span class="d-none form-validation-msg" id="error-linkedIn">&#9888; Enter Valid Linkedin Url</span>
                         </div>
                     </div>
                 </div>
@@ -631,6 +632,17 @@
                 });
             }
 
+            function validateLinkedInUrl(urlToParse){
+                
+                    if (urlToParse) {
+                        var regExp = /^((https?:\/\/)?((www|\w\w)\.)?linkedin\.com\/)((([\w]{2,3})?)|([^\/]+\/(([\w|\d-&#?=])+\/?){1,}))$/
+                        if (urlToParse.match(regExp)) {
+                            return true;
+                        }
+                    }
+                    return false;
+                 }
+
 
             function FormSubmit() {
 
@@ -675,15 +687,14 @@
                     var available = document.getElementById("user-available").value;
 
                     var linkedIn = document.getElementById("profile-linkedIn").value;
+                    if(!validateLinkedInUrl(linkedIn)) {
+                        document.getElementById("error-linkedIn").classList.remove("d-none");
+                        error += 1;
+                    } else {
+                        document.getElementById("error-linkedIn").classList.add("d-none");
+                    }
 
                     var cityId = document.getElementById("user-city").value;
-                    //if(cityId=="select your city") {
-                    //    document.getElementById("error-cityId").classList.remove("d-none");
-                    //    error = true;
-                    //} else {
-                    //    document.getElementById("error-cityId").classList.add("d-none");
-                    //    error = false;
-                    //}
 
                     var countryId = document.getElementById("user-country").value;
                     if(countryId=="select your country") {
