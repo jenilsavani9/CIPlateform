@@ -22,14 +22,14 @@ namespace CI.Repository.Repository
         public User FindUser(string? email)
         {
             var user = _db.Users.FirstOrDefault(x => x.Email == email);
-            return user;
+            return user!;
         }
 
         public UserProfileModel GetUserProfile(string? email)
         {
             UserProfileModel user = new UserProfileModel();
             var TempUserData = _db.Users.FirstOrDefault(x => x.Email == email);
-            var tempCity = _db.Cities.Where(c => c.CityId == TempUserData.CityId).FirstOrDefault();
+            var tempCity = _db.Cities.Where(c => c.CityId == TempUserData!.CityId).FirstOrDefault();
             if (TempUserData != null)
             {
                 user.Id = TempUserData.UserId;
@@ -112,7 +112,7 @@ namespace CI.Repository.Repository
         public long? GetUserCountry(string? userEmail)
         {
             var user = _db.Users.Where(u => u.Email == userEmail).FirstOrDefault();
-            return user.CountryId;
+            return user!.CountryId;
         }
 
         public List<AddSkillModel> GetUserSkills(string? userEmail)
@@ -126,14 +126,14 @@ namespace CI.Repository.Repository
             //                     id = u.SkillId,
             //                     name = u.Skill.SkillName
             //                 };
-            var tempskills = _db.UserSkills.Where(us => us.UserId == TempUserData.UserId).ToList();
+            var tempskills = _db.UserSkills.Where(us => us.UserId == TempUserData!.UserId).ToList();
             List<Skill> userSkills = new List<Skill>();
             foreach (var skill in tempskills)
             {
                 var TP = _db.Skills.FirstOrDefault(s => s.SkillId == skill.SkillId);
                 userSkills.Add(new Skill
                 {
-                    SkillId = TP.SkillId,
+                    SkillId = TP!.SkillId,
                     SkillName = TP.SkillName
                     
                 });
@@ -186,7 +186,7 @@ namespace CI.Repository.Repository
         public void SaveUserSkills(string? userEmail, List<string> skillsToAdd)
         {
             var user = _db.Users.Where(u => u.Email == userEmail).FirstOrDefault();
-            var userSkills = _db.UserSkills.Where(uk => uk.UserId == user.UserId).ToList();
+            var userSkills = _db.UserSkills.Where(uk => uk.UserId == user!.UserId).ToList();
             if(userSkills.Any())
             {
                 foreach (var skill in userSkills)
@@ -197,7 +197,7 @@ namespace CI.Repository.Repository
             foreach (var skill in skillsToAdd)
             {
                 var splitSkill = skill.Split(',')[1];
-                _db.UserSkills.Add(new UserSkill { SkillId = long.Parse(splitSkill), UserId = user.UserId });
+                _db.UserSkills.Add(new UserSkill { SkillId = long.Parse(splitSkill), UserId = user!.UserId });
             }
             _db.SaveChanges();
         }

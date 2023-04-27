@@ -130,7 +130,7 @@
                                                 }
                                                 <li><a class="dropdown-item" asp-action="Index" asp-controller="Profile">My profile</a></li>
                                                 <li><a class="dropdown-item" asp-action="Index" asp-controller="Timesheet">Volunteering Timesheet</a></li>
-                                                <li><a class="dropdown-item" asp-action="login" asp-controller="User">Logout</a></li>
+                                                <li><a class="dropdown-item" asp-action="Logout" asp-controller="User">Logout</a></li>
                                             </ul>
                                         </div>
                                     </li>
@@ -181,12 +181,12 @@
                 </div>
                 <div class="form-group col-md-6 mt-3">
                     <label for="exampleInputEmail1">First Name</label>
-                    <input type="text" class="form-control" id="user-crud-first-name" placeholder="Enter First Name">
+                    <input type="text" class="form-control" id="user-crud-first-name" placeholder="Enter First Name" maxlength="16">
                     <span class="d-none mb-3 form-validation-msg" id="user-crud-first-name-error"></span>
                 </div>
                 <div class="form-group col-md-6 mt-3">
                     <label for="exampleInputEmail1">Last Name</label>
-                    <input type="text" class="form-control" id="user-crud-last-name" placeholder="Enter Last Name">
+                    <input type="text" class="form-control" id="user-crud-last-name" placeholder="Enter Last Name" maxlength="16">
                     <span class="d-none mb-3 form-validation-msg" id="user-crud-last-name-error"></span>
                 </div>
                 <div class="form-group col-md-6 mt-3">
@@ -202,17 +202,17 @@
 
                 <div class="form-group col-md-6 mt-3">
                     <label for="exampleInputEmail1">Employee Id</label>
-                    <input type="number" class="form-control" id="user-crud-employee-id" placeholder="Enter employee id">
+                    <input type="number" class="form-control" id="user-crud-employee-id" placeholder="Enter employee id" maxlength="10">
                     <span class="d-none mb-3 form-validation-msg" id="user-crud-employee-id-error"></span>
                 </div>
                 <div class="form-group col-md-6 mt-3">
                     <label for="exampleInputEmail1">Department</label>
-                    <input type="text" class="form-control" id="user-crud-department" placeholder="Enter department">
+                    <input type="text" class="form-control" id="user-crud-department" placeholder="Enter department" maxlength="16">
                     <span class="d-none mb-3 form-validation-msg" id="user-crud-department-error"></span>
                 </div>
                 <div class="form-group col-md-6 mt-3">
                     <label for="exampleInputEmail1">Mobile Number</label>
-                    <input type="tel" class="form-control" id="user-crud-mobile-number" placeholder="Enter phone number">
+                    <input type="number" class="form-control" id="user-crud-mobile-number" placeholder="Enter phone number">
                     <span class="d-none mb-3 form-validation-msg" id="user-crud-mobile-number-error"></span>
                 </div>
                 <div class="col-lg-6 col-md-10 d-flex flex-column mt-3">
@@ -456,6 +456,16 @@
                         </select>
                         <span class="d-none mb-3 form-validation-msg" id="mission-status-error"></span>
                     </div>
+
+                    <div class="form-group mt-3 col-md-6">
+                        <label for="mission-objective" class="form-label" style="margin: 0;">Mission Objective</label>
+                        <input type="text" class="form-control" id="mission-objective">
+                    </div>
+                    <div class="form-group mt-3 col-md-6">
+                        <lable for="mission-target" class="form-label">Mission Target</lable>
+                        <input class="form-control" type="number" id="mission-target" />
+                    </div>
+
                     <div class="form-group mt-3 col-md-6">
                         <lable for="mission-theme" class="form-label">Mission Theme</lable>
                         <select class="form-select" aria-label="Default select example" id="mission-theme">
@@ -2202,6 +2212,10 @@
              $('#mission-theme-error').addClass("d-none")
          }
 
+         //for goal mission
+         var missionObjective = $("#mission-objective").val();
+         var missionTarget = $("#mission-target").val();
+         console.log(missionObjective, missionTarget);
          // for images
          let file = $("#mission-images")[0].files;
 
@@ -2239,7 +2253,10 @@
                      "status": status,
                      "themeId": themeId,
                      "images": images,
-                     "docs": doc
+                     "docs": doc,
+                     "missionObjective": missionObjective,
+                     "missionTarget" : missionTarget
+
 
                  },
                  success: function (response) {

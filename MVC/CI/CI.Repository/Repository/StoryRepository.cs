@@ -80,7 +80,7 @@ namespace CI.Repository.Repository
         public User GetUser(string userEmail)
         {
             var user = _db.Users.Where(e => e.Email == userEmail).SingleOrDefault();
-            return user;
+            return user!;
         }
 
         public void SaveStory(string? userEmail, long mission, string? title, string? date, string? details, string? url, string? status, string? desc, string[]? listOfImage)
@@ -184,16 +184,16 @@ namespace CI.Repository.Repository
         {
             StoryDetailsModel model = new StoryDetailsModel();
             var story = _db.Stories.Where(s => s.StoryId == storyId).FirstOrDefault();
-            var mission = _db.Missions.Where(m => m.MissionId == story.MissionId).FirstOrDefault();
-            var user = _db.Users.Where(u => u.UserId == story.UserId).FirstOrDefault();
+            var mission = _db.Missions.Where(m => m.MissionId == story!.MissionId).FirstOrDefault();
+            var user = _db.Users.Where(u => u.UserId == story!.UserId).FirstOrDefault();
 
-            model.storyMedia = _db.StoryMedia.Where(s => s.StoryId == story.StoryId && s.StoryType == "png").ToList();
-            model.whyIVolunteer = user.WhyIVolunteer;
-            model.missionTitle = story.Title;
+            model.storyMedia = _db.StoryMedia.Where(s => s.StoryId == story!.StoryId && s.StoryType == "png").ToList();
+            model.whyIVolunteer = user!.WhyIVolunteer;
+            model.missionTitle = story!.Title;
             model.avatar = user.Avatar;
             model.storyDetails = story.Description;
             model.userName = user.FirstName + " " + user.LastName;
-            model.missionId = mission.MissionId;
+            model.missionId = mission!.MissionId;
 
             if (story.Views == null)
             {
@@ -258,11 +258,11 @@ namespace CI.Repository.Repository
             var user = _db.Users.Where(u => u.Email == userEmail).FirstOrDefault();
             if (user == null)
             {
-                return null;
+                return null!;
             }
             var story = _db.Stories.Where(s => s.MissionId == missionId && s.UserId == user.UserId && s.Status == "draft").OrderByDescending(s => s.PublishedAt).FirstOrDefault();
 
-            return story;
+            return story!;
         }
 
         public List<StoryMedium> DraftStoryMedia(long storyId)

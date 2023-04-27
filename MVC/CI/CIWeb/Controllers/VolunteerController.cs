@@ -57,11 +57,12 @@ namespace CIWeb.Controllers
                 {
                     var country = _repository.GetCountrys(city[0].CountryId);
                     var theme = _repository.GetThemes(mission[0].ThemeId);
+                    var goal = _repository.Remaining(id);
                     VolunteerMissionModel.Mission = mission;
                     VolunteerMissionModel.City = city;
                     VolunteerMissionModel.Country = country;
                     VolunteerMissionModel.Themes = theme;
-
+                    VolunteerMissionModel.MissionViewModel = goal;
                     //related missions
                     var relatedMission = _repository.RelatedMissions(mission[0].CityId, city[0].CountryId, mission[0].ThemeId);
                     VolunteerMissionModel.relatedMission = relatedMission;

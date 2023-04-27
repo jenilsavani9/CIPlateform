@@ -17,6 +17,8 @@ namespace CI.Repository.Interface
 
         public List<MissionViewModel>? RelatedMissions(long? CityId, long? CountryId, long? ThemeId);
 
+        public MissionViewModel Remaining(long? id);
+
         public bool AddToFavorite(long? userId, int? missionId);
 
         public List<FavoriteMission>? CheckAddToFavorite(long userId, int id);

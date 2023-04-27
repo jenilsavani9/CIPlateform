@@ -25,5 +25,8 @@ namespace CI.Entities.ViewModels
         public int countryId { get; set; }
         public int cityId { get; set; }
         public int? seats { get; set; }
+        public string? missionObjective { get; set; }
+        public string? missionTarget { get; set; }
+
     }
 }

@@ -448,7 +448,7 @@
                                 </div>
                                 <div class="rule d-flex mt-1">
                                     <hr>
-                                    <button class="date-btn mt-1">${item.startDateEndDate}</button>
+                                    <button class="date-btn mt-1">${item.goalObjective}</button>
                                     <hr>
                                 </div>
                                 <div class="row landing-page-box-border">
@@ -470,11 +470,11 @@
 
                                                     <div class="progress" role="progressbar" aria-label="Success example" aria-valuenow="25"
                                                  aria-valuemin="0" aria-valuemax="100" style="height: 10px;">
-                                                        <div class="progress-bar" style="width: 45%; background-color: #F88735;"></div>
+                                                        <div class="progress-bar" style="width: ${item.goalAchived}%; background-color: #F88735;"></div>
                                                     </div>
 
                                                 </div>
-                                                <div class="landing-page-card-vol-small">8000 achived</div>
+                                                <div class="landing-page-card-vol-small">${item.goalAchived}% achived</div>
                                             </div>
                                     </div>
                                 </div>

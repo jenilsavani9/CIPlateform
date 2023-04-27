@@ -460,7 +460,11 @@
                      },
                      success: function (response) {
 
-                         location.reload();
+                         if(response.status == false) {
+                             toastr.error("Enter Valid Date");
+                         } else {
+                            location.reload();
+                         }
 
                      },
                      failure: function (response) {

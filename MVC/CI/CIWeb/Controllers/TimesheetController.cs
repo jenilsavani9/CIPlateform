@@ -56,7 +56,7 @@ namespace CIWeb.Controllers
             String? userEmail = HttpContext.Session.GetString("userEmail");
             var user = _repository.GetUser(userEmail);
             var status = _repository.AddTimeSheets(model, user.UserId);
-            return Json(new { });
+            return Json(new { status });
         }
 
         [HttpPost("/api/goalsheets/add")]

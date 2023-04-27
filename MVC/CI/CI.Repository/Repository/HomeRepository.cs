@@ -55,8 +55,8 @@ namespace CI.Repository.Repository
         public User FindUser(string? email)
         {
             var user = _db.Users.FirstOrDefault(x => x.Email == email);
-            
-            return user;
+
+            return user!;
         }
 
         public MissionModel GetFilterMissions(string? userId, string? searchQuery, long[] FCountries, long[] FCities, long[] FThemes, long[] FSkills, int? pageIndex, string sortOrder)
@@ -213,21 +213,21 @@ namespace CI.Repository.Repository
             var missions = FinalMissionsList.ToList();
             foreach (var mission in missions)
             {
-                City city = new City();
-                city = _db.Cities.Where(e => e.CityId == mission.CityId).FirstOrDefault();
-                MissionTheme theme = _db.MissionThemes.Where(e => e.MissionThemeId == mission.ThemeId).FirstOrDefault();
-                string[] startDateNtime = mission.StartDate.ToString().Split(' ');
-                string[] endDateNtime = mission.EndDate.ToString().Split(' ');
+
+                var city = _db.Cities.Where(e => e.CityId == mission.CityId).FirstOrDefault();
+                var theme = _db.MissionThemes.Where(e => e.MissionThemeId == mission.ThemeId).FirstOrDefault();
+                string[] startDateNtime = mission.StartDate.ToString()!.Split(' ');
+                string[] endDateNtime = mission.EndDate.ToString()!.Split(' ');
                 var ratings = _db.MissionRatings.Where(e => e.MissionId == mission.MissionId).ToList();
                 var missionURL = _db.MissionMedia.Where(e => e.MissionId == mission.MissionId).FirstOrDefault();
-                var rating = 0;
+                var goalMission = _db.GoalMissions.FirstOrDefault(m => m.MissionId == mission.MissionId);
+                var goalAchive = _db.Timesheets.Where(t => t.MissionId == mission.MissionId).Sum(m => m.Action);
                 var sum = 0;
                 foreach (var entry in ratings)
                 {
                     sum = sum + int.Parse(entry.Rating);
 
                 }
-                //rating = sum / ratings.Count;
 
                 missionsVMList.Add(new MissionViewModel
                 {
@@ -237,16 +237,18 @@ namespace CI.Repository.Repository
                     City = city?.Name,
                     Organization = mission.OrganizationName,
                     Theme = theme?.Title,
-                    //Rating = rating,
-                    StartDate = (DateTime)mission.StartDate,
-                    EndDate = (DateTime)mission.EndDate,
+                    StartDate = (DateTime)mission.StartDate!,
+                    EndDate = (DateTime)mission.EndDate!,
                     missionType = mission.MissionType,
                     isFavrouite = (user != null) ? _db.FavoriteMissions.Any(e => e.MissionId == mission.MissionId && e.UserId == user.UserId) : false,
                     userApplied = (user != null) ? _db.MissionApplications.Any(e => e.MissionId == mission.MissionId && e.UserId == user.UserId && e.ApprovalStatus == "Approve") : false,
                     ImgUrl = (missionURL?.MediaPath != null) ? missionURL.MediaPath : "404-Page-image.png",
                     StartDateEndDate = "From " + startDateNtime[0] + " until " + endDateNtime[0],
-                    NoOfSeatsLeft = (int)mission?.SeatLeft,
+                    NoOfSeatsLeft = (int)mission?.SeatLeft!,
                     Deadline = endDateNtime[0],
+                    goalValue = (goalMission != null) ? goalMission.GoalValue : "",
+                    goalObjective = (goalMission != null) ? goalMission.GoalObjectiveText : "",
+                    goalAchived = (goalMission != null) ? (goalAchive * 100) / Int32.Parse(goalMission.GoalValue) : 0,
                     createdAt = (DateTime)mission.CreatedAt
                 });
                 switch (sortOrder)

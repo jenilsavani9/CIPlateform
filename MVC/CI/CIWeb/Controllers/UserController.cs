@@ -157,9 +157,15 @@ namespace CIWeb.Controllers
 
         public IActionResult Login()
         {
+            return View();
+        }
+
+        public IActionResult Logout()
+        {
             HttpContext.Session.Remove("userEmail");
             HttpContext.Session.Remove("firstname");
-            return View();
+            //ViewBag.Clear();
+            return RedirectToAction("Login", "User");
         }
 
         [HttpPost]

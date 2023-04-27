@@ -84,46 +84,46 @@
                         <div class="mb-3 col-12 col-md-6">
                             <label for="profile-form-name" class="form-label">Name*</label>
                             <input type="text" class="form-control" id="profile-form-name"
-                                   placeholder="Enter your name">
+                                   placeholder="Enter your name" maxlength="16">
                             <span class="d-none form-validation-msg" id="error-firstname">&#9888; Write your name</span>
                         </div>
 
                         <div class="mb-3 col-12 col-md-6">
                             <label for="profile-form-surname" class="form-label">Surname*</label>
                             <input type="text" class="form-control" id="profile-form-surname"
-                                   placeholder="Enter your surname">
+                                   placeholder="Enter your surname" maxlength="16">
                             <span class="d-none form-validation-msg" id="error-surname">&#9888; Write your surname</span>
                         </div>
 
                         <div class="mb-3 col-12 col-md-6">
                             <label for="profile-form-empId" class="form-label">Employee ID</label>
                             <input type="text" class="form-control" id="profile-form-empId"
-                                   placeholder="Enter your employee id">
+                                   placeholder="Enter your employee id" maxlength="16">
                         </div>
 
                         <div class="mb-3 col-12 col-md-6">
                             <label for="profile-form-manager" class="form-label">Manager</label>
                             <input type="text" class="form-control" id="profile-form-manager"
-                                   placeholder="Enter your manager details">
+                                   placeholder="Enter your manager details" maxlength="16">
                         </div>
 
                         <div class="mb-3 col-12 col-md-6">
                             <label for="profile-form-title" class="form-label">Title</label>
                             <input type="text" class="form-control" id="profile-form-title"
-                                   placeholder="Enter a title">
+                                   placeholder="Enter a title" maxlength="255">
                         </div>
 
                         <div class="mb-3 col-12 col-md-6">
                             <label for="profile-form-department" class="form-label">Department</label>
                             <input type="text" class="form-control" id="profile-form-department"
-                                   placeholder="Enter your department details">
+                                   placeholder="Enter your department details" maxlength="16">
                         </div>
 
                         <div class="mb-3">
                             <label for="profile-text" class="form-label">My Profile*</label>
                             <textarea class="form-control" id="profile-text" rows="3"
                                       placeholder="Enter your comments"></textarea>
-                            <span class="d-none form-validation-msg" id="error-profileText">&#9888; Write profile</span>
+                            <span class="d-none form-validation-msg" id="error-profileText" maxlength="255">&#9888; Write profile</span>
                         </div>
 
                         <div class="mb-3">
@@ -784,9 +784,9 @@
                     var error = document.getElementById("error-new-password");
                     error.innerHTML = `confirm Password does not match`
                     error.classList.remove("d-none");
-                } else if(newPassword == "") {
+                } else if(newPassword == "" || (newPassword!="" && newPassword.length < 8) ) {
                     var error = document.getElementById("error-new-password");
-                    error.innerHTML = `Password Cannot empty`;
+                    error.innerHTML = `Enter Valid Password.`;
                     error.classList.remove("d-none");
                 } else if(newPassword == oldPassword) {
                     var error = document.getElementById("error-new-password");

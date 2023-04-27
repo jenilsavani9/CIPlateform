@@ -219,7 +219,7 @@ namespace CI.Repository.Repository
 
                 }
                 tempUser.EmployeeId = user.employeeId;
-                var DatabaseEmpId = _db.Users.FirstOrDefault(u => u.EmployeeId == user.employeeId);
+                var DatabaseEmpId = _db.Users.FirstOrDefault(u => u.EmployeeId == user.employeeId && u.UserId != user.Id);
                 if (DatabaseEmpId != null)
                 {
                     return false;
@@ -584,7 +584,13 @@ namespace CI.Repository.Repository
             _db.Missions.Add(mission);
             _db.SaveChanges();
 
-            if(obj.images != null)
+            if (obj.missionType == "Goal")
+            {
+                _db.GoalMissions.Add(new GoalMission { MissionId = mission.MissionId, GoalObjectiveText = obj.missionObjective, GoalValue = obj.missionTarget! });
+            }
+
+
+            if (obj.images != null)
             {
                 for(var i=0; i<obj.images.Count;i++)
                 {
@@ -761,7 +767,7 @@ namespace CI.Repository.Repository
         public Banner GetBannerById(long id)
         {
             var banner = _db.Banners.FirstOrDefault(b => b.BannerId == id);
-            return banner;
+            return banner!;
         }
 
         public bool AddBanner(Banner obj)

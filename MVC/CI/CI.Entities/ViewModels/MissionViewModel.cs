@@ -20,5 +20,8 @@
         public string? Deadline { get; set; }
         public DateTime createdAt { get; set; }
         public string? Action { get; set; }
+        public string? goalValue { get; set; }
+        public string? goalObjective { get; set; }  
+        public int? goalAchived { get; set; }
     }
 }

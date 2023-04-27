@@ -15,5 +15,7 @@ namespace CI.Entities.ViewModels
         public IEnumerable<MissionTheme>? Themes { get; set; }
 
         public IEnumerable<Country>? Country { get; set; }
+
+        public MissionViewModel? MissionViewModel { get; set; }
     }
 }

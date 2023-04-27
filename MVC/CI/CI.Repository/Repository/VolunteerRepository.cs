@@ -62,8 +62,8 @@ namespace CI.Repository.Repository
             {
                 var city = _db.Cities.Where(e => e.CityId == mission.CityId).FirstOrDefault();
                 var theme = _db.MissionThemes.Where(e => e.MissionThemeId == mission.ThemeId).FirstOrDefault();
-                string[] startDateNtime = mission.StartDate.ToString().Split(' ');
-                string[] endDateNtime = mission.EndDate.ToString().Split(' ');
+                string[] startDateNtime = mission.StartDate.ToString()!.Split(' ');
+                string[] endDateNtime = mission.EndDate.ToString()!.Split(' ');
                 var missionURL = _db.MissionMedia.Where(e => e.MissionId == mission.MissionId).FirstOrDefault();
                 missionsVMList.Add(new MissionViewModel
                 {
@@ -89,6 +89,20 @@ namespace CI.Repository.Repository
             return missionsVMList;
         }
 
+        public MissionViewModel Remaining(long? id)
+        {
+            MissionViewModel model = new MissionViewModel();
+            var mission = _db.Missions.FirstOrDefault(m => m.MissionId == id);
+            var goalMission = _db.GoalMissions.FirstOrDefault(m => m.MissionId == id);
+            var goalAchive = _db.Timesheets.Where(t => t.MissionId == id).Sum(m => m.Action);
+            model.goalValue = (goalMission != null) ? goalMission.GoalValue : "";
+            model.goalObjective = (goalMission != null) ? goalMission.GoalObjectiveText : "";
+            model.goalAchived = (goalMission != null) ? (goalAchive * 100) / Int32.Parse(goalMission.GoalValue) : 0;
+            model.StartDateEndDate = "From " + mission?.StartDate.ToString()?.Split(' ') + " until " + mission?.EndDate.ToString()!.Split(' ');
+            model.missionType = mission?.MissionType;
+            return model;
+        }
+
         public bool AddToFavorite(long? userId, int? missionId)
         {
             var tuser = _db.FavoriteMissions.Where(m => m.UserId == userId && m.MissionId == missionId).ToList();
@@ -101,7 +115,7 @@ namespace CI.Repository.Repository
             }
             else
             {
-                _db.FavoriteMissions.Add(new FavoriteMission { UserId = userId, MissionId = (long)missionId });
+                _db.FavoriteMissions.Add(new FavoriteMission { UserId = userId, MissionId = (long)missionId! });
                 _db.SaveChanges();
                 return true;
             }
@@ -192,7 +206,7 @@ namespace CI.Repository.Repository
         public Mission Organization(int missionId)
         {
             var mission = _db.Missions.Where(m => m.MissionId == missionId).FirstOrDefault();
-            return mission;
+            return mission!;
         }
 
         public List<CommentsModel> GetComments(int missionId)
@@ -226,7 +240,7 @@ namespace CI.Repository.Repository
         public MissionApplication GetApplyMission(long userId, int missionId)
         {
             var mission = _db.MissionApplications.Where(m => m.UserId == userId && m.MissionId == missionId).FirstOrDefault();
-            return mission;
+            return mission!;
         }
 
         public bool ApplyMission(long userId, int missionId)

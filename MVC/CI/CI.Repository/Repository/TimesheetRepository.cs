@@ -22,13 +22,13 @@ namespace CI.Repository.Repository
         public User GetUser(string? userEmail)
         {
             var user = _db.Users.FirstOrDefault(u => u.Email == userEmail);
-            return user;
+            return user!;
         }
 
         public List<TimeSheetModel> GetGoalBasedTimeSheet(string? userEmail)
         {
             var user = _db.Users.FirstOrDefault(u => u.Email == userEmail);
-            var result = _db.Timesheets.Where(ts => ts.UserId == user.UserId && ts.Action != null ).ToList();
+            var result = _db.Timesheets.Where(ts => ts.UserId == user!.UserId && ts.Action != null ).ToList();
 
             List<TimeSheetModel> timeSheets = new List<TimeSheetModel>();
             foreach (var t in result)
@@ -50,7 +50,7 @@ namespace CI.Repository.Repository
         public List<TimeSheetModel> GetTimeBasedTimeSheet(string? userEmail)
         {
             var user = _db.Users.FirstOrDefault(u => u.Email == userEmail);
-            var result = _db.Timesheets.Where(ts => ts.UserId == user.UserId && ts.Action == null ).ToList();
+            var result = _db.Timesheets.Where(ts => ts.UserId == user!.UserId && ts.Action == null ).ToList();
 
             List<TimeSheetModel> timeSheets = new List<TimeSheetModel>();
             foreach (var t in result)
@@ -86,9 +86,14 @@ namespace CI.Repository.Repository
 
         public bool AddTimeSheets(TimeSheetModel model, long userId)
         {
+            var DatabaseTimesheet = _db.Timesheets.FirstOrDefault(t => t.MissionId == model.missionId && t.DateVolunteered.Date == model.dateVolunteered.Date);
+            if(DatabaseTimesheet != null)
+            {
+                return false;
+            }
             Timesheet tempSheet = new Timesheet();
             tempSheet.UserId = userId;
-            tempSheet.MissionId = (long)model.missionId;
+            tempSheet.MissionId = (long)model.missionId!;
             tempSheet.DateVolunteered = model.dateVolunteered;
             tempSheet.Notes = model.notes;
             tempSheet.TimesheetTime = model.timesheetTime;
@@ -101,7 +106,7 @@ namespace CI.Repository.Repository
         {
             Timesheet tempSheet = new Timesheet();
             tempSheet.UserId = userId;
-            tempSheet.MissionId = (long)model.missionId;
+            tempSheet.MissionId = (long)model.missionId!;
             tempSheet.DateVolunteered = model.dateVolunteered;
             tempSheet.Notes = model.notes;
             tempSheet.Action = model.jenil;
@@ -113,13 +118,13 @@ namespace CI.Repository.Repository
         public Timesheet GetSingleTimeSheet(int id)
         {
             var timesheet = _db.Timesheets.Where(ts=> ts.TimesheetId == id).FirstOrDefault();
-            return timesheet;
+            return timesheet!;
         }
 
         public bool EditTimeSheets(TimeSheetModel model, long userId)
         {
             var tempSheet = _db.Timesheets.Where(ts => ts.TimesheetId == model.timesheetId).FirstOrDefault();
-            tempSheet.MissionId = model.missionId;
+            tempSheet!.MissionId = model.missionId;
             tempSheet.DateVolunteered = model.dateVolunteered;
             tempSheet.Notes = model.notes;
             tempSheet.TimesheetTime = model.timesheetTime;
@@ -131,7 +136,7 @@ namespace CI.Repository.Repository
         public bool EditGoalSheets(TimeSheetModel model, long userId)
         {
             var tempSheet = _db.Timesheets.Where(ts => ts.TimesheetId == model.timesheetId).FirstOrDefault();
-            tempSheet.MissionId = model.missionId;
+            tempSheet!.MissionId = model.missionId;
             tempSheet.DateVolunteered = model.dateVolunteered;
             tempSheet.Notes = model.notes;
             tempSheet.Action = model.jenil;
