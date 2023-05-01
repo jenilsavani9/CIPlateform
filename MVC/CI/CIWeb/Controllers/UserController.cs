@@ -190,13 +190,11 @@ namespace CIWeb.Controllers
                 if (BCrypt.Net.BCrypt.Verify(obj.Password, user.Password) && user.Admin == 1)
                 {
                     HttpContext.Session.SetString("userEmail", user.Email);
-                    HttpContext.Session.SetString("firstname", user.FirstName);
                     return RedirectToAction("Index", "Admin");
                 }
                 else if (BCrypt.Net.BCrypt.Verify(obj.Password, user.Password))
                 {
                     HttpContext.Session.SetString("userEmail", user.Email);
-                    HttpContext.Session.SetString("firstname", user.FirstName);
                     return RedirectToAction("Index", "Home");
                 }
                 else

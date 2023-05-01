@@ -11,6 +11,8 @@
     <link href="~/css/bootstrap.min.css" rel="stylesheet" text="text/css" />
     <link rel="stylesheet" href="~/css/volunteering.css">
     <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/2.0.1/css/toastr.css" rel="stylesheet"/>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/2.0.1/js/toastr.js"></script>
 
     <style>
         .storyUser {
@@ -125,6 +127,7 @@
              let getTextarea = document.getElementById("exampleFormControlTextarea1").value
              if(getTextarea == "") {
                  error = 1;
+                 toastr.error("Enter Valid Comments.")
              } 
              var url = window.location.href;
              var tempUrl = url.split("/")[4];
