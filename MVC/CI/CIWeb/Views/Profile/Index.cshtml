@@ -687,7 +687,7 @@
                     var available = document.getElementById("user-available").value;
 
                     var linkedIn = document.getElementById("profile-linkedIn").value;
-                    if(!validateLinkedInUrl(linkedIn)) {
+                    if(linkedIn!="" && !validateLinkedInUrl(linkedIn)) {
                         document.getElementById("error-linkedIn").classList.remove("d-none");
                         error += 1;
                     } else {

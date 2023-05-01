@@ -406,7 +406,7 @@
                     </div>
                     <div class="form-group mt-3 col-md-6">
                         <lable for="mission-start-date" class="form-label">Mission start date</lable>
-                        <input class="form-control" type="datetime-local" id="mission-start-date" />
+                        <input class="form-control" type="datetime-local" id="mission-start-date" min="0" />
                         <span class="d-none mb-3 form-validation-msg" id="mission-start-date-error"></span>
                     </div>
                     <div class="form-group mt-3 col-md-6">
@@ -605,6 +605,8 @@
         $('#banner-media-edit-files').html("");
 
         //$('#profile-user-img').html('');
+
+        $('#user-crud-email').prop('disabled', false);
 
         // change banner btn from edit to add
         var element = document.getElementById('banner-crud-btn');
@@ -1428,10 +1430,13 @@
                  });
          }
          error = 0;
+         
      }
 
      // edit user
      function editUserCrud(id) {
+
+         $('#user-crud-email').prop('disabled', true);
 
          var element = document.getElementById("user-crud-modal-btn");
          element.innerHTML = `<button type="button" class="btn btn-secondary user-crud-close-btn" data-bs-dismiss="modal">Close</button>

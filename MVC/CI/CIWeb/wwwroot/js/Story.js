@@ -1,6 +1,5 @@
 ﻿// story listing function
 function loadStory(response) {
-
     return response.storys.map(item => {
         var dots = "...";
         var limit = 150;

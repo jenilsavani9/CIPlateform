@@ -918,7 +918,6 @@
                     type: "GET",
                     url: `https://localhost:44398/api/missions/${tempUrl}`,
                     success: function (response) {
-                        console.log(response);
 
                         if(response.volunteerMissionModel.missionViewModel.missionType == "Goal") {
                             $('#vol-page-hr-goal').html(`${response.volunteerMissionModel.missionViewModel.goalObjective}`);
@@ -957,6 +956,8 @@
                         organization.innerHTML = `${response.volunteerMissionModel.mission[0].organizationName}`
 
                         $('#vol-page-seat-left').html(response.volunteerMissionModel.mission[0].seatLeft);
+
+                        
 
                     },
                     failure: function (response) {
@@ -1114,12 +1115,15 @@
                             element.innerHTML = `<button class="btn vol-page-apply-btn shadow-none" style="color: green" disabled> Applied Successfully</button>`
                         } else if(response.message=="Pending") {
                             element.innerHTML = `<button class="btn vol-page-apply-btn shadow-none" style="color: green" disabled> Application Pending</button>`
+                            $('#vol-page-rating-by-ajax').css('display', 'none');
                         } else if(response.message == "Reject") {
                             element.innerHTML = `<button class="btn vol-page-apply-btn shadow-none" style="color: red" disabled> Application Rejected</button>`
+                            $('#vol-page-rating-by-ajax').css('display', 'none');
                         }
                         else {
                             element.innerHTML = `<button class="btn vol-page-apply-btn shadow-none" onclick="applyMission(${tempUrl})">Apply Now <img src="/img/right-arrow.png"
                                         alt=""></button>`
+                            $('#vol-page-rating-by-ajax').css('display', 'none');
                         }
                     },
                     failure: function (response) {

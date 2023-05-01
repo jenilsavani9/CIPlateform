@@ -164,7 +164,7 @@ namespace CI.Repository.Repository
 
         public bool AddUsers(UserProfileModel user)
         {
-            var FindUser = _db.Users.FirstOrDefault(u => u.UserId == user.Id);
+            var FindUser = _db.Users.FirstOrDefault(u => u.Email == user.email);
             if(FindUser != null)
             {
                 return false;

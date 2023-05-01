@@ -28,7 +28,7 @@ namespace CI.Repository.Repository
                 var tempStory = _db.Stories.Where(s => s.StoryId == storyItem.StoryId && storyItem.Status == "approve").SingleOrDefault();
                 var tempUser = _db.Users.Where(u => u.UserId == storyItem.UserId).SingleOrDefault();
                 var tempMission = _db.Missions.Where(u => u.MissionId == storyItem.MissionId).SingleOrDefault();
-                var tempTheme = _db.MissionThemes.Where(u => u.MissionThemeId == storyItem.MissionId).SingleOrDefault();
+                var tempTheme = _db.MissionThemes.Where(u => u.MissionThemeId == tempMission!.ThemeId).SingleOrDefault();
                 if(tempStory != null)
                 {
                     var storyMedia = _db.StoryMedia.Where(s => s.StoryId == tempStory.StoryId && s.StoryType == "png").FirstOrDefault();
