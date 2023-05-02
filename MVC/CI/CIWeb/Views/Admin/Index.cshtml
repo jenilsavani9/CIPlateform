@@ -2845,9 +2845,11 @@
              }
          });
      }
-      
+     
      // banner end
 
+
+     // for disabled the input field for change time and goal mission.
      $('#mission-type').change(function() {
          var missionType = $('#mission-type').val();
          if(missionType == "Time") {
@@ -2859,7 +2861,10 @@
              $('#mission-target').prop('disabled', false);
              $('#mission-registration-deadline').prop('disabled', true);
          }
-     })
+     });
+
+
+
 
 
 </script>
