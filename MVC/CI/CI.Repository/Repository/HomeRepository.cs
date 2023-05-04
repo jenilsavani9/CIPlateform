@@ -102,7 +102,7 @@ namespace CI.Repository.Repository
                     }
 
                 }
-                Missions = element;
+                Missions = tempFinalList;
                 FinalMissionsList = tempFinalList;
                 model.countryElements = tempCountryElements;
                 model.cities = filterCityElements;
