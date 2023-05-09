@@ -626,7 +626,7 @@
             return response.cityElements.map(item => `
                 <span class="filter-list  ps-3 pe-1 me-2 " id=${item.cityId} style="margin-top:2%;">
                            ${item.name}
-                            <button class="filter-close-button" id=${item.cityId} onclick="removeFilter('${item.cityId}', 'FCities')">&times;</button>
+                           <button class="filter-close-button" id=${item.cityId} onclick="removeFilter('${item.cityId}', 'FCities')">&times;</button>
                         </span>
             `).join("")
         }
