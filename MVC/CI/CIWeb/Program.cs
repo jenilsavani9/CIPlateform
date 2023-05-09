@@ -19,6 +19,7 @@ builder.Services.AddScoped<IHomeRepository, HomeRepository>();
 builder.Services.AddScoped<IVolunteerRepository, VolunteerRepository>();
 builder.Services.AddScoped<ITimesheetRepository, TimesheetRepository>();
 builder.Services.AddScoped<IAdminRepository, AdminRepository>();
+builder.Services.AddScoped<INotificationRepository, NotificationRepository>();
 
 
 builder.Services.AddControllers().AddJsonOptions(options =>
