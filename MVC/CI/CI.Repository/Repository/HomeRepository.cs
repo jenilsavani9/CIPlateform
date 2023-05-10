@@ -9,6 +9,8 @@ namespace CI.Repository.Repository
     {
         private readonly CiContext _db;
 
+        private readonly Random _rand;
+
         private List<MissionViewModel> missionsVMList = new List<MissionViewModel>();
 
         private List<Mission> Missions = new List<Mission>();
@@ -20,6 +22,7 @@ namespace CI.Repository.Repository
         public HomeRepository(CiContext db)
         {
             _db = db;
+            _rand = new Random();
         }
 
         public List<City> GetCities()
@@ -270,6 +273,9 @@ namespace CI.Repository.Repository
                         break;
                     case "deadline":
                         missionsVMList = missionsVMList.OrderBy(e => e.Deadline).ToList();
+                        break;
+                    case "random":
+                        missionsVMList = missionsVMList.OrderBy(_ => _rand.Next()).ToList();
                         break;
                 }
             }
