@@ -34,23 +34,17 @@ namespace CIWeb.Controllers
             {
                 return RedirectToAction("Login", "User");
             }
-            
-
         }
 
         [HttpGet("/api/story")]
         public IActionResult GetStory(string page)
         {
             var storys = _repository.GetStory(page);
-
             var pageSize = 9;
             var StoryCount = _repository.StoryCount();
             var totalStoryPage = (int)Math.Ceiling(StoryCount / (double)pageSize);
             var currentStoryPage = int.Parse(page);
-
-
             return Json(new { storys, totalStoryPage, currentStoryPage });
-
         }
 
         [HttpGet("/story/sharestory/getmission")]
@@ -61,7 +55,6 @@ namespace CIWeb.Controllers
             if (userId != null)
             {
                 var mission = _repository.GetAppliedMission(userId);
-
                 return Json(new { mission });
             }
             else
