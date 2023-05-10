@@ -21,14 +21,14 @@
     <link rel="stylesheet" href="~/css/navbar.css">
 
     @*toastr*@
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/2.0.1/css/toastr.css" rel="stylesheet"/>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/2.0.1/css/toastr.css" rel="stylesheet" />
     <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/2.0.1/js/toastr.js"></script>
-      
 
 
 
-   
+
+
 </head>
 
 <body>
@@ -37,21 +37,34 @@
         <nav class="navbar headernav navbar-expand-lg fixed-top" style="background-color: #ffffff;">
             <div class="container">
                 <div class="d-flex col-md-6 d-flex justify-content-center justify-content-md-start pt-3 mb-3 mb-md-0">
-                    <a asp-action="Index" asp-controller="Home" style="text-decoration: none;margin-right: 45px;">Explore</a>
-                    <a asp-action="Index" asp-controller="Story" style="text-decoration: none;">Stories</a>
+                    @*<a asp-action="Index" asp-controller="Home" style="text-decoration: none;margin-right: 45px;">Explore</a>*@
+
+                    <div class="dropdown">
+                        <a class="text-reset me-3 dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button"
+                           data-mdb-toggle="dropdown" aria-expanded="false">
+                            Explore
+                        </a>
+                        <ul class="dropdown-menu ddpolicy dropdown-menu-start" aria-labelledby="navbarDropdownMenuLink" >
+                            <li><a class="dropdown-item" onclick="changeURL(searchQuery = '', FCountries = '', FCities = '', FThemes = '', FSkills = '', pageIndex = '', sortOrder = 'random')" style="cursor:pointer;">Random</a></li>
+
+                        </ul>
+                    </div>
+
+
+                    <a asp-action="Index" asp-controller="Story" class="ms-3" style="text-decoration: none;">Stories</a>
                     <div class="dropdown ms-5">
                         <a class="text-reset me-3 dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button"
                            data-mdb-toggle="dropdown" aria-expanded="false">
                             Policy
                         </a>
                         <ul class="dropdown-menu ddpolicy dropdown-menu-start" aria-labelledby="navbarDropdownMenuLink" id="dropdown-menu-start-privacy">
-                            <li><a class="dropdown-item" asp-action="Privacy" asp-controller="Profile" >Read Policy</a></li>
-                            
+                            <li><a class="dropdown-item" asp-action="Privacy" asp-controller="Profile">Read Policy</a></li>
+
                         </ul>
                     </div>
                 </div>
-                
-                
+
+
 
                 <button class="navbar-toggler pb-3" type="button" data-bs-toggle="offcanvas"
                         data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar">
@@ -69,10 +82,10 @@
                             <li class="dropdown d-inline-block">
                                 <button class="btn text-reset me-0 sortBy-dropdown dropdown-toggle shadow-none" type="button" data-bs-toggle="dropdown" aria-expanded="false">
                                     <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-bell-fill" viewBox="0 0 16 16">
-                                      <path d="M8 16a2 2 0 0 0 2-2H6a2 2 0 0 0 2 2zm.995-14.901a1 1 0 1 0-1.99 0A5.002 5.002 0 0 0 3 6c0 1.098-.5 6-2 7h14c-1.5-1-2-5.902-2-7 0-2.42-1.72-4.44-4.005-4.901z"/>
-                                      
-                                  </svg>
-                                    
+                                        <path d="M8 16a2 2 0 0 0 2-2H6a2 2 0 0 0 2 2zm.995-14.901a1 1 0 1 0-1.99 0A5.002 5.002 0 0 0 3 6c0 1.098-.5 6-2 7h14c-1.5-1-2-5.902-2-7 0-2.42-1.72-4.44-4.005-4.901z" />
+
+                                    </svg>
+
 
                                     <i class="bi bi-chevron-down"></i>
                                 </button>
@@ -81,20 +94,20 @@
                                         <a class="dropdown-item d-flex justify-content-between" style="cursor:pointer;">
                                             <div class="me-2">
                                                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-plus-circle" viewBox="0 0 16 16">
-                                                  <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>
-                                                  <path d="M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4z"/>
+                                                    <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z" />
+                                                    <path d="M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4z" />
                                                 </svg>
                                             </div>
                                             <div class="">
                                                 New Mission tree platation
                                             </div>
-                                            
+
                                             <div class="ms-2">
                                                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="orange" class="bi bi-circle-fill" viewBox="0 0 16 16">
-                                                  <circle cx="8" cy="8" r="8"/>
+                                                    <circle cx="8" cy="8" r="8" />
                                                 </svg>
                                             </div>
-                                            
+
                                         </a>
                                     </li>
 
@@ -102,25 +115,25 @@
                                         <a class="dropdown-item d-flex justify-content-between" style="cursor:pointer;">
                                             <div class="me-2">
                                                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-plus-circle" viewBox="0 0 16 16">
-                                                  <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>
-                                                  <path d="M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4z"/>
+                                                    <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z" />
+                                                    <path d="M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4z" />
                                                 </svg>
                                             </div>
                                             <div class="">
                                                 New Mission tree platation
                                             </div>
-                                            
+
                                             <div class="ms-2">
                                                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="orange" class="bi bi-circle-fill" viewBox="0 0 16 16">
-                                                  <circle cx="8" cy="8" r="8"/>
+                                                    <circle cx="8" cy="8" r="8" />
                                                 </svg>
                                             </div>
-                                            
+
                                         </a>
                                     </li>
-                                    
-                                    
-                                    
+
+
+
                                 </ul>
                             </li>
 
@@ -137,14 +150,14 @@
                                                             width: 30px;
                                                             height: 30px;
                                                         " />
-                                            @ViewBag.user.FirstName @ViewBag.user.LastName 
+                                            @ViewBag.user.FirstName @ViewBag.user.LastName
                                         </a>
                                         <ul class="dropdown-menu dropdown-menu-start"
                                         aria-labelledby="navbarDropdownMenuLink">
-                                            @if(ViewBag.user.Admin == 1)
-                                                {
-                                                    <li><a class="dropdown-item" asp-action="Index" asp-controller="Admin">Admin</a></li>
-                                                }
+                                            @if (ViewBag.user.Admin == 1)
+                                            {
+                                                <li><a class="dropdown-item" asp-action="Index" asp-controller="Admin">Admin</a></li>
+                                            }
                                             <li><a class="dropdown-item" asp-action="Index" asp-controller="Profile">My profile</a></li>
                                             <li><a class="dropdown-item" asp-action="Index" asp-controller="Timesheet">Volunteering Timesheet</a></li>
                                             <li><a class="dropdown-item" asp-action="Logout" asp-controller="User">Logout</a></li>
@@ -171,11 +184,11 @@
              style="padding-top: 51px; padding-bottom: 0px" id="menu">
             <div class="container">
                 <div class="col-md-4">
-                    
+
                     <form role="search" class="d-flex mt-2">
-                        
+
                         <i class="fas fa-search mt-2"></i>
-                        
+
                         <input type="search"
                                class="form-control rounded ms-2 searchbox border-0"
                                id="search-bar"
@@ -195,23 +208,23 @@
 
                         <ul class="dropdown-menu dropdown-menu-start dropdownlist" aria-labelledby="navbarDropdownMenuLink" style="max-height: 300px; overflow-y: scroll; ">
 
-                           
+
 
                             @foreach (var country in ViewBag.countries)
                             {
-                                
-                                    <li>
-                                        <a class="dropdown-item dd-color">
-                                            <div class="form-check">
-                                                <input class="form-check-input" name="countries" type="checkbox" value=@country.Name
-                                                   id="@country.CountryId" onclick="updateUrl(@country.CountryId, 'FCountries')" />
-                                                <label class="form-check-label" for=@country.Name>@country.Name</label>
-                                            </div>
-                                        </a>
-                                    </li>
-                                
 
-                                
+                                <li>
+                                    <a class="dropdown-item dd-color">
+                                        <div class="form-check">
+                                            <input class="form-check-input" name="countries" type="checkbox" value=@country.Name
+                                               id="@country.CountryId" onclick="updateUrl(@country.CountryId, 'FCountries')" />
+                                            <label class="form-check-label" for=@country.Name>@country.Name</label>
+                                        </div>
+                                    </a>
+                                </li>
+
+
+
 
                             }
 
@@ -226,12 +239,12 @@
                            role="button" data-mdb-toggle="dropdown" aria-expanded="false">
                             City
                         </a>
-                        <ul class="dropdown-menu dropdown-menu-start dropdownlist" id="load-country-city" aria-labelledby="navbarDropdownMenuLink" style="max-height: 300px; overflow-y: scroll; " >
-                           
-                                            
-                                                <li>Please select a Country</li>
-                                           
-                                        </ul>
+                        <ul class="dropdown-menu dropdown-menu-start dropdownlist" id="load-country-city" aria-labelledby="navbarDropdownMenuLink" style="max-height: 300px; overflow-y: scroll; ">
+
+
+                            <li>Please select a Country</li>
+
+                        </ul>
                     </div>
                     <div class="dropdown ms-1 pe-5 ps-2 dropdownborderright">
                         <a class="text-reset singledropdown me-4 dropdown-toggle" href="#" id="navbarDropdownMenuLink"
@@ -241,20 +254,20 @@
                         <ul class="dropdown-menu dropdown-menu-start dropdownlist" aria-labelledby="navbarDropdownMenuLink" style="max-height: 300px; overflow-y: scroll; ">
                             @if (ViewBag.Themes != null)
                             {
-                                
+
 
                                 @foreach (var theme in ViewBag.Themes)
                                 {
-                                   
-                                        <li>
-                                            <a class="dropdown-item dd-color">
-                                                <div class="form-check">
-                                                    <input class="form-check-input" name="themes" type="checkbox" value=@theme.Title id=@theme.MissionThemeId onchange="updateUrl(@theme.MissionThemeId, 'FThemes')"/>
-                                                    <label class="form-check-label" for=@theme.MissionThemeId>@theme.Title</label>
-                                                </div>
-                                            </a>
-                                        </li>
-                                    
+
+                                    <li>
+                                        <a class="dropdown-item dd-color">
+                                            <div class="form-check">
+                                                <input class="form-check-input" name="themes" type="checkbox" value=@theme.Title id=@theme.MissionThemeId onchange="updateUrl(@theme.MissionThemeId, 'FThemes')" />
+                                                <label class="form-check-label" for=@theme.MissionThemeId>@theme.Title</label>
+                                            </div>
+                                        </a>
+                                    </li>
+
                                 }
                             }
                         </ul>
@@ -270,16 +283,16 @@
 
                                 @foreach (var skill in ViewBag.skills)
                                 {
-                                    
-                                       <li>
-                                            <a class="dropdown-item dd-color">
-                                                <div class="form-check">
-                                                    <input class="form-check-input" name="skills" type="checkbox" value=@skill.SkillName id=@skill.SkillId onchange="updateUrl(@skill.SkillId, 'FSkills')" />
-                                                    <label class="form-check-label" for=@skill.SkillId>@skill.SkillName</label>
-                                                </div>
-                                            </a>
-                                        </li>
-                                    
+
+                                    <li>
+                                        <a class="dropdown-item dd-color">
+                                            <div class="form-check">
+                                                <input class="form-check-input" name="skills" type="checkbox" value=@skill.SkillName id=@skill.SkillId onchange="updateUrl(@skill.SkillId, 'FSkills')" />
+                                                <label class="form-check-label" for=@skill.SkillId>@skill.SkillName</label>
+                                            </div>
+                                        </a>
+                                    </li>
+
                                 }
                             }
                         </ul>
@@ -289,7 +302,7 @@
 
         </div>
 
-        
+
 
         @RenderBody();
 
@@ -321,12 +334,12 @@
         });
 
         function search(query) {
-            
+
             changeURL(searchQuery = query, FCountries = "", FCities = "", FThemes = "", FSkills = "", pageIndex = "", sortOrder = "")
         }
 
         function updateUrl(id, target) {
-            
+
 
             if(target=="FCountries") {
                 changeURL(searchQuery = "", FCountries = id, FCities = "", FThemes = "", FSkills = "", pageIndex = "", sortOrder = "")
@@ -367,7 +380,7 @@
         //    clearButton.style.display = 'inline-block'; // Or whatever your initial display value was
         //}
 
-        
+
 
         function removeFilter(id, target) {
 
@@ -390,7 +403,7 @@
         function loadSidebar(response) {
             return response.result.map(item => `<li><a class="dropdown-item" href="/Profile/Privacy#${item.slug}">${item.title}</a></li>`).join("");
         }
-        
+
         // to load data from CMS-Table to privacy dropdown
           $.ajax({
                 type: "GET",
@@ -400,9 +413,9 @@
 
                     var sidebar = document.getElementById('dropdown-menu-start-privacy');
                     sidebar.innerHTML = loadSidebar(response);
-                    
+
                     //<li><a class="dropdown-item" asp-action="Privacy" asp-controller="Profile" >Read Policy</a></li>
-                    
+
 
                 },
                 failure: function (response) {
@@ -412,7 +425,7 @@
                     alert(response.responseText);
                 }
              });
-        
+
         function LoadNotification(response) {
             return response.result.map(item => `
                 <li style="border-bottom: 1px solid rgba(0, 0, 0, 0.2);" id="notification-${item.id}">
@@ -426,13 +439,13 @@
                         <div class="">
                             ${item.title}
                         </div>
-                        
+
                         <div class="ms-2">
                             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="orange" class="bi bi-circle-fill" viewBox="0 0 16 16">
                               <circle cx="8" cy="8" r="8"/>
                             </svg>
                         </div>
-                        
+
                     </a>
                 </li>
             `).join("");
@@ -457,15 +470,13 @@
     </script>
 
 
-    <script
-      src="https://code.jquery.com/jquery-3.6.0.min.js"
-      integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
-      crossorigin="anonymous"
-    ></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"
+            integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
+            crossorigin="anonymous"></script>
 
     @*<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
-            integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
-            crossorigin="anonymous"></script>*@
+        integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+        crossorigin="anonymous"></script>*@
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js"
             integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
             crossorigin="anonymous"></script>

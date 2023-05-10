@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "WGYz3ZkjMTE2qKHOCKXrJP8XhFYmV1CypqotynQsxXI=",
+  "Hash": "9WKyH20hEq2eVkz4c7awA6Mz2lXYxyxC1DAloyluAvM=",
   "Source": "CIWeb",
   "BasePath": "_content/CIWeb",
   "Mode": "Default",
@@ -2601,6 +2601,23 @@
       "OriginalItemSpec": "wwwroot\\img\\xlsx.png"
     },
     {
+      "Identity": "C:\\Users\\pci114\\Downloads\\CIPlateform\\MVC\\CI\\CIWeb\\wwwroot\\js\\admin.js",
+      "SourceId": "CIWeb",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\pci114\\Downloads\\CIPlateform\\MVC\\CI\\CIWeb\\wwwroot\\",
+      "BasePath": "_content/CIWeb",
+      "RelativePath": "js/admin.js",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\js\\admin.js"
+    },
+    {
       "Identity": "C:\\Users\\pci114\\Downloads\\CIPlateform\\MVC\\CI\\CIWeb\\wwwroot\\js\\bootstrap.bundle.min.js",
       "SourceId": "CIWeb",
       "SourceType": "Discovered",
@@ -4673,6 +4690,40 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\mediaUpload\\skjflskdjfslkdjfklsjfslkjflaksjflsjflkasjdfskjfljslkjf.jpg"
+    },
+    {
+      "Identity": "C:\\Users\\pci114\\Downloads\\CIPlateform\\MVC\\CI\\CIWeb\\wwwroot\\mediaUpload\\Tatvasoft-logo-profile.jpg",
+      "SourceId": "CIWeb",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\pci114\\Downloads\\CIPlateform\\MVC\\CI\\CIWeb\\wwwroot\\",
+      "BasePath": "_content/CIWeb",
+      "RelativePath": "mediaUpload/Tatvasoft-logo-profile.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\mediaUpload\\Tatvasoft-logo-profile.jpg"
+    },
+    {
+      "Identity": "C:\\Users\\pci114\\Downloads\\CIPlateform\\MVC\\CI\\CIWeb\\wwwroot\\mediaUpload\\user-solid.svg",
+      "SourceId": "CIWeb",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\pci114\\Downloads\\CIPlateform\\MVC\\CI\\CIWeb\\wwwroot\\",
+      "BasePath": "_content/CIWeb",
+      "RelativePath": "mediaUpload/user-solid.svg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\mediaUpload\\user-solid.svg"
     },
     {
       "Identity": "C:\\Users\\pci114\\Downloads\\CIPlateform\\MVC\\CI\\CIWeb\\wwwroot\\mediaUpload\\vienna-reyes-qCrKTET_09o-unsplash.jpg",
