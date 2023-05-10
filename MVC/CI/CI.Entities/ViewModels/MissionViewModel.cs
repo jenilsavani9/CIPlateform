@@ -23,5 +23,6 @@
         public string? goalValue { get; set; }
         public string? goalObjective { get; set; }  
         public int? goalAchived { get; set; }
+        public int? TotalFavorites { get; set; }
     }
 }

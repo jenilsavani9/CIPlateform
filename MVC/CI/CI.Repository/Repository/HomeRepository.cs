@@ -225,11 +225,17 @@ namespace CI.Repository.Repository
                 var missionURL = _db.MissionMedia.Where(e => e.MissionId == mission.MissionId).FirstOrDefault();
                 var goalMission = _db.GoalMissions.FirstOrDefault(m => m.MissionId == mission.MissionId);
                 var goalAchive = _db.Timesheets.Where(t => t.MissionId == mission.MissionId).Sum(m => m.Action);
+                var TotalFav = _db.FavoriteMissions.Where(m => m.MissionId == mission.MissionId).Count();
+                
                 var sum = 0;
                 foreach (var entry in ratings)
                 {
                     sum = sum + int.Parse(entry.Rating);
+                }
 
+                if (ratings.Any())
+                {
+                    sum /= ratings.Count;
                 }
 
                 missionsVMList.Add(new MissionViewModel
@@ -252,32 +258,42 @@ namespace CI.Repository.Repository
                     goalValue = (goalMission != null) ? goalMission.GoalValue : "",
                     goalObjective = (goalMission != null) ? goalMission.GoalObjectiveText : "",
                     goalAchived = (goalMission != null) ? (goalAchive * 100) / Int32.Parse(goalMission.GoalValue) : 0,
-                    createdAt = (DateTime)mission.CreatedAt
+                    createdAt = (DateTime)mission.CreatedAt,
+                    Rating = sum,
+                    TotalFavorites = TotalFav
                 });
-                switch (sortOrder)
-                {
-                    case "newest":
-                        missionsVMList = missionsVMList.OrderByDescending(e => e.StartDate).ToList();
-                        break;
-                    case "oldest":
-                        missionsVMList = missionsVMList.OrderBy(e => e.StartDate).ToList();
-                        break;
-                    case "lowest":
-                        missionsVMList = missionsVMList.OrderBy(e => e.NoOfSeatsLeft).ToList();
-                        break;
-                    case "highest":
-                        missionsVMList = missionsVMList.OrderByDescending(e => e.NoOfSeatsLeft).ToList();
-                        break;
-                    case "favourites":
-                        missionsVMList = missionsVMList.Where(e => e.isFavrouite != false).ToList();
-                        break;
-                    case "deadline":
-                        missionsVMList = missionsVMList.OrderBy(e => e.Deadline).ToList();
-                        break;
-                    case "random":
-                        missionsVMList = missionsVMList.OrderBy(_ => _rand.Next()).ToList();
-                        break;
-                }
+
+            }
+
+            switch (sortOrder)
+            {
+                case "newest":
+                    missionsVMList = missionsVMList.OrderByDescending(e => e.StartDate).ToList();
+                    break;
+                case "oldest":
+                    missionsVMList = missionsVMList.OrderBy(e => e.StartDate).ToList();
+                    break;
+                case "lowest":
+                    missionsVMList = missionsVMList.OrderBy(e => e.NoOfSeatsLeft).ToList();
+                    break;
+                case "highest":
+                    missionsVMList = missionsVMList.OrderByDescending(e => e.NoOfSeatsLeft).ToList();
+                    break;
+                case "favourites":
+                    missionsVMList = missionsVMList.Where(e => e.isFavrouite != false).ToList();
+                    break;
+                case "deadline":
+                    missionsVMList = missionsVMList.OrderBy(e => e.Deadline).ToList();
+                    break;
+                case "random":
+                    missionsVMList = missionsVMList.OrderBy(_ => _rand.Next()).ToList();
+                    break;
+                case "rank":
+                    missionsVMList = missionsVMList.OrderByDescending(e => e.Rating).ToList();
+                    break;
+                case "TopFav":
+                    missionsVMList = missionsVMList.OrderByDescending(e => e.TotalFavorites).ToList();
+                    break;
             }
 
             int totalMissions = missionsVMList.Count();
