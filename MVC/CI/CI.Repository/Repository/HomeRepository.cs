@@ -68,7 +68,14 @@ namespace CI.Repository.Repository
             var user = _db.Users.Where(e => e.Email == userId).SingleOrDefault();
 
             MissionModel model = new MissionModel();
-            Missions = _db.Missions.Where(m => m.DeletedAt == null).ToList();
+            if(sortOrder == "TopTheme")
+            {
+                Missions = _db.Missions.Where(m => m.DeletedAt == null).OrderByDescending(m => m.Theme.Missions.Count).ToList();
+            } 
+            else
+            {
+                Missions = _db.Missions.Where(m => m.DeletedAt == null).ToList();
+            }
             if (!string.IsNullOrEmpty(searchQuery))
             {
                 Missions = Missions.Where(m => m.Title.ToLower().Contains(searchQuery.ToLower())).ToList();
@@ -286,7 +293,7 @@ namespace CI.Repository.Repository
                     missionsVMList = missionsVMList.OrderBy(e => e.Deadline).ToList();
                     break;
                 case "random":
-                    missionsVMList = missionsVMList.OrderBy(_ => _rand.Next()).ToList();
+                    missionsVMList = missionsVMList.OrderBy(e => _rand.Next()).ToList();
                     break;
                 case "rank":
                     missionsVMList = missionsVMList.OrderByDescending(e => e.Rating).ToList();

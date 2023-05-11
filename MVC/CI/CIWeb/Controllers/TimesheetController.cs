@@ -31,7 +31,6 @@ namespace CIWeb.Controllers
             {
                 return RedirectToAction("Login", "User");
             }
-            
         }
 
         [HttpGet("/api/timesheets")]
