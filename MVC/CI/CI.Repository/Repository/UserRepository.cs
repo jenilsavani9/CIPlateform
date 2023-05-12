@@ -40,7 +40,6 @@ namespace CI.Repository.Repository
             var passwordReset = _db.PasswordResets.FirstOrDefault(pr => pr.Email == user.Email && pr.Token == user.Token);
             if (passwordReset == null)
             {
-                //return RedirectToAction("Index", "Home");
                 return false;
             }
             else
@@ -54,7 +53,6 @@ namespace CI.Repository.Repository
                     return true;
                 }
                 return false;
-                
             }
         }
 
