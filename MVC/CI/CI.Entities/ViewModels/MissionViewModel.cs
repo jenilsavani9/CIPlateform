@@ -11,6 +11,7 @@
         public string? Theme { get; set; }
         public string? missionType { get; set; }
         public bool isFavrouite { get; set; }
+        public bool IsClosed { get; set; }
         public bool userApplied { get; set; }
         public string? City { get; set; }
         public string? StartDateEndDate { get; set; }

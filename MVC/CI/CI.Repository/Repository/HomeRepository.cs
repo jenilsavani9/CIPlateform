@@ -267,7 +267,8 @@ namespace CI.Repository.Repository
                     goalAchived = (goalMission != null) ? (goalAchive * 100) / Int32.Parse(goalMission.GoalValue) : 0,
                     createdAt = (DateTime)mission.CreatedAt,
                     Rating = sum,
-                    TotalFavorites = TotalFav
+                    TotalFavorites = TotalFav,
+                    IsClosed = (DateTime)mission.EndDate < DateTime.Now ? true : false,
                 });
 
             }
