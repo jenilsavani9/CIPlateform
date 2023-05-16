@@ -36,7 +36,7 @@ namespace CIWeb.Controllers
             } 
             else
             {
-                ViewData.Clear();
+                ViewBag.user = null;
                 var Countries = _repository.GetCountry();
                 var Themes = _repository.GetTheme();
                 var Skills = _repository.GetSkill();

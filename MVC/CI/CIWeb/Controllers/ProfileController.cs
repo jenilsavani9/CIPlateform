@@ -22,9 +22,10 @@ namespace CIWeb.Controllers
             {
                 String? userId = HttpContext.Session.GetString("userEmail");
                 var user = _repository.FindUser(userId);
-                ViewBag.user = user;
+                
                 if (user != null)
                 {
+                    ViewBag.user = user;
                     return View();
                 }
                 else

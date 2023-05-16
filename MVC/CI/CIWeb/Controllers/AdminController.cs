@@ -30,13 +30,13 @@ namespace CIWeb.Controllers
                 }
                 else
                 {
+                    ViewBag.user = null;
                     return RedirectToAction("ErrorNotFound", "Home");
                 }
             } catch (Exception)
             {
                 return RedirectToAction("Login", "User");
-            }
-                
+            }  
         }
 
         [HttpGet("api/admin")]

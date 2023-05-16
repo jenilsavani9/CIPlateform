@@ -24,6 +24,7 @@ namespace CIWeb.Controllers
                 String? userId = HttpContext.Session.GetString("userEmail");
                 if (userId == null)
                 {
+                    ViewBag.user = null;
                     return RedirectToAction("Login", "User");
                 }
                 var user = _repository.GetUser(userId);
