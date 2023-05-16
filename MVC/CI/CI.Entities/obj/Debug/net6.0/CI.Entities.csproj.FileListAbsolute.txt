@@ -54,3 +54,17 @@ C:\Users\pci114\Downloads\CIPlateform\MVC\CI\CI.Entities\obj\Debug\net6.0\CI.Ent
 C:\Users\pci114\Downloads\CIPlateform\MVC\CI\CI.Entities\obj\Debug\net6.0\ref\CI.Entities.dll
 C:\Users\pci114\Downloads\CIPlateform\MVC\CI\CI.Entities\obj\Debug\net6.0\CI.Entities.pdb
 C:\Users\pci114\Downloads\CIPlateform\MVC\CI\CI.Entities\obj\Debug\net6.0\CI.Entities.genruntimeconfig.cache
+D:\jenil\CIPlateform\MVC\CI\CI.Entities\bin\Debug\net6.0\CI.Entities.deps.json
+D:\jenil\CIPlateform\MVC\CI\CI.Entities\bin\Debug\net6.0\CI.Entities.runtimeconfig.json
+D:\jenil\CIPlateform\MVC\CI\CI.Entities\bin\Debug\net6.0\CI.Entities.dll
+D:\jenil\CIPlateform\MVC\CI\CI.Entities\bin\Debug\net6.0\ref\CI.Entities.dll
+D:\jenil\CIPlateform\MVC\CI\CI.Entities\bin\Debug\net6.0\CI.Entities.pdb
+D:\jenil\CIPlateform\MVC\CI\CI.Entities\obj\Debug\net6.0\CI.Entities.csproj.AssemblyReference.cache
+D:\jenil\CIPlateform\MVC\CI\CI.Entities\obj\Debug\net6.0\CI.Entities.GeneratedMSBuildEditorConfig.editorconfig
+D:\jenil\CIPlateform\MVC\CI\CI.Entities\obj\Debug\net6.0\CI.Entities.AssemblyInfoInputs.cache
+D:\jenil\CIPlateform\MVC\CI\CI.Entities\obj\Debug\net6.0\CI.Entities.AssemblyInfo.cs
+D:\jenil\CIPlateform\MVC\CI\CI.Entities\obj\Debug\net6.0\CI.Entities.csproj.CoreCompileInputs.cache
+D:\jenil\CIPlateform\MVC\CI\CI.Entities\obj\Debug\net6.0\CI.Entities.dll
+D:\jenil\CIPlateform\MVC\CI\CI.Entities\obj\Debug\net6.0\ref\CI.Entities.dll
+D:\jenil\CIPlateform\MVC\CI\CI.Entities\obj\Debug\net6.0\CI.Entities.pdb
+D:\jenil\CIPlateform\MVC\CI\CI.Entities\obj\Debug\net6.0\CI.Entities.genruntimeconfig.cache
