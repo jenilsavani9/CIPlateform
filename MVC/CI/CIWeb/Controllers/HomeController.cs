@@ -36,7 +36,7 @@ namespace CIWeb.Controllers
             } 
             else
             {
-                ViewData.Clear();
+                ViewBag.user = null;
                 var Countries = _repository.GetCountry();
                 var Themes = _repository.GetTheme();
                 var Skills = _repository.GetSkill();
@@ -45,9 +45,9 @@ namespace CIWeb.Controllers
                 ViewBag.themes = Themes;
                 ViewBag.skills = Skills;
             }
-            
+                              
             return View();
-        }
+        }   
 
         [HttpGet("/api/missions")]
         public IActionResult GetMission(string? searchQuery, long[] FCountries, long[] FCities, long[] FThemes, long[] FSkills, int? pageIndex, string sortOrder)

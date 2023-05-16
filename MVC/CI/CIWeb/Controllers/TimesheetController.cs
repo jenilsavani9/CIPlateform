@@ -22,6 +22,7 @@ namespace CIWeb.Controllers
                 var user = _repository.GetUser(userEmail);
                 if (user == null)
                 {
+                    ViewBag.user = null;
                     return RedirectToAction("Login", "User");
                 }
                 ViewBag.user = user;

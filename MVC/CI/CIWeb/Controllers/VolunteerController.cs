@@ -28,6 +28,7 @@ namespace CIWeb.Controllers
                 }
                 else
                 {
+                    ViewBag.user = null;
                     return RedirectToAction("ErrorNotFound", "Home");
                 }
             }
